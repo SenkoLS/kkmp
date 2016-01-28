@@ -1,0 +1,21 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "UDictionaryMed.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TFDictionaryMed *FDictionaryMed;
+//---------------------------------------------------------------------------
+__fastcall TFDictionaryMed::TFDictionaryMed(TComponent* Owner)
+	: TForm(Owner)
+{
+}
+//---------------------------------------------------------------------------
+void __fastcall TFDictionaryMed::ESurnameExit(TObject *Sender)
+{
+	ESurname->Text = ESurname->Text.UpperCase();
+}
+//---------------------------------------------------------------------------

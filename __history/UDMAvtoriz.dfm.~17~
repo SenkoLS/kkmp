@@ -1,0 +1,72 @@
+object DMAvtoriz: TDMAvtoriz
+  OldCreateOrder = False
+  OnCreate = DataModuleCreate
+  Height = 170
+  Width = 454
+  object SQLQAvtoriz: TSQLQuery
+    MaxBlobSize = -1
+    Params = <>
+    SQL.Strings = (
+      'SELECT * FROM user'
+      'where id_user='#39'admin'#39)
+    SQLConnection = SQLConnectKKMP
+    Left = 144
+    Top = 40
+  end
+  object DSPAvtoriz: TDataSetProvider
+    DataSet = SQLQAvtoriz
+    Left = 232
+    Top = 40
+  end
+  object CDSAvtoriz: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'DSPAvtoriz'
+    Left = 312
+    Top = 40
+  end
+  object DSAvtoriz: TDataSource
+    DataSet = CDSAvtoriz
+    Left = 384
+    Top = 40
+  end
+  object SQLConnectKKMP: TSQLConnection
+    DriverName = 'DevartMySQL'
+    GetDriverFunc = 'getSQLDriverMySQL'
+    LibraryName = 'dbexpmda40.dll'
+    LoginPrompt = False
+    Params.Strings = (
+      'DriverUnit=DbxDevartMySql'
+      
+        'DriverAssemblyLoader=Devart.DbxMda.DriverLoader.TCRDynalinkDrive' +
+        'rLoader,Devart.DbxMda.DriverLoader,Version=15.0.0.1,Culture=neut' +
+        'ral,PublicKeyToken=09af7300eec23701'
+      
+        'MetaDataAssemblyLoader=Devart.DbxMda.DriverLoader.TDBXDevartMySq' +
+        'lMetaDataCommandFactory,Devart.DbxMda.DriverLoader,Version=15.0.' +
+        '0.1,Culture=neutral,PublicKeyToken=09af7300eec23701'
+      
+        'DriverPackageLoader=TDBXDynalinkDriverLoader,DBXCommonDriver150.' +
+        'bpl'
+      
+        'MetaDataPackageLoader=TDBXDevartMySqlMetaDataCommandFactory,DbxD' +
+        'evartMySqlDriver150.bpl'
+      'ProductName=DevartMySQL'
+      'GetDriverFunc=getSQLDriverMySQL'
+      'LibraryName=dbexpmda40.dll'
+      'VendorLib=libmysql.dll'
+      'MaxBlobSize=-1'
+      'FetchAll=True'
+      'EnableBoolean=False'
+      'UseUnicode=True'
+      'IPVersion=IPv4'
+      'Database=kkmp'
+      'User_Name=root'
+      'HostName=localhost'
+      'Password=root')
+    VendorLib = 'libmysql.dll'
+    Connected = True
+    Left = 40
+    Top = 40
+  end
+end

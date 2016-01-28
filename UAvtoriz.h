@@ -1,0 +1,35 @@
+//---------------------------------------------------------------------------
+
+#ifndef UAvtorizH
+#define UAvtorizH
+//---------------------------------------------------------------------------
+#include <Classes.hpp>
+#include <Controls.hpp>
+#include <StdCtrls.hpp>
+#include <Forms.hpp>
+#include <IdHashMessageDigest.hpp>
+#include "UDMAvtoriz.h"
+#include "UMain.h"
+//---------------------------------------------------------------------------
+class TFAvtoriz : public TForm
+{
+__published:	// IDE-managed Components
+	TLabel *LLogin;
+	TLabel *LPassword;
+	TButton *BEnter;
+	TEdit *ELogin;
+	TEdit *EPassword;
+	TButton *BExit;
+	void __fastcall BEnterClick(TObject *Sender);
+	void __fastcall ELoginKeyDown(TObject *Sender, WORD &Key, TShiftState Shift);
+	void __fastcall EPasswordKeyDown(TObject *Sender, WORD &Key, TShiftState Shift);
+	void __fastcall BExitClick(TObject *Sender);
+
+private:	// User declarations
+public:		// User declarations
+	__fastcall TFAvtoriz(TComponent* Owner);
+};
+//---------------------------------------------------------------------------
+extern PACKAGE TFAvtoriz *FAvtoriz;
+//---------------------------------------------------------------------------
+#endif
