@@ -8,10 +8,6 @@ object FCard: TFCard
   ClientHeight = 726
   ClientWidth = 1013
   Color = clBtnFace
-  Constraints.MaxHeight = 755
-  Constraints.MaxWidth = 1019
-  Constraints.MinHeight = 755
-  Constraints.MinWidth = 1019
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -15

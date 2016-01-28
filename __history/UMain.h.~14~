@@ -60,8 +60,6 @@ __published:	// IDE-managed Components
 	void __fastcall N3Click(TObject *Sender);
 	void __fastcall N4Click(TObject *Sender);
 	void __fastcall NewCardClick(TObject *Sender);
-	void __fastcall DBGridEh1KeyDown(TObject *Sender, WORD &Key, TShiftState Shift);
-
 private:	// User declarations
 public:		// User declarations
 	__fastcall TFMain(TComponent* Owner);

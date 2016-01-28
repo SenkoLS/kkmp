@@ -17,6 +17,7 @@ object FMain: TFMain
   Menu = MainMenu1
   OldCreateOrder = False
   Position = poDesktopCenter
+  OnKeyDown = FormKeyDown
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -35,7 +36,6 @@ object FMain: TFMain
       DynProps = <>
       IndicatorOptions = [gioShowRowIndicatorEh]
       TabOrder = 0
-      OnKeyDown = DBGridEh1KeyDown
       Columns = <
         item
           DynProps = <>

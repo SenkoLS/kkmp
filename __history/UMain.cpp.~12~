@@ -48,10 +48,11 @@ void __fastcall TFMain::NewCardClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TFMain::DBGridEh1KeyDown(TObject *Sender, WORD &Key, TShiftState Shift)
+void __fastcall TFMain::FormKeyDown(TObject *Sender, WORD &Key, TShiftState Shift)
+
 {
-	switch(Key){
-    	case 113: FCard->ShowModal(); break;
+	if(Key ==113){
+    	ShowMessage("dcdscsdc");
 	}
 }
 //---------------------------------------------------------------------------

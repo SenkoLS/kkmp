@@ -8,10 +8,6 @@ object FCard: TFCard
   ClientHeight = 726
   ClientWidth = 1013
   Color = clBtnFace
-  Constraints.MaxHeight = 755
-  Constraints.MaxWidth = 1019
-  Constraints.MinHeight = 755
-  Constraints.MinWidth = 1019
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -15
@@ -30,6 +26,7 @@ object FCard: TFCard
     Align = alTop
     BorderStyle = bsSingle
     TabOrder = 0
+    ExplicitWidth = 1015
     object Label12: TLabel
       Left = 8
       Top = 13
@@ -168,7 +165,7 @@ object FCard: TFCard
       ParentFont = False
       TabOrder = 2
     end
-    object EArea: TEdit
+    object Edit1: TEdit
       Left = 690
       Top = 10
       Width = 63
@@ -230,6 +227,9 @@ object FCard: TFCard
     Align = alLeft
     BorderStyle = bsSingle
     TabOrder = 1
+    ExplicitLeft = 23
+    ExplicitTop = 31
+    ExplicitHeight = 610
     object Label2: TLabel
       Left = 8
       Top = 4
@@ -2082,6 +2082,9 @@ object FCard: TFCard
     Font.Style = []
     ParentFont = False
     TabOrder = 2
+    ExplicitLeft = 600
+    ExplicitTop = 2
+    ExplicitHeight = 609
     object Label1: TLabel
       Left = 8
       Top = 4
@@ -3342,6 +3345,7 @@ object FCard: TFCard
     Color = clGradientActiveCaption
     ParentBackground = False
     TabOrder = 3
+    ExplicitHeight = 609
   end
   object Panel5: TPanel
     Left = 0
@@ -3352,6 +3356,9 @@ object FCard: TFCard
     Color = clGradientActiveCaption
     ParentBackground = False
     TabOrder = 4
+    ExplicitLeft = 106
+    ExplicitTop = 640
+    ExplicitWidth = 185
     object Button1: TButton
       Left = 7
       Top = 5
@@ -3359,7 +3366,6 @@ object FCard: TFCard
       Height = 32
       Caption = #1057#1054#1061#1056#1040#1053#1048#1058#1068' '#1050#1040#1056#1058#1059
       TabOrder = 0
-      OnClick = Button1Click
     end
   end
 end

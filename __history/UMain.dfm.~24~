@@ -35,7 +35,6 @@ object FMain: TFMain
       DynProps = <>
       IndicatorOptions = [gioShowRowIndicatorEh]
       TabOrder = 0
-      OnKeyDown = DBGridEh1KeyDown
       Columns = <
         item
           DynProps = <>

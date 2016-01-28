@@ -1529,7 +1529,7 @@ void __fastcall TFCard::PAbsenceComplaintsOfPatientsNoClick(TObject *Sender)
 
 void __fastcall TFCard::DTPDateStartCloseUp(TObject *Sender)
 {
-	PAmountOfDays->Caption = IntToStr((DTPDateEnd->DateTime - DTPDateStart->DateTime) + 1);
+	PAmountOfDays->Caption = DTPDateStart - DTPDateEnd;
 }
 //---------------------------------------------------------------------------
 
@@ -1548,17 +1548,12 @@ void __fastcall TFCard::EFIOPacExit(TObject *Sender)
 
 void __fastcall TFCard::Button1Click(TObject *Sender)
 {
-	int message = MessageBox(0,L"Карта сохранена.\nОформить новую карту?",L"Сообщение",MB_YESNO);
+	int message = MessageBox(0,L"Карта сохранена.\nОформить новую карту?",L"Сообщение",MB_YESNOCANCEL);
 	if(message == 7){
 		FCard->Close();
 	}else if(message = 6){
 		SpBAllNoClick(Sender);
-		SpBAllNoQualityClick(Sender);
-		DTPDateStart->Date = Now();
-		DTPDateEnd->Date = Now();
-		EArea->Text = "";
-		EFIOPac->Text = "";
-		EYearOfBirthday->Text = "";
+        SpBAllNoQualityClick(Sender);
 	}
 }
 //---------------------------------------------------------------------------

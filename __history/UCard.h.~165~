@@ -103,7 +103,7 @@ __published:	// IDE-managed Components
 	TDateTimePicker *DTPDateEnd;
 	TPanel *PAmountOfDays;
 	TLabel *Label14;
-	TEdit *EArea;
+	TEdit *Edit1;
 	TLabel *Label15;
 	TEdit *EFIOPac;
 	TLabel *Label16;

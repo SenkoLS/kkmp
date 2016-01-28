@@ -5,13 +5,9 @@ object FCard: TFCard
   Caption = 
     #1069#1082#1089#1087#1077#1088#1090#1085#1072#1103' '#1086#1094#1077#1085#1082#1072' '#1082#1072#1095#1077#1089#1090#1074#1072' '#1074#1077#1076#1077#1085#1080#1103' '#1084#1077#1076#1080#1094#1080#1085#1089#1082#1086#1081' '#1076#1086#1082#1091#1084#1077#1085#1090#1072#1094#1080#1080' '#1080' '#1082#1072 +
     #1095#1077#1089#1090#1074#1072' '#1086#1082#1072#1079#1072#1085#1080#1103' '#1084#1077#1076#1080#1094#1080#1085#1089#1082#1086#1081' '#1087#1086#1084#1086#1097#1080' (1 '#1091#1088#1086#1074#1077#1085#1100')'
-  ClientHeight = 726
-  ClientWidth = 1013
+  ClientHeight = 689
+  ClientWidth = 1015
   Color = clBtnFace
-  Constraints.MaxHeight = 755
-  Constraints.MaxWidth = 1019
-  Constraints.MinHeight = 755
-  Constraints.MinWidth = 1019
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -15
@@ -25,11 +21,12 @@ object FCard: TFCard
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 1013
-    Height = 74
+    Width = 1015
+    Height = 80
     Align = alTop
     BorderStyle = bsSingle
     TabOrder = 0
+    ExplicitWidth = 1081
     object Label12: TLabel
       Left = 8
       Top = 13
@@ -168,7 +165,7 @@ object FCard: TFCard
       ParentFont = False
       TabOrder = 2
     end
-    object EArea: TEdit
+    object Edit1: TEdit
       Left = 690
       Top = 10
       Width = 63
@@ -224,12 +221,14 @@ object FCard: TFCard
   end
   object Panel2: TPanel
     Left = 0
-    Top = 74
+    Top = 80
     Width = 553
-    Height = 611
+    Height = 609
     Align = alLeft
     BorderStyle = bsSingle
     TabOrder = 1
+    ExplicitTop = 57
+    ExplicitHeight = 615
     object Label2: TLabel
       Left = 8
       Top = 4
@@ -2068,10 +2067,10 @@ object FCard: TFCard
     end
   end
   object Panel3: TPanel
-    Left = 567
-    Top = 74
+    Left = 569
+    Top = 80
     Width = 446
-    Height = 611
+    Height = 609
     Align = alRight
     Alignment = taLeftJustify
     BorderStyle = bsSingle
@@ -2082,6 +2081,7 @@ object FCard: TFCard
     Font.Style = []
     ParentFont = False
     TabOrder = 2
+    ExplicitLeft = 680
     object Label1: TLabel
       Left = 8
       Top = 4
@@ -3334,32 +3334,12 @@ object FCard: TFCard
     end
   end
   object Panel4: TPanel
-    Left = 553
-    Top = 74
+    Left = 555
+    Top = 80
     Width = 10
-    Height = 611
-    Align = alLeft
+    Height = 605
     Color = clGradientActiveCaption
     ParentBackground = False
     TabOrder = 3
-  end
-  object Panel5: TPanel
-    Left = 0
-    Top = 685
-    Width = 1013
-    Height = 41
-    Align = alBottom
-    Color = clGradientActiveCaption
-    ParentBackground = False
-    TabOrder = 4
-    object Button1: TButton
-      Left = 7
-      Top = 5
-      Width = 997
-      Height = 32
-      Caption = #1057#1054#1061#1056#1040#1053#1048#1058#1068' '#1050#1040#1056#1058#1059
-      TabOrder = 0
-      OnClick = Button1Click
-    end
   end
 end

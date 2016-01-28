@@ -1529,7 +1529,7 @@ void __fastcall TFCard::PAbsenceComplaintsOfPatientsNoClick(TObject *Sender)
 
 void __fastcall TFCard::DTPDateStartCloseUp(TObject *Sender)
 {
-	PAmountOfDays->Caption = IntToStr((DTPDateEnd->DateTime - DTPDateStart->DateTime) + 1);
+	PAmountOfDays->Caption = DTPDateStart - DTPDateEnd;
 }
 //---------------------------------------------------------------------------
 
