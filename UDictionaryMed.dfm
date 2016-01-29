@@ -2,12 +2,12 @@ object FDictionaryMed: TFDictionaryMed
   Left = 0
   Top = 0
   Caption = #1057#1087#1088#1072#1074#1086#1095#1085#1080#1082' '#1084#1077#1076#1080#1094#1080#1085#1089#1082#1086#1075#1086' '#1087#1077#1088#1089#1086#1085#1072#1083#1072
-  ClientHeight = 331
+  ClientHeight = 517
   ClientWidth = 784
   Color = clBtnFace
-  Constraints.MaxHeight = 370
+  Constraints.MaxHeight = 556
   Constraints.MaxWidth = 800
-  Constraints.MinHeight = 370
+  Constraints.MinHeight = 556
   Constraints.MinWidth = 800
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -22,11 +22,12 @@ object FDictionaryMed: TFDictionaryMed
   TextHeight = 13
   object Panel2: TPanel
     Left = 0
-    Top = 223
+    Top = 373
     Width = 784
-    Height = 108
+    Height = 144
     Align = alBottom
     TabOrder = 0
+    ExplicitTop = 223
     object LSurname: TLabel
       Left = 5
       Top = 13
@@ -110,6 +111,8 @@ object FDictionaryMed: TFDictionaryMed
       Top = 8
       Width = 224
       Height = 25
+      Color = clBtnFace
+      Enabled = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -15
@@ -124,6 +127,8 @@ object FDictionaryMed: TFDictionaryMed
       Top = 8
       Width = 157
       Height = 25
+      Color = clBtnFace
+      Enabled = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -15
@@ -138,6 +143,8 @@ object FDictionaryMed: TFDictionaryMed
       Top = 8
       Width = 179
       Height = 25
+      Color = clBtnFace
+      Enabled = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -15
@@ -160,6 +167,7 @@ object FDictionaryMed: TFDictionaryMed
       Font.Style = []
       ParentFont = False
       TabOrder = 3
+      OnClick = BAddClick
     end
     object BEdit: TButton
       Left = 270
@@ -174,6 +182,7 @@ object FDictionaryMed: TFDictionaryMed
       Font.Style = []
       ParentFont = False
       TabOrder = 4
+      OnClick = BEditClick
     end
     object BDelete: TButton
       Left = 533
@@ -194,6 +203,8 @@ object FDictionaryMed: TFDictionaryMed
       Top = 39
       Width = 179
       Height = 26
+      Color = clBtnFace
+      Enabled = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -15
@@ -207,6 +218,8 @@ object FDictionaryMed: TFDictionaryMed
       Top = 39
       Width = 121
       Height = 26
+      Color = clBtnFace
+      Enabled = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -15
@@ -220,6 +233,8 @@ object FDictionaryMed: TFDictionaryMed
       Top = 42
       Width = 248
       Height = 22
+      Color = clBtnFace
+      Enabled = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -12
@@ -228,12 +243,42 @@ object FDictionaryMed: TFDictionaryMed
       ParentFont = False
       TabOrder = 8
     end
+    object BSafeMed: TButton
+      Left = 5
+      Top = 106
+      Width = 388
+      Height = 30
+      Caption = #1057#1054#1061#1056#1040#1053#1048#1058#1068
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Times New Roman'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 9
+      OnClick = BSafeMedClick
+    end
+    object BCancel: TButton
+      Left = 399
+      Top = 106
+      Width = 378
+      Height = 30
+      Caption = #1054#1058#1052#1045#1053#1040
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Times New Roman'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 10
+      OnClick = BCancelClick
+    end
   end
   object DBGrCatalogMed: TDBGridEh
     Left = 0
     Top = 0
     Width = 784
-    Height = 217
+    Height = 367
     Align = alTop
     DataSource = DMAvtoriz.DSCatalogMed
     DynProps = <>

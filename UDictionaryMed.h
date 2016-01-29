@@ -38,14 +38,24 @@ __published:	// IDE-managed Components
 	TEdit *ELogin;
 	TEdit *EPassword;
 	TDBLookupComboBox *DBLookupComboBoxOffice;
+	TButton *BSafeMed;
+	TButton *BCancel;
 	void __fastcall ESurnameExit(TObject *Sender);
 	void __fastcall ENameExit(TObject *Sender);
 	void __fastcall EOtchExit(TObject *Sender);
 	void __fastcall FormShow(TObject *Sender);
 	void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
+	void __fastcall BAddClick(TObject *Sender);
+	void __fastcall BEditClick(TObject *Sender);
+	void __fastcall BCancelClick(TObject *Sender);
+	void __fastcall BSafeMedClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TFDictionaryMed(TComponent* Owner);
+	void __fastcall TFDictionaryMed::setView();
+
+	TTransactionDesc trans;
+	int chooseSafe;  //It's for choose method update or insert
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TFDictionaryMed *FDictionaryMed;
