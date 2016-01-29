@@ -131,7 +131,7 @@ object DMAvtoriz: TDMAvtoriz
     MaxBlobSize = -1
     Params = <>
     SQL.Strings = (
-      'SELECT * FROM `office` WHERE `id_office` !=1')
+      'SELECT * FROM `office`')
     SQLConnection = SQLConnectKKMP
     Left = 160
     Top = 232

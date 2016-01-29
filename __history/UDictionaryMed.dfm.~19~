@@ -16,7 +16,6 @@ object FDictionaryMed: TFDictionaryMed
   Font.Style = []
   OldCreateOrder = False
   Position = poDesktopCenter
-  OnClose = FormClose
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -237,7 +236,6 @@ object FDictionaryMed: TFDictionaryMed
     Align = alTop
     DataSource = DMAvtoriz.DSCatalogMed
     DynProps = <>
-    ImeMode = imDisable
     IndicatorOptions = [gioShowRowIndicatorEh]
     TabOrder = 1
     Columns = <

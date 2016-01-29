@@ -3,7 +3,7 @@
 #include <vcl.h>
 #pragma hdrstop
 
-#include "UMain.h"
+#include "UDictionaryMed.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma link "DBAxisGridsEh"
@@ -14,59 +14,41 @@
 #pragma link "GridsEh"
 #pragma link "ToolCtrlsEh"
 #pragma resource "*.dfm"
-TFMain *FMain;
+TFDictionaryMed *FDictionaryMed;
 //---------------------------------------------------------------------------
-__fastcall TFMain::TFMain(TComponent* Owner)
+__fastcall TFDictionaryMed::TFDictionaryMed(TComponent* Owner)
 	: TForm(Owner)
 {
 }
 //---------------------------------------------------------------------------
-
-void __fastcall TFMain::FormShow(TObject *Sender)
+void __fastcall TFDictionaryMed::ESurnameExit(TObject *Sender)
 {
-	FAvtoriz->ShowModal();
-	DMAvtoriz->SQLQInspection->Open();
-	DMAvtoriz->CDSInspection->Open();
+	ESurname->Text = ESurname->Text.UpperCase();
 }
 //---------------------------------------------------------------------------
-
-void __fastcall TFMain::N3Click(TObject *Sender)
+void __fastcall TFDictionaryMed::ENameExit(TObject *Sender)
 {
-	FAbout->ShowModal();
+	EName->Text = EName->Text.UpperCase();
 }
 //---------------------------------------------------------------------------
-
-void __fastcall TFMain::N4Click(TObject *Sender)
+void __fastcall TFDictionaryMed::EOtchExit(TObject *Sender)
 {
-	FDictionaryMed->ShowModal();
+	EOtch->Text = EOtch->Text.UpperCase();
 }
 //---------------------------------------------------------------------------
-
-void __fastcall TFMain::NewCardClick(TObject *Sender)
+void __fastcall TFDictionaryMed::FormShow(TObject *Sender)
 {
-	FCard->ShowModal();
-}
-//---------------------------------------------------------------------------
-
-void __fastcall TFMain::DBGridEh1KeyDown(TObject *Sender, WORD &Key, TShiftState Shift)
-{
-	switch(Key){
-    	case 113: FCard->ShowModal(); break;
+	DMAvtoriz->SQLQCatalogMed->Open();
+	DMAvtoriz->CDSCatalogMed->Open();
+	if(DMAvtoriz->DSAvtoriz->DataSet->FieldByName("login")->AsAnsiString == "admin"){
+    	ShowMessage();
 	}
 }
 //---------------------------------------------------------------------------
-
-void __fastcall TFMain::N6Click(TObject *Sender)
+void __fastcall TFDictionaryMed::FormClose(TObject *Sender, TCloseAction &Action)
 {
-	FCatalogOffices->ShowModal();
-}
-//---------------------------------------------------------------------------
-
-void __fastcall TFMain::FormClose(TObject *Sender, TCloseAction &Action)
-{
-	DMAvtoriz->SQLQInspection->Close();
-	DMAvtoriz->CDSInspection->Close();
-	DMAvtoriz->SQLConnectKKMP->Close();
+	DMAvtoriz->SQLQCatalogMed->Close();
+	DMAvtoriz->CDSCatalogMed->Close();
 }
 //---------------------------------------------------------------------------
 

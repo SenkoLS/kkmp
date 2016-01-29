@@ -34,13 +34,14 @@ void __fastcall TFAvtoriz::BEnterClick(TObject *Sender)
 	try{
 		DMAvtoriz->SQLQAvtoriz->Close();
 		DMAvtoriz->CDSAvtoriz->Close();
-		DMAvtoriz->SQLQAvtoriz->SQL->Text = "SELECT `id_user`,`login` FROM `user` WHERE `login`='"+ELogin->Text+"' AND `password`='"+MD5(EPassword->Text)+"'";
+		DMAvtoriz->SQLQAvtoriz->SQL->Text = "SELECT `id_user` FROM `user` WHERE `login`='"+ELogin->Text+"' AND `password`='"+MD5(EPassword->Text)+"'";
 		DMAvtoriz->SQLQAvtoriz->Open();
 		DMAvtoriz->CDSAvtoriz->Open();
 
 		if (DMAvtoriz->DSAvtoriz->DataSet->IsEmpty()) {
 			MessageBox(0,L"Неверный логин или пароль!",L"Ошибка авторизации",MB_OK);
 		}else{
+            ShowMessage(DMAvtoriz->DSAvtoriz->DataSet->FieldByName("login")->AsAnsiString);
 			FAvtoriz->Close();
 		}
 	}catch(...){

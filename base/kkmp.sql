@@ -44,6 +44,20 @@ CREATE TABLE `inspection` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 #
+# Structure for the `office` table : 
+#
+
+DROP TABLE IF EXISTS `office`;
+
+CREATE TABLE `office` (
+  `id_office` int(2) NOT NULL AUTO_INCREMENT,
+  `name_office` varchar(150) NOT NULL,
+  `id_user` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_office`),
+  UNIQUE KEY `id_office` (`id_office`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+#
 # Structure for the `user` table : 
 #
 
@@ -56,10 +70,13 @@ CREATE TABLE `user` (
   `name` varchar(35) NOT NULL,
   `surname` varchar(45) NOT NULL,
   `patronymic` varchar(50) DEFAULT NULL,
+  `id_office` int(2) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id_user`),
   UNIQUE KEY `id_user` (`id_user`),
-  UNIQUE KEY `login` (`login`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+  UNIQUE KEY `login` (`login`),
+  KEY `id_office` (`id_office`),
+  CONSTRAINT `user_fk` FOREIGN KEY (`id_office`) REFERENCES `office` (`id_office`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 #
 # Data for the `inspection` table  (LIMIT 0,500)
@@ -71,11 +88,24 @@ INSERT INTO `inspection` (`id_inspection`, `type_med_help`, `date_start`, `date_
 COMMIT;
 
 #
+# Data for the `office` table  (LIMIT 0,500)
+#
+
+INSERT INTO `office` (`id_office`, `name_office`, `id_user`) VALUES 
+  (1,'не указано',NULL),
+  (3,'1 Терапевтическое отделение',NULL),
+  (4,'2 Терапевтическое отделение',NULL),
+  (5,'Отделение общей практики',NULL),
+  (6,'Хирургическое отделение',NULL);
+COMMIT;
+
+#
 # Data for the `user` table  (LIMIT 0,500)
 #
 
-INSERT INTO `user` (`id_user`, `login`, `password`, `name`, `surname`, `patronymic`) VALUES 
-  (1,'admin','21232f297a57a5a743894a0e4a801fc3','Админ',' ','');
+INSERT INTO `user` (`id_user`, `login`, `password`, `name`, `surname`, `patronymic`, `id_office`) VALUES 
+  (1,'admin','21232f297a57a5a743894a0e4a801fc3','Админ',' ','',1),
+  (2,'kacgt','21232f297a57a5a743894a0e4a801fc3','ГИВИ','КАЦИТАДЗЕ','ТЕНГИЗОВИЧ',1);
 COMMIT;
 
 

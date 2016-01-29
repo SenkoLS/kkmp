@@ -32,6 +32,7 @@ __published:	// IDE-managed Components
 	TMenuItem *N2;
 	TMenuItem *N3;
 	TMenuItem *N4;
+	TMenuItem *N5;
 	TPanel *Panel1;
 	TDBGridEh *DBGridEh1;
 	TButton *BShowCard;
@@ -63,7 +64,6 @@ __published:	// IDE-managed Components
 	void __fastcall NewCardClick(TObject *Sender);
 	void __fastcall DBGridEh1KeyDown(TObject *Sender, WORD &Key, TShiftState Shift);
 	void __fastcall N6Click(TObject *Sender);
-	void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
 
 private:	// User declarations
 public:		// User declarations

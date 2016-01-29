@@ -16,7 +16,6 @@
 #include "ToolCtrlsEh.hpp"
 #include <ExtCtrls.hpp>
 #include "UDMAvtoriz.h"
-#include <DBCtrls.hpp>
 //---------------------------------------------------------------------------
 class TFDictionaryMed : public TForm
 {
@@ -24,25 +23,18 @@ __published:	// IDE-managed Components
 	TPanel *Panel2;
 	TLabel *LSurname;
 	TLabel *LName;
-	TLabel *LPatronymic;
+	TLabel *LOtch;
 	TEdit *ESurname;
 	TEdit *EName;
 	TEdit *EOtch;
 	TButton *BAdd;
 	TButton *BEdit;
 	TButton *BDelete;
-	TDBGridEh *DBGrCatalogMed;
-	TLabel *LLogin;
-	TLabel *LPassword;
-	TLabel *LOffice;
-	TEdit *ELogin;
-	TEdit *EPassword;
-	TDBLookupComboBox *DBLookupComboBoxOffice;
+	TDBGridEh *DBGridEh1;
 	void __fastcall ESurnameExit(TObject *Sender);
 	void __fastcall ENameExit(TObject *Sender);
 	void __fastcall EOtchExit(TObject *Sender);
 	void __fastcall FormShow(TObject *Sender);
-	void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TFDictionaryMed(TComponent* Owner);

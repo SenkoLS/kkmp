@@ -16,20 +16,19 @@ object FDictionaryMed: TFDictionaryMed
   Font.Style = []
   OldCreateOrder = False
   Position = poDesktopCenter
-  OnClose = FormClose
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object Panel2: TPanel
     Left = 0
-    Top = 223
+    Top = 232
     Width = 784
-    Height = 108
+    Height = 99
     Align = alBottom
     TabOrder = 0
     object LSurname: TLabel
       Left = 5
-      Top = 13
+      Top = 16
       Width = 59
       Height = 17
       Caption = #1060#1072#1084#1080#1083#1080#1103':'
@@ -42,7 +41,7 @@ object FDictionaryMed: TFDictionaryMed
     end
     object LName: TLabel
       Left = 270
-      Top = 13
+      Top = 16
       Width = 31
       Height = 17
       Caption = #1048#1084#1103':'
@@ -53,9 +52,9 @@ object FDictionaryMed: TFDictionaryMed
       Font.Style = []
       ParentFont = False
     end
-    object LPatronymic: TLabel
+    object LOtch: TLabel
       Left = 483
-      Top = 13
+      Top = 16
       Width = 64
       Height = 17
       Caption = #1054#1090#1095#1077#1089#1090#1074#1086':'
@@ -66,49 +65,10 @@ object FDictionaryMed: TFDictionaryMed
       Font.Style = []
       ParentFont = False
     end
-    object LLogin: TLabel
-      Left = 5
-      Top = 43
-      Width = 40
-      Height = 17
-      Caption = #1051#1086#1075#1080#1085':'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -15
-      Font.Name = 'Times New Roman'
-      Font.Style = []
-      ParentFont = False
-    end
-    object LPassword: TLabel
-      Left = 270
-      Top = 43
-      Width = 49
-      Height = 17
-      Caption = #1055#1072#1088#1086#1083#1100':'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -15
-      Font.Name = 'Times New Roman'
-      Font.Style = []
-      ParentFont = False
-    end
-    object LOffice: TLabel
-      Left = 452
-      Top = 43
-      Width = 71
-      Height = 17
-      Caption = #1054#1090#1076#1077#1083#1077#1085#1080#1077':'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -15
-      Font.Name = 'Times New Roman'
-      Font.Style = []
-      ParentFont = False
-    end
     object ESurname: TEdit
       Left = 553
       Top = 8
-      Width = 224
+      Width = 208
       Height = 25
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -120,7 +80,7 @@ object FDictionaryMed: TFDictionaryMed
       OnExit = ESurnameExit
     end
     object EName: TEdit
-      Left = 320
+      Left = 307
       Top = 8
       Width = 157
       Height = 25
@@ -136,7 +96,7 @@ object FDictionaryMed: TFDictionaryMed
     object EOtch: TEdit
       Left = 70
       Top = 8
-      Width = 179
+      Width = 194
       Height = 25
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -148,10 +108,10 @@ object FDictionaryMed: TFDictionaryMed
       OnExit = EOtchExit
     end
     object BAdd: TButton
-      Left = 5
-      Top = 70
+      Left = 0
+      Top = 63
       Width = 244
-      Height = 30
+      Height = 25
       Caption = #1044#1086#1073#1072#1074#1080#1090#1100
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -162,10 +122,10 @@ object FDictionaryMed: TFDictionaryMed
       TabOrder = 3
     end
     object BEdit: TButton
-      Left = 270
-      Top = 71
+      Left = 260
+      Top = 55
       Width = 244
-      Height = 30
+      Height = 25
       Caption = #1056#1077#1076#1072#1082#1090#1080#1088#1086#1074#1072#1090#1100
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -176,10 +136,10 @@ object FDictionaryMed: TFDictionaryMed
       TabOrder = 4
     end
     object BDelete: TButton
-      Left = 533
-      Top = 70
+      Left = 517
+      Top = 55
       Width = 244
-      Height = 30
+      Height = 25
       Caption = #1059#1076#1072#1083#1080#1090#1100
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -189,47 +149,8 @@ object FDictionaryMed: TFDictionaryMed
       ParentFont = False
       TabOrder = 5
     end
-    object ELogin: TEdit
-      Left = 70
-      Top = 39
-      Width = 179
-      Height = 26
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -15
-      Font.Name = 'Tahoma'
-      Font.Style = []
-      ParentFont = False
-      TabOrder = 6
-    end
-    object EPassword: TEdit
-      Left = 320
-      Top = 39
-      Width = 121
-      Height = 26
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -15
-      Font.Name = 'Tahoma'
-      Font.Style = []
-      ParentFont = False
-      TabOrder = 7
-    end
-    object DBLookupComboBoxOffice: TDBLookupComboBox
-      Left = 529
-      Top = 42
-      Width = 248
-      Height = 22
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -12
-      Font.Name = 'Tahoma'
-      Font.Style = []
-      ParentFont = False
-      TabOrder = 8
-    end
   end
-  object DBGrCatalogMed: TDBGridEh
+  object DBGridEh1: TDBGridEh
     Left = 0
     Top = 0
     Width = 784
@@ -237,32 +158,13 @@ object FDictionaryMed: TFDictionaryMed
     Align = alTop
     DataSource = DMAvtoriz.DSCatalogMed
     DynProps = <>
-    ImeMode = imDisable
     IndicatorOptions = [gioShowRowIndicatorEh]
     TabOrder = 1
     Columns = <
       item
         DynProps = <>
         EditButtons = <>
-        FieldName = 'id_user'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'Times New Roman'
-        Font.Style = []
-        Footers = <>
-        Title.Alignment = taCenter
-        Visible = False
-      end
-      item
-        DynProps = <>
-        EditButtons = <>
         FieldName = 'surname'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'Times New Roman'
-        Font.Style = []
         Footers = <>
         Title.Alignment = taCenter
         Title.Caption = #1060#1072#1084#1080#1083#1080#1103
@@ -272,11 +174,6 @@ object FDictionaryMed: TFDictionaryMed
         DynProps = <>
         EditButtons = <>
         FieldName = 'name'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'Times New Roman'
-        Font.Style = []
         Footers = <>
         Title.Alignment = taCenter
         Title.Caption = #1048#1084#1103
@@ -286,11 +183,6 @@ object FDictionaryMed: TFDictionaryMed
         DynProps = <>
         EditButtons = <>
         FieldName = 'patronymic'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'Times New Roman'
-        Font.Style = []
         Footers = <>
         Title.Alignment = taCenter
         Title.Caption = #1054#1090#1095#1077#1089#1090#1074#1086
@@ -300,29 +192,10 @@ object FDictionaryMed: TFDictionaryMed
         DynProps = <>
         EditButtons = <>
         FieldName = 'login'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'Times New Roman'
-        Font.Style = []
         Footers = <>
         Title.Alignment = taCenter
         Title.Caption = #1051#1086#1075#1080#1085
         Width = 100
-      end
-      item
-        DynProps = <>
-        EditButtons = <>
-        FieldName = 'name_office'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'Times New Roman'
-        Font.Style = []
-        Footers = <>
-        Title.Alignment = taCenter
-        Title.Caption = #1053#1072#1080#1084#1077#1085#1086#1074#1072#1085#1080#1077' '#1086#1090#1076#1077#1083#1077#1085#1080#1103
-        Width = 255
       end>
     object RowDetailData: TRowDetailPanelControlEh
     end

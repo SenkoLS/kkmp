@@ -33,10 +33,6 @@ __published:	// IDE-managed Components
 	TDataSetProvider *DSPInspection;
 	TClientDataSet *CDSInspection;
 	TDataSource *DSInspection;
-	TSQLQuery *SQLQCatalogOffices;
-	TDataSetProvider *DSPCatalogOffices;
-	TClientDataSet *CDSCatalogOffices;
-	TDataSource *DSCatalogOffices;
 	void __fastcall DataModuleCreate(TObject *Sender);
 private:	// User declarations
 public:		// User declarations

@@ -21,7 +21,6 @@
 #include "ToolCtrlsEh.hpp"
 #include <ExtCtrls.hpp>
 #include "UCard.h"
-#include "UCatalogOffices.h"
 //---------------------------------------------------------------------------
 class TFMain : public TForm
 {
@@ -32,6 +31,7 @@ __published:	// IDE-managed Components
 	TMenuItem *N2;
 	TMenuItem *N3;
 	TMenuItem *N4;
+	TMenuItem *N5;
 	TPanel *Panel1;
 	TDBGridEh *DBGridEh1;
 	TButton *BShowCard;
@@ -56,14 +56,11 @@ __published:	// IDE-managed Components
 	TButton *BPrintProtocol;
 	TButton *BPrintList;
 	TButton *BDeleteCard;
-	TMenuItem *N6;
 	void __fastcall FormShow(TObject *Sender);
 	void __fastcall N3Click(TObject *Sender);
 	void __fastcall N4Click(TObject *Sender);
 	void __fastcall NewCardClick(TObject *Sender);
 	void __fastcall DBGridEh1KeyDown(TObject *Sender, WORD &Key, TShiftState Shift);
-	void __fastcall N6Click(TObject *Sender);
-	void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
 
 private:	// User declarations
 public:		// User declarations

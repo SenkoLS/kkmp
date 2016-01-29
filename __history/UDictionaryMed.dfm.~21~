@@ -237,7 +237,6 @@ object FDictionaryMed: TFDictionaryMed
     Align = alTop
     DataSource = DMAvtoriz.DSCatalogMed
     DynProps = <>
-    ImeMode = imDisable
     IndicatorOptions = [gioShowRowIndicatorEh]
     TabOrder = 1
     Columns = <

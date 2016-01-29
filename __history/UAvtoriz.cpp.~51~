@@ -32,9 +32,10 @@ String __fastcall MD5(const String Text)
 void __fastcall TFAvtoriz::BEnterClick(TObject *Sender)
 {
 	try{
+		AnsiString query_avtoriz = "SELECT `id_user` FROM `user` WHERE `login`='"+ELogin->Text+"' AND `password`='"+MD5(EPassword->Text)+"'";
 		DMAvtoriz->SQLQAvtoriz->Close();
 		DMAvtoriz->CDSAvtoriz->Close();
-		DMAvtoriz->SQLQAvtoriz->SQL->Text = "SELECT `id_user`,`login` FROM `user` WHERE `login`='"+ELogin->Text+"' AND `password`='"+MD5(EPassword->Text)+"'";
+		DMAvtoriz->SQLQAvtoriz->SQL->Text = query_avtoriz;
 		DMAvtoriz->SQLQAvtoriz->Open();
 		DMAvtoriz->CDSAvtoriz->Open();
 

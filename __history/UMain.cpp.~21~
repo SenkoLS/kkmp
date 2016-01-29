@@ -62,11 +62,3 @@ void __fastcall TFMain::N6Click(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TFMain::FormClose(TObject *Sender, TCloseAction &Action)
-{
-	DMAvtoriz->SQLQInspection->Close();
-	DMAvtoriz->CDSInspection->Close();
-	DMAvtoriz->SQLConnectKKMP->Close();
-}
-//---------------------------------------------------------------------------
-

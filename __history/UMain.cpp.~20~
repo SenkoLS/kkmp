@@ -56,17 +56,3 @@ void __fastcall TFMain::DBGridEh1KeyDown(TObject *Sender, WORD &Key, TShiftState
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TFMain::N6Click(TObject *Sender)
-{
-	FCatalogOffices->ShowModal();
-}
-//---------------------------------------------------------------------------
-
-void __fastcall TFMain::FormClose(TObject *Sender, TCloseAction &Action)
-{
-	DMAvtoriz->SQLQInspection->Close();
-	DMAvtoriz->CDSInspection->Close();
-	DMAvtoriz->SQLConnectKKMP->Close();
-}
-//---------------------------------------------------------------------------
-

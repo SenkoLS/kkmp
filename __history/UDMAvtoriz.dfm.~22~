@@ -73,9 +73,7 @@ object DMAvtoriz: TDMAvtoriz
     MaxBlobSize = -1
     Params = <>
     SQL.Strings = (
-      'SELECT `surname`,`name`,`patronymic`,`login`,`name_office`'
-      'FROM `user` INNER JOIN `office`'
-      'ON `user`.`id_office` = `office`.`id_office`')
+      'SELECT `surname`,`name`,`patronymic`,`login` FROM `user`')
     SQLConnection = SQLConnectKKMP
     Left = 160
     Top = 80
@@ -131,7 +129,7 @@ object DMAvtoriz: TDMAvtoriz
     MaxBlobSize = -1
     Params = <>
     SQL.Strings = (
-      'SELECT * FROM `office` WHERE `id_office` !=1')
+      'SELECT * FROM `office`')
     SQLConnection = SQLConnectKKMP
     Left = 160
     Top = 232

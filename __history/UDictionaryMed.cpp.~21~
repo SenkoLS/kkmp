@@ -38,15 +38,13 @@ void __fastcall TFDictionaryMed::EOtchExit(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall TFDictionaryMed::FormShow(TObject *Sender)
 {
-	if(DMAvtoriz->DSAvtoriz->DataSet->FieldByName("login")->AsAnsiString != "admin"){
-		DMAvtoriz->SQLQCatalogMed->Close();
-		DMAvtoriz->SQLQCatalogMed->SQL->Text = "SELECT `surname`,`name`,`patronymic`,`login`,`name_office` "
-			"FROM `user` INNER JOIN `office` ON `user`.`id_office` = `office`.`id_office` "
-			"WHERE `user`.`id_user` != 1";
-	}
 	DMAvtoriz->SQLQCatalogMed->Open();
-	DMAvtoriz->CDSCatalogMed->Close();
 	DMAvtoriz->CDSCatalogMed->Open();
+//	if(DMAvtoriz->DSAvtoriz->DataSet->FieldByName("login")->AsAnsiString == "admin"){
+//		ShowMessage("ADMIN");
+//	}else{
+//		ShowMessage("loh");
+//	}
 }
 //---------------------------------------------------------------------------
 void __fastcall TFDictionaryMed::FormClose(TObject *Sender, TCloseAction &Action)

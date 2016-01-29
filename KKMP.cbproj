@@ -85,6 +85,11 @@
 				<DependentOn>UCard.h</DependentOn>
 				<BuildOrder>7</BuildOrder>
 			</CppCompile>
+			<CppCompile Include="UCatalogOffices.cpp">
+				<Form>FCatalogOffices</Form>
+				<DependentOn>UCatalogOffices.h</DependentOn>
+				<BuildOrder>8</BuildOrder>
+			</CppCompile>
 			<CppCompile Include="UDictionaryMed.cpp">
 				<Form>FDictionaryMed</Form>
 				<DependentOn>UDictionaryMed.h</DependentOn>
@@ -102,11 +107,12 @@
 				<BuildOrder>2</BuildOrder>
 			</CppCompile>
 			<FormResources Include="UDictionaryMed.dfm"/>
-			<FormResources Include="UDMAvtoriz.dfm"/>
+			<FormResources Include="UCard.dfm"/>
 			<FormResources Include="UMain.dfm"/>
+			<FormResources Include="UDMAvtoriz.dfm"/>
 			<FormResources Include="UAvtoriz.dfm"/>
 			<FormResources Include="UAbout.dfm"/>
-			<FormResources Include="UCard.dfm"/>
+			<FormResources Include="UCatalogOffices.dfm"/>
 			<BuildConfiguration Include="Release">
 				<Key>Cfg_2</Key>
 				<CfgParent>Base</CfgParent>
