@@ -233,6 +233,7 @@ object FDictionaryMed: TFDictionaryMed
       Width = 248
       Height = 22
       Color = clBtnFace
+      Enabled = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -12

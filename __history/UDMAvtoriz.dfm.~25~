@@ -153,30 +153,4 @@ object DMAvtoriz: TDMAvtoriz
     Left = 464
     Top = 232
   end
-  object SQLQgetListOffice: TSQLQuery
-    MaxBlobSize = -1
-    Params = <>
-    SQL.Strings = (
-      'SELECT * FROM `office`')
-    SQLConnection = SQLConnectKKMP
-    Left = 160
-    Top = 296
-  end
-  object DSPgetListOffice: TDataSetProvider
-    DataSet = SQLQgetListOffice
-    Left = 264
-    Top = 296
-  end
-  object CDSgetListOffice: TClientDataSet
-    Aggregates = <>
-    Params = <>
-    ProviderName = 'DSPgetListOffice'
-    Left = 360
-    Top = 296
-  end
-  object DSgetListOffice: TDataSource
-    DataSet = CDSgetListOffice
-    Left = 464
-    Top = 296
-  end
 end

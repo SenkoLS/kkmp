@@ -15,7 +15,7 @@ __fastcall TFAvtoriz::TFAvtoriz(TComponent* Owner)
 }
 //---------------------------------------------------------------------------
 //const String
-AnsiString __fastcall TFAvtoriz::MD5(AnsiString Text)
+AnsiString TFAvtoriz::MD5(AnsiString Text)
 {
   AnsiString result;
   TIdHashMessageDigest5 *idmd5 = new TIdHashMessageDigest5();

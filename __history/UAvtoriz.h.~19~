@@ -28,7 +28,7 @@ __published:	// IDE-managed Components
 private:	// User declarations
 public:		// User declarations
 	__fastcall TFAvtoriz(TComponent* Owner);
-	AnsiString __fastcall TFAvtoriz::MD5(AnsiString Text);
+	AnsiString TFAvtoriz::MD5(AnsiString Text);
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TFAvtoriz *FAvtoriz;

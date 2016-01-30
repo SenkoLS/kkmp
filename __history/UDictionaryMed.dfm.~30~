@@ -27,6 +27,7 @@ object FDictionaryMed: TFDictionaryMed
     Height = 144
     Align = alBottom
     TabOrder = 0
+    ExplicitTop = 223
     object LSurname: TLabel
       Left = 5
       Top = 13
@@ -233,14 +234,12 @@ object FDictionaryMed: TFDictionaryMed
       Width = 248
       Height = 22
       Color = clBtnFace
+      Enabled = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -12
       Font.Name = 'Tahoma'
       Font.Style = []
-      KeyField = 'id_office'
-      ListField = 'name_office'
-      ListSource = DMAvtoriz.DSgetListOffice
       ParentFont = False
       TabOrder = 8
     end

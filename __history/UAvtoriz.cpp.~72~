@@ -14,6 +14,10 @@ __fastcall TFAvtoriz::TFAvtoriz(TComponent* Owner)
 {
 }
 //---------------------------------------------------------------------------
+static AnsiString getMD5(AnsiString text){
+
+}
+//---------------------------------------------------------------------------
 //const String
 AnsiString __fastcall TFAvtoriz::MD5(AnsiString Text)
 {

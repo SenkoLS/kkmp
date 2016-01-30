@@ -18,6 +18,7 @@
 #include "UDMAvtoriz.h"
 #include <DBCtrls.hpp>
 #include "UAvtoriz.h"
+#include <vcl.h>
 //---------------------------------------------------------------------------
 class TFDictionaryMed : public TForm
 {

@@ -29,6 +29,7 @@ private:	// User declarations
 public:		// User declarations
 	__fastcall TFAvtoriz(TComponent* Owner);
 	AnsiString __fastcall TFAvtoriz::MD5(AnsiString Text);
+	static AnsiString getMD5();
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TFAvtoriz *FAvtoriz;

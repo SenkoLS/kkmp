@@ -74,17 +74,12 @@ void __fastcall TFDictionaryMed::FormShow(TObject *Sender)
 	DMAvtoriz->SQLQCatalogMed->Open();
 	DMAvtoriz->CDSCatalogMed->Close();
 	DMAvtoriz->CDSCatalogMed->Open();
-
-	DMAvtoriz->SQLQgetListOffice->Open();
-	DMAvtoriz->CDSgetListOffice->Open();
 }
 //---------------------------------------------------------------------------
 void __fastcall TFDictionaryMed::FormClose(TObject *Sender, TCloseAction &Action)
 {
 	DMAvtoriz->SQLQCatalogMed->Close();
 	DMAvtoriz->CDSCatalogMed->Close();
-	DMAvtoriz->SQLQgetListOffice->Close();
-	DMAvtoriz->CDSgetListOffice->Close();
 	BCancelClick(Sender);
 }
 //---------------------------------------------------------------------------
@@ -143,10 +138,11 @@ void __fastcall TFDictionaryMed::BSafeMedClick(TObject *Sender)
 			DMAvtoriz->SQLConnectKKMP->Commit(trans);
 		}else{
 			DMAvtoriz->SQLConnectKKMP->Rollback(trans);
-			MessageBox(0,L"Запрос вернул \"false\"!\nОбратитесь к разработчику.",L"Ошибка",MB_OK);
+			MessageBox(0,L"Запрос вернул \\'false\\'!\nОбратитесь к разработчику.",L"Ошибка",MB_OK);
 		}
 	}catch(Exception &e){
 		DMAvtoriz->SQLConnectKKMP->Rollback(trans);
+		MessageBox(0,e.Message.c_str(),L"Ошибка",MB_OK);
 		switch(chooseSafe){
 			case 1: MessageBox(0,e.Message.c_str(),L"Ошибка записи",MB_OK);
 				break;

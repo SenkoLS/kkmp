@@ -70,14 +70,13 @@ CREATE TABLE `user` (
   `name` varchar(35) NOT NULL,
   `surname` varchar(45) NOT NULL,
   `patronymic` varchar(50) DEFAULT NULL,
-  `id_office` int(2) NOT NULL DEFAULT '1',
+  `id_office` int(2) DEFAULT '1',
   PRIMARY KEY (`id_user`),
   UNIQUE KEY `id_user` (`id_user`),
   UNIQUE KEY `login` (`login`),
   UNIQUE KEY `login_2` (`login`),
-  KEY `id_office` (`id_office`),
-  CONSTRAINT `user_fk` FOREIGN KEY (`id_office`) REFERENCES `office` (`id_office`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+  KEY `id_office` (`id_office`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 
 #
 # Data for the `inspection` table  (LIMIT 0,500)
@@ -107,7 +106,10 @@ COMMIT;
 INSERT INTO `user` (`id_user`, `login`, `password`, `name`, `surname`, `patronymic`, `id_office`) VALUES 
   (1,'admin','21232f297a57a5a743894a0e4a801fc3','Админ',' ','',1),
   (2,'kacgt','21232f297a57a5a743894a0e4a801fc3','ГИВИ','КАЦИТАДЗЕ','ТЕНГИЗОВИЧ',1),
-  (3,'','','ВЕРА','БУЗЫКАЕВА','ЛЕОНИДОВНА',1);
+  (3,'','','ВЕРА','БУЗЫКАЕВА','ЛЕОНИДОВНА',1),
+  (4,'ivanovvb','3','ВЛАДИМИР','ИВАНОВ','БОРИСОВИЧ',3),
+  (8,'ывсывс','ECCBC87E4B5CE2FE28308FD9F2A7BAF3','ЫВСЫВС','ЫСВЫС','ЫВСЫВС',3),
+  (10,'qwe','D41D8CD98F00B204E9800998ECF8427E','QWE','QWE','QWE',0);
 COMMIT;
 
 

@@ -58,6 +58,7 @@ public:		// User declarations
 	TTransactionDesc trans;
 	int chooseSafe;  //It's for choose method update or insert
 	AnsiString __fastcall TFDictionaryMed::getStrValue(AnsiString val);
+	extern AnsiString getMD5(AnsiString text);
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TFDictionaryMed *FDictionaryMed;
