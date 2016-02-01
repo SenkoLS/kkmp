@@ -196,6 +196,7 @@ object FDictionaryMed: TFDictionaryMed
       Font.Style = []
       ParentFont = False
       TabOrder = 5
+      OnClick = BDeleteClick
     end
     object ELogin: TEdit
       Left = 70
@@ -291,13 +292,7 @@ object FDictionaryMed: TFDictionaryMed
         DynProps = <>
         EditButtons = <>
         FieldName = 'id_user'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'Times New Roman'
-        Font.Style = []
         Footers = <>
-        Title.Alignment = taCenter
         Visible = False
       end
       item

@@ -73,7 +73,9 @@ object DMAvtoriz: TDMAvtoriz
     MaxBlobSize = -1
     Params = <>
     SQL.Strings = (
-      'SELECT `surname`,`name`,`patronymic`,`login`,`name_office`'
+      
+        'SELECT `user`.`id_user`,`surname`,`name`,`patronymic`,`login`,`n' +
+        'ame_office`'
       'FROM `user` INNER JOIN `office`'
       'ON `user`.`id_office` = `office`.`id_office`')
     SQLConnection = SQLConnectKKMP

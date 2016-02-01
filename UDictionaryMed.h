@@ -50,6 +50,7 @@ __published:	// IDE-managed Components
 	void __fastcall BEditClick(TObject *Sender);
 	void __fastcall BCancelClick(TObject *Sender);
 	void __fastcall BSafeMedClick(TObject *Sender);
+	void __fastcall BDeleteClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TFDictionaryMed(TComponent* Owner);

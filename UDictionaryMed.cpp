@@ -32,6 +32,7 @@ void __fastcall TFDictionaryMed::setView(){
 	BAdd->Enabled = false;
 	BEdit->Enabled = false;
 	BDelete->Enabled = false;
+	BSafeMed->Enabled = true;
 
 	EOtch->Color = clWhite;
 	EName->Color = clWhite;
@@ -67,16 +68,22 @@ void __fastcall TFDictionaryMed::FormShow(TObject *Sender)
 {
 	if(DMAvtoriz->DSAvtoriz->DataSet->FieldByName("login")->AsAnsiString != "admin"){
 		DMAvtoriz->SQLQCatalogMed->Close();
-		DMAvtoriz->SQLQCatalogMed->SQL->Text = "SELECT `surname`,`name`,`patronymic`,`login`,`name_office` "
+		DMAvtoriz->SQLQCatalogMed->SQL->Text = "SELECT `user`.`id_user`,`surname`,`name`,`patronymic`,`login`,`name_office` "
 			"FROM `user` INNER JOIN `office` ON `user`.`id_office` = `office`.`id_office` "
 			"WHERE `user`.`id_user` != 1";
+	}else{
+    	DMAvtoriz->SQLQCatalogMed->Close();
+		DMAvtoriz->SQLQCatalogMed->SQL->Text = "SELECT `user`.`id_user`,`surname`,`name`,`patronymic`,`login`,`name_office` "
+			"FROM `user` INNER JOIN `office` ON `user`.`id_office` = `office`.`id_office`";
 	}
+
 	DMAvtoriz->SQLQCatalogMed->Open();
 	DMAvtoriz->CDSCatalogMed->Close();
 	DMAvtoriz->CDSCatalogMed->Open();
 
 	DMAvtoriz->SQLQgetListOffice->Open();
 	DMAvtoriz->CDSgetListOffice->Open();
+	BCancelClick(Sender);
 }
 //---------------------------------------------------------------------------
 void __fastcall TFDictionaryMed::FormClose(TObject *Sender, TCloseAction &Action)
@@ -109,6 +116,8 @@ void __fastcall TFDictionaryMed::BCancelClick(TObject *Sender)
 	BEdit->Enabled = true;
 	BDelete->Enabled = true;
 
+	BSafeMed->Enabled = false;
+
 	EOtch->Color = clBtnFace;
 	EName->Color = clBtnFace;
 	ESurname->Color = clBtnFace;
@@ -136,7 +145,9 @@ void __fastcall TFDictionaryMed::BSafeMedClick(TObject *Sender)
 {
 	DMAvtoriz->SQLQCatalogMed->Close();
 	DMAvtoriz->SQLQCatalogMed->SQL->Text = 	"INSERT INTO `user` (`name`,`surname`,`patronymic`,`login`,`password`,`id_office`) "
-											"VALUES('"+ EName->Text +"','"+ EOtch->Text +"','"+ ESurname->Text +"','"+ ELogin->Text +"',"+ getStrValue(FAvtoriz->MD5(EPassword->Text)) +","+ getStrValue(EPassword->Text) +")";
+									"VALUES('"+ EName->Text +"','"+ EOtch->Text +"','"+ ESurname->Text +"',"
+									"'"+ ELogin->Text +"',"+ getStrValue(FAvtoriz->MD5(EPassword->Text)) +","
+									+ getStrValue(DBLookupComboBoxOffice->ListSource->DataSet->FieldByName("id_office")->AsAnsiString) +")";
 	DMAvtoriz->SQLConnectKKMP->StartTransaction(trans);
 	try{
 		if(DMAvtoriz->SQLQCatalogMed->ExecSQL()){
@@ -165,6 +176,36 @@ void __fastcall TFDictionaryMed::BSafeMedClick(TObject *Sender)
 	DMAvtoriz->SQLQCatalogMed->Open();
 	DMAvtoriz->CDSCatalogMed->Close();
     DMAvtoriz->CDSCatalogMed->Open();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFDictionaryMed::BDeleteClick(TObject *Sender)
+{
+	if(DBGrCatalogMed->DataSource->DataSet->FieldByName("id_user")->AsInteger <2){
+		MessageBox(0,L"Не выбран сотрудник!",L"Сообщение",MB_OK);
+		return;
+	}
+
+	int mess = MessageBox(0,L"Удалить выбранного сотрудника?",L"Предупреждение",MB_YESNO);
+	if(mess == 6){
+		DMAvtoriz->SQLQCatalogMed->Close();
+		DMAvtoriz->SQLQCatalogMed->SQL->Text = "DELETE FROM `user` WHERE `id_user` = '"+DBGrCatalogMed->DataSource->DataSet->FieldByName("id_user")->AsAnsiString+"'";
+
+		DMAvtoriz-> SQLConnectKKMP->StartTransaction(trans);
+		try{
+			if(DMAvtoriz->SQLQCatalogMed->ExecSQL()){
+				DMAvtoriz->SQLConnectKKMP->Commit(trans);
+			}else{
+				DMAvtoriz->SQLConnectKKMP->Rollback(trans);
+				MessageBox(0,L"Запрос вернул \"false\"!\nОбратитесь к разработчику.",L"Ошибка",MB_OK);
+			}
+		}catch(Exception &e){
+			DMAvtoriz->SQLConnectKKMP->Rollback(trans);
+			MessageBox(0,e.Message.c_str(),L"Ошибка удаления",MB_OK);
+		}
+
+		FormShow(Sender);
+	}
 }
 //---------------------------------------------------------------------------
 

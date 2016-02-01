@@ -23,24 +23,15 @@ __fastcall TFCatalogOffices::TFCatalogOffices(TComponent* Owner)
 //---------------------------------------------------------------------------
 void __fastcall TFCatalogOffices::FormShow(TObject *Sender)
 {
-	ENameOffice->Text = "";
-
-	NAddOffice->Enabled = true;
-	BEditNameOffice->Enabled = true;
-	BDeleteOffice->Enabled = true;
-
-	ENameOffice->Color = clBtnFace;
-	ENameOffice->Enabled = false;
-
-	DBLookupComboBoxChief->Color = clBtnFace;
-	DBLookupComboBoxChief->Enabled = false;
-
+	DMAvtoriz->SQLQCatalogOffices->Close();
+	DMAvtoriz->SQLQCatalogOffices->SQL->Text = "SELECT * FROM `office` WHERE `id_office` !=1";
 	DMAvtoriz->SQLQCatalogOffices->Open();
+	DMAvtoriz->CDSCatalogOffices->Close();
 	DMAvtoriz->CDSCatalogOffices->Open();
+	BCancelClick(Sender);
 }
 //---------------------------------------------------------------------------
 void __fastcall TFCatalogOffices::FormClose(TObject *Sender, TCloseAction &Action)
-
 {
 	DMAvtoriz->SQLQCatalogOffices->Close();
 	DMAvtoriz->CDSCatalogOffices->Close();
@@ -54,9 +45,11 @@ void __fastcall TFCatalogOffices::BAddMedClick(TObject *Sender)
 void __fastcall TFCatalogOffices::NAddOfficeClick(TObject *Sender)
 {
 	chooseSafe = 1;    //whrite office
+
 	NAddOffice->Enabled = false;
 	BEditNameOffice->Enabled = false;
 	BDeleteOffice->Enabled = false;
+    BSafeRecord->Enabled = true;
 
 	ENameOffice->Color = clWhite;
 	ENameOffice->Enabled = true;
@@ -65,7 +58,6 @@ void __fastcall TFCatalogOffices::NAddOfficeClick(TObject *Sender)
 	DBLookupComboBoxChief->Enabled = true;
 }
 //---------------------------------------------------------------------------
-
 void __fastcall TFCatalogOffices::BSafeRecordClick(TObject *Sender)
 {
     NAddOffice->Enabled = true;
@@ -92,25 +84,24 @@ void __fastcall TFCatalogOffices::BSafeRecordClick(TObject *Sender)
 
 
 	DMAvtoriz->SQLConnectKKMP->StartTransaction(trans);
-	if(DMAvtoriz->SQLQCatalogOffices->ExecSQL()){
-		DMAvtoriz->SQLConnectKKMP->Commit(trans);
-	}else{
-		DMAvtoriz->SQLConnectKKMP->Rollback(trans);
+	try{
+		if(DMAvtoriz->SQLQCatalogOffices->ExecSQL()){
+			DMAvtoriz->SQLConnectKKMP->Commit(trans);
+		}else{
+			DMAvtoriz->SQLConnectKKMP->Rollback(trans);
+			MessageBox(0,L"Запрос вернул \"false\"!\nОбратитесь к разработчику.",L"Ошибка",MB_OK);
+		}
+	}catch(Exception &e){
+     	DMAvtoriz->SQLConnectKKMP->Rollback(trans);
 		switch(chooseSafe){
-			case 1: MessageBox(0,L"Ошибка записи в БД!\nОбратитесь к разработчику.",L"Ошибка",MB_OK);
+			case 1: MessageBox(0,e.Message.c_str(),L"Ошибка записи",MB_OK);
 				break;
-			case 2: MessageBox(0,L"Ошибка редактирования в БД!\nОбратитесь к разработчику.",L"Ошибка",MB_OK);
+			case 2: MessageBox(0,e.Message.c_str(),L"Ошибка редактирования",MB_OK);
 				break;
 		}
 	}
-
-	DMAvtoriz->SQLQCatalogOffices->Close();
-	DMAvtoriz->SQLQCatalogOffices->SQL->Text = "SELECT * FROM `office` WHERE `id_office` !=1";
-	DMAvtoriz->SQLQCatalogOffices->Open();
-	DMAvtoriz->CDSCatalogOffices->Close();
-	DMAvtoriz->CDSCatalogOffices->Open();
-
-	ENameOffice->Text = "";
+	//show offices
+	FormShow(Sender);
 }
 //---------------------------------------------------------------------------
 void __fastcall TFCatalogOffices::BEditNameOfficeClick(TObject *Sender)
@@ -119,6 +110,7 @@ void __fastcall TFCatalogOffices::BEditNameOfficeClick(TObject *Sender)
 	BEditNameOffice->Enabled = false;
 	NAddOffice->Enabled = false;
 	BDeleteOffice->Enabled = false;
+	BSafeRecord->Enabled = true;
 
 	ENameOffice->Color = clWhite;
 	ENameOffice->Enabled = true;
@@ -134,12 +126,6 @@ void __fastcall TFCatalogOffices::BEditNameOfficeClick(TObject *Sender)
 	DMAvtoriz->CDSCatalogOffices->Open();
 	//get name office
 	ENameOffice->Text = DMAvtoriz->DSCatalogOffices->DataSet->FieldByName("name_office")->AsAnsiString;
-    //show offices
-	DMAvtoriz->SQLQCatalogOffices->Close();
-	DMAvtoriz->SQLQCatalogOffices->SQL->Text = "SELECT * FROM `office` WHERE `id_office` !=1";
-	DMAvtoriz->SQLQCatalogOffices->Open();
-	DMAvtoriz->CDSCatalogOffices->Close();
-	DMAvtoriz->CDSCatalogOffices->Open();
 }
 //---------------------------------------------------------------------------
 void __fastcall TFCatalogOffices::BDeleteOfficeClick(TObject *Sender)
@@ -155,18 +141,18 @@ void __fastcall TFCatalogOffices::BDeleteOfficeClick(TObject *Sender)
 		DMAvtoriz->SQLQCatalogOffices->SQL->Text = "DELETE FROM `office` WHERE `id_office` = '"+DBGrCatalogOffices->DataSource->DataSet->FieldByName("id_office")->AsAnsiString+"'";
 
 		DMAvtoriz->SQLConnectKKMP->StartTransaction(trans);
-		if(DMAvtoriz->SQLQCatalogOffices->ExecSQL()){
-			DMAvtoriz->SQLConnectKKMP->Commit(trans);
-		}else{
+		try{
+        	if(DMAvtoriz->SQLQCatalogOffices->ExecSQL()){
+				DMAvtoriz->SQLConnectKKMP->Commit(trans);
+			}else{
+				DMAvtoriz->SQLConnectKKMP->Rollback(trans);
+				MessageBox(0,L"Запрос вернул \"false\"!\nОбратитесь к разработчику.",L"Ошибка",MB_OK);
+			}
+		}catch(Exception &e){
 			DMAvtoriz->SQLConnectKKMP->Rollback(trans);
-			MessageBox(0,L"Ошибка удаления из БД!\nОбратитесь к разработчику.",L"Ошибка",MB_OK);
+			MessageBox(0,e.Message.c_str(),L"Ошибка удаления",MB_OK);
 		}
-
-		DMAvtoriz->SQLQCatalogOffices->Close();
-		DMAvtoriz->SQLQCatalogOffices->SQL->Text = "SELECT * FROM `office` WHERE `id_office` !=1";
-		DMAvtoriz->SQLQCatalogOffices->Open();
-		DMAvtoriz->CDSCatalogOffices->Close();
-		DMAvtoriz->CDSCatalogOffices->Open();
+		FormShow(Sender);
 	}
 }
 //---------------------------------------------------------------------------
@@ -177,6 +163,7 @@ void __fastcall TFCatalogOffices::BCancelClick(TObject *Sender)
 	NAddOffice->Enabled = true;
 	BEditNameOffice->Enabled = true;
 	BDeleteOffice->Enabled = true;
+	BSafeRecord->Enabled = false;
 
 	ENameOffice->Color = clBtnFace;
 	ENameOffice->Enabled = false;
