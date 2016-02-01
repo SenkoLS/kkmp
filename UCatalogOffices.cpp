@@ -84,10 +84,11 @@ void __fastcall TFCatalogOffices::BSafeRecordClick(TObject *Sender)
 	DMAvtoriz->SQLQCatalogOffices->Close();
 
 	switch(chooseSafe){
-		case 1: DMAvtoriz->SQLQCatalogOffices->SQL->Text = "INSERT INTO `office` (`name_office`) "
-				"VALUES('"+ ENameOffice->Text +"')";
+		case 1: DMAvtoriz->SQLQCatalogOffices->SQL->Text = "INSERT INTO `office` (`name_office`,`id_user`) "
+				"VALUES('"+ ENameOffice->Text +"','"+DBLookupComboBoxChief->ListSource->DataSet->FieldByName("id_user")->AsAnsiString+"')";
 			break;
-		case 2: DMAvtoriz->SQLQCatalogOffices->SQL->Text =  "UPDATE `office` SET `name_office` = '"+ ENameOffice->Text +"' "
+		case 2: DMAvtoriz->SQLQCatalogOffices->SQL->Text =  "UPDATE `office` SET `name_office` = '"+ ENameOffice->Text +"', "
+				"`id_user` = '"+ DBLookupComboBoxChief->ListSource->DataSet->FieldByName("id_user")->AsAnsiString +"' "
 				"WHERE `id_office` = '"+DBGrCatalogOffices->DataSource->DataSet->FieldByName("id_office")->AsAnsiString+"'";
 			break;
 	}
@@ -95,15 +96,6 @@ void __fastcall TFCatalogOffices::BSafeRecordClick(TObject *Sender)
 	DMAvtoriz->SQLConnectKKMP->StartTransaction(trans);
 	try{
 		if(DMAvtoriz->SQLQCatalogOffices->ExecSQL()){
-			//DMAvtoriz->SQLQCatalogOffices->SQL->Text =  "UPDATE `user` SET `chief` = '1' "
-			//"WHERE `id_user` = '"+DBGrCatalogOffices->DataSource->DataSet->FieldByName("id_office")->AsAnsiString+"'";
-
-
-
-
-
-
-
 			DMAvtoriz->SQLConnectKKMP->Commit(trans);
 		}else{
 			DMAvtoriz->SQLConnectKKMP->Rollback(trans);
@@ -156,21 +148,27 @@ void __fastcall TFCatalogOffices::BDeleteOfficeClick(TObject *Sender)
 
 	int mess = MessageBox(0,L"Вы хотите удалить выбранное отделение?",L"Предупреждение",MB_YESNO);
 	if(mess == 6){
-		DMAvtoriz->SQLQCatalogOffices->Close();
-		DMAvtoriz->SQLQCatalogOffices->SQL->Text = "DELETE FROM `office` WHERE `id_office` = '"+DBGrCatalogOffices->DataSource->DataSet->FieldByName("id_office")->AsAnsiString+"'";
-
-		DMAvtoriz->SQLConnectKKMP->StartTransaction(trans);
 		try{
-        	if(DMAvtoriz->SQLQCatalogOffices->ExecSQL()){
+			//del link (id_office) in user
+			DMAvtoriz->SQLConnectKKMP->StartTransaction(trans);
+			DMAvtoriz->SQLQCatalogOffices->Close();
+			DMAvtoriz->SQLQCatalogOffices->SQL->Text = "UPDATE `user` SET `id_office` = 1 WHERE `id_office` = '"+DBGrCatalogOffices->DataSource->DataSet->FieldByName("id_office")->AsAnsiString+"'";
+			DMAvtoriz->SQLQCatalogOffices->ExecSQL();
+
+			DMAvtoriz->SQLQCatalogOffices->Close();
+			DMAvtoriz->SQLQCatalogOffices->SQL->Text = "DELETE FROM `office` WHERE `id_office` = '"+DBGrCatalogOffices->DataSource->DataSet->FieldByName("id_office")->AsAnsiString+"'";
+
+			if(DMAvtoriz->SQLQCatalogOffices->ExecSQL()){
 				DMAvtoriz->SQLConnectKKMP->Commit(trans);
 			}else{
 				DMAvtoriz->SQLConnectKKMP->Rollback(trans);
-				MessageBox(0,L"Запрос вернул \"false\"!\nОбратитесь к разработчику.",L"Ошибка",MB_OK);
+				MessageBox(0,L"Запрос в \"delete user\" вернул \"false\"!\nОбратитесь к разработчику.",L"Ошибка",MB_OK);
 			}
 		}catch(Exception &e){
 			DMAvtoriz->SQLConnectKKMP->Rollback(trans);
 			MessageBox(0,e.Message.c_str(),L"Ошибка удаления",MB_OK);
 		}
+
 		FormShow(Sender);
 	}
 }

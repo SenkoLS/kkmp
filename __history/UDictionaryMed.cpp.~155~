@@ -51,7 +51,7 @@ void __fastcall TFDictionaryMed::setView(){
 //---------------------------------------------------------------------------
 void __fastcall TFDictionaryMed::EOtchExit(TObject *Sender)
 {
-	ESurname->Text = ESurname->Text.UpperCase();
+	EOtch->Text = EOtch->Text.UpperCase();
 }
 //---------------------------------------------------------------------------
 void __fastcall TFDictionaryMed::ENameExit(TObject *Sender)
@@ -61,21 +61,21 @@ void __fastcall TFDictionaryMed::ENameExit(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall TFDictionaryMed::ESurnameExit(TObject *Sender)
 {
-	EOtch->Text = EOtch->Text.UpperCase();
+	ESurname->Text = ESurname->Text.UpperCase();
 }
 //---------------------------------------------------------------------------
 void __fastcall TFDictionaryMed::FormShow(TObject *Sender)
 {
-    DMAvtoriz->DSCatalogMed->DataSet->DataSource = NULL;
+    DBLookupComboBoxOffice->KeyValue = NULL;
 	if(DMAvtoriz->DSAvtoriz->DataSet->FieldByName("login")->AsAnsiString != "admin"){
 		DMAvtoriz->SQLQCatalogMed->Close();
 		DMAvtoriz->SQLQCatalogMed->SQL->Text = "SELECT `user`.`id_user`,`surname`,`name`,`patronymic`,`login`,`name_office` "
 			"FROM `user` INNER JOIN `office` ON `user`.`id_office` = `office`.`id_office` "
-			"WHERE `user`.`id_user` != 1";
+			"WHERE `user`.`id_user` > 1";
 	}else{
     	DMAvtoriz->SQLQCatalogMed->Close();
 		DMAvtoriz->SQLQCatalogMed->SQL->Text = "SELECT `user`.`id_user`,`surname`,`name`,`patronymic`,`login`,`name_office` "
-			"FROM `user` INNER JOIN `office` ON `user`.`id_office` = `office`.`id_office`";
+			"FROM `user` INNER JOIN `office` ON `user`.`id_office` = `office`.`id_office` WHERE `user`.`id_user` > 0";
 	}
 
 	DMAvtoriz->SQLQCatalogMed->Open();
@@ -213,7 +213,15 @@ void __fastcall TFDictionaryMed::BDeleteClick(TObject *Sender)
 		DMAvtoriz-> SQLConnectKKMP->StartTransaction(trans);
 		try{
 			if(DMAvtoriz->SQLQCatalogMed->ExecSQL()){
-				DMAvtoriz->SQLConnectKKMP->Commit(trans);
+				DMAvtoriz->SQLQCatalogMed->Close();
+				DMAvtoriz->SQLQCatalogMed->SQL->Text = "DELETE FROM `user` WHERE `id_user` = '"+DBGrCatalogMed->DataSource->DataSet->FieldByName("id_user")->AsAnsiString+"'";
+
+				if(DMAvtoriz->SQLQCatalogMed->ExecSQL()){
+					DMAvtoriz->SQLConnectKKMP->Commit(trans);
+				}else{
+                	DMAvtoriz->SQLConnectKKMP->Rollback(trans);
+					MessageBox(0,L"Запрос вернул \"false\"!\nОбратитесь к разработчику.",L"Ошибка",MB_OK);
+				}
 			}else{
 				DMAvtoriz->SQLConnectKKMP->Rollback(trans);
 				MessageBox(0,L"Запрос вернул \"false\"!\nОбратитесь к разработчику.",L"Ошибка",MB_OK);

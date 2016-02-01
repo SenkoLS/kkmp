@@ -31,15 +31,21 @@ __published:	// IDE-managed Components
 	TDBLookupComboBox *DBLookupComboBoxChief;
 	TButton *BAddMed;
 	TButton *BSafeRecord;
+	TButton *BCancel;
 	void __fastcall FormShow(TObject *Sender);
 	void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
 	void __fastcall BAddMedClick(TObject *Sender);
 	void __fastcall NAddOfficeClick(TObject *Sender);
 	void __fastcall BSafeRecordClick(TObject *Sender);
 	void __fastcall BEditNameOfficeClick(TObject *Sender);
+	void __fastcall BDeleteOfficeClick(TObject *Sender);
+	void __fastcall BCancelClick(TObject *Sender);
+
 private:	// User declarations
 public:		// User declarations
 	__fastcall TFCatalogOffices(TComponent* Owner);
+	TTransactionDesc trans;
+	int chooseSafe;  //It's for choose method update or insert
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TFCatalogOffices *FCatalogOffices;

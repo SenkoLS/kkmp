@@ -152,9 +152,22 @@ void __fastcall TFCatalogOffices::BDeleteOfficeClick(TObject *Sender)
 		DMAvtoriz->SQLQCatalogOffices->SQL->Text = "DELETE FROM `office` WHERE `id_office` = '"+DBGrCatalogOffices->DataSource->DataSet->FieldByName("id_office")->AsAnsiString+"'";
 
 		DMAvtoriz->SQLConnectKKMP->StartTransaction(trans);
+
 		try{
-        	if(DMAvtoriz->SQLQCatalogOffices->ExecSQL()){
-				DMAvtoriz->SQLConnectKKMP->Commit(trans);
+			if(DMAvtoriz->SQLQCatalogOffices->ExecSQL()){
+				//del link (id_office) in user
+
+				DMAvtoriz->SQLQCatalogOffices->Close();
+				DMAvtoriz->SQLQCatalogOffices->SQL->Text = "UPDATE `user` SET `id_office` = '1' WHERE `id_office` = '"+DBGrCatalogOffices->DataSource->DataSet->FieldByName("id_office")->AsAnsiString+"'";
+				DMAvtoriz->SQLQCatalogOffices->ExecSQL();
+                DMAvtoriz->SQLConnectKKMP->Commit(trans);
+				//if(DMAvtoriz->SQLQCatalogOffices->ExecSQL()){
+				//	DMAvtoriz->SQLConnectKKMP->Commit(trans);
+				//}else{
+				//	DMAvtoriz->SQLConnectKKMP->Rollback(trans);
+				//	MessageBox(0,L"Запрос в update user вернул \"false\"!\nОбратитесь к разработчику.",L"Ошибка",MB_OK);
+				//}
+
 			}else{
 				DMAvtoriz->SQLConnectKKMP->Rollback(trans);
 				MessageBox(0,L"Запрос вернул \"false\"!\nОбратитесь к разработчику.",L"Ошибка",MB_OK);
@@ -184,6 +197,15 @@ void __fastcall TFCatalogOffices::BCancelClick(TObject *Sender)
 
 	DMAvtoriz->SQLQCatalogOffices->Open();
 	DMAvtoriz->CDSCatalogOffices->Open();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCatalogOffices::DBLookupComboBoxChiefEnter(TObject *Sender)
+{
+	DMAvtoriz->SQLQGetListMed->Close();
+	DMAvtoriz->SQLQGetListMed->Open();
+	DMAvtoriz->CDSGetListMed->Close();
+	DMAvtoriz->CDSGetListMed->Open();
 }
 //---------------------------------------------------------------------------
 

@@ -8,7 +8,7 @@
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES latin1 */;
 
 SET FOREIGN_KEY_CHECKS=0;
 
@@ -23,8 +23,6 @@ USE `kkmp`;
 #
 # Structure for the `inspection` table : 
 #
-
-DROP TABLE IF EXISTS `inspection`;
 
 CREATE TABLE `inspection` (
   `id_inspection` int(11) NOT NULL AUTO_INCREMENT,
@@ -47,21 +45,17 @@ CREATE TABLE `inspection` (
 # Structure for the `office` table : 
 #
 
-DROP TABLE IF EXISTS `office`;
-
 CREATE TABLE `office` (
   `id_office` int(2) NOT NULL AUTO_INCREMENT,
   `name_office` varchar(150) NOT NULL,
   `id_user` int(11) DEFAULT '0',
   PRIMARY KEY (`id_office`),
   UNIQUE KEY `id_office` (`id_office`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
 
 #
 # Structure for the `user` table : 
 #
-
-DROP TABLE IF EXISTS `user`;
 
 CREATE TABLE `user` (
   `id_user` int(11) NOT NULL AUTO_INCREMENT,
@@ -71,22 +65,20 @@ CREATE TABLE `user` (
   `surname` varchar(45) NOT NULL,
   `patronymic` varchar(50) DEFAULT NULL,
   `id_office` int(2) DEFAULT '1',
-  `chief` int(1) DEFAULT '0',
   PRIMARY KEY (`id_user`),
   UNIQUE KEY `id_user` (`id_user`),
   UNIQUE KEY `login` (`login`),
   UNIQUE KEY `login_2` (`login`),
-  KEY `id_office` (`id_office`),
-  CONSTRAINT `user_fk` FOREIGN KEY (`id_office`) REFERENCES `office` (`id_office`) ON DELETE SET NULL
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+  KEY `id_office` (`id_office`)
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
 
 #
 # Data for the `inspection` table  (LIMIT 0,500)
 #
 
 INSERT INTO `inspection` (`id_inspection`, `type_med_help`, `date_start`, `date_end`, `surname`, `name`, `patronymic`, `date_birthday`, `number_card`, `id_med`, `kkmp`, `kvo`) VALUES 
-  (1,1,'2016-01-01','2016-01-10','ИВАНОВ','ИВАН','ПЕТРОВИЧ','1939-11-07','14',2,0.885,0.200),
-  (2,2,'2016-01-01','2016-01-12','ПЕТРОВ','ПЕТР','ИВАНОВИЧ','1957-04-12','15',1,0.458,0.450);
+  (1,1,'2016-01-01','2016-01-10','??????','????','????????','1939-11-07','14',2,0.885,0.200),
+  (2,2,'2016-01-01','2016-01-12','??????','????','????????','1957-04-12','15',1,0.458,0.450);
 COMMIT;
 
 #
@@ -94,19 +86,18 @@ COMMIT;
 #
 
 INSERT INTO `office` (`id_office`, `name_office`, `id_user`) VALUES 
-  (1,'не указано',0);
+  (1,'?? ???????',0);
 COMMIT;
 
 #
 # Data for the `user` table  (LIMIT 0,500)
 #
 
-INSERT INTO `user` (`id_user`, `login`, `password`, `name`, `surname`, `patronymic`, `id_office`, `chief`) VALUES 
-  (0,'not','not','указано','не',' ',1,0);
+INSERT INTO `user` (`id_user`, `login`, `password`, `name`, `surname`, `patronymic`, `id_office`) VALUES 
+  (0,'not','not','???????','??',' ',1);
 UPDATE `user` SET `id_user`=0 WHERE `id_user`=LAST_INSERT_ID();
-INSERT INTO `user` (`id_user`, `login`, `password`, `name`, `surname`, `patronymic`, `id_office`, `chief`) VALUES 
-  (1,'admin','21232F297A57A5A743894A0E4A801FC3','Админ',' ','',1,0),
-  (17,'1','21232F297A57A5A743894A0E4A801FC3','1','1','1',NULL,0);
+INSERT INTO `user` (`id_user`, `login`, `password`, `name`, `surname`, `patronymic`, `id_office`) VALUES 
+  (1,'admin','21232F297A57A5A743894A0E4A801FC3','?????',' ','',1);
 COMMIT;
 
 

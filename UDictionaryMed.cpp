@@ -207,16 +207,28 @@ void __fastcall TFDictionaryMed::BDeleteClick(TObject *Sender)
 
 	int mess = MessageBox(0,L"Удалить выбранного сотрудника?",L"Предупреждение",MB_YESNO);
 	if(mess == 6){
-		DMAvtoriz->SQLQCatalogMed->Close();
-		DMAvtoriz->SQLQCatalogMed->SQL->Text = "DELETE FROM `user` WHERE `id_user` = '"+DBGrCatalogMed->DataSource->DataSet->FieldByName("id_user")->AsAnsiString+"'";
-
-		DMAvtoriz-> SQLConnectKKMP->StartTransaction(trans);
 		try{
+			DMAvtoriz-> SQLConnectKKMP->StartTransaction(trans);
+			DMAvtoriz->SQLQCatalogMed->Close();
+
+			DMAvtoriz->SQLQCatalogMed->SQL->Text =
+				"UPDATE `office` SET `office`.`id_user` = '0' "
+				"WHERE `office`.`id_user` = '"
+				+DBGrCatalogMed->DataSource->DataSet->FieldByName("id_user")->AsAnsiString+"'";
+
+			DMAvtoriz->SQLQCatalogMed->ExecSQL();
+
+			DMAvtoriz->SQLQCatalogMed->Close();
+
+			DMAvtoriz->SQLQCatalogMed->SQL->Text =
+				"DELETE FROM `user` WHERE `id_user` = '"
+				+DBGrCatalogMed->DataSource->DataSet->FieldByName("id_user")->AsAnsiString+"'";
+
 			if(DMAvtoriz->SQLQCatalogMed->ExecSQL()){
 				DMAvtoriz->SQLConnectKKMP->Commit(trans);
 			}else{
 				DMAvtoriz->SQLConnectKKMP->Rollback(trans);
-				MessageBox(0,L"Запрос вернул \"false\"!\nОбратитесь к разработчику.",L"Ошибка",MB_OK);
+				MessageBox(0,L"Запрос в \"delete from user\" вернул \"false\"!\nОбратитесь к разработчику.",L"Ошибка",MB_OK);
 			}
 		}catch(Exception &e){
 			DMAvtoriz->SQLConnectKKMP->Rollback(trans);

@@ -41,6 +41,7 @@ __published:	// IDE-managed Components
 	void __fastcall BDeleteOfficeClick(TObject *Sender);
 	void __fastcall BCancelClick(TObject *Sender);
 	void __fastcall DBLookupComboBoxChiefEnter(TObject *Sender);
+
 private:	// User declarations
 public:		// User declarations
 	__fastcall TFCatalogOffices(TComponent* Owner);
