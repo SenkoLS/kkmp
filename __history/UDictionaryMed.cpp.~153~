@@ -51,7 +51,7 @@ void __fastcall TFDictionaryMed::setView(){
 //---------------------------------------------------------------------------
 void __fastcall TFDictionaryMed::EOtchExit(TObject *Sender)
 {
-	EOtch->Text = EOtch->Text.UpperCase();
+	ESurname->Text = ESurname->Text.UpperCase();
 }
 //---------------------------------------------------------------------------
 void __fastcall TFDictionaryMed::ENameExit(TObject *Sender)
@@ -61,7 +61,7 @@ void __fastcall TFDictionaryMed::ENameExit(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall TFDictionaryMed::ESurnameExit(TObject *Sender)
 {
-	ESurname->Text = ESurname->Text.UpperCase();
+	EOtch->Text = EOtch->Text.UpperCase();
 }
 //---------------------------------------------------------------------------
 void __fastcall TFDictionaryMed::FormShow(TObject *Sender)

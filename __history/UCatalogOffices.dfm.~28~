@@ -163,7 +163,6 @@ object FCatalogOffices: TFCatalogOffices
     ListSource = DMAvtoriz.DSGetListMed
     ParentFont = False
     TabOrder = 2
-    OnEnter = DBLookupComboBoxChiefEnter
   end
   object BAddMed: TButton
     Left = 490

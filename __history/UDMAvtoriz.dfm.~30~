@@ -133,12 +133,7 @@ object DMAvtoriz: TDMAvtoriz
     MaxBlobSize = -1
     Params = <>
     SQL.Strings = (
-      
-        'SELECT `office`.`id_office`,`office`.`name_office`, CONCAT(`user' +
-        '`.`surname`,'#39' '#39',`user`.`name`,'#39' '#39',`user`.`patronymic`) as `fio`'
-      'FROM `user` INNER JOIN `office` '
-      'ON `office`.`id_user` = user.`id_user`'
-      'WHERE `office`.`id_office` !=1')
+      'SELECT * FROM `office` WHERE `id_office` !=1')
     SQLConnection = SQLConnectKKMP
     Left = 160
     Top = 232

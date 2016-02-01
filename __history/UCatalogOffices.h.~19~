@@ -1,12 +1,13 @@
 //---------------------------------------------------------------------------
 
-#ifndef UDictionaryMedH
-#define UDictionaryMedH
+#ifndef UCatalogOfficesH
+#define UCatalogOfficesH
 //---------------------------------------------------------------------------
 #include <Classes.hpp>
 #include <Controls.hpp>
 #include <StdCtrls.hpp>
 #include <Forms.hpp>
+#include "UDMAvtoriz.h"
 #include "DBAxisGridsEh.hpp"
 #include "DBGridEh.hpp"
 #include "DBGridEhGrouping.hpp"
@@ -14,53 +15,38 @@
 #include "DynVarsEh.hpp"
 #include "GridsEh.hpp"
 #include "ToolCtrlsEh.hpp"
-#include <ExtCtrls.hpp>
-#include "UDMAvtoriz.h"
 #include <DBCtrls.hpp>
-#include "UAvtoriz.h"
+#include "UDictionaryMed.h"
 //---------------------------------------------------------------------------
-class TFDictionaryMed : public TForm
+class TFCatalogOffices : public TForm
 {
 __published:	// IDE-managed Components
-	TPanel *Panel2;
-	TLabel *LSurname;
-	TLabel *LName;
-	TLabel *LPatronymic;
-	TEdit *EOtch;
-	TEdit *EName;
-	TEdit *ESurname;
-	TButton *BAdd;
-	TButton *BEdit;
-	TButton *BDelete;
-	TDBGridEh *DBGrCatalogMed;
-	TLabel *LLogin;
-	TLabel *LPassword;
-	TLabel *LOffice;
-	TEdit *ELogin;
-	TEdit *EPassword;
-	TDBLookupComboBox *DBLookupComboBoxOffice;
-	TButton *BSafeMed;
+	TDBGridEh *DBGrCatalogOffices;
+	TLabel *LNameOffice;
+	TLabel *LAddMed;
+	TEdit *ENameOffice;
+	TButton *NAddOffice;
+	TButton *BEditNameOffice;
+	TButton *BDeleteOffice;
+	TDBLookupComboBox *DBLookupComboBoxChief;
+	TButton *BAddMed;
+	TButton *BSafeRecord;
 	TButton *BCancel;
-	void __fastcall EOtchExit(TObject *Sender);
-	void __fastcall ENameExit(TObject *Sender);
-	void __fastcall ESurnameExit(TObject *Sender);
 	void __fastcall FormShow(TObject *Sender);
 	void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
-	void __fastcall BAddClick(TObject *Sender);
-	void __fastcall BEditClick(TObject *Sender);
+	void __fastcall BAddMedClick(TObject *Sender);
+	void __fastcall NAddOfficeClick(TObject *Sender);
+	void __fastcall BSafeRecordClick(TObject *Sender);
+	void __fastcall BEditNameOfficeClick(TObject *Sender);
+	void __fastcall BDeleteOfficeClick(TObject *Sender);
 	void __fastcall BCancelClick(TObject *Sender);
-	void __fastcall BSafeMedClick(TObject *Sender);
-	void __fastcall BDeleteClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
-	__fastcall TFDictionaryMed(TComponent* Owner);
-	void __fastcall TFDictionaryMed::setView();
-
+	__fastcall TFCatalogOffices(TComponent* Owner);
 	TTransactionDesc trans;
 	int chooseSafe;  //It's for choose method update or insert
-	AnsiString __fastcall TFDictionaryMed::getStrValue(AnsiString val);
 };
 //---------------------------------------------------------------------------
-extern PACKAGE TFDictionaryMed *FDictionaryMed;
+extern PACKAGE TFCatalogOffices *FCatalogOffices;
 //---------------------------------------------------------------------------
 #endif

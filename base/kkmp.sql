@@ -52,10 +52,10 @@ DROP TABLE IF EXISTS `office`;
 CREATE TABLE `office` (
   `id_office` int(2) NOT NULL AUTO_INCREMENT,
   `name_office` varchar(150) NOT NULL,
-  `id_user` int(11) DEFAULT NULL,
+  `id_user` int(11) DEFAULT '0',
   PRIMARY KEY (`id_office`),
   UNIQUE KEY `id_office` (`id_office`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 #
 # Structure for the `user` table : 
@@ -71,12 +71,14 @@ CREATE TABLE `user` (
   `surname` varchar(45) NOT NULL,
   `patronymic` varchar(50) DEFAULT NULL,
   `id_office` int(2) DEFAULT '1',
+  `chief` int(1) DEFAULT '0',
   PRIMARY KEY (`id_user`),
   UNIQUE KEY `id_user` (`id_user`),
   UNIQUE KEY `login` (`login`),
   UNIQUE KEY `login_2` (`login`),
-  KEY `id_office` (`id_office`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+  KEY `id_office` (`id_office`),
+  CONSTRAINT `user_fk` FOREIGN KEY (`id_office`) REFERENCES `office` (`id_office`) ON DELETE SET NULL
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 #
 # Data for the `inspection` table  (LIMIT 0,500)
@@ -92,24 +94,19 @@ COMMIT;
 #
 
 INSERT INTO `office` (`id_office`, `name_office`, `id_user`) VALUES 
-  (1,'не указано',NULL),
-  (3,'1 Терапевтическое отделение',NULL),
-  (4,'2 Терапевтическое отделение',NULL),
-  (5,'Отделение общей практики',NULL),
-  (6,'Хирургическое отделение',NULL);
+  (1,'не указано',0);
 COMMIT;
 
 #
 # Data for the `user` table  (LIMIT 0,500)
 #
 
-INSERT INTO `user` (`id_user`, `login`, `password`, `name`, `surname`, `patronymic`, `id_office`) VALUES 
-  (1,'admin','21232f297a57a5a743894a0e4a801fc3','Админ',' ','',1),
-  (2,'kacgt','21232f297a57a5a743894a0e4a801fc3','ГИВИ','КАЦИТАДЗЕ','ТЕНГИЗОВИЧ',1),
-  (3,'','','ВЕРА','БУЗЫКАЕВА','ЛЕОНИДОВНА',1),
-  (4,'ivanovvb','3','ВЛАДИМИР','ИВАНОВ','БОРИСОВИЧ',3),
-  (8,'ывсывс','ECCBC87E4B5CE2FE28308FD9F2A7BAF3','ЫВСЫВС','ЫСВЫС','ЫВСЫВС',3),
-  (10,'qwe','D41D8CD98F00B204E9800998ECF8427E','QWE','QWE','QWE',0);
+INSERT INTO `user` (`id_user`, `login`, `password`, `name`, `surname`, `patronymic`, `id_office`, `chief`) VALUES 
+  (0,'not','not','указано','не',' ',1,0);
+UPDATE `user` SET `id_user`=0 WHERE `id_user`=LAST_INSERT_ID();
+INSERT INTO `user` (`id_user`, `login`, `password`, `name`, `surname`, `patronymic`, `id_office`, `chief`) VALUES 
+  (1,'admin','21232F297A57A5A743894A0E4A801FC3','Админ',' ','',1,0),
+  (17,'1','21232F297A57A5A743894A0E4A801FC3','1','1','1',NULL,0);
 COMMIT;
 
 

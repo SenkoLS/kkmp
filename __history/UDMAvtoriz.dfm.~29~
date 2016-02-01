@@ -133,12 +133,7 @@ object DMAvtoriz: TDMAvtoriz
     MaxBlobSize = -1
     Params = <>
     SQL.Strings = (
-      
-        'SELECT `office`.`id_office`,`office`.`name_office`, CONCAT(`user' +
-        '`.`surname`,'#39' '#39',`user`.`name`,'#39' '#39',`user`.`patronymic`) as `fio`'
-      'FROM `user` INNER JOIN `office` '
-      'ON `office`.`id_user` = user.`id_user`'
-      'WHERE `office`.`id_office` !=1')
+      'SELECT * FROM `office` WHERE `id_office` !=1')
     SQLConnection = SQLConnectKKMP
     Left = 160
     Top = 232
@@ -197,20 +192,20 @@ object DMAvtoriz: TDMAvtoriz
     Left = 160
     Top = 368
   end
-  object DSPGetListMed: TDataSetProvider
+  object DataSetProvider1: TDataSetProvider
     DataSet = SQLQGetListMed
     Left = 264
     Top = 368
   end
-  object CDSGetListMed: TClientDataSet
+  object ClientDataSet1: TClientDataSet
     Aggregates = <>
     Params = <>
-    ProviderName = 'DSPGetListMed'
+    ProviderName = 'DSPgetListOffice'
     Left = 360
     Top = 368
   end
-  object DSGetListMed: TDataSource
-    DataSet = CDSGetListMed
+  object DataSource1: TDataSource
+    DataSet = ClientDataSet1
     Left = 464
     Top = 368
   end

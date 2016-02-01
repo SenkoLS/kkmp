@@ -51,7 +51,7 @@ void __fastcall TFDictionaryMed::setView(){
 //---------------------------------------------------------------------------
 void __fastcall TFDictionaryMed::EOtchExit(TObject *Sender)
 {
-	EOtch->Text = EOtch->Text.UpperCase();
+	ESurname->Text = ESurname->Text.UpperCase();
 }
 //---------------------------------------------------------------------------
 void __fastcall TFDictionaryMed::ENameExit(TObject *Sender)
@@ -61,21 +61,21 @@ void __fastcall TFDictionaryMed::ENameExit(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall TFDictionaryMed::ESurnameExit(TObject *Sender)
 {
-	ESurname->Text = ESurname->Text.UpperCase();
+	EOtch->Text = EOtch->Text.UpperCase();
 }
 //---------------------------------------------------------------------------
 void __fastcall TFDictionaryMed::FormShow(TObject *Sender)
 {
-    DBLookupComboBoxOffice->KeyValue = NULL;
+    DBLookupComboBoxOffice->DataSource = NULL;
 	if(DMAvtoriz->DSAvtoriz->DataSet->FieldByName("login")->AsAnsiString != "admin"){
 		DMAvtoriz->SQLQCatalogMed->Close();
 		DMAvtoriz->SQLQCatalogMed->SQL->Text = "SELECT `user`.`id_user`,`surname`,`name`,`patronymic`,`login`,`name_office` "
 			"FROM `user` INNER JOIN `office` ON `user`.`id_office` = `office`.`id_office` "
-			"WHERE `user`.`id_user` > 1";
+			"WHERE `user`.`id_user` != 1";
 	}else{
     	DMAvtoriz->SQLQCatalogMed->Close();
 		DMAvtoriz->SQLQCatalogMed->SQL->Text = "SELECT `user`.`id_user`,`surname`,`name`,`patronymic`,`login`,`name_office` "
-			"FROM `user` INNER JOIN `office` ON `user`.`id_office` = `office`.`id_office` WHERE `user`.`id_user` > 0";
+			"FROM `user` INNER JOIN `office` ON `user`.`id_office` = `office`.`id_office`";
 	}
 
 	DMAvtoriz->SQLQCatalogMed->Open();

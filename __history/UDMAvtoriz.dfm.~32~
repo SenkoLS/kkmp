@@ -136,7 +136,7 @@ object DMAvtoriz: TDMAvtoriz
       
         'SELECT `office`.`id_office`,`office`.`name_office`, CONCAT(`user' +
         '`.`surname`,'#39' '#39',`user`.`name`,'#39' '#39',`user`.`patronymic`) as `fio`'
-      'FROM `user` INNER JOIN `office` '
+      'FROM `user` JOIN `office` '
       'ON `office`.`id_user` = user.`id_user`'
       'WHERE `office`.`id_office` !=1')
     SQLConnection = SQLConnectKKMP

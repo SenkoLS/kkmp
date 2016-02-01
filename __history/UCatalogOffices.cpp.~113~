@@ -84,10 +84,12 @@ void __fastcall TFCatalogOffices::BSafeRecordClick(TObject *Sender)
 	DMAvtoriz->SQLQCatalogOffices->Close();
 
 	switch(chooseSafe){
-		case 1: DMAvtoriz->SQLQCatalogOffices->SQL->Text = "INSERT INTO `office` (`name_office`) "
-				"VALUES('"+ ENameOffice->Text +"')";
+		case 1: ShowMessage(DBLookupComboBoxChief->ListSource->DataSet->FieldByName("id_user")->AsAnsiString);
+				DMAvtoriz->SQLQCatalogOffices->SQL->Text = "INSERT INTO `office` (`name_office`,`id_user`) "
+				"VALUES('"+ ENameOffice->Text +"','"+DBLookupComboBoxChief->ListSource->DataSet->FieldByName("id_user")->AsAnsiString+"')";
 			break;
-		case 2: DMAvtoriz->SQLQCatalogOffices->SQL->Text =  "UPDATE `office` SET `name_office` = '"+ ENameOffice->Text +"' "
+		case 2: DMAvtoriz->SQLQCatalogOffices->SQL->Text =  "UPDATE `office` SET `name_office` = '"+ ENameOffice->Text +"', "
+				"`id_user` = '"+ DBLookupComboBoxChief->ListSource->DataSet->FieldByName("id_user")->AsAnsiString +"' "
 				"WHERE `id_office` = '"+DBGrCatalogOffices->DataSource->DataSet->FieldByName("id_office")->AsAnsiString+"'";
 			break;
 	}
@@ -95,15 +97,6 @@ void __fastcall TFCatalogOffices::BSafeRecordClick(TObject *Sender)
 	DMAvtoriz->SQLConnectKKMP->StartTransaction(trans);
 	try{
 		if(DMAvtoriz->SQLQCatalogOffices->ExecSQL()){
-			//DMAvtoriz->SQLQCatalogOffices->SQL->Text =  "UPDATE `user` SET `chief` = '1' "
-			//"WHERE `id_user` = '"+DBGrCatalogOffices->DataSource->DataSet->FieldByName("id_office")->AsAnsiString+"'";
-
-
-
-
-
-
-
 			DMAvtoriz->SQLConnectKKMP->Commit(trans);
 		}else{
 			DMAvtoriz->SQLConnectKKMP->Rollback(trans);
@@ -192,15 +185,6 @@ void __fastcall TFCatalogOffices::BCancelClick(TObject *Sender)
 
 	DMAvtoriz->SQLQCatalogOffices->Open();
 	DMAvtoriz->CDSCatalogOffices->Open();
-}
-//---------------------------------------------------------------------------
-
-void __fastcall TFCatalogOffices::DBLookupComboBoxChiefEnter(TObject *Sender)
-{
-	DMAvtoriz->SQLQGetListMed->Close();
-	DMAvtoriz->SQLQGetListMed->Open();
-	DMAvtoriz->CDSGetListMed->Close();
-	DMAvtoriz->CDSGetListMed->Open();
 }
 //---------------------------------------------------------------------------
 

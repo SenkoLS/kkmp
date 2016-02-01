@@ -105,7 +105,7 @@ object FDictionaryMed: TFDictionaryMed
       Font.Style = []
       ParentFont = False
     end
-    object EOtch: TEdit
+    object ESurname: TEdit
       Left = 553
       Top = 8
       Width = 224
@@ -118,8 +118,8 @@ object FDictionaryMed: TFDictionaryMed
       Font.Name = 'Times New Roman'
       Font.Style = []
       ParentFont = False
-      TabOrder = 2
-      OnExit = EOtchExit
+      TabOrder = 0
+      OnExit = ESurnameExit
     end
     object EName: TEdit
       Left = 320
@@ -137,7 +137,7 @@ object FDictionaryMed: TFDictionaryMed
       TabOrder = 1
       OnExit = ENameExit
     end
-    object ESurname: TEdit
+    object EOtch: TEdit
       Left = 70
       Top = 8
       Width = 179
@@ -150,8 +150,8 @@ object FDictionaryMed: TFDictionaryMed
       Font.Name = 'Times New Roman'
       Font.Style = []
       ParentFont = False
-      TabOrder = 0
-      OnExit = ESurnameExit
+      TabOrder = 2
+      OnExit = EOtchExit
     end
     object BAdd: TButton
       Left = 5
@@ -165,7 +165,7 @@ object FDictionaryMed: TFDictionaryMed
       Font.Name = 'Times New Roman'
       Font.Style = []
       ParentFont = False
-      TabOrder = 6
+      TabOrder = 3
       OnClick = BAddClick
     end
     object BEdit: TButton
@@ -180,7 +180,7 @@ object FDictionaryMed: TFDictionaryMed
       Font.Name = 'Times New Roman'
       Font.Style = []
       ParentFont = False
-      TabOrder = 7
+      TabOrder = 4
       OnClick = BEditClick
     end
     object BDelete: TButton
@@ -195,7 +195,7 @@ object FDictionaryMed: TFDictionaryMed
       Font.Name = 'Times New Roman'
       Font.Style = []
       ParentFont = False
-      TabOrder = 8
+      TabOrder = 5
       OnClick = BDeleteClick
     end
     object ELogin: TEdit
@@ -211,7 +211,7 @@ object FDictionaryMed: TFDictionaryMed
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      TabOrder = 3
+      TabOrder = 6
     end
     object EPassword: TEdit
       Left = 320
@@ -226,7 +226,7 @@ object FDictionaryMed: TFDictionaryMed
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      TabOrder = 4
+      TabOrder = 7
     end
     object DBLookupComboBoxOffice: TDBLookupComboBox
       Left = 529
@@ -243,7 +243,7 @@ object FDictionaryMed: TFDictionaryMed
       ListField = 'name_office'
       ListSource = DMAvtoriz.DSgetListOffice
       ParentFont = False
-      TabOrder = 5
+      TabOrder = 8
     end
     object BSafeMed: TButton
       Left = 5

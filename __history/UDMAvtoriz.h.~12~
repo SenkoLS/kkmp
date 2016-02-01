@@ -42,9 +42,9 @@ __published:	// IDE-managed Components
 	TClientDataSet *CDSgetListOffice;
 	TDataSource *DSgetListOffice;
 	TSQLQuery *SQLQGetListMed;
-	TDataSetProvider *DSPGetListMed;
-	TClientDataSet *CDSGetListMed;
-	TDataSource *DSGetListMed;
+	TDataSetProvider *DataSetProvider1;
+	TClientDataSet *ClientDataSet1;
+	TDataSource *DataSource1;
 	void __fastcall DataModuleCreate(TObject *Sender);
 private:	// User declarations
 public:		// User declarations

@@ -95,8 +95,8 @@ void __fastcall TFCatalogOffices::BSafeRecordClick(TObject *Sender)
 	DMAvtoriz->SQLConnectKKMP->StartTransaction(trans);
 	try{
 		if(DMAvtoriz->SQLQCatalogOffices->ExecSQL()){
-			//DMAvtoriz->SQLQCatalogOffices->SQL->Text =  "UPDATE `user` SET `chief` = '1' "
-			//"WHERE `id_user` = '"+DBGrCatalogOffices->DataSource->DataSet->FieldByName("id_office")->AsAnsiString+"'";
+			DMAvtoriz->SQLQCatalogOffices->SQL->Text =  "UPDATE `user` SET `chief` = '1' "
+						"WHERE `id_user` = '"+DBGrCatalogOffices->DataSource->DataSet->FieldByName("id_office")->AsAnsiString+"'";
 
 
 
