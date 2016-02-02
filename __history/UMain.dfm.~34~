@@ -83,7 +83,7 @@ object FMain: TFMain
         item
           DynProps = <>
           EditButtons = <>
-          FieldName = 'year_date_birthday'
+          FieldName = 'year_ydate_birthday'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -13

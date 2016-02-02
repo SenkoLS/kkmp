@@ -8,7 +8,7 @@
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES latin1 */;
+/*!40101 SET NAMES utf8 */;
 
 SET FOREIGN_KEY_CHECKS=0;
 
@@ -24,26 +24,69 @@ USE `kkmp`;
 # Structure for the `inspection` table : 
 #
 
+DROP TABLE IF EXISTS `inspection`;
+
 CREATE TABLE `inspection` (
   `id_inspection` int(11) NOT NULL AUTO_INCREMENT,
-  `type_med_help` int(2) NOT NULL,
   `date_start` date NOT NULL,
   `date_end` date NOT NULL,
   `surname` varchar(35) NOT NULL,
   `name` varchar(35) NOT NULL,
   `patronymic` varchar(45) DEFAULT NULL,
-  `date_birthday` date NOT NULL,
-  `number_card` varchar(45) DEFAULT '-',
-  `id_med` int(11) NOT NULL,
-  `kkmp` double(15,3) NOT NULL DEFAULT '0.000',
-  `kvo` double(15,3) NOT NULL DEFAULT '0.000',
+  `year_date_birthday` varchar(10) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `RemarkInfServYes` int(1) DEFAULT '0',
+  `RemarkAnamYes` int(1) DEFAULT '0',
+  `RemarkFizResYes` int(1) DEFAULT '0',
+  `ResearchNotYes` int(1) DEFAULT '0',
+  `ResearchToMuchYes` int(1) DEFAULT '0',
+  `ResearchLateYes` int(1) DEFAULT '0',
+  `ResearchInstrNotYes` int(1) DEFAULT '0',
+  `ResearchInstrToMuchYes` int(1) DEFAULT '0',
+  `ResearchInstrLateYes` int(1) DEFAULT '0',
+  `RemarkKonsultNotYes` int(1) DEFAULT '0',
+  `RemarkKonsultLateYes` int(1) DEFAULT '0',
+  `RemarkDeseaseVerifYes` int(1) DEFAULT '0',
+  `RemarkDeseaseTimeYes` int(1) DEFAULT '0',
+  `RemarkDeseaseContentYes` int(1) DEFAULT '0',
+  `RemarkTherapyChooseDrYes` int(1) DEFAULT '0',
+  `RemarkTherapyTimeAppointmentYes` int(1) DEFAULT '0',
+  `RemarkTherapyPolypharmacyYes` int(1) DEFAULT '0',
+  `ContinuityChoosePlaceYes` int(1) DEFAULT '0',
+  `ContinuityTimeTransferYes` int(1) DEFAULT '0',
+  `RemarkStandartMHYes` int(1) DEFAULT '0',
+  `VuluntarMedAgreementYes` int(1) DEFAULT '0',
+  `AgreementPDNYes` int(1) DEFAULT '0',
+  `ComplitListDeseaseYes` int(1) DEFAULT '0',
+  `CompitListProfAndStatusYes` int(1) DEFAULT '0',
+  `ExistenceFLGYes` int(1) DEFAULT '0',
+  `ExistenceInspGinYes` int(1) DEFAULT '0',
+  `RationalUseOfResourcesYes` int(1) DEFAULT '0',
+  `AbsenceComplaintsOfPatientsYes` int(1) DEFAULT '0',
+  `TimelyRegistLNYes` int(1) DEFAULT '0',
+  `RefferalToVKYes` int(1) DEFAULT '0',
+  `IntegrityCard` int(1) DEFAULT '1',
+  `AccuracyHandwriting` int(1) DEFAULT '1',
+  `QualityProfInsOnko` int(1) DEFAULT '1',
+  `DispTimelines` int(1) DEFAULT '1',
+  `QualityCollectAnamsis` int(1) DEFAULT '1',
+  `QualityCollectComplaint` int(1) DEFAULT '1',
+  `DescriptObjectStatus` int(1) DEFAULT '1',
+  `EvaluationResultsOfTreatment` int(1) DEFAULT '1',
+  `ObservStandartsOfDiagnostics` int(1) DEFAULT '1',
+  `ObservStandartsOfTreatment` int(1) DEFAULT '1',
+  `DeadlinesVN` int(1) DEFAULT '1',
+  `kkmp` varchar(20) NOT NULL DEFAULT '0',
+  `kvo` varchar(20) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id_inspection`),
   UNIQUE KEY `id_inspection` (`id_inspection`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 #
 # Structure for the `office` table : 
 #
+
+DROP TABLE IF EXISTS `office`;
 
 CREATE TABLE `office` (
   `id_office` int(2) NOT NULL AUTO_INCREMENT,
@@ -56,6 +99,8 @@ CREATE TABLE `office` (
 #
 # Structure for the `user` table : 
 #
+
+DROP TABLE IF EXISTS `user`;
 
 CREATE TABLE `user` (
   `id_user` int(11) NOT NULL AUTO_INCREMENT,
@@ -70,15 +115,21 @@ CREATE TABLE `user` (
   UNIQUE KEY `login` (`login`),
   UNIQUE KEY `login_2` (`login`),
   KEY `id_office` (`id_office`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
 
 #
 # Data for the `inspection` table  (LIMIT 0,500)
 #
 
-INSERT INTO `inspection` (`id_inspection`, `type_med_help`, `date_start`, `date_end`, `surname`, `name`, `patronymic`, `date_birthday`, `number_card`, `id_med`, `kkmp`, `kvo`) VALUES 
-  (1,1,'2016-01-01','2016-01-10','??????','????','????????','1939-11-07','14',2,0.885,0.200),
-  (2,2,'2016-01-01','2016-01-12','??????','????','????????','1957-04-12','15',1,0.458,0.450);
+INSERT INTO `inspection` (`id_inspection`, `date_start`, `date_end`, `surname`, `name`, `patronymic`, `year_date_birthday`, `id_user`, `RemarkInfServYes`, `RemarkAnamYes`, `RemarkFizResYes`, `ResearchNotYes`, `ResearchToMuchYes`, `ResearchLateYes`, `ResearchInstrNotYes`, `ResearchInstrToMuchYes`, `ResearchInstrLateYes`, `RemarkKonsultNotYes`, `RemarkKonsultLateYes`, `RemarkDeseaseVerifYes`, `RemarkDeseaseTimeYes`, `RemarkDeseaseContentYes`, `RemarkTherapyChooseDrYes`, `RemarkTherapyTimeAppointmentYes`, `RemarkTherapyPolypharmacyYes`, `ContinuityChoosePlaceYes`, `ContinuityTimeTransferYes`, `RemarkStandartMHYes`, `VuluntarMedAgreementYes`, `AgreementPDNYes`, `ComplitListDeseaseYes`, `CompitListProfAndStatusYes`, `ExistenceFLGYes`, `ExistenceInspGinYes`, `RationalUseOfResourcesYes`, `AbsenceComplaintsOfPatientsYes`, `TimelyRegistLNYes`, `RefferalToVKYes`, `IntegrityCard`, `AccuracyHandwriting`, `QualityProfInsOnko`, `DispTimelines`, `QualityCollectAnamsis`, `QualityCollectComplaint`, `DescriptObjectStatus`, `EvaluationResultsOfTreatment`, `ObservStandartsOfDiagnostics`, `ObservStandartsOfTreatment`, `DeadlinesVN`, `kkmp`, `kvo`) VALUES 
+  (3,'2016-02-02','2016-02-02','ИВАНОВА','МАРГАРИТА','АЛЕКСЕЕВНА','1965',34,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,5,5,5,5,5,5,5,5,5,5,5,'1','0'),
+  (4,'2016-02-02','2016-02-02','','','','',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,5,5,5,5,5,5,5,5,5,5,5,'1','0'),
+  (5,'2016-02-02','2016-02-02','','','','',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,5,5,5,2,5,5,5,5,5,5,5,'0','0'),
+  (6,'2016-02-02','2016-02-02','','','','',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,5,5,5,5,5,5,5,5,5,5,5,'0','0'),
+  (7,'2016-02-02','2016-02-02','','','','',0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,2,2,2,2,2,2,2,2,2,2,5,'0','0'),
+  (8,'2016-02-01','2016-02-10','ИВАНОВА','ЛЕЯ','МИХАЙЛОВНА','1955',34,0,1,1,0,1,1,0,1,1,0,1,1,0,1,1,0,1,1,0,0,0,1,0,1,0,1,1,0,1,1,4,4,5,4,1,2,4,2,4,2,5,'0','0'),
+  (9,'2016-02-02','2016-02-02','','','','',0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,2,3,5,2,2,5,5,2,5,5,5,'0','0'),
+  (10,'2016-02-02','2016-02-25','ПЕТРОВА','ОЛЬГА','ВИКТОРОВНА','1968',35,0,1,1,0,0,1,0,1,1,0,1,0,1,1,0,1,1,0,0,0,0,0,1,0,1,0,1,0,1,1,2,3,2,3,4,5,4,3,2,1,5,'0,433 / 0,6','0,5');
 COMMIT;
 
 #
@@ -86,7 +137,7 @@ COMMIT;
 #
 
 INSERT INTO `office` (`id_office`, `name_office`, `id_user`) VALUES 
-  (1,'?? ???????',0);
+  (1,'не указано',0);
 COMMIT;
 
 #
@@ -94,10 +145,13 @@ COMMIT;
 #
 
 INSERT INTO `user` (`id_user`, `login`, `password`, `name`, `surname`, `patronymic`, `id_office`) VALUES 
-  (0,'not','not','???????','??',' ',1);
+  (0,'not','not','указано','не',' ',1);
 UPDATE `user` SET `id_user`=0 WHERE `id_user`=LAST_INSERT_ID();
 INSERT INTO `user` (`id_user`, `login`, `password`, `name`, `surname`, `patronymic`, `id_office`) VALUES 
-  (1,'admin','21232F297A57A5A743894A0E4A801FC3','?????',' ','',1);
+  (1,'admin','21232F297A57A5A743894A0E4A801FC3','системы','Администратор','',1),
+  (33,'kac','0208A2E72DA71F7D17D6D20080990AD0','ГИВИ','КАЦИТАДЗЕ','ТЕНГИЗОВИЧ',1),
+  (34,'sol','12313A3D28F802E3A22B07D2E01C6DCF','АНАТОЛИЙ','СОЛОВЬЕВ','ЮРЬЕВИЧ',1),
+  (35,'zheg','8E956EDDDDA844BB342113AA3D124304','ВЕРА','ЖЕГАЛОВА','ГРИГОРЬЕВНА',1);
 COMMIT;
 
 

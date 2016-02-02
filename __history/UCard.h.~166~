@@ -105,11 +105,11 @@ __published:	// IDE-managed Components
 	TLabel *Label14;
 	TEdit *EArea;
 	TLabel *Label15;
-	TEdit *ESurname;
+	TEdit *EFIOPac;
 	TLabel *Label16;
 	TEdit *EYearOfBirthday;
 	TLabel *Label17;
-	TDBLookupComboBox *DBLookupComboBoxListMed;
+	TDBLookupComboBox *DBLookupComboBox1;
 	TPanel *PVuluntarMedAgreement;
 	TPanel *PAgreementPDN;
 	TPanel *PComplitListDesease;
@@ -212,11 +212,6 @@ __published:	// IDE-managed Components
 	TLabel *Label19;
 	TPanel *Panel5;
 	TButton *Button1;
-	TEdit *EName;
-	TEdit *EPatronymic;
-	TLabel *LSurname;
-	TLabel *LName;
-	TLabel *LPatronymic;
 	void __fastcall PRemarkInfServYesClick(TObject *Sender);
 	void __fastcall PRemarkInfServNoClick(TObject *Sender);
 	void __fastcall PRemarkAnamYesClick(TObject *Sender);
@@ -328,11 +323,8 @@ __published:	// IDE-managed Components
 	void __fastcall PAbsenceComplaintsOfPatientsNoClick(TObject *Sender);
 	void __fastcall DTPDateStartCloseUp(TObject *Sender);
 	void __fastcall DTPDateEndCloseUp(TObject *Sender);
+	void __fastcall EFIOPacExit(TObject *Sender);
 	void __fastcall Button1Click(TObject *Sender);
-	void __fastcall ESurnameExit(TObject *Sender);
-	void __fastcall ENameExit(TObject *Sender);
-	void __fastcall EPatronymicExit(TObject *Sender);
-	void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
 
 private:	// User declarations
 public:		// User declarations
@@ -374,9 +366,6 @@ public:		// User declarations
 
 	void __fastcall TFCard::getKvo();
 	void __fastcall TFCard::getKkmp();
-	AnsiString __fastcall TFCard::BoolToStr(bool value);
-
-	TTransactionDesc trans;
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TFCard *FCard;

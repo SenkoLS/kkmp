@@ -374,9 +374,6 @@ public:		// User declarations
 
 	void __fastcall TFCard::getKvo();
 	void __fastcall TFCard::getKkmp();
-	AnsiString __fastcall TFCard::BoolToStr(bool value);
-
-	TTransactionDesc trans;
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TFCard *FCard;

@@ -41,6 +41,20 @@ object FMain: TFMain
         item
           DynProps = <>
           EditButtons = <>
+          FieldName = 'type_med_help'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Times New Roman'
+          Font.Style = []
+          Footers = <>
+          Title.Alignment = taCenter
+          Title.Caption = #1042#1080#1076' '#1087#1086#1084#1086#1097#1080
+          Width = 75
+        end
+        item
+          DynProps = <>
+          EditButtons = <>
           FieldName = 'date_start'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
@@ -78,12 +92,12 @@ object FMain: TFMain
           Footers = <>
           Title.Alignment = taCenter
           Title.Caption = #1060#1048#1054
-          Width = 280
+          Width = 205
         end
         item
           DynProps = <>
           EditButtons = <>
-          FieldName = 'year_date_birthday'
+          FieldName = 'date_birthday'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -13
@@ -91,8 +105,22 @@ object FMain: TFMain
           Font.Style = []
           Footers = <>
           Title.Alignment = taCenter
-          Title.Caption = #1043#1086#1076' '#1088#1086#1078'.'
+          Title.Caption = #1044#1056
           Width = 80
+        end
+        item
+          DynProps = <>
+          EditButtons = <>
+          FieldName = 'number_card'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Times New Roman'
+          Font.Style = []
+          Footers = <>
+          Title.Alignment = taCenter
+          Title.Caption = #1053#1086#1084#1077#1088' '#1072#1084#1073'. '#1082#1072#1088#1090#1099
+          Width = 95
         end
         item
           DynProps = <>

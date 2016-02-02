@@ -6,16 +6,16 @@
     <Transaction>1899.12.30 00:00:00.000.358,K:\PROJECT\С++\MY_PROJECT\KKMP\UAvtoriz.dfm=K:\PROJECT\С++\MY_PROJECT\KKMP\Unit1.dfm</Transaction>
     <Transaction>1899.12.30 00:00:00.000.393,K:\PROJECT\С++\MY_PROJECT\KKMP\UCard.cpp=K:\PROJECT\С++\MY_PROJECT\KKMP\Unit1.cpp</Transaction>
     <Transaction>1899.12.30 00:00:00.000.212,=C:\Users\senkols\Documents\RAD Studio\Projects\Project1.res</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.598,K:\PROJECT\С++\MY_PROJECT\KKMP\UDictionaryMed.dfm=K:\PROJECT\С++\MY_PROJECT\KKMP\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.339,K:\PROJECT\С++\MY_PROJECT\KKMP\UAbout.dfm=K:\PROJECT\С++\MY_PROJECT\KKMP\Unit1.dfm</Transaction>
     <Transaction>1899.12.30 00:00:00.000.116,C:\PROJECT\C\kkmp\Unit1.dfm=C:\PROJECT\C\kkmp\UDirectoryOffices.dfm</Transaction>
     <Transaction>1899.12.30 00:00:00.000.393,K:\PROJECT\С++\MY_PROJECT\KKMP\UCard.h=K:\PROJECT\С++\MY_PROJECT\KKMP\Unit1.h</Transaction>
     <Transaction>1899.12.30 00:00:00.000.224,C:\Users\senkols\Documents\RAD Studio\Projects\Unit1.h=K:\PROJECT\С++\MY_PROJECT\KKMP\UMain.h</Transaction>
     <Transaction>1899.12.30 00:00:00.000.415,C:\Users\senkols\Documents\RAD Studio\Projects\Project1.cbproj=K:\PROJECT\С++\MY_PROJECT\KKMP\KKMP.cbproj</Transaction>
     <Transaction>1899.12.30 00:00:00.000.224,C:\Users\senkols\Documents\RAD Studio\Projects\Unit1.cpp=K:\PROJECT\С++\MY_PROJECT\KKMP\UMain.cpp</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.312,=C:\Users\senkols\Documents\RAD Studio\Projects\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.340,=C:\Users\senkols\Documents\RAD Studio\Projects\Unit1.cpp</Transaction>
     <Transaction>1899.12.30 00:00:00.000.116,C:\PROJECT\C\kkmp\Unit1.h=C:\PROJECT\C\kkmp\UDirectoryOffices.h</Transaction>
     <Transaction>1899.12.30 00:00:00.000.282,C:\PROJECT\C\kkmp\Unit1.h=C:\PROJECT\C\kkmp\UCatalogOffices.h</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.340,=C:\Users\senkols\Documents\RAD Studio\Projects\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.312,=C:\Users\senkols\Documents\RAD Studio\Projects\Unit1.cpp</Transaction>
     <Transaction>1899.12.30 00:00:00.000.904,K:\PROJECT\С++\MY_PROJECT\KKMP\UDMAvtoriz.dfm=K:\PROJECT\С++\MY_PROJECT\KKMP\Unit1.dfm</Transaction>
     <Transaction>1899.12.30 00:00:00.000.358,K:\PROJECT\С++\MY_PROJECT\KKMP\UAvtoriz.h=K:\PROJECT\С++\MY_PROJECT\KKMP\Unit1.h</Transaction>
     <Transaction>1899.12.30 00:00:00.000.224,C:\Users\senkols\Documents\RAD Studio\Projects\Unit1.dfm=K:\PROJECT\С++\MY_PROJECT\KKMP\UMain.dfm</Transaction>
@@ -33,12 +33,12 @@
     <Transaction>1899.12.30 00:00:00.000.358,K:\PROJECT\С++\MY_PROJECT\KKMP\UAvtoriz.cpp=K:\PROJECT\С++\MY_PROJECT\KKMP\Unit1.cpp</Transaction>
     <Transaction>1899.12.30 00:00:00.000.954,=K:\PROJECT\С++\MY_PROJECT\KKMP\Unit1.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.139,=K:\PROJECT\С++\MY_PROJECT\KKMP\Unit1.cpp</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.339,K:\PROJECT\С++\MY_PROJECT\KKMP\UAbout.dfm=K:\PROJECT\С++\MY_PROJECT\KKMP\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.598,K:\PROJECT\С++\MY_PROJECT\KKMP\UDictionaryMed.dfm=K:\PROJECT\С++\MY_PROJECT\KKMP\Unit1.dfm</Transaction>
     <Transaction>1899.12.30 00:00:00.000.904,K:\PROJECT\С++\MY_PROJECT\KKMP\UDMAvtoriz.cpp=K:\PROJECT\С++\MY_PROJECT\KKMP\Unit1.cpp</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.853,=K:\PROJECT\С++\MY_PROJECT\KKMP\Unit1.cpp</Transaction>
     <Transaction>1899.12.30 00:00:00.000.642,=K:\PROJECT\С++\MY_PROJECT\KKMP\Unit1.cpp</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.125,=K:\PROJECT\С++\MY_PROJECT\KKMP\Unit1.cpp</Transaction>
     <Transaction>1899.12.30 00:00:00.000.989,=K:\PROJECT\С++\MY_PROJECT\KKMP\Unit1.cpp</Transaction>
     <Transaction>1899.12.30 00:00:00.000.482,=K:\PROJECT\С++\MY_PROJECT\KKMP\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.125,=K:\PROJECT\С++\MY_PROJECT\KKMP\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.853,=K:\PROJECT\С++\MY_PROJECT\KKMP\Unit1.cpp</Transaction>
   </Transactions>
 </BorlandProject>

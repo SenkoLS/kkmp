@@ -78,12 +78,12 @@ object FMain: TFMain
           Footers = <>
           Title.Alignment = taCenter
           Title.Caption = #1060#1048#1054
-          Width = 280
+          Width = 205
         end
         item
           DynProps = <>
           EditButtons = <>
-          FieldName = 'year_date_birthday'
+          FieldName = 'year_ydate_birthday'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -13

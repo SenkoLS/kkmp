@@ -1560,7 +1560,7 @@ void __fastcall TFCard::Button1Click(TObject *Sender)
 	"AbsenceComplaintsOfPatientsYes,TimelyRegistLNYes,RefferalToVKYes,IntegrityCard,"
 	"AccuracyHandwriting,QualityProfInsOnko,DispTimelines,QualityCollectAnamsis,QualityCollectComplaint,"
 	"DescriptObjectStatus,EvaluationResultsOfTreatment,ObservStandartsOfDiagnostics,"
-	"ObservStandartsOfTreatment,DeadlinesVN,kkmp,kvo) VALUES("
+	"ObservStandartsOfTreatment,DeadlinesVN,kvo,kkmp) VALUES("
 		"'"+FormatDateTime("yyyy-mm-dd",DTPDateStart->Date)+"',"
 		"'"+FormatDateTime("yyyy-mm-dd",DTPDateEnd->Date)+"',"
 		"'"+ESurname->Text+"',"
@@ -1609,23 +1609,11 @@ void __fastcall TFCard::Button1Click(TObject *Sender)
 		"'"+ IntToStr(ObservStandartsOfDiagnostics) +"',"
 		"'"+ IntToStr(ObservStandartsOfTreatment) +"',"
 		"'"+ IntToStr(DeadlinesVN) +"',"
-		"'"+ PKKMP->Caption +"',"
-		"'"+ FloatToStr(kvo) +"'"
+		"'"+ FloatToStr(kvo) +"',"
+		"'"+ FloatToStr(kkmp) +"'"
 		")";
-
-	try{
-		DMAvtoriz->SQLConnectKKMP->StartTransaction(trans);
-		if(DMAvtoriz->SQLQCard->ExecSQL()){
-			DMAvtoriz->SQLConnectKKMP->Commit(trans);
-		}else{
-			DMAvtoriz->SQLConnectKKMP->Rollback(trans);
-			MessageBox(0,L"Запрос вернул \"false\"!\nОбратитесь к разработчику.",L"Ошибка",MB_OK);
-		}
-	}catch(Exception &e){
-		DMAvtoriz->SQLConnectKKMP->Rollback(trans);
-		MessageBox(0,e.Message.c_str(),L"Ошибка записи",MB_OK);
-	}
-
+	ShowMessage(DispTimelines);
+	DMAvtoriz->SQLQCard->ExecSQL();
 
 	int message = MessageBox(0,L"Карта сохранена.\nОформить новую карту?",L"Сообщение",MB_YESNO);
 	if(message == 7){
@@ -1662,10 +1650,6 @@ void __fastcall TFCard::FormClose(TObject *Sender, TCloseAction &Action)
 {
 	DMAvtoriz->SQLQGetListMed->Close();
 	DMAvtoriz->CDSGetListMed->Close();
-	DMAvtoriz->SQLQInspection->Close();
-	DMAvtoriz->SQLQInspection->Open();
-	DMAvtoriz->CDSInspection->Close();
-	DMAvtoriz->CDSInspection->Open();
 }
 //---------------------------------------------------------------------------
 

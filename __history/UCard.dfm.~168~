@@ -19,7 +19,6 @@ object FCard: TFCard
   Font.Style = []
   OldCreateOrder = False
   Position = poDesktopCenter
-  OnClose = FormClose
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 17
@@ -219,7 +218,7 @@ object FCard: TFCard
       Font.Name = 'Times New Roman'
       Font.Style = []
       ParentFont = False
-      TabOrder = 8
+      TabOrder = 3
     end
     object ESurname: TEdit
       Left = 141
@@ -246,9 +245,9 @@ object FCard: TFCard
       Font.Name = 'Times New Roman'
       Font.Style = []
       ParentFont = False
-      TabOrder = 7
+      TabOrder = 5
     end
-    object DBLookupComboBoxListMed: TDBLookupComboBox
+    object DBLookupComboBox1: TDBLookupComboBox
       Left = 575
       Top = 10
       Width = 422
@@ -258,11 +257,8 @@ object FCard: TFCard
       Font.Height = -12
       Font.Name = 'Times New Roman'
       Font.Style = []
-      KeyField = 'id_user'
-      ListField = 'fio'
-      ListSource = DMAvtoriz.DSGetListMed
       ParentFont = False
-      TabOrder = 3
+      TabOrder = 6
     end
     object EName: TEdit
       Left = 360
@@ -275,8 +271,7 @@ object FCard: TFCard
       Font.Name = 'Times New Roman'
       Font.Style = []
       ParentFont = False
-      TabOrder = 5
-      OnExit = ENameExit
+      TabOrder = 7
     end
     object EPatronymic: TEdit
       Left = 574
@@ -289,8 +284,7 @@ object FCard: TFCard
       Font.Name = 'Times New Roman'
       Font.Style = []
       ParentFont = False
-      TabOrder = 6
-      OnExit = EPatronymicExit
+      TabOrder = 8
     end
   end
   object Panel2: TPanel
