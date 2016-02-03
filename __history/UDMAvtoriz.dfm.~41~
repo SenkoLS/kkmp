@@ -104,9 +104,9 @@ object DMAvtoriz: TDMAvtoriz
     Params = <>
     SQL.Strings = (
       
-        'SELECT `type_med_help`,`date_start`,`date_end`,CONCAT(surname,'#39' ' +
+        'SELECT `id_inspection`,`date_start`,`date_end`,CONCAT(surname,'#39' ' +
         #39',name,'#39' '#39',patronymic) as `fio`,'
-      '`date_birthday`,`number_card`,`id_med`,`kkmp`,`kvo`'
+      '`year_date_birthday`,`id_user`,`kkmp`,`kvo`'
       'FROM `inspection`')
     SQLConnection = SQLConnectKKMP
     Left = 160
@@ -136,7 +136,7 @@ object DMAvtoriz: TDMAvtoriz
       
         'SELECT `office`.`id_office`,`office`.`name_office`, CONCAT(`user' +
         '`.`surname`,'#39' '#39',`user`.`name`,'#39' '#39',`user`.`patronymic`) as `fio`'
-      'FROM `user` JOIN `office` '
+      'FROM `user` INNER JOIN `office` '
       'ON `office`.`id_user` = user.`id_user`'
       'WHERE `office`.`id_office` !=1')
     SQLConnection = SQLConnectKKMP
@@ -213,5 +213,33 @@ object DMAvtoriz: TDMAvtoriz
     DataSet = CDSGetListMed
     Left = 464
     Top = 368
+  end
+  object SQLQCard: TSQLQuery
+    MaxBlobSize = -1
+    Params = <>
+    SQL.Strings = (
+      
+        'SELECT `id_user`, CONCAT(`surname`,'#39' '#39',`name`,'#39' '#39',`patronymic`) ' +
+        'as `fio` FROM `user` WHERE `id_user` != 1')
+    SQLConnection = SQLConnectKKMP
+    Left = 160
+    Top = 440
+  end
+  object DSPCard: TDataSetProvider
+    DataSet = SQLQCard
+    Left = 264
+    Top = 440
+  end
+  object CDSCard: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'DSPCard'
+    Left = 360
+    Top = 440
+  end
+  object DSCard: TDataSource
+    DataSet = CDSCard
+    Left = 464
+    Top = 440
   end
 end

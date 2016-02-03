@@ -34,6 +34,7 @@ object FMain: TFMain
       Height = 552
       DataSource = DMAvtoriz.DSInspection
       DynProps = <>
+      ImeMode = imDisable
       IndicatorOptions = [gioShowRowIndicatorEh]
       TabOrder = 0
       OnDblClick = DBGridEh1DblClick

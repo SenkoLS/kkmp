@@ -107,7 +107,8 @@ object DMAvtoriz: TDMAvtoriz
         'SELECT `id_inspection`,`date_start`,`date_end`,CONCAT(surname,'#39' ' +
         #39',name,'#39' '#39',patronymic) as `fio`,'
       '`year_date_birthday`,`id_user`,`kkmp`,`kvo`'
-      'FROM `inspection`')
+      'FROM `inspection`'
+      ' ORDER BY `id_inspection` DESC')
     SQLConnection = SQLConnectKKMP
     Left = 160
     Top = 168

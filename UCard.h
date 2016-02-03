@@ -372,7 +372,7 @@ public:		// User declarations
 			ObservStandartsOfDiagnostics, ObservStandartsOfTreatment,
 			DeadlinesVN;
 
-	int id_inspection;
+	int id_inspection;  //for editing
 
 	void __fastcall TFCard::getKvo();
 	void __fastcall TFCard::getKkmp();

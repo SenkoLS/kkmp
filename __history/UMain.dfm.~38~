@@ -17,6 +17,7 @@ object FMain: TFMain
   Menu = MainMenu1
   OldCreateOrder = False
   Position = poDesktopCenter
+  OnClose = FormClose
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -35,21 +36,15 @@ object FMain: TFMain
       DynProps = <>
       IndicatorOptions = [gioShowRowIndicatorEh]
       TabOrder = 0
+      OnDblClick = DBGridEh1DblClick
       OnKeyDown = DBGridEh1KeyDown
       Columns = <
         item
           DynProps = <>
           EditButtons = <>
-          FieldName = 'type_med_help'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Times New Roman'
-          Font.Style = []
+          FieldName = 'id_inspection'
           Footers = <>
-          Title.Alignment = taCenter
-          Title.Caption = #1042#1080#1076' '#1087#1086#1084#1086#1097#1080
-          Width = 75
+          Visible = False
         end
         item
           DynProps = <>
@@ -91,12 +86,12 @@ object FMain: TFMain
           Footers = <>
           Title.Alignment = taCenter
           Title.Caption = #1060#1048#1054
-          Width = 205
+          Width = 280
         end
         item
           DynProps = <>
           EditButtons = <>
-          FieldName = 'date_birthday'
+          FieldName = 'year_date_birthday'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -13
@@ -104,22 +99,8 @@ object FMain: TFMain
           Font.Style = []
           Footers = <>
           Title.Alignment = taCenter
-          Title.Caption = #1044#1056
+          Title.Caption = #1043#1086#1076' '#1088#1086#1078'.'
           Width = 80
-        end
-        item
-          DynProps = <>
-          EditButtons = <>
-          FieldName = 'number_card'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Times New Roman'
-          Font.Style = []
-          Footers = <>
-          Title.Alignment = taCenter
-          Title.Caption = #1053#1086#1084#1077#1088' '#1072#1084#1073'. '#1082#1072#1088#1090#1099
-          Width = 95
         end
         item
           DynProps = <>
