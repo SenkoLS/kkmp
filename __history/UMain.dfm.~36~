@@ -17,6 +17,7 @@ object FMain: TFMain
   Menu = MainMenu1
   OldCreateOrder = False
   Position = poDesktopCenter
+  OnClose = FormClose
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -35,22 +36,9 @@ object FMain: TFMain
       DynProps = <>
       IndicatorOptions = [gioShowRowIndicatorEh]
       TabOrder = 0
+      OnDblClick = DBGridEh1DblClick
       OnKeyDown = DBGridEh1KeyDown
       Columns = <
-        item
-          DynProps = <>
-          EditButtons = <>
-          FieldName = 'type_med_help'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Times New Roman'
-          Font.Style = []
-          Footers = <>
-          Title.Alignment = taCenter
-          Title.Caption = #1042#1080#1076' '#1087#1086#1084#1086#1097#1080
-          Width = 75
-        end
         item
           DynProps = <>
           EditButtons = <>
@@ -91,12 +79,12 @@ object FMain: TFMain
           Footers = <>
           Title.Alignment = taCenter
           Title.Caption = #1060#1048#1054
-          Width = 205
+          Width = 280
         end
         item
           DynProps = <>
           EditButtons = <>
-          FieldName = 'date_birthday'
+          FieldName = 'year_date_birthday'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -13
@@ -104,22 +92,8 @@ object FMain: TFMain
           Font.Style = []
           Footers = <>
           Title.Alignment = taCenter
-          Title.Caption = #1044#1056
+          Title.Caption = #1043#1086#1076' '#1088#1086#1078'.'
           Width = 80
-        end
-        item
-          DynProps = <>
-          EditButtons = <>
-          FieldName = 'number_card'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Times New Roman'
-          Font.Style = []
-          Footers = <>
-          Title.Alignment = taCenter
-          Title.Caption = #1053#1086#1084#1077#1088' '#1072#1084#1073'. '#1082#1072#1088#1090#1099
-          Width = 95
         end
         item
           DynProps = <>
@@ -438,8 +412,9 @@ object FMain: TFMain
         Caption = #1057#1087#1088#1072#1074#1086#1095#1085#1080#1082' '#1084#1077#1076#1080#1094#1080#1085#1089#1082#1086#1075#1086' '#1087#1077#1088#1089#1086#1085#1072#1083#1072
         OnClick = N4Click
       end
-      object N5: TMenuItem
-        Caption = #1057#1087#1088#1072#1074#1086#1095#1085#1080#1082' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1077#1081
+      object N6: TMenuItem
+        Caption = #1057#1087#1088#1072#1074#1086#1095#1085#1080#1082' '#1086#1090#1076#1077#1083#1077#1085#1080#1081
+        OnClick = N6Click
       end
     end
     object N2: TMenuItem

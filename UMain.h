@@ -64,6 +64,7 @@ __published:	// IDE-managed Components
 	void __fastcall DBGridEh1KeyDown(TObject *Sender, WORD &Key, TShiftState Shift);
 	void __fastcall N6Click(TObject *Sender);
 	void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
+	void __fastcall DBGridEh1DblClick(TObject *Sender);
 
 private:	// User declarations
 public:		// User declarations

@@ -70,3 +70,11 @@ void __fastcall TFMain::FormClose(TObject *Sender, TCloseAction &Action)
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TFMain::DBGridEh1DblClick(TObject *Sender)
+{
+	//Set card number for editing in FCard
+	FCard->id_inspection = DBGridEh1->DataSource->DataSet->FieldByName("id_inspection")->AsInteger;
+	FCard->ShowModal();
+}
+//---------------------------------------------------------------------------
+

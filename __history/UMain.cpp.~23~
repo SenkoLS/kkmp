@@ -27,7 +27,6 @@ void __fastcall TFMain::FormShow(TObject *Sender)
 	FAvtoriz->ShowModal();
 	DMAvtoriz->SQLQInspection->Open();
 	DMAvtoriz->CDSInspection->Open();
-	FMain->SetFocus();
 }
 //---------------------------------------------------------------------------
 
@@ -49,12 +48,25 @@ void __fastcall TFMain::NewCardClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TFMain::FormKeyDown(TObject *Sender, WORD &Key, TShiftState Shift)
-
+void __fastcall TFMain::DBGridEh1KeyDown(TObject *Sender, WORD &Key, TShiftState Shift)
 {
 	switch(Key){
-    	case 112: ShowMessage("dcdscsdc"); break;
+    	case 113: FCard->ShowModal(); break;
 	}
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFMain::N6Click(TObject *Sender)
+{
+	FCatalogOffices->ShowModal();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFMain::FormClose(TObject *Sender, TCloseAction &Action)
+{
+	DMAvtoriz->SQLQInspection->Close();
+	DMAvtoriz->CDSInspection->Close();
+	DMAvtoriz->SQLConnectKKMP->Close();
 }
 //---------------------------------------------------------------------------
 

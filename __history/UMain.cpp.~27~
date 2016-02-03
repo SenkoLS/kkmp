@@ -48,4 +48,33 @@ void __fastcall TFMain::NewCardClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TFMain::DBGridEh1KeyDown(TObject *Sender, WORD &Key, TShiftState Shift)
+{
+	switch(Key){
+    	case 113: FCard->ShowModal(); break;
+	}
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFMain::N6Click(TObject *Sender)
+{
+	FCatalogOffices->ShowModal();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFMain::FormClose(TObject *Sender, TCloseAction &Action)
+{
+	DMAvtoriz->SQLQInspection->Close();
+	DMAvtoriz->CDSInspection->Close();
+	DMAvtoriz->SQLConnectKKMP->Close();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFMain::DBGridEh1DblClick(TObject *Sender)
+{
+	//Set card number for editing in FCard
+	FCard->id_inspection = DBGridEh1->DataSource->DataSet->FieldByName("id_inspection")->AsInteger;
+	FCard->ShowModal();
+}
+//---------------------------------------------------------------------------
 

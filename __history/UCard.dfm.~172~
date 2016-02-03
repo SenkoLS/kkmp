@@ -8,6 +8,10 @@ object FCard: TFCard
   ClientHeight = 726
   ClientWidth = 1013
   Color = clBtnFace
+  Constraints.MaxHeight = 755
+  Constraints.MaxWidth = 1019
+  Constraints.MinHeight = 755
+  Constraints.MinWidth = 1019
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -15
@@ -15,6 +19,7 @@ object FCard: TFCard
   Font.Style = []
   OldCreateOrder = False
   Position = poDesktopCenter
+  OnClose = FormClose
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 17
@@ -40,7 +45,7 @@ object FCard: TFCard
       ParentFont = False
     end
     object Label13: TLabel
-      Left = 240
+      Left = 210
       Top = 13
       Width = 14
       Height = 17
@@ -53,8 +58,8 @@ object FCard: TFCard
       ParentFont = False
     end
     object Label14: TLabel
-      Left = 620
-      Top = 13
+      Left = 871
+      Top = 44
       Width = 57
       Height = 17
       Caption = #1059#1095#1072#1089#1090#1086#1082':'
@@ -72,14 +77,14 @@ object FCard: TFCard
       Height = 17
       Caption = #1055#1072#1094#1080#1077#1085#1090':'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clBlack
+      Font.Color = clNavy
       Font.Height = -15
       Font.Name = 'Times New Roman'
-      Font.Style = []
+      Font.Style = [fsUnderline]
       ParentFont = False
     end
     object Label16: TLabel
-      Left = 420
+      Left = 778
       Top = 44
       Width = 25
       Height = 17
@@ -92,8 +97,8 @@ object FCard: TFCard
       ParentFont = False
     end
     object Label17: TLabel
-      Left = 540
-      Top = 44
+      Left = 535
+      Top = 12
       Width = 34
       Height = 17
       Caption = #1042#1088#1072#1095':'
@@ -105,7 +110,7 @@ object FCard: TFCard
       ParentFont = False
     end
     object Label19: TLabel
-      Left = 420
+      Left = 365
       Top = 13
       Width = 109
       Height = 17
@@ -117,10 +122,49 @@ object FCard: TFCard
       Font.Style = []
       ParentFont = False
     end
+    object LSurname: TLabel
+      Left = 76
+      Top = 44
+      Width = 59
+      Height = 17
+      Caption = #1060#1072#1084#1080#1083#1080#1103':'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -15
+      Font.Name = 'Times New Roman'
+      Font.Style = []
+      ParentFont = False
+    end
+    object LName: TLabel
+      Left = 323
+      Top = 44
+      Width = 31
+      Height = 17
+      Caption = #1048#1084#1103':'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -15
+      Font.Name = 'Times New Roman'
+      Font.Style = []
+      ParentFont = False
+    end
+    object LPatronymic: TLabel
+      Left = 504
+      Top = 44
+      Width = 64
+      Height = 17
+      Caption = #1054#1090#1095#1077#1089#1090#1074#1086':'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -15
+      Font.Name = 'Times New Roman'
+      Font.Style = []
+      ParentFont = False
+    end
     object DTPDateStart: TDateTimePicker
-      Left = 107
+      Left = 102
       Top = 10
-      Width = 126
+      Width = 99
       Height = 23
       Date = 42395.380680243070000000
       Time = 42395.380680243070000000
@@ -134,7 +178,7 @@ object FCard: TFCard
       OnCloseUp = DTPDateStartCloseUp
     end
     object DTPDateEnd: TDateTimePicker
-      Left = 275
+      Left = 232
       Top = 10
       Width = 126
       Height = 23
@@ -150,9 +194,9 @@ object FCard: TFCard
       OnCloseUp = DTPDateEndCloseUp
     end
     object PAmountOfDays: TPanel
-      Left = 540
+      Left = 480
       Top = 10
-      Width = 61
+      Width = 49
       Height = 22
       Color = clWhite
       Font.Charset = DEFAULT_CHARSET
@@ -165,48 +209,48 @@ object FCard: TFCard
       TabOrder = 2
     end
     object EArea: TEdit
-      Left = 690
-      Top = 10
+      Left = 934
+      Top = 40
       Width = 63
       Height = 23
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -12
+      Font.Height = -13
       Font.Name = 'Times New Roman'
       Font.Style = []
       ParentFont = False
-      TabOrder = 3
+      TabOrder = 8
     end
-    object EFIOPac: TEdit
-      Left = 70
+    object ESurname: TEdit
+      Left = 141
       Top = 40
-      Width = 331
+      Width = 176
       Height = 23
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -12
+      Font.Height = -13
       Font.Name = 'Times New Roman'
       Font.Style = []
       ParentFont = False
       TabOrder = 4
-      OnExit = EFIOPacExit
+      OnExit = ESurnameExit
     end
     object EYearOfBirthday: TEdit
-      Left = 451
+      Left = 809
       Top = 40
-      Width = 78
+      Width = 56
       Height = 23
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -12
+      Font.Height = -13
       Font.Name = 'Times New Roman'
       Font.Style = []
       ParentFont = False
-      TabOrder = 5
+      TabOrder = 7
     end
-    object DBLookupComboBox1: TDBLookupComboBox
-      Left = 580
-      Top = 40
+    object DBLookupComboBoxListMed: TDBLookupComboBox
+      Left = 575
+      Top = 10
       Width = 422
       Height = 23
       Font.Charset = DEFAULT_CHARSET
@@ -214,8 +258,39 @@ object FCard: TFCard
       Font.Height = -12
       Font.Name = 'Times New Roman'
       Font.Style = []
+      KeyField = 'id_user'
+      ListField = 'fio'
+      ListSource = DMAvtoriz.DSGetListMed
+      ParentFont = False
+      TabOrder = 3
+    end
+    object EName: TEdit
+      Left = 360
+      Top = 40
+      Width = 138
+      Height = 23
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Times New Roman'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 5
+      OnExit = ENameExit
+    end
+    object EPatronymic: TEdit
+      Left = 574
+      Top = 40
+      Width = 198
+      Height = 23
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Times New Roman'
+      Font.Style = []
       ParentFont = False
       TabOrder = 6
+      OnExit = EPatronymicExit
     end
   end
   object Panel2: TPanel

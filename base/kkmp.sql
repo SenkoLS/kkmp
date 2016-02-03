@@ -34,6 +34,7 @@ CREATE TABLE `inspection` (
   `name` varchar(35) NOT NULL,
   `patronymic` varchar(45) DEFAULT NULL,
   `year_date_birthday` varchar(10) NOT NULL,
+  `area` varchar(20) DEFAULT NULL,
   `id_user` int(11) NOT NULL,
   `RemarkInfServYes` int(1) DEFAULT '0',
   `RemarkAnamYes` int(1) DEFAULT '0',
@@ -80,7 +81,7 @@ CREATE TABLE `inspection` (
   `kvo` varchar(20) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id_inspection`),
   UNIQUE KEY `id_inspection` (`id_inspection`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 #
 # Structure for the `office` table : 
@@ -121,15 +122,18 @@ CREATE TABLE `user` (
 # Data for the `inspection` table  (LIMIT 0,500)
 #
 
-INSERT INTO `inspection` (`id_inspection`, `date_start`, `date_end`, `surname`, `name`, `patronymic`, `year_date_birthday`, `id_user`, `RemarkInfServYes`, `RemarkAnamYes`, `RemarkFizResYes`, `ResearchNotYes`, `ResearchToMuchYes`, `ResearchLateYes`, `ResearchInstrNotYes`, `ResearchInstrToMuchYes`, `ResearchInstrLateYes`, `RemarkKonsultNotYes`, `RemarkKonsultLateYes`, `RemarkDeseaseVerifYes`, `RemarkDeseaseTimeYes`, `RemarkDeseaseContentYes`, `RemarkTherapyChooseDrYes`, `RemarkTherapyTimeAppointmentYes`, `RemarkTherapyPolypharmacyYes`, `ContinuityChoosePlaceYes`, `ContinuityTimeTransferYes`, `RemarkStandartMHYes`, `VuluntarMedAgreementYes`, `AgreementPDNYes`, `ComplitListDeseaseYes`, `CompitListProfAndStatusYes`, `ExistenceFLGYes`, `ExistenceInspGinYes`, `RationalUseOfResourcesYes`, `AbsenceComplaintsOfPatientsYes`, `TimelyRegistLNYes`, `RefferalToVKYes`, `IntegrityCard`, `AccuracyHandwriting`, `QualityProfInsOnko`, `DispTimelines`, `QualityCollectAnamsis`, `QualityCollectComplaint`, `DescriptObjectStatus`, `EvaluationResultsOfTreatment`, `ObservStandartsOfDiagnostics`, `ObservStandartsOfTreatment`, `DeadlinesVN`, `kkmp`, `kvo`) VALUES 
-  (3,'2016-02-02','2016-02-02','ИВАНОВА','МАРГАРИТА','АЛЕКСЕЕВНА','1965',34,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,5,5,5,5,5,5,5,5,5,5,5,'1','0'),
-  (4,'2016-02-02','2016-02-02','','','','',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,5,5,5,5,5,5,5,5,5,5,5,'1','0'),
-  (5,'2016-02-02','2016-02-02','','','','',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,5,5,5,2,5,5,5,5,5,5,5,'0','0'),
-  (6,'2016-02-02','2016-02-02','','','','',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,5,5,5,5,5,5,5,5,5,5,5,'0','0'),
-  (7,'2016-02-02','2016-02-02','','','','',0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,2,2,2,2,2,2,2,2,2,2,5,'0','0'),
-  (8,'2016-02-01','2016-02-10','ИВАНОВА','ЛЕЯ','МИХАЙЛОВНА','1955',34,0,1,1,0,1,1,0,1,1,0,1,1,0,1,1,0,1,1,0,0,0,1,0,1,0,1,1,0,1,1,4,4,5,4,1,2,4,2,4,2,5,'0','0'),
-  (9,'2016-02-02','2016-02-02','','','','',0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,2,3,5,2,2,5,5,2,5,5,5,'0','0'),
-  (10,'2016-02-02','2016-02-25','ПЕТРОВА','ОЛЬГА','ВИКТОРОВНА','1968',35,0,1,1,0,0,1,0,1,1,0,1,0,1,1,0,1,1,0,0,0,0,0,1,0,1,0,1,0,1,1,2,3,2,3,4,5,4,3,2,1,5,'0,433 / 0,6','0,5');
+INSERT INTO `inspection` (`id_inspection`, `date_start`, `date_end`, `surname`, `name`, `patronymic`, `year_date_birthday`, `area`, `id_user`, `RemarkInfServYes`, `RemarkAnamYes`, `RemarkFizResYes`, `ResearchNotYes`, `ResearchToMuchYes`, `ResearchLateYes`, `ResearchInstrNotYes`, `ResearchInstrToMuchYes`, `ResearchInstrLateYes`, `RemarkKonsultNotYes`, `RemarkKonsultLateYes`, `RemarkDeseaseVerifYes`, `RemarkDeseaseTimeYes`, `RemarkDeseaseContentYes`, `RemarkTherapyChooseDrYes`, `RemarkTherapyTimeAppointmentYes`, `RemarkTherapyPolypharmacyYes`, `ContinuityChoosePlaceYes`, `ContinuityTimeTransferYes`, `RemarkStandartMHYes`, `VuluntarMedAgreementYes`, `AgreementPDNYes`, `ComplitListDeseaseYes`, `CompitListProfAndStatusYes`, `ExistenceFLGYes`, `ExistenceInspGinYes`, `RationalUseOfResourcesYes`, `AbsenceComplaintsOfPatientsYes`, `TimelyRegistLNYes`, `RefferalToVKYes`, `IntegrityCard`, `AccuracyHandwriting`, `QualityProfInsOnko`, `DispTimelines`, `QualityCollectAnamsis`, `QualityCollectComplaint`, `DescriptObjectStatus`, `EvaluationResultsOfTreatment`, `ObservStandartsOfDiagnostics`, `ObservStandartsOfTreatment`, `DeadlinesVN`, `kkmp`, `kvo`) VALUES 
+  (3,'2016-02-02','2016-02-02','ИВАНОВА','МАРГАРИТА','АЛЕКСЕЕВНА','1965',NULL,34,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,5,5,5,5,5,5,5,5,5,5,5,'1','0'),
+  (4,'2016-02-02','2016-02-02','','','','',NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,5,5,5,5,5,5,5,5,5,5,5,'1','0'),
+  (5,'2016-02-02','2016-02-02','','','','',NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,5,5,5,2,5,5,5,5,5,5,5,'0','0'),
+  (6,'2016-02-02','2016-02-02','','','','',NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,5,5,5,5,5,5,5,5,5,5,5,'0','0'),
+  (7,'2016-02-02','2016-02-02','','','','',NULL,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,2,2,2,2,2,2,2,2,2,2,5,'0','0'),
+  (8,'2016-02-01','2016-02-10','ИВАНОВА','ЛЕЯ','МИХАЙЛОВНА','1955',NULL,34,0,1,1,0,1,1,0,1,1,0,1,1,0,1,1,0,1,1,0,0,0,1,0,1,0,1,1,0,1,1,4,4,5,4,1,2,4,2,4,2,5,'0','0'),
+  (9,'2016-02-02','2016-02-02','','','','',NULL,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,2,3,5,2,2,5,5,2,5,5,5,'0','0'),
+  (10,'2016-02-02','2016-02-25','ПЕТРОВА','ОЛЬГА','ВИКТОРОВНА','1968',NULL,35,0,1,1,0,0,1,0,1,1,0,1,0,1,1,0,1,1,0,0,0,0,0,1,0,1,0,1,0,1,1,2,3,2,3,4,5,4,3,2,1,5,'0,433 / 0,6','0,5'),
+  (11,'2016-02-03','2016-02-03','DCSDSC','SDCSDC','','1234',NULL,33,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,5,5,5,5,5,5,5,5,5,5,5,'1 / 1','0'),
+  (12,'2016-02-03','2016-02-03','DSC','SDC','','12',NULL,34,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,5,5,5,5,5,5,5,5,5,5,5,'1 / 1','0'),
+  (13,'2016-02-03','2016-02-12','ПОПОВ','ИВАН','СЕРГЕЕВИЧ','1955','15',34,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,5,5,5,5,5,5,5,5,5,5,5,'1 / 1','0');
 COMMIT;
 
 #

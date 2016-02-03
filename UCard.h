@@ -372,6 +372,8 @@ public:		// User declarations
 			ObservStandartsOfDiagnostics, ObservStandartsOfTreatment,
 			DeadlinesVN;
 
+	int id_inspection;
+
 	void __fastcall TFCard::getKvo();
 	void __fastcall TFCard::getKkmp();
 	AnsiString __fastcall TFCard::BoolToStr(bool value);

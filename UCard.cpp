@@ -787,11 +787,32 @@ void __fastcall TFCard::SpBAllNoClick(TObject *Sender)
 
 void __fastcall TFCard::FormShow(TObject *Sender)
 {
-	DTPDateStart->Date = Now();
-	DTPDateEnd->Date = Now();
+	if(id_inspection != NULL){      //check on the editing mode
+        //download data card for editing
+		DMAvtoriz->SQLQInspection->Close();
+		DMAvtoriz->SQLQInspection->SQL->Text = "SELECT * FROM `inspection` WHERE `id_inspection` = " + IntToStr(id_inspection);
+		DMAvtoriz->SQLQInspection->Open();
+		DMAvtoriz->CDSInspection->Close();
+		DMAvtoriz->CDSInspection->Open();
+		DTPDateStart->Date = DMAvtoriz->DSInspection->DataSet->FieldByName("date_start")->AsDateTime;
+		DTPDateEnd->Date = DMAvtoriz->DSInspection->DataSet->FieldByName("date_end")->AsDateTime;
+		DBLookupComboBoxListMed->KeyValue = DMAvtoriz->DSInspection->DataSet->FieldByName("id_user")->AsInteger;
+		ESurname->Text = DMAvtoriz->DSInspection->DataSet->FieldByName("surname")->AsAnsiString;
+		EName->Text = DMAvtoriz->DSInspection->DataSet->FieldByName("name")->AsAnsiString;
+		EPatronymic->Text = DMAvtoriz->DSInspection->DataSet->FieldByName("patronymic")->AsAnsiString;
+		EYearOfBirthday->Text = DMAvtoriz->DSInspection->DataSet->FieldByName("year_date_birthday")->AsAnsiString;
+		EArea->Text = DMAvtoriz->DSInspection->DataSet->FieldByName("area")->AsAnsiString;
+
+		//to be continue
+	}else{
+		DTPDateStart->Date = Now();
+		DTPDateEnd->Date = Now();
+		DBLookupComboBoxListMed->KeyValue = 0;
+		SpBAllNoClick(Sender);
+		SpBAllNoQualityClick(Sender);
+	}
+
 	PAmountOfDays->Caption = IntToStr((DTPDateEnd->DateTime - DTPDateStart->DateTime) + 1);
-	SpBAllNoClick(Sender);
-	SpBAllNoQualityClick(Sender);
 	DMAvtoriz->SQLQGetListMed->Open();
 	DMAvtoriz->CDSGetListMed->Open();
 }
@@ -1547,9 +1568,38 @@ void __fastcall TFCard::DTPDateEndCloseUp(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall TFCard::Button1Click(TObject *Sender)
 {
+	if(DBLookupComboBoxListMed->KeyValue < 1){
+		MessageBox(0,L"Не указан врач, проводивший осмотр!",L"Ошибка",MB_OK);
+		return;
+	}
+
+	if(ESurname->Text.IsEmpty()){
+		MessageBox(0,L"Не указана фамилия пациента!",L"Ошибка",MB_OK);
+		ESurname->SetFocus();
+		return;
+	}
+
+	if(EName->Text.IsEmpty()){
+		MessageBox(0,L"Не указано имя пациента!",L"Ошибка",MB_OK);
+		EName->SetFocus();
+		return;
+	}
+
+	if(EYearOfBirthday->Text.IsEmpty()){
+		MessageBox(0,L"Не указан год рождения пациента!",L"Ошибка",MB_OK);
+		EYearOfBirthday->SetFocus();
+		return;
+	}
+
+	if(EArea->Text.IsEmpty()){
+		MessageBox(0,L"Не указан участок для пациента!",L"Ошибка",MB_OK);
+		EArea->SetFocus();
+		return;
+	}
+
 	DMAvtoriz->SQLQCard->Close();
 	DMAvtoriz->SQLQCard->SQL->Text = "INSERT INTO `inspection` "
-	"(date_start,date_end,surname,name,patronymic,year_date_birthday,id_user,"
+	"(date_start,date_end,surname,name,patronymic,year_date_birthday,area,id_user,"
 	"RemarkInfServYes,RemarkAnamYes,RemarkFizResYes,ResearchNotYes,ResearchToMuchYes,"
 	"ResearchLateYes,ResearchInstrNotYes,ResearchInstrToMuchYes,ResearchInstrLateYes,"
 	"RemarkKonsultNotYes,RemarkKonsultLateYes,RemarkDeseaseVerifYes,RemarkDeseaseTimeYes,"
@@ -1567,6 +1617,7 @@ void __fastcall TFCard::Button1Click(TObject *Sender)
 		"'"+EName->Text+"',"
 		"'"+EPatronymic->Text+"',"
 		"'"+ EYearOfBirthday->Text +"',"
+		"'"+EArea->Text+"',"
 		"'"+ DBLookupComboBoxListMed->ListSource->DataSet->FieldByName("id_user")->AsAnsiString +"',"
 		"'"+ BoolToStr(RemarkInfServYes) +"',"
 		"'"+ BoolToStr(RemarkAnamYes) +"',"
@@ -1640,7 +1691,9 @@ void __fastcall TFCard::Button1Click(TObject *Sender)
 		EName->Text = "";
 		EPatronymic->Text = "";
 		EYearOfBirthday->Text = "";
+		DBLookupComboBoxListMed->KeyValue = 0;
 	}
+	id_inspection = NULL; //set editing in false
 }
 //---------------------------------------------------------------------------
 void __fastcall TFCard::ESurnameExit(TObject *Sender)
@@ -1666,6 +1719,8 @@ void __fastcall TFCard::FormClose(TObject *Sender, TCloseAction &Action)
 	DMAvtoriz->SQLQInspection->Open();
 	DMAvtoriz->CDSInspection->Close();
 	DMAvtoriz->CDSInspection->Open();
+
+	id_inspection = NULL; //set editing in false
 }
 //---------------------------------------------------------------------------
 

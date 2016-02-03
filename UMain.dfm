@@ -36,8 +36,16 @@ object FMain: TFMain
       DynProps = <>
       IndicatorOptions = [gioShowRowIndicatorEh]
       TabOrder = 0
+      OnDblClick = DBGridEh1DblClick
       OnKeyDown = DBGridEh1KeyDown
       Columns = <
+        item
+          DynProps = <>
+          EditButtons = <>
+          FieldName = 'id_inspection'
+          Footers = <>
+          Visible = False
+        end
         item
           DynProps = <>
           EditButtons = <>

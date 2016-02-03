@@ -210,7 +210,7 @@ object FCard: TFCard
     end
     object EArea: TEdit
       Left = 934
-      Top = 40
+      Top = 39
       Width = 63
       Height = 23
       Font.Charset = DEFAULT_CHARSET

@@ -104,8 +104,8 @@ object DMAvtoriz: TDMAvtoriz
     Params = <>
     SQL.Strings = (
       
-        'SELECT `date_start`,`date_end`,CONCAT(surname,'#39' '#39',name,'#39' '#39',patro' +
-        'nymic) as `fio`,'
+        'SELECT `id_inspection`,`date_start`,`date_end`,CONCAT(surname,'#39' ' +
+        #39',name,'#39' '#39',patronymic) as `fio`,'
       '`year_date_birthday`,`id_user`,`kkmp`,`kvo`'
       'FROM `inspection`')
     SQLConnection = SQLConnectKKMP
