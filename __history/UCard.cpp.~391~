@@ -2439,12 +2439,10 @@ void __fastcall TFCard::FormClose(TObject *Sender, TCloseAction &Action)
 	DMAvtoriz->CDSGetListMed->Close();
 
 	DMAvtoriz->SQLQInspection->Close();
-	DMAvtoriz->SQLQInspection->SQL->Text =
-		"SELECT `id_inspection`,`date_start`,`date_end`,`duration`,CONCAT(`surname`,' ',`name`,' ',`patronymic`) as `fio`,"
-		"`year_date_birthday`,`id_user`,`kkmp`,`kvo` "
-		"FROM `inspection` "
-		"WHERE `date_start` BETWEEN CONCAT(YEAR(NOW()),'-01-01') AND NOW() "
-		"ORDER BY `id_inspection` DESC";
+	DMAvtoriz->SQLQInspection->SQL->Text =  "SELECT `id_inspection`,`date_start`,`date_end`,"
+											" CONCAT(surname,' ',name,' ',patronymic) as `fio`,"
+											"`year_date_birthday`,`id_user`,`kkmp`,`kvo` "
+											"FROM `inspection` ORDER BY `id_inspection` DESC";
 
 	DMAvtoriz->SQLQInspection->Open();
 	DMAvtoriz->CDSInspection->Close();

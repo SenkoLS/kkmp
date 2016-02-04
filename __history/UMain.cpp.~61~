@@ -187,8 +187,8 @@ void __fastcall TFMain::BCollectClick(TObject *Sender)
 		"SELECT `id_inspection`,`date_start`,`date_end`,`duration`,CONCAT(`surname`,' ',`name`,' ',`patronymic`) as `fio`,"
 		"`year_date_birthday`,`id_user`,`kkmp`,`kvo` "
 		"FROM `inspection` "
-		"WHERE `date_start` BETWEEN '"+ FormatDateTime("yyyy-mm-dd",DateTimePickerStart->DateTime) +"' AND '"+ FormatDateTime("yyyy-mm-dd",DateTimePickerEnd->DateTime) +"' "
-		"ORDER BY `id_inspection` DESC";
+		"WHERE `date_start` BETWEEN CONCAT(YEAR(NOW()),'-01-01') AND NOW() "
+		"ORDER BY `date_end` ASC";
 
 	DMAvtoriz->SQLQInspection->Open();
 	DMAvtoriz->CDSInspection->Close();

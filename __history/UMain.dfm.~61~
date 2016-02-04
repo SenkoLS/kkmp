@@ -400,7 +400,6 @@ object FMain: TFMain
     Font.Style = []
     ParentFont = False
     TabOrder = 7
-    OnClick = BCollectClick
   end
   object MainMenu1: TMainMenu
     Left = 168

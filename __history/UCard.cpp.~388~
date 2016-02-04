@@ -2265,7 +2265,6 @@ void __fastcall TFCard::Button1Click(TObject *Sender)
 			"UPDATE `inspection` SET "
 			"`date_start` = '"+FormatDateTime("yyyy-mm-dd",DTPDateStart->Date)+"',"
 			"`date_end` = '"+FormatDateTime("yyyy-mm-dd",DTPDateEnd->Date)+"',"
-			"`duration` = '"+PAmountOfDays->Caption+"',"
 			"`surname` = '"+ESurname->Text+"',"
 			"`name` = '"+EName->Text+"',"
 			"`patronymic` = '"+EPatronymic->Text+"',"
@@ -2319,7 +2318,7 @@ void __fastcall TFCard::Button1Click(TObject *Sender)
 	}else{
 		//INSERT
 		DMAvtoriz->SQLQCard->SQL->Text = "INSERT INTO `inspection` "
-		"(date_start,date_end,duration,surname,name,patronymic,year_date_birthday,area,id_user,"
+		"(date_start,date_end,surname,name,patronymic,year_date_birthday,area,id_user,"
 		"RemarkInfServYes,RemarkAnamYes,RemarkFizResYes,ResearchNotYes,ResearchToMuchYes,"
 		"ResearchLateYes,ResearchInstrNotYes,ResearchInstrToMuchYes,ResearchInstrLateYes,"
 		"RemarkKonsultNotYes,RemarkKonsultLateYes,RemarkDeseaseVerifYes,RemarkDeseaseTimeYes,"
@@ -2333,7 +2332,6 @@ void __fastcall TFCard::Button1Click(TObject *Sender)
 		"ObservStandartsOfTreatment,DeadlinesVN,kkmp,kvo) VALUES("
 			"'"+FormatDateTime("yyyy-mm-dd",DTPDateStart->Date)+"',"
 			"'"+FormatDateTime("yyyy-mm-dd",DTPDateEnd->Date)+"',"
-			"'"+PAmountOfDays->Caption+"',"
 			"'"+ESurname->Text+"',"
 			"'"+EName->Text+"',"
 			"'"+EPatronymic->Text+"',"
@@ -2439,12 +2437,10 @@ void __fastcall TFCard::FormClose(TObject *Sender, TCloseAction &Action)
 	DMAvtoriz->CDSGetListMed->Close();
 
 	DMAvtoriz->SQLQInspection->Close();
-	DMAvtoriz->SQLQInspection->SQL->Text =
-		"SELECT `id_inspection`,`date_start`,`date_end`,`duration`,CONCAT(`surname`,' ',`name`,' ',`patronymic`) as `fio`,"
-		"`year_date_birthday`,`id_user`,`kkmp`,`kvo` "
-		"FROM `inspection` "
-		"WHERE `date_start` BETWEEN CONCAT(YEAR(NOW()),'-01-01') AND NOW() "
-		"ORDER BY `id_inspection` DESC";
+	DMAvtoriz->SQLQInspection->SQL->Text =  "SELECT `id_inspection`,`date_start`,`date_end`,"
+											" CONCAT(surname,' ',name,' ',patronymic) as `fio`,"
+											"`year_date_birthday`,`id_user`,`kkmp`,`kvo` "
+											"FROM `inspection` ORDER BY `id_inspection` DESC";
 
 	DMAvtoriz->SQLQInspection->Open();
 	DMAvtoriz->CDSInspection->Close();

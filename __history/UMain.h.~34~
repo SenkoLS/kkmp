@@ -54,9 +54,6 @@ __published:	// IDE-managed Components
 	TButton *BPrintList;
 	TButton *BDeleteCard;
 	TMenuItem *N6;
-	TDateTimePicker *DateTimePickerStart;
-	TDateTimePicker *DateTimePickerEnd;
-	TButton *BCollect;
 	void __fastcall FormShow(TObject *Sender);
 	void __fastcall N3Click(TObject *Sender);
 	void __fastcall N4Click(TObject *Sender);
@@ -71,7 +68,8 @@ __published:	// IDE-managed Components
 	void __fastcall BSortFioClick(TObject *Sender);
 	void __fastcall BSortDurationClick(TObject *Sender);
 	void __fastcall BSortDateEndClick(TObject *Sender);
-	void __fastcall BCollectClick(TObject *Sender);
+	void __fastcall DateTimePickerStartChange(TObject *Sender);
+	void __fastcall DateTimePickerEndChange(TObject *Sender);
 
 private:	// User declarations
 public:		// User declarations

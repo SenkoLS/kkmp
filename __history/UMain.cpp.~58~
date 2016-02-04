@@ -75,8 +75,6 @@ void __fastcall TFMain::DBGridEh1DblClick(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall TFMain::BDeleteCardClick(TObject *Sender)
 {
-	if(DBGridEh1->DataSource->DataSet->FieldByName("id_inspection")->AsInteger == 0) return;
-
 	if(DMAvtoriz->DSAvtoriz->DataSet->FieldByName("login")->AsAnsiString != "admin"){
 		MessageBox(0,L"У вас нет прав на данную операцию!\nИспользуйте учетную запись администратора.",L"Сообщение",MB_OK);
 	}else{
@@ -173,22 +171,6 @@ void __fastcall TFMain::BSortDateEndClick(TObject *Sender)
 		"FROM `inspection` "
 		"WHERE `date_start` BETWEEN CONCAT(YEAR(NOW()),'-01-01') AND NOW() "
 		"ORDER BY `date_end` ASC";
-
-	DMAvtoriz->SQLQInspection->Open();
-	DMAvtoriz->CDSInspection->Close();
-	DMAvtoriz->CDSInspection->Open();
-}
-//---------------------------------------------------------------------------
-
-void __fastcall TFMain::BCollectClick(TObject *Sender)
-{
- 	DMAvtoriz->SQLQInspection->Close();
-	DMAvtoriz->SQLQInspection->SQL->Text =
-		"SELECT `id_inspection`,`date_start`,`date_end`,`duration`,CONCAT(`surname`,' ',`name`,' ',`patronymic`) as `fio`,"
-		"`year_date_birthday`,`id_user`,`kkmp`,`kvo` "
-		"FROM `inspection` "
-		"WHERE `date_start` BETWEEN '"+ FormatDateTime("yyyy-mm-dd",DateTimePickerStart->DateTime) +"' AND '"+ FormatDateTime("yyyy-mm-dd",DateTimePickerEnd->DateTime) +"' "
-		"ORDER BY `id_inspection` DESC";
 
 	DMAvtoriz->SQLQInspection->Open();
 	DMAvtoriz->CDSInspection->Close();

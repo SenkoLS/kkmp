@@ -71,7 +71,6 @@ __published:	// IDE-managed Components
 	void __fastcall BSortFioClick(TObject *Sender);
 	void __fastcall BSortDurationClick(TObject *Sender);
 	void __fastcall BSortDateEndClick(TObject *Sender);
-	void __fastcall BCollectClick(TObject *Sender);
 
 private:	// User declarations
 public:		// User declarations

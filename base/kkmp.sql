@@ -15,8 +15,8 @@ SET FOREIGN_KEY_CHECKS=0;
 DROP DATABASE IF EXISTS `kkmp`;
 
 CREATE DATABASE `kkmp`
-    CHARACTER SET 'utf8'
-    COLLATE 'utf8_general_ci';
+    CHARACTER SET 'latin1'
+    COLLATE 'latin1_swedish_ci';
 
 USE `kkmp`;
 
@@ -30,6 +30,7 @@ CREATE TABLE `inspection` (
   `id_inspection` int(11) NOT NULL AUTO_INCREMENT,
   `date_start` date NOT NULL,
   `date_end` date NOT NULL,
+  `duration` int(11) NOT NULL DEFAULT '0',
   `surname` varchar(35) NOT NULL,
   `name` varchar(35) NOT NULL,
   `patronymic` varchar(45) DEFAULT NULL,
@@ -81,7 +82,7 @@ CREATE TABLE `inspection` (
   `kvo` varchar(20) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id_inspection`),
   UNIQUE KEY `id_inspection` (`id_inspection`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 #
 # Structure for the `office` table : 
@@ -117,16 +118,6 @@ CREATE TABLE `user` (
   UNIQUE KEY `login_2` (`login`),
   KEY `id_office` (`id_office`)
 ) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
-
-#
-# Data for the `inspection` table  (LIMIT 0,500)
-#
-
-INSERT INTO `inspection` (`id_inspection`, `date_start`, `date_end`, `surname`, `name`, `patronymic`, `year_date_birthday`, `area`, `id_user`, `RemarkInfServYes`, `RemarkAnamYes`, `RemarkFizResYes`, `ResearchNotYes`, `ResearchToMuchYes`, `ResearchLateYes`, `ResearchInstrNotYes`, `ResearchInstrToMuchYes`, `ResearchInstrLateYes`, `RemarkKonsultNotYes`, `RemarkKonsultLateYes`, `RemarkDeseaseVerifYes`, `RemarkDeseaseTimeYes`, `RemarkDeseaseContentYes`, `RemarkTherapyChooseDrYes`, `RemarkTherapyTimeAppointmentYes`, `RemarkTherapyPolypharmacyYes`, `ContinuityChoosePlaceYes`, `ContinuityTimeTransferYes`, `RemarkStandartMHYes`, `VuluntarMedAgreementYes`, `AgreementPDNYes`, `ComplitListDeseaseYes`, `CompitListProfAndStatusYes`, `ExistenceFLGYes`, `ExistenceInspGinYes`, `RationalUseOfResourcesYes`, `AbsenceComplaintsOfPatientsYes`, `TimelyRegistLNYes`, `RefferalToVKYes`, `IntegrityCard`, `AccuracyHandwriting`, `QualityProfInsOnko`, `DispTimelines`, `QualityCollectAnamsis`, `QualityCollectComplaint`, `DescriptObjectStatus`, `EvaluationResultsOfTreatment`, `ObservStandartsOfDiagnostics`, `ObservStandartsOfTreatment`, `DeadlinesVN`, `kkmp`, `kvo`) VALUES 
-  (10,'2016-02-02','2016-02-25','ПЕТРОВА','ОЛЬГА','ВИКТОРОВНА','1968',NULL,35,0,1,1,0,0,1,0,1,1,0,1,0,1,1,0,1,1,0,0,0,0,0,1,0,1,0,1,0,1,1,2,3,2,3,4,5,4,3,2,1,5,'0,433 / 0,6','0,5'),
-  (13,'2016-02-03','2016-02-12','ПОПОВ','ИВАН','СЕРГЕЕВИЧ','1955','15',34,0,0,0,0,0,0,0,1,0,0,1,0,0,0,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,5,5,5,5,5,2,5,5,5,5,5,'1 / 0,95','0,2'),
-  (15,'2016-02-01','2016-02-25','ИВАНОВА','МАРИЯ','МИХАЙЛОВНА','1965','13',33,0,1,1,0,1,1,0,1,1,0,1,1,0,1,1,0,1,1,0,0,0,1,0,1,0,1,1,0,1,1,4,4,5,4,1,2,4,2,4,2,5,'0,667 / 0,6','0,6');
-COMMIT;
 
 #
 # Data for the `office` table  (LIMIT 0,500)

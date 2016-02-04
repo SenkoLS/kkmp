@@ -387,20 +387,13 @@ object FMain: TFMain
     Time = 42404.612514525460000000
     TabOrder = 6
   end
-  object BCollect: TButton
+  object Button1: TButton
     Left = 812
     Top = 237
     Width = 216
     Height = 25
-    Caption = #1057#1073#1086#1088' '#1076#1072#1085#1085#1099#1093
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -15
-    Font.Name = 'Times New Roman'
-    Font.Style = []
-    ParentFont = False
+    Caption = 'Button1'
     TabOrder = 7
-    OnClick = BCollectClick
   end
   object MainMenu1: TMainMenu
     Left = 168
