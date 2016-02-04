@@ -157,7 +157,7 @@ object FMain: TFMain
     Left = 804
     Top = 47
     Width = 234
-    Height = 154
+    Height = 210
     TabOrder = 2
     object LSortList: TLabel
       Left = 56
@@ -189,7 +189,7 @@ object FMain: TFMain
     end
     object BSortDateEnd: TButton
       Left = 8
-      Top = 62
+      Top = 66
       Width = 217
       Height = 25
       Caption = #1087#1086' '#1086#1082#1086#1085#1095#1072#1085#1080#1102' '#1085#1072#1073#1083#1102#1076#1077#1085#1080#1103
@@ -204,7 +204,7 @@ object FMain: TFMain
     end
     object BSortDuration: TButton
       Left = 8
-      Top = 93
+      Top = 101
       Width = 217
       Height = 25
       Caption = #1087#1086' '#1076#1083#1080#1090#1077#1083#1100#1085#1086#1089#1090#1080
@@ -219,7 +219,7 @@ object FMain: TFMain
     end
     object BShowAll: TButton
       Left = 8
-      Top = 124
+      Top = 136
       Width = 217
       Height = 25
       Caption = #1089#1090#1072#1085#1076#1072#1088#1090#1085#1099#1081' '#1074#1099#1074#1086#1076
@@ -232,10 +232,30 @@ object FMain: TFMain
       TabOrder = 3
       OnClick = BShowAllClick
     end
+    object DateTimePickerStart: TDateTimePicker
+      Left = 8
+      Top = 171
+      Width = 105
+      Height = 25
+      Date = 42404.611685543980000000
+      Time = 42404.611685543980000000
+      TabOrder = 4
+      OnChange = DateTimePickerStartChange
+    end
+    object DateTimePickerEnd: TDateTimePicker
+      Left = 121
+      Top = 171
+      Width = 104
+      Height = 25
+      Date = 42404.612514525460000000
+      Time = 42404.612514525460000000
+      TabOrder = 5
+      OnChange = DateTimePickerEndChange
+    end
   end
   object Panel3: TPanel
     Left = 804
-    Top = 268
+    Top = 263
     Width = 234
     Height = 130
     TabOrder = 3
@@ -368,39 +388,6 @@ object FMain: TFMain
       TabOrder = 3
       OnClick = BDeleteCardClick
     end
-  end
-  object DateTimePickerStart: TDateTimePicker
-    Left = 812
-    Top = 207
-    Width = 105
-    Height = 21
-    Date = 42404.611685543980000000
-    Time = 42404.611685543980000000
-    TabOrder = 5
-  end
-  object DateTimePickerEnd: TDateTimePicker
-    Left = 923
-    Top = 207
-    Width = 105
-    Height = 21
-    Date = 42404.612514525460000000
-    Time = 42404.612514525460000000
-    TabOrder = 6
-  end
-  object BCollect: TButton
-    Left = 812
-    Top = 237
-    Width = 216
-    Height = 25
-    Caption = #1057#1073#1086#1088' '#1076#1072#1085#1085#1099#1093
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -15
-    Font.Name = 'Times New Roman'
-    Font.Style = []
-    ParentFont = False
-    TabOrder = 7
-    OnClick = BCollectClick
   end
   object MainMenu1: TMainMenu
     Left = 168
