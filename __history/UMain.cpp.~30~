@@ -62,3 +62,44 @@ void __fastcall TFMain::N6Click(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TFMain::FormClose(TObject *Sender, TCloseAction &Action)
+{
+	DMAvtoriz->SQLQInspection->Close();
+	DMAvtoriz->CDSInspection->Close();
+	DMAvtoriz->SQLConnectKKMP->Close();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFMain::DBGridEh1DblClick(TObject *Sender)
+{
+	//Set card number for editing in FCard
+	FCard->id_inspection = DBGridEh1->DataSource->DataSet->FieldByName("id_inspection")->AsInteger;
+	FCard->ShowModal();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFMain::BDeleteCardClick(TObject *Sender)
+{
+	if(DMAvtoriz->DSAvtoriz->DataSet->FieldByName("login")->AsAnsiString != "admin"){
+		MessageBox(0,L"У вас нет прав на данную операцию!\nИспользуйте учетную запись администратора.",L"Сообщение",MB_OK);
+	}else{
+		DMAvtoriz->SQLQInspection->Close();
+		DMAvtoriz->SQLQInspection->SQL->Text =
+			"DELETE FROM `inspection` WHERE `id_inspection` = '"
+			+ DBGridEh1->DataSource->DataSet->FieldByName("id_inspection")->AsAnsiString +"'";
+			try{
+				DMAvtoriz->SQLConnectKKMP->StartTransaction(trans);
+				if(DMAvtoriz->SQLQInspection->ExecSQL()){
+					DMAvtoriz->SQLConnectKKMP->Commit(trans);
+				}else{
+					DMAvtoriz->SQLConnectKKMP->Rollback(trans);
+					MessageBox(0,L"Запрос вернул \"false\"!\nОбратитесь к разработчику.",L"Ошибка удаления",MB_OK);
+				}
+			}catch(Exception &e){
+				DMAvtoriz->SQLConnectKKMP->Rollback(trans);
+				MessageBox(0,e.Message.c_str(),L"Ошибка удаления",MB_OK);
+			}
+	}
+}
+//---------------------------------------------------------------------------
+

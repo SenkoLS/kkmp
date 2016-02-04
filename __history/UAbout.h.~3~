@@ -12,6 +12,8 @@ class TFAbout : public TForm
 {
 __published:	// IDE-managed Components
 	TLabel *LCompany;
+	TLabel *LDeveloper;
+	TLabel *LName;
 	TLabel *Label1;
 	TLabel *Label2;
 private:	// User declarations

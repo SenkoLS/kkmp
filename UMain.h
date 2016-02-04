@@ -65,10 +65,13 @@ __published:	// IDE-managed Components
 	void __fastcall N6Click(TObject *Sender);
 	void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
 	void __fastcall DBGridEh1DblClick(TObject *Sender);
+	void __fastcall BDeleteCardClick(TObject *Sender);
+	void __fastcall BShowCardClick(TObject *Sender);
 
 private:	// User declarations
 public:		// User declarations
 	__fastcall TFMain(TComponent* Owner);
+	TTransactionDesc trans;
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TFMain *FMain;

@@ -15,8 +15,8 @@ SET FOREIGN_KEY_CHECKS=0;
 DROP DATABASE IF EXISTS `kkmp`;
 
 CREATE DATABASE `kkmp`
-    CHARACTER SET 'latin1'
-    COLLATE 'latin1_swedish_ci';
+    CHARACTER SET 'utf8'
+    COLLATE 'utf8_general_ci';
 
 USE `kkmp`;
 
@@ -81,7 +81,7 @@ CREATE TABLE `inspection` (
   `kvo` varchar(20) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id_inspection`),
   UNIQUE KEY `id_inspection` (`id_inspection`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
 #
 # Structure for the `office` table : 
@@ -95,7 +95,7 @@ CREATE TABLE `office` (
   `id_user` int(11) DEFAULT '0',
   PRIMARY KEY (`id_office`),
   UNIQUE KEY `id_office` (`id_office`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
 
 #
 # Structure for the `user` table : 
@@ -116,27 +116,16 @@ CREATE TABLE `user` (
   UNIQUE KEY `login` (`login`),
   UNIQUE KEY `login_2` (`login`),
   KEY `id_office` (`id_office`)
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
 
 #
 # Data for the `inspection` table  (LIMIT 0,500)
 #
 
 INSERT INTO `inspection` (`id_inspection`, `date_start`, `date_end`, `surname`, `name`, `patronymic`, `year_date_birthday`, `area`, `id_user`, `RemarkInfServYes`, `RemarkAnamYes`, `RemarkFizResYes`, `ResearchNotYes`, `ResearchToMuchYes`, `ResearchLateYes`, `ResearchInstrNotYes`, `ResearchInstrToMuchYes`, `ResearchInstrLateYes`, `RemarkKonsultNotYes`, `RemarkKonsultLateYes`, `RemarkDeseaseVerifYes`, `RemarkDeseaseTimeYes`, `RemarkDeseaseContentYes`, `RemarkTherapyChooseDrYes`, `RemarkTherapyTimeAppointmentYes`, `RemarkTherapyPolypharmacyYes`, `ContinuityChoosePlaceYes`, `ContinuityTimeTransferYes`, `RemarkStandartMHYes`, `VuluntarMedAgreementYes`, `AgreementPDNYes`, `ComplitListDeseaseYes`, `CompitListProfAndStatusYes`, `ExistenceFLGYes`, `ExistenceInspGinYes`, `RationalUseOfResourcesYes`, `AbsenceComplaintsOfPatientsYes`, `TimelyRegistLNYes`, `RefferalToVKYes`, `IntegrityCard`, `AccuracyHandwriting`, `QualityProfInsOnko`, `DispTimelines`, `QualityCollectAnamsis`, `QualityCollectComplaint`, `DescriptObjectStatus`, `EvaluationResultsOfTreatment`, `ObservStandartsOfDiagnostics`, `ObservStandartsOfTreatment`, `DeadlinesVN`, `kkmp`, `kvo`) VALUES 
-  (3,'2016-02-02','2016-02-02','ИВАНОВА','МАРГАРИТА','АЛЕКСЕЕВНА','1965',NULL,34,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,5,5,5,5,5,5,5,5,5,5,5,'1','0'),
-  (4,'2016-02-02','2016-02-02','','','','',NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,5,5,5,5,5,5,5,5,5,5,5,'1','0'),
-  (5,'2016-02-02','2016-02-02','','','','',NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,5,5,5,2,5,5,5,5,5,5,5,'0','0'),
-  (6,'2016-02-02','2016-02-02','','','','',NULL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,5,5,5,5,5,5,5,5,5,5,5,'0','0'),
-  (7,'2016-02-02','2016-02-02','','','','',NULL,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,2,2,2,2,2,2,2,2,2,2,5,'0','0'),
-  (8,'2016-02-01','2016-02-10','ИВАНОВА','ЛЕЯ','МИХАЙЛОВНА','1955',NULL,34,0,1,1,0,1,1,0,1,1,0,1,1,0,1,1,0,1,1,0,0,0,1,0,1,0,1,1,0,1,1,4,4,5,4,1,2,4,2,4,2,5,'0','0'),
-  (9,'2016-02-02','2016-02-02','','','','',NULL,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,2,3,5,2,2,5,5,2,5,5,5,'0','0'),
   (10,'2016-02-02','2016-02-25','ПЕТРОВА','ОЛЬГА','ВИКТОРОВНА','1968',NULL,35,0,1,1,0,0,1,0,1,1,0,1,0,1,1,0,1,1,0,0,0,0,0,1,0,1,0,1,0,1,1,2,3,2,3,4,5,4,3,2,1,5,'0,433 / 0,6','0,5'),
-  (11,'2016-02-03','2016-02-03','DCSDSC','SDCSDC','','1234',NULL,33,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,5,5,5,5,5,5,5,5,5,5,5,'1 / 1','0'),
-  (12,'2016-02-03','2016-02-03','DSC','SDC','','12',NULL,34,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,5,5,5,5,5,5,5,5,5,5,5,'1 / 1','0'),
-  (13,'2016-02-03','2016-02-12','ПОПОВ','ИВАН','СЕРГЕЕВИЧ','1955','15',34,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,5,5,5,5,5,5,5,5,5,5,5,'1 / 1','0'),
-  (14,'2016-02-01','2016-02-18','ИВАНОВА1','ЛЕЯ1','МИХАЙЛОВНА1','19553','132',33,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,0,1,0,1,1,1,5,4,4,5,4,5,4,5,4,5,5,'0,7 / 0,8','0,5'),
-  (15,'2016-02-01','2016-02-10','ИВАНОВА','ЛЕЯ','МИХАЙЛОВНА','1955','13',34,0,1,1,0,1,1,0,1,1,0,1,1,0,1,1,0,1,1,0,0,0,1,0,1,0,1,1,0,1,1,4,4,5,4,1,2,4,2,4,2,5,'0,667 / 0,6','0,6'),
-  (16,'2016-02-02','2016-02-12','GGG','GGG','GGG','2555','12',35,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,5,'0,2 / 0,2','1');
+  (13,'2016-02-03','2016-02-12','ПОПОВ','ИВАН','СЕРГЕЕВИЧ','1955','15',34,0,0,0,0,0,0,0,1,0,0,1,0,0,0,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,5,5,5,5,5,2,5,5,5,5,5,'1 / 0,95','0,2'),
+  (15,'2016-02-01','2016-02-25','ИВАНОВА','МАРИЯ','МИХАЙЛОВНА','1965','13',33,0,1,1,0,1,1,0,1,1,0,1,1,0,1,1,0,1,1,0,0,0,1,0,1,0,1,1,0,1,1,4,4,5,4,1,2,4,2,4,2,5,'0,667 / 0,6','0,6');
 COMMIT;
 
 #
@@ -144,7 +133,11 @@ COMMIT;
 #
 
 INSERT INTO `office` (`id_office`, `name_office`, `id_user`) VALUES 
-  (1,'не указано',0);
+  (1,'не указано',0),
+  (31,'1 Терапевтическое отделение',34),
+  (32,'2 Терапевтическое отделение',33),
+  (33,'Отделение общей практики',1),
+  (34,'Хирургическое отделение',34);
 COMMIT;
 
 #
@@ -152,13 +145,10 @@ COMMIT;
 #
 
 INSERT INTO `user` (`id_user`, `login`, `password`, `name`, `surname`, `patronymic`, `id_office`) VALUES 
-  (0,'not','not','указано','не',' ',1);
-UPDATE `user` SET `id_user`=0 WHERE `id_user`=LAST_INSERT_ID();
-INSERT INTO `user` (`id_user`, `login`, `password`, `name`, `surname`, `patronymic`, `id_office`) VALUES 
-  (1,'admin','21232F297A57A5A743894A0E4A801FC3','системы','Администратор','',1),
+  (1,'not','not','указано','не',' ',1),
+  (2,'admin','21232F297A57A5A743894A0E4A801FC3','системы','Администратор','',1),
   (33,'kac','0208A2E72DA71F7D17D6D20080990AD0','ГИВИ','КАЦИТАДЗЕ','ТЕНГИЗОВИЧ',1),
-  (34,'sol','12313A3D28F802E3A22B07D2E01C6DCF','АНАТОЛИЙ','СОЛОВЬЕВ','ЮРЬЕВИЧ',1),
-  (35,'zheg','8E956EDDDDA844BB342113AA3D124304','ВЕРА','ЖЕГАЛОВА','ГРИГОРЬЕВНА',1);
+  (34,'sol','12313A3D28F802E3A22B07D2E01C6DCF','АНАТОЛИЙ','СОЛОВЬЕВ','ЮРЬЕВИЧ',1);
 COMMIT;
 
 

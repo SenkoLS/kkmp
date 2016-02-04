@@ -141,6 +141,7 @@ object FMain: TFMain
     Font.Style = []
     ParentFont = False
     TabOrder = 1
+    OnClick = BShowCardClick
   end
   object Panel2: TPanel
     Left = 804
@@ -405,6 +406,7 @@ object FMain: TFMain
       Font.Style = []
       ParentFont = False
       TabOrder = 3
+      OnClick = BDeleteCardClick
     end
   end
   object MainMenu1: TMainMenu

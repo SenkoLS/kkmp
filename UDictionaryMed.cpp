@@ -71,11 +71,11 @@ void __fastcall TFDictionaryMed::FormShow(TObject *Sender)
 		DMAvtoriz->SQLQCatalogMed->Close();
 		DMAvtoriz->SQLQCatalogMed->SQL->Text = "SELECT `user`.`id_user`,`surname`,`name`,`patronymic`,`login`,`name_office` "
 			"FROM `user` INNER JOIN `office` ON `user`.`id_office` = `office`.`id_office` "
-			"WHERE `user`.`id_user` > 1";
+			"WHERE `user`.`id_user` > 2";
 	}else{
     	DMAvtoriz->SQLQCatalogMed->Close();
 		DMAvtoriz->SQLQCatalogMed->SQL->Text = "SELECT `user`.`id_user`,`surname`,`name`,`patronymic`,`login`,`name_office` "
-			"FROM `user` INNER JOIN `office` ON `user`.`id_office` = `office`.`id_office` WHERE `user`.`id_user` > 0";
+			"FROM `user` INNER JOIN `office` ON `user`.`id_office` = `office`.`id_office` WHERE `user`.`id_user` > 1";
 	}
 
 	DMAvtoriz->SQLQCatalogMed->Open();
@@ -200,8 +200,11 @@ void __fastcall TFDictionaryMed::BSafeMedClick(TObject *Sender)
 
 void __fastcall TFDictionaryMed::BDeleteClick(TObject *Sender)
 {
-	if(DBGrCatalogMed->DataSource->DataSet->FieldByName("id_user")->AsInteger <2){
-		MessageBox(0,L"Не выбран сотрудник!",L"Сообщение",MB_OK);
+	if(DBGrCatalogMed->DataSource->DataSet->FieldByName("id_user")->AsInteger < 3){
+		if(DBGrCatalogMed->DataSource->DataSet->FieldByName("id_user")->AsInteger == 2)
+			MessageBox(0,L"Нельзя удалить администратора программы!",L"Сообщение",MB_OK);
+		else
+			MessageBox(0,L"Не выбран сотрудник!",L"Сообщение",MB_OK);
 		return;
 	}
 

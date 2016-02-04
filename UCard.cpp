@@ -1467,7 +1467,7 @@ void __fastcall TFCard::FormShow(TObject *Sender)
 	}else{
 		DTPDateStart->Date = Now();
 		DTPDateEnd->Date = Now();
-		DBLookupComboBoxListMed->KeyValue = 0;
+		DBLookupComboBoxListMed->KeyValue = 1;
 		SpBAllNoClick(Sender);
 		SpBAllNoQualityClick(Sender);
 	}
@@ -2228,7 +2228,7 @@ void __fastcall TFCard::DTPDateEndCloseUp(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall TFCard::Button1Click(TObject *Sender)
 {
-	if(DBLookupComboBoxListMed->KeyValue < 1){
+	if(DBLookupComboBoxListMed->KeyValue < 2){
 		MessageBox(0,L"Не указан врач, проводивший осмотр!",L"Ошибка",MB_OK);
 		return;
 	}
@@ -2411,7 +2411,7 @@ void __fastcall TFCard::Button1Click(TObject *Sender)
 		EName->Text = "";
 		EPatronymic->Text = "";
 		EYearOfBirthday->Text = "";
-		DBLookupComboBoxListMed->KeyValue = 0;
+		DBLookupComboBoxListMed->KeyValue = 1;
 	}
 	id_inspection = NULL; //set editing in false
 }

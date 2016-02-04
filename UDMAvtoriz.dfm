@@ -193,7 +193,8 @@ object DMAvtoriz: TDMAvtoriz
     SQL.Strings = (
       
         'SELECT `id_user`, CONCAT(`surname`,'#39' '#39',`name`,'#39' '#39',`patronymic`) ' +
-        'as `fio` FROM `user` WHERE `id_user` != 1')
+        'as `fio`'
+      'FROM `user`  WHERE `id_user` != 2')
     SQLConnection = SQLConnectKKMP
     Left = 160
     Top = 368
