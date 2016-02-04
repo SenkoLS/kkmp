@@ -82,7 +82,7 @@ CREATE TABLE `inspection` (
   `kvo` varchar(20) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id_inspection`),
   UNIQUE KEY `id_inspection` (`id_inspection`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 #
 # Structure for the `office` table : 
