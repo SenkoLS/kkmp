@@ -1,24 +1,4 @@
-﻿# SQL Manager 2010 for MySQL 4.5.0.9
-# ---------------------------------------
-# Host     : localhost
-# Port     : 3306
-# Database : kkmp
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-
-SET FOREIGN_KEY_CHECKS=0;
-
-DROP DATABASE IF EXISTS `kkmp`;
-
-CREATE DATABASE `kkmp`
-    CHARACTER SET 'latin1'
-    COLLATE 'latin1_swedish_ci';
-
-USE `kkmp`;
+﻿USE `kkmp`;
 
 #
 # Structure for the `inspection` table : 

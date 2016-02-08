@@ -248,7 +248,6 @@ __published:	// IDE-managed Components
 	void __fastcall PRemarkTherapyChooseDrYesClick(TObject *Sender);
 	void __fastcall PRemarkTherapyChooseDrNoClick(TObject *Sender);
 	void __fastcall PRemarkTherapyTimeAppointmentYesClick(TObject *Sender);
-	void __fastcall PRemarkTherapyTimeAppointmentNoClick(TObject *Sender);
 	void __fastcall PRemarkTherapyPolypharmacyYesClick(TObject *Sender);
 	void __fastcall PRemarkTherapyPolypharmacyNoClick(TObject *Sender);
 	void __fastcall PContinuityChoosePlaceYesClick(TObject *Sender);
@@ -333,46 +332,88 @@ __published:	// IDE-managed Components
 	void __fastcall ENameExit(TObject *Sender);
 	void __fastcall EPatronymicExit(TObject *Sender);
 	void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
+	void __fastcall PRemarkTherapyTimeAppointmentNoClick(TObject *Sender);
+	void __fastcall PRemarkInfServClick(TObject *Sender);
+	void __fastcall PRemarkAnamClick(TObject *Sender);
+	void __fastcall PRemarkFizResClick(TObject *Sender);
+	void __fastcall PResearchNotClick(TObject *Sender);
+	void __fastcall PResearchToMuchClick(TObject *Sender);
+	void __fastcall PResearchLateClick(TObject *Sender);
+	void __fastcall PResearchInstrNotClick(TObject *Sender);
+	void __fastcall PResearchInstrToMuchClick(TObject *Sender);
+	void __fastcall PResearchInstrLateClick(TObject *Sender);
+	void __fastcall PRemarkKonsultNotClick(TObject *Sender);
+	void __fastcall PRemarkKonsultLateClick(TObject *Sender);
+	void __fastcall PRemarkDeseaseVerifClick(TObject *Sender);
+	void __fastcall PRemarkDeseaseTimeClick(TObject *Sender);
+	void __fastcall PRemarkDeseaseContentClick(TObject *Sender);
+	void __fastcall PRemarkTherapyChooseDrClick(TObject *Sender);
+	void __fastcall PRemarkTherapyTimeAppointmentClick(TObject *Sender);
+	void __fastcall PRemarkTherapyPolypharmacyClick(TObject *Sender);
+	void __fastcall PContinuityChoosePlaceClick(TObject *Sender);
+	void __fastcall PContinuityTimeTransferClick(TObject *Sender);
+	void __fastcall PRemarkStandartMHClick(TObject *Sender);
+	void __fastcall PVuluntarMedAgreementClick(TObject *Sender);
+	void __fastcall PAgreementPDNClick(TObject *Sender);
+	void __fastcall PComplitListDeseaseClick(TObject *Sender);
+	void __fastcall PCompitListProfAndStatusClick(TObject *Sender);
+	void __fastcall PIntegrityCardClick(TObject *Sender);
+	void __fastcall PAccuracyHandwritingClick(TObject *Sender);
+	void __fastcall PExistenceFLGClick(TObject *Sender);
+	void __fastcall PExistenceInspGinClick(TObject *Sender);
+	void __fastcall PQualityProfInsOnkoClick(TObject *Sender);
+	void __fastcall PDispTimelinesClick(TObject *Sender);
+	void __fastcall PQualityCollectAnamsisClick(TObject *Sender);
+	void __fastcall PQualityCollectComplaintClick(TObject *Sender);
+	void __fastcall PDescriptObjectStatusClick(TObject *Sender);
+	void __fastcall PEvaluationResultsOfTreatmentClick(TObject *Sender);
+	void __fastcall PObservStandartsOfDiagnosticsClick(TObject *Sender);
+	void __fastcall PObservStandartsOfTreatmentClick(TObject *Sender);
+	void __fastcall PRationalUseOfResourcesClick(TObject *Sender);
+	void __fastcall PAbsenceComplaintsOfPatientsClick(TObject *Sender);
+	void __fastcall PDeadlinesVNClick(TObject *Sender);
+	void __fastcall PTimelyRegistLNClick(TObject *Sender);
+	void __fastcall PRefferalToVKClick(TObject *Sender);
 
 private:	// User declarations
 public:		// User declarations
 	__fastcall TFCard(TComponent* Owner);
 	double 	kvo,kkmp;
-	bool	RemarkInfServYes,
-			RemarkAnamYes,
-			RemarkFizResYes,
-			ResearchNotYes,
-			ResearchToMuchYes,
-			ResearchLateYes,
-			ResearchInstrNotYes,
-			ResearchInstrToMuchYes,
-			ResearchInstrLateYes,
-			RemarkKonsultNotYes,
-			RemarkKonsultLateYes,
-			RemarkDeseaseVerifYes,
-			RemarkDeseaseTimeYes,
-			RemarkDeseaseContentYes,
-			RemarkTherapyChooseDrYes,
-			RemarkTherapyTimeAppointmentYes,
-			RemarkTherapyPolypharmacyYes,
-			ContinuityChoosePlaceYes,
-			ContinuityTimeTransferYes,
-			RemarkStandartMHYes;
 
-	bool 	VuluntarMedAgreementYes, AgreementPDNYes,
-			ComplitListDeseaseYes, CompitListProfAndStatusYes,
-			ExistenceFLGYes, ExistenceInspGinYes,
-			RationalUseOfResourcesYes, AbsenceComplaintsOfPatientsYes,
-			TimelyRegistLNYes,RefferalToVKYes;
-
-	int 	IntegrityCard, AccuracyHandwriting,
-			QualityProfInsOnko, DispTimelines,
-			QualityCollectAnamsis, QualityCollectComplaint,
-			DescriptObjectStatus, EvaluationResultsOfTreatment,
-			ObservStandartsOfDiagnostics, ObservStandartsOfTreatment,
-			DeadlinesVN;
-
-	int id_inspection;  //for editing
+	int	RemarkInfServYes,
+		RemarkAnamYes,
+		RemarkFizResYes,
+		ResearchNotYes,
+		ResearchToMuchYes,
+		ResearchLateYes,
+		ResearchInstrNotYes,
+		ResearchInstrToMuchYes,
+		ResearchInstrLateYes,
+		RemarkKonsultNotYes,
+		RemarkKonsultLateYes,
+		RemarkDeseaseVerifYes,
+		RemarkDeseaseTimeYes,
+		RemarkDeseaseContentYes,
+		RemarkTherapyChooseDrYes,
+		RemarkTherapyTimeAppointmentYes,
+		RemarkTherapyPolypharmacyYes,
+		ContinuityChoosePlaceYes,
+		ContinuityTimeTransferYes,
+		RemarkStandartMHYes,
+		VuluntarMedAgreementYes, AgreementPDNYes,
+		ComplitListDeseaseYes, CompitListProfAndStatusYes,
+		ExistenceFLGYes, ExistenceInspGinYes,
+		RationalUseOfResourcesYes, AbsenceComplaintsOfPatientsYes,
+		TimelyRegistLNYes,RefferalToVKYes,
+		IntegrityCard, AccuracyHandwriting,
+		QualityProfInsOnko, DispTimelines,
+		QualityCollectAnamsis, QualityCollectComplaint,
+		DescriptObjectStatus, EvaluationResultsOfTreatment,
+		ObservStandartsOfDiagnostics, ObservStandartsOfTreatment,
+		DeadlinesVN,
+		id_inspection,  //for editing
+		amountRightPanels,
+		amountLeftPanels;
 
 	void __fastcall TFCard::getKvo();
 	void __fastcall TFCard::getKkmp();

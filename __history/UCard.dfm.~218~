@@ -19,6 +19,7 @@ object FCard: TFCard
   Font.Style = []
   OldCreateOrder = False
   Position = poDesktopCenter
+  OnClose = FormClose
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 17
@@ -209,7 +210,7 @@ object FCard: TFCard
     end
     object EArea: TEdit
       Left = 934
-      Top = 40
+      Top = 39
       Width = 63
       Height = 23
       Font.Charset = DEFAULT_CHARSET
@@ -247,7 +248,7 @@ object FCard: TFCard
       ParentFont = False
       TabOrder = 7
     end
-    object DBLookupComboBox1: TDBLookupComboBox
+    object DBLookupComboBoxListMed: TDBLookupComboBox
       Left = 575
       Top = 10
       Width = 422
@@ -257,6 +258,9 @@ object FCard: TFCard
       Font.Height = -12
       Font.Name = 'Times New Roman'
       Font.Style = []
+      KeyField = 'id_user'
+      ListField = 'fio'
+      ListSource = DMAvtoriz.DSGetListMed
       ParentFont = False
       TabOrder = 3
     end
@@ -416,6 +420,7 @@ object FCard: TFCard
       ParentBackground = False
       ParentFont = False
       TabOrder = 0
+      OnClick = PVuluntarMedAgreementClick
     end
     object PAgreementPDN: TPanel
       Left = 8
@@ -434,6 +439,7 @@ object FCard: TFCard
       ParentBackground = False
       ParentFont = False
       TabOrder = 1
+      OnClick = PAgreementPDNClick
     end
     object PComplitListDesease: TPanel
       Left = 8
@@ -452,6 +458,7 @@ object FCard: TFCard
       ParentBackground = False
       ParentFont = False
       TabOrder = 2
+      OnClick = PComplitListDeseaseClick
     end
     object PCompitListProfAndStatus: TPanel
       Left = 8
@@ -470,6 +477,7 @@ object FCard: TFCard
       ParentBackground = False
       ParentFont = False
       TabOrder = 3
+      OnClick = PCompitListProfAndStatusClick
     end
     object PIntegrityCard: TPanel
       Left = 8
@@ -488,6 +496,7 @@ object FCard: TFCard
       ParentBackground = False
       ParentFont = False
       TabOrder = 4
+      OnClick = PIntegrityCardClick
     end
     object PAccuracyHandwriting: TPanel
       Left = 8
@@ -506,6 +515,7 @@ object FCard: TFCard
       ParentBackground = False
       ParentFont = False
       TabOrder = 5
+      OnClick = PAccuracyHandwritingClick
     end
     object PExistenceFLG: TPanel
       Left = 8
@@ -524,6 +534,7 @@ object FCard: TFCard
       ParentBackground = False
       ParentFont = False
       TabOrder = 6
+      OnClick = PExistenceFLGClick
     end
     object PExistenceInspGin: TPanel
       Left = 8
@@ -542,6 +553,7 @@ object FCard: TFCard
       ParentBackground = False
       ParentFont = False
       TabOrder = 7
+      OnClick = PExistenceInspGinClick
     end
     object PQualityProfInsOnko: TPanel
       Left = 8
@@ -560,6 +572,7 @@ object FCard: TFCard
       ParentBackground = False
       ParentFont = False
       TabOrder = 8
+      OnClick = PQualityProfInsOnkoClick
     end
     object PDispTimelines: TPanel
       Left = 8
@@ -578,6 +591,7 @@ object FCard: TFCard
       ParentBackground = False
       ParentFont = False
       TabOrder = 9
+      OnClick = PDispTimelinesClick
     end
     object PQualityCollectAnamsis: TPanel
       Left = 8
@@ -596,6 +610,7 @@ object FCard: TFCard
       ParentBackground = False
       ParentFont = False
       TabOrder = 10
+      OnClick = PQualityCollectAnamsisClick
     end
     object PQualityCollectComplaint: TPanel
       Left = 8
@@ -614,6 +629,7 @@ object FCard: TFCard
       ParentBackground = False
       ParentFont = False
       TabOrder = 11
+      OnClick = PQualityCollectComplaintClick
     end
     object PVuluntarMedAgreementNo: TPanel
       Left = 472
@@ -1064,6 +1080,7 @@ object FCard: TFCard
       ParentBackground = False
       ParentFont = False
       TabOrder = 36
+      OnClick = PDescriptObjectStatusClick
     end
     object PEvaluationResultsOfTreatment: TPanel
       Left = 8
@@ -1082,6 +1099,7 @@ object FCard: TFCard
       ParentBackground = False
       ParentFont = False
       TabOrder = 37
+      OnClick = PEvaluationResultsOfTreatmentClick
     end
     object PObservStandartsOfDiagnostics: TPanel
       Left = 8
@@ -1100,6 +1118,7 @@ object FCard: TFCard
       ParentBackground = False
       ParentFont = False
       TabOrder = 38
+      OnClick = PObservStandartsOfDiagnosticsClick
     end
     object PObservStandartsOfTreatment: TPanel
       Left = 8
@@ -1118,6 +1137,7 @@ object FCard: TFCard
       ParentBackground = False
       ParentFont = False
       TabOrder = 39
+      OnClick = PObservStandartsOfTreatmentClick
     end
     object PDispTimelines5: TPanel
       Left = 505
@@ -1748,6 +1768,7 @@ object FCard: TFCard
       ParentBackground = False
       ParentFont = False
       TabOrder = 74
+      OnClick = PAbsenceComplaintsOfPatientsClick
     end
     object PRationalUseOfResourcesNo: TPanel
       Left = 472
@@ -1820,6 +1841,7 @@ object FCard: TFCard
       ParentBackground = False
       ParentFont = False
       TabOrder = 78
+      OnClick = PRationalUseOfResourcesClick
     end
     object PObservStandartsOfTreatment2: TPanel
       Left = 408
@@ -1910,6 +1932,7 @@ object FCard: TFCard
       ParentBackground = False
       ParentFont = False
       TabOrder = 83
+      OnClick = PDeadlinesVNClick
     end
     object PAbsenceComplaintsOfPatientsNo: TPanel
       Left = 472
@@ -2374,6 +2397,7 @@ object FCard: TFCard
       ParentBackground = False
       ParentFont = False
       TabOrder = 0
+      OnClick = PRemarkInfServClick
     end
     object PRemarkInfServYes: TPanel
       Left = 368
@@ -2428,6 +2452,7 @@ object FCard: TFCard
       ParentBackground = False
       ParentFont = False
       TabOrder = 3
+      OnClick = PRemarkAnamClick
     end
     object PRemarkAnamYes: TPanel
       Left = 368
@@ -2482,6 +2507,7 @@ object FCard: TFCard
       ParentBackground = False
       ParentFont = False
       TabOrder = 6
+      OnClick = PRemarkFizResClick
     end
     object PRemarkFizResYes: TPanel
       Left = 368
@@ -2536,6 +2562,7 @@ object FCard: TFCard
       ParentBackground = False
       ParentFont = False
       TabOrder = 9
+      OnClick = PResearchNotClick
     end
     object PResearchToMuch: TPanel
       Left = 8
@@ -2554,6 +2581,7 @@ object FCard: TFCard
       ParentBackground = False
       ParentFont = False
       TabOrder = 10
+      OnClick = PResearchToMuchClick
     end
     object PResearchToMuchNo: TPanel
       Left = 400
@@ -2644,6 +2672,7 @@ object FCard: TFCard
       ParentBackground = False
       ParentFont = False
       TabOrder = 15
+      OnClick = PResearchLateClick
     end
     object PResearchLateYes: TPanel
       Left = 368
@@ -2698,6 +2727,7 @@ object FCard: TFCard
       ParentBackground = False
       ParentFont = False
       TabOrder = 18
+      OnClick = PResearchInstrNotClick
     end
     object PResearchInstrNotYes: TPanel
       Left = 368
@@ -2752,6 +2782,7 @@ object FCard: TFCard
       ParentBackground = False
       ParentFont = False
       TabOrder = 21
+      OnClick = PResearchInstrToMuchClick
     end
     object PResearchInstrLate: TPanel
       Left = 8
@@ -2770,6 +2801,7 @@ object FCard: TFCard
       ParentBackground = False
       ParentFont = False
       TabOrder = 22
+      OnClick = PResearchInstrLateClick
     end
     object PResearchInstrToMuchYes: TPanel
       Left = 368
@@ -2860,6 +2892,7 @@ object FCard: TFCard
       ParentBackground = False
       ParentFont = False
       TabOrder = 27
+      OnClick = PRemarkKonsultNotClick
     end
     object PRemarkKonsultLate: TPanel
       Left = 8
@@ -2878,6 +2911,7 @@ object FCard: TFCard
       ParentBackground = False
       ParentFont = False
       TabOrder = 28
+      OnClick = PRemarkKonsultLateClick
     end
     object PRemarkKonsultNotYes: TPanel
       Left = 368
@@ -2968,6 +3002,7 @@ object FCard: TFCard
       ParentBackground = False
       ParentFont = False
       TabOrder = 33
+      OnClick = PRemarkDeseaseVerifClick
     end
     object PRemarkDeseaseTime: TPanel
       Left = 8
@@ -2986,6 +3021,7 @@ object FCard: TFCard
       ParentBackground = False
       ParentFont = False
       TabOrder = 34
+      OnClick = PRemarkDeseaseTimeClick
     end
     object PRemarkDeseaseContent: TPanel
       Left = 8
@@ -3004,6 +3040,7 @@ object FCard: TFCard
       ParentBackground = False
       ParentFont = False
       TabOrder = 35
+      OnClick = PRemarkDeseaseContentClick
     end
     object PRemarkDeseaseVerifYes: TPanel
       Left = 368
@@ -3238,6 +3275,7 @@ object FCard: TFCard
       ParentBackground = False
       ParentFont = False
       TabOrder = 48
+      OnClick = PRemarkTherapyPolypharmacyClick
     end
     object PRemarkTherapyTimeAppointment: TPanel
       Left = 8
@@ -3256,6 +3294,7 @@ object FCard: TFCard
       ParentBackground = False
       ParentFont = False
       TabOrder = 49
+      OnClick = PRemarkTherapyTimeAppointmentClick
     end
     object PRemarkTherapyChooseDr: TPanel
       Left = 8
@@ -3274,6 +3313,7 @@ object FCard: TFCard
       ParentBackground = False
       ParentFont = False
       TabOrder = 50
+      OnClick = PRemarkTherapyChooseDrClick
     end
     object PKvo: TPanel
       Left = 368
@@ -3302,6 +3342,7 @@ object FCard: TFCard
       Color = clWhite
       ParentBackground = False
       TabOrder = 52
+      OnClick = PContinuityChoosePlaceClick
     end
     object PContinuityChoosePlaceNo: TPanel
       Left = 400
@@ -3350,6 +3391,7 @@ object FCard: TFCard
       Color = clWhite
       ParentBackground = False
       TabOrder = 56
+      OnClick = PContinuityTimeTransferClick
     end
     object PContinuityTimeTransferYes: TPanel
       Left = 368
@@ -3374,6 +3416,7 @@ object FCard: TFCard
       Color = clWhite
       ParentBackground = False
       TabOrder = 58
+      OnClick = PRemarkStandartMHClick
     end
     object PRemarkStandartMHYes: TPanel
       Left = 368

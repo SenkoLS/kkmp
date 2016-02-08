@@ -13,6 +13,10 @@ TFCard *FCard;
 __fastcall TFCard::TFCard(TComponent* Owner)
 	: TForm(Owner)
 {
+	clearForm(Owner);
+}
+//---------------------------------------------------------------------------
+void __fastcall TFCard::clearForm(TObject *Sender){
 	amountRightPanels = 0;
 	amountLeftPanels = 0;
 
@@ -63,72 +67,225 @@ __fastcall TFCard::TFCard(TComponent* Owner)
 	ObservStandartsOfDiagnostics = 0;
 	ObservStandartsOfTreatment = 0;
 	DeadlinesVN = 0;
-}
-//---------------------------------------------------------------------------
-AnsiString __fastcall TFCard::BoolToStr(bool value){
-	AnsiString str = "";
-	return (value) ? str = "1" : str = "0";
+
+	//set fields of form
+    DTPDateStart->Date = Now();
+	DTPDateEnd->Date = Now();
+	EArea->Text = "";
+	ESurname->Text = "";
+	EName->Text = "";
+	EPatronymic->Text = "";
+	EYearOfBirthday->Text = "";
+	DBLookupComboBoxListMed->KeyValue = 1;
+	id_inspection = NULL; //set editing in false
+
+	PVuluntarMedAgreementClick(Sender);
+	PAgreementPDNClick(Sender);
+	PComplitListDeseaseClick(Sender);
+	PCompitListProfAndStatusClick(Sender);
+	PIntegrityCardClick(Sender);
+	PAccuracyHandwritingClick(Sender);
 }
 //---------------------------------------------------------------------------
 void __fastcall TFCard::getKvo(){
-    kvo = 0;
+	kvo = 0;
+	amountRightPanels = 0;
+	if(RemarkInfServYes != 0){
+		if(RemarkInfServYes == 1) kvo++;
+		amountRightPanels++;
+	}
+	if(RemarkAnamYes != 0){
+		if(RemarkAnamYes == 1) kvo++;
+		amountRightPanels++;
+	}
+	if(RemarkFizResYes != 0){
+		if(RemarkFizResYes == 1) kvo++;
+		amountRightPanels++;
+	}
 
-	if(RemarkInfServYes) kvo = kvo + 0.05;
-	if(RemarkAnamYes) kvo = kvo + 0.05;
-	if(RemarkFizResYes) kvo = kvo + 0.05;
-	if(ResearchNotYes) kvo = kvo + 0.05;
-	if(ResearchToMuchYes) kvo = kvo + 0.05;
-	if(ResearchLateYes) kvo = kvo + 0.05;
-	if(ResearchInstrNotYes) kvo = kvo + 0.05;
-	if(ResearchInstrToMuchYes) kvo = kvo + 0.05;
-	if(ResearchInstrLateYes) kvo = kvo + 0.05;
-	if(RemarkKonsultNotYes) kvo = kvo + 0.05;
-	if(RemarkKonsultLateYes) kvo = kvo + 0.05;
-	if(RemarkDeseaseVerifYes) kvo = kvo + 0.05;
-	if(RemarkDeseaseTimeYes) kvo = kvo + 0.05;
-	if(RemarkDeseaseContentYes) kvo = kvo + 0.05;
-	if(RemarkTherapyChooseDrYes) kvo = kvo + 0.05;
-	if(RemarkTherapyTimeAppointmentYes) kvo = kvo + 0.05;
-	if(RemarkTherapyPolypharmacyYes) kvo = kvo + 0.05;
-	if(ContinuityChoosePlaceYes) kvo = kvo + 0.05;
-	if(ContinuityTimeTransferYes) kvo = kvo + 0.05;
-	if(RemarkStandartMHYes) kvo = kvo + 0.05;
+	if(ResearchNotYes != 0){
+		if(ResearchNotYes == 1) kvo++;
+		amountRightPanels++;
+	}
+	if(ResearchToMuchYes != 0){
+		if(ResearchToMuchYes == 1) kvo++;
+		amountRightPanels++;
+	}
+	if(ResearchLateYes != 0){
+		if(ResearchLateYes == 1) kvo++;
+		amountRightPanels++;
+	}
+	if(ResearchInstrNotYes != 0){
+		if(ResearchInstrNotYes == 1) kvo++;
+		amountRightPanels++;
+	}
+	if(ResearchInstrToMuchYes != 0){
+		if(ResearchInstrToMuchYes == 1) kvo++;
+		amountRightPanels++;
+	}
+	if(ResearchInstrLateYes != 0){
+		if(ResearchInstrLateYes == 1) kvo++;
+		amountRightPanels++;
+	}
+	if(RemarkKonsultNotYes != 0){
+		if(RemarkKonsultNotYes == 1) kvo++;
+		amountRightPanels++;
+	}
+	if(RemarkKonsultLateYes != 0){
+		if(RemarkKonsultLateYes == 1) kvo++;
+		amountRightPanels++;
+	}
+	if(RemarkDeseaseVerifYes != 0){
+		if(RemarkDeseaseVerifYes == 1) kvo++;
+		amountRightPanels++;
+	}
+	if(RemarkDeseaseTimeYes != 0){
+		if(RemarkDeseaseTimeYes == 1) kvo++;
+		amountRightPanels++;
+	}
+	if(RemarkDeseaseContentYes != 0){
+		if(RemarkDeseaseContentYes == 1) kvo++;
+		amountRightPanels++;
+	}
+	if(RemarkTherapyChooseDrYes != 0){
+		if(RemarkTherapyChooseDrYes == 1) kvo++;
+		amountRightPanels++;
+	}
+	if(RemarkTherapyTimeAppointmentYes != 0){
+		if(RemarkTherapyTimeAppointmentYes == 1) kvo++;
+		amountRightPanels++;
+	}
+	if(RemarkTherapyPolypharmacyYes != 0){
+		if(RemarkTherapyPolypharmacyYes == 1) kvo++;
+		amountRightPanels++;
+	}
+	if(ContinuityChoosePlaceYes != 0){
+		if(ContinuityChoosePlaceYes == 1) kvo++;
+		amountRightPanels++;
+	}
+	if(ContinuityTimeTransferYes != 0){
+		if(ContinuityTimeTransferYes == 1) kvo++;
+		amountRightPanels++;
+	}
+	if(RemarkStandartMHYes != 0){
+		if(RemarkStandartMHYes == 1) kvo++;
+		amountRightPanels++;
+	}
 
-	PKvo->Caption = FloatToStr(kvo);
+	if(amountRightPanels != 0)
+		kvo = (kvo/amountRightPanels);
+	else
+		kvo = 0;
+
+	PKvo->Caption = FloatToStr(SimpleRoundTo(kvo,-3));
 }
 //---------------------------------------------------------------------------
 void __fastcall TFCard::getKkmp(){
 
 	//First part:
 	kkmp = 0;
-	VuluntarMedAgreementYes ? kkmp = kkmp + 5 : kkmp = kkmp + 1;
-	AgreementPDNYes ? kkmp = kkmp + 5 : kkmp = kkmp + 1;
-	ComplitListDeseaseYes ? kkmp = kkmp + 5 : kkmp = kkmp + 1;
-	CompitListProfAndStatusYes ? kkmp = kkmp + 5 : kkmp = kkmp + 1;
-	kkmp = kkmp + IntegrityCard;
-	kkmp = kkmp + AccuracyHandwriting;
-	kkmp = SimpleRoundTo(kkmp/30,-3);
+	amountLeftPanels = 0;
+
+	if(VuluntarMedAgreementYes != 0){
+		kkmp = kkmp + VuluntarMedAgreementYes;
+		amountLeftPanels++;
+	}
+	if(AgreementPDNYes != 0){
+		kkmp = kkmp + AgreementPDNYes;
+		amountLeftPanels++;
+	}
+	if(ComplitListDeseaseYes != 0){
+		kkmp = kkmp + ComplitListDeseaseYes;
+		amountLeftPanels++;
+	}
+	if(CompitListProfAndStatusYes != 0){
+		kkmp = kkmp + CompitListProfAndStatusYes;
+		amountLeftPanels++;
+	}
+	if(IntegrityCard != 0){
+		kkmp = kkmp + IntegrityCard;
+		amountLeftPanels++;
+	}
+	if(AccuracyHandwriting != 0){
+		kkmp = kkmp + AccuracyHandwriting;
+		amountLeftPanels++;
+	}
+	if(amountLeftPanels != 0)
+		kkmp = SimpleRoundTo(kkmp/(amountLeftPanels*5),-3);
+	else
+		kkmp = 1;
 
 	AnsiString interValue = FloatToStr(kkmp);
 
 	//Second part:
 	kkmp = 0;
-	ExistenceFLGYes ? kkmp = kkmp + 5 : kkmp = kkmp + 1;
-	ExistenceInspGinYes ? kkmp = kkmp + 5 : kkmp = kkmp + 1;
-	RationalUseOfResourcesYes ? kkmp = kkmp + 5 : kkmp = kkmp + 1;
-	AbsenceComplaintsOfPatientsYes ? kkmp = kkmp + 5 : kkmp = kkmp + 1;
-	//TimelyRegistLNYes ? kkmp = kkmp + 5 : kkmp = kkmp + 1;
-	//RefferalToVKYes ? kkmp = kkmp + 5 : kkmp = kkmp + 1;
-	kkmp = kkmp + QualityProfInsOnko;
-	kkmp = kkmp + DispTimelines;
-	kkmp = kkmp + QualityCollectAnamsis;
-	kkmp = kkmp + QualityCollectComplaint;
-	kkmp = kkmp + DescriptObjectStatus;
-	kkmp = kkmp + EvaluationResultsOfTreatment;
-	kkmp = kkmp + ObservStandartsOfDiagnostics;
-	kkmp = kkmp + ObservStandartsOfTreatment;
-	//kkmp = kkmp + DeadlinesVN;
-    kkmp = SimpleRoundTo(kkmp/60,-3);
+	amountLeftPanels = 0;
+
+	if(ExistenceFLGYes != 0){
+		kkmp = kkmp + ExistenceFLGYes;
+		amountLeftPanels++;
+	}
+	if(ExistenceInspGinYes != 0){
+		kkmp = kkmp + ExistenceInspGinYes;
+		amountLeftPanels++;
+	}
+	if(RationalUseOfResourcesYes != 0){
+		kkmp = kkmp + RationalUseOfResourcesYes;
+		amountLeftPanels++;
+	}
+	if(AbsenceComplaintsOfPatientsYes != 0){
+		kkmp = kkmp + AbsenceComplaintsOfPatientsYes;
+		amountLeftPanels++;
+	}
+	if(TimelyRegistLNYes != 0){
+		kkmp = kkmp + TimelyRegistLNYes;
+		amountLeftPanels++;
+	}
+	if(RefferalToVKYes != 0){
+		kkmp = kkmp + RefferalToVKYes;
+		amountLeftPanels++;
+	}
+	if(QualityProfInsOnko != 0){
+		kkmp = kkmp + QualityProfInsOnko;
+		amountLeftPanels++;
+	}
+	if(DispTimelines != 0){
+		kkmp = kkmp + DispTimelines;
+		amountLeftPanels++;
+	}
+	if(QualityCollectAnamsis != 0){
+		kkmp = kkmp + QualityCollectAnamsis;
+		amountLeftPanels++;
+	}
+	if(QualityCollectComplaint != 0){
+		kkmp = kkmp + QualityCollectComplaint;
+		amountLeftPanels++;
+	}
+	if(DescriptObjectStatus != 0){
+		kkmp = kkmp + DescriptObjectStatus;
+		amountLeftPanels++;
+	}
+	if(EvaluationResultsOfTreatment != 0){
+		kkmp = kkmp + EvaluationResultsOfTreatment;
+		amountLeftPanels++;
+	}
+	if(ObservStandartsOfDiagnostics != 0){
+		kkmp = kkmp + ObservStandartsOfDiagnostics;
+		amountLeftPanels++;
+	}
+	if(ObservStandartsOfTreatment != 0){
+		kkmp = kkmp + ObservStandartsOfTreatment;
+		amountLeftPanels++;
+	}
+	if(DeadlinesVN != 0){
+		kkmp = kkmp + DeadlinesVN;
+		amountLeftPanels++;
+	}
+
+    if(amountLeftPanels != 0)
+		kkmp = SimpleRoundTo(kkmp/(amountLeftPanels*5),-3);
+	else
+		kkmp = 1;
 
 	PKKMP->Caption = interValue + " / " + FloatToStr(kkmp);
 }
@@ -137,41 +294,32 @@ void __fastcall TFCard::PRemarkInfServYesClick(TObject *Sender)
 {
 	PRemarkInfServYes->Color = TColor(0x0064B1FF);
 	PRemarkInfServNo->Color = clWhite;
-	if(!RemarkInfServYes){
-		RemarkInfServYes = true;
-		getKvo();
-	}
+	RemarkInfServYes = 1;
+	getKvo();
 }
 //---------------------------------------------------------------------------
 void __fastcall TFCard::PRemarkInfServNoClick(TObject *Sender)
 {
 	PRemarkInfServNo->Color = TColor(0x0064B1FF);
 	PRemarkInfServYes->Color = clWhite;
-	if(RemarkInfServYes){
-		RemarkInfServYes = false;
-		getKvo();
-	}
-
+	RemarkInfServYes = 2;
+	getKvo();
 }
 //---------------------------------------------------------------------------
 void __fastcall TFCard::PRemarkAnamYesClick(TObject *Sender)
 {
 	PRemarkAnamYes->Color = TColor(0x0064B1FF);
 	PRemarkAnamNo->Color = clWhite;
-	if(!RemarkAnamYes){
-		RemarkAnamYes = true;
-		getKvo();
-	}
+	RemarkAnamYes = 1;
+	getKvo();
 }
 //---------------------------------------------------------------------------
 void __fastcall TFCard::PRemarkAnamNoClick(TObject *Sender)
 {
 	PRemarkAnamNo->Color = TColor(0x0064B1FF);
 	PRemarkAnamYes->Color = clWhite;
-	if(RemarkAnamYes){
-		RemarkAnamYes = false;
-		getKvo();
-	}
+	RemarkAnamYes = 2;
+	getKvo();
 }
 //---------------------------------------------------------------------------
 
@@ -179,20 +327,16 @@ void __fastcall TFCard::PRemarkFizResYesClick(TObject *Sender)
 {
 	PRemarkFizResYes->Color = TColor(0x0064B1FF);
 	PRemarkFizResNo->Color = clWhite;
-	if(!RemarkFizResYes){
-		RemarkFizResYes = true;
-		getKvo();
-	}
+	RemarkFizResYes = 1;
+	getKvo();
 }
 //---------------------------------------------------------------------------
 void __fastcall TFCard::PRemarkFizResNoClick(TObject *Sender)
 {
 	PRemarkFizResNo->Color = TColor(0x0064B1FF);
 	PRemarkFizResYes->Color = clWhite;
-	if(RemarkFizResYes){
-		RemarkFizResYes = false;
-		getKvo();
-	}
+	RemarkFizResYes = 2;
+	getKvo();
 }
 //---------------------------------------------------------------------------
 
@@ -200,10 +344,8 @@ void __fastcall TFCard::PResearchNotYesClick(TObject *Sender)
 {
 	PResearchNotYes->Color = TColor(0x0064B1FF);
 	PResearchNotNo->Color = clWhite;
-	if(!ResearchNotYes){
-		ResearchNotYes = true;
-		getKvo();
-	}
+	ResearchNotYes = 1;
+	getKvo();
 }
 //---------------------------------------------------------------------------
 
@@ -211,10 +353,8 @@ void __fastcall TFCard::PResearchNotNoClick(TObject *Sender)
 {
 	PResearchNotNo->Color = TColor(0x0064B1FF);
 	PResearchNotYes->Color = clWhite;
-	if(ResearchNotYes){
-		ResearchNotYes = false;
-		getKvo();
-	}
+	ResearchNotYes = 2;
+	getKvo();
 }
 //---------------------------------------------------------------------------
 
@@ -222,10 +362,8 @@ void __fastcall TFCard::PResearchToMuchYesClick(TObject *Sender)
 {
 	PResearchToMuchYes->Color = TColor(0x0064B1FF);
 	PResearchToMuchNo->Color = clWhite;
-	if(!ResearchToMuchYes){
-		ResearchToMuchYes = true;
-		getKvo();
-	}
+	ResearchToMuchYes = 1;
+	getKvo();
 }
 //---------------------------------------------------------------------------
 
@@ -233,10 +371,8 @@ void __fastcall TFCard::PResearchToMuchNoClick(TObject *Sender)
 {
 	PResearchToMuchNo->Color = TColor(0x0064B1FF);
 	PResearchToMuchYes->Color = clWhite;
-	if(ResearchToMuchYes){
-		ResearchToMuchYes = false;
-		getKvo();
-	}
+	ResearchToMuchYes = 2;
+	getKvo();
 }
 //---------------------------------------------------------------------------
 
@@ -244,10 +380,8 @@ void __fastcall TFCard::PResearchLateYesClick(TObject *Sender)
 {
 	PResearchLateYes->Color = TColor(0x0064B1FF);
 	PResearchLateNo->Color = clWhite;
-	if(!ResearchLateYes){
-		ResearchLateYes = true;
-		getKvo();
-	}
+	ResearchLateYes = 1;
+	getKvo();
 }
 //---------------------------------------------------------------------------
 
@@ -255,10 +389,8 @@ void __fastcall TFCard::PResearchLateNoClick(TObject *Sender)
 {
 	PResearchLateYes->Color = clWhite;
 	PResearchLateNo->Color = TColor(0x0064B1FF);
-	if(ResearchLateYes){
-		ResearchLateYes = false;
-		getKvo();
-	}
+	ResearchLateYes = 2;
+	getKvo();
 }
 //---------------------------------------------------------------------------
 
@@ -266,10 +398,8 @@ void __fastcall TFCard::PResearchInstrNotYesClick(TObject *Sender)
 {
 	PResearchInstrNotYes->Color = TColor(0x0064B1FF);
 	PResearchInstrNotNo->Color = clWhite;
-	if(!ResearchInstrNotYes){
-		ResearchInstrNotYes = true;
-		getKvo();
-	}
+	ResearchInstrNotYes = 1;
+	getKvo();
 }
 //---------------------------------------------------------------------------
 
@@ -277,10 +407,8 @@ void __fastcall TFCard::PResearchInstrNotNoClick(TObject *Sender)
 {
 	PResearchInstrNotNo->Color = TColor(0x0064B1FF);
 	PResearchInstrNotYes->Color = clWhite;
-	if(ResearchInstrNotYes){
-		ResearchInstrNotYes = false;
-		getKvo();
-	}
+	ResearchInstrNotYes = 2;
+	getKvo();
 }
 //---------------------------------------------------------------------------
 
@@ -288,10 +416,8 @@ void __fastcall TFCard::PResearchInstrToMuchYesClick(TObject *Sender)
 {
 	PResearchInstrToMuchYes->Color = TColor(0x0064B1FF);
 	PResearchInstrToMuchNo->Color = clWhite;
-	if(!ResearchInstrToMuchYes){
-		ResearchInstrToMuchYes = true;
-		getKvo();
-	}
+	ResearchInstrToMuchYes = 1;
+	getKvo();
 }
 //---------------------------------------------------------------------------
 
@@ -299,10 +425,8 @@ void __fastcall TFCard::PResearchInstrToMuchNoClick(TObject *Sender)
 {
 	PResearchInstrToMuchNo->Color = TColor(0x0064B1FF);
 	PResearchInstrToMuchYes->Color = clWhite;
-	if(ResearchInstrToMuchYes){
-		ResearchInstrToMuchYes = false;
-		getKvo();
-	}
+	ResearchInstrToMuchYes = 2;
+	getKvo();
 }
 //---------------------------------------------------------------------------
 
@@ -310,10 +434,8 @@ void __fastcall TFCard::PResearchInstrLateYesClick(TObject *Sender)
 {
 	PResearchInstrLateYes->Color = TColor(0x0064B1FF);
 	PResearchInstrLateNo->Color = clWhite;
-	if(!ResearchInstrLateYes){
-		ResearchInstrLateYes = true;
-		getKvo();
-	}
+	ResearchInstrLateYes = 1;
+	getKvo();
 }
 //---------------------------------------------------------------------------
 
@@ -321,10 +443,8 @@ void __fastcall TFCard::PResearchInstrLateNoClick(TObject *Sender)
 {
 	PResearchInstrLateNo->Color = TColor(0x0064B1FF);
 	PResearchInstrLateYes->Color = clWhite;
-	if(ResearchInstrLateYes){
-		ResearchInstrLateYes = false;
-		getKvo();
-	}
+	ResearchInstrLateYes = 2;
+	getKvo();
 }
 //---------------------------------------------------------------------------
 
@@ -332,10 +452,8 @@ void __fastcall TFCard::PRemarkKonsultNotYesClick(TObject *Sender)
 {
 	PRemarkKonsultNotYes->Color = TColor(0x0064B1FF);
 	PRemarkKonsultNotNo->Color = clWhite;
-	if(!RemarkKonsultNotYes){
-		RemarkKonsultNotYes = true;
-		getKvo();
-	}
+	RemarkKonsultNotYes = 1;
+	getKvo();
 }
 //---------------------------------------------------------------------------
 
@@ -343,10 +461,8 @@ void __fastcall TFCard::PRemarkKonsultNotNoClick(TObject *Sender)
 {
 	PRemarkKonsultNotNo->Color = TColor(0x0064B1FF);
 	PRemarkKonsultNotYes->Color = clWhite;
-	if(RemarkKonsultNotYes){
-		RemarkKonsultNotYes = false;
-		getKvo();
-	}
+	RemarkKonsultNotYes = 2;
+	getKvo();
 }
 //---------------------------------------------------------------------------
 
@@ -354,10 +470,8 @@ void __fastcall TFCard::PRemarkKonsultLateYesClick(TObject *Sender)
 {
 	PRemarkKonsultLateYes->Color = TColor(0x0064B1FF);
 	PRemarkKonsultLateNo->Color = clWhite;
-	if(!RemarkKonsultLateYes){
-		RemarkKonsultLateYes = true;
-		getKvo();
-	}
+	RemarkKonsultLateYes = 1;
+	getKvo();
 }
 //---------------------------------------------------------------------------
 
@@ -365,10 +479,8 @@ void __fastcall TFCard::PRemarkKonsultLateNoClick(TObject *Sender)
 {
 	PRemarkKonsultLateNo->Color = TColor(0x0064B1FF);
 	PRemarkKonsultLateYes->Color = clWhite;
-	if(RemarkKonsultLateYes){
-		RemarkKonsultLateYes = false;
-		getKvo();
-	}
+	RemarkKonsultLateYes = 2;
+	getKvo();
 }
 //---------------------------------------------------------------------------
 
@@ -376,10 +488,8 @@ void __fastcall TFCard::PRemarkDeseaseVerifYesClick(TObject *Sender)
 {
 	PRemarkDeseaseVerifYes->Color = TColor(0x0064B1FF);
 	PRemarkDeseaseVerifNo->Color = clWhite;
-	if(!RemarkDeseaseVerifYes){
-		RemarkDeseaseVerifYes = true;
-		getKvo();
-	}
+	RemarkDeseaseVerifYes = 1;
+	getKvo();
 }
 //---------------------------------------------------------------------------
 
@@ -387,10 +497,8 @@ void __fastcall TFCard::PRemarkDeseaseVerifNoClick(TObject *Sender)
 {
 	PRemarkDeseaseVerifNo->Color = TColor(0x0064B1FF);
 	PRemarkDeseaseVerifYes->Color = clWhite;
-	if(RemarkDeseaseVerifYes){
-		RemarkDeseaseVerifYes = false;
-		getKvo();
-	}
+	RemarkDeseaseVerifYes = 2;
+	getKvo();
 }
 //---------------------------------------------------------------------------
 
@@ -398,10 +506,8 @@ void __fastcall TFCard::PRemarkDeseaseTimeYesClick(TObject *Sender)
 {
 	PRemarkDeseaseTimeYes->Color = TColor(0x0064B1FF);
 	PRemarkDeseaseTimeNo->Color = clWhite;
-	if(!RemarkDeseaseTimeYes){
-		RemarkDeseaseTimeYes = true;
-		getKvo();
-	}
+	RemarkDeseaseTimeYes = 1;
+	getKvo();
 }
 //---------------------------------------------------------------------------
 
@@ -409,10 +515,8 @@ void __fastcall TFCard::PRemarkDeseaseTimeNoClick(TObject *Sender)
 {
 	PRemarkDeseaseTimeNo->Color = TColor(0x0064B1FF);
 	PRemarkDeseaseTimeYes->Color = clWhite;
-	if(RemarkDeseaseTimeYes){
-		RemarkDeseaseTimeYes = false;
-		getKvo();
-	}
+	RemarkDeseaseTimeYes = 2;
+	getKvo();
 }
 //---------------------------------------------------------------------------
 
@@ -420,10 +524,8 @@ void __fastcall TFCard::PRemarkDeseaseContentYesClick(TObject *Sender)
 {
 	PRemarkDeseaseContentYes->Color = TColor(0x0064B1FF);
 	PRemarkDeseaseContentNo->Color = clWhite;
-	if(!RemarkDeseaseContentYes){
-		RemarkDeseaseContentYes = true;
-		getKvo();
-	}
+	RemarkDeseaseContentYes = 1;
+	getKvo();
 }
 //---------------------------------------------------------------------------
 
@@ -431,10 +533,8 @@ void __fastcall TFCard::PRemarkDeseaseContentNoClick(TObject *Sender)
 {
 	PRemarkDeseaseContentNo->Color = TColor(0x0064B1FF);
 	PRemarkDeseaseContentYes->Color = clWhite;
-	if(RemarkDeseaseContentYes){
-		RemarkDeseaseContentYes = false;
-		getKvo();
-	}
+	RemarkDeseaseContentYes = 2;
+	getKvo();
 }
 //---------------------------------------------------------------------------
 
@@ -442,10 +542,8 @@ void __fastcall TFCard::PRemarkTherapyChooseDrYesClick(TObject *Sender)
 {
 	PRemarkTherapyChooseDrYes->Color = TColor(0x0064B1FF);
 	PRemarkTherapyChooseDrNo->Color = clWhite;
-	if(!RemarkTherapyChooseDrYes){
-		RemarkTherapyChooseDrYes = true;
-		getKvo();
-	}
+	RemarkTherapyChooseDrYes = 1;
+	getKvo();
 }
 //---------------------------------------------------------------------------
 
@@ -453,10 +551,8 @@ void __fastcall TFCard::PRemarkTherapyChooseDrNoClick(TObject *Sender)
 {
 	PRemarkTherapyChooseDrNo->Color = TColor(0x0064B1FF);
 	PRemarkTherapyChooseDrYes->Color = clWhite;
-	if(RemarkTherapyChooseDrYes){
-		RemarkTherapyChooseDrYes = false;
-		getKvo();
-	}
+	RemarkTherapyChooseDrYes = 2;
+	getKvo();
 }
 //---------------------------------------------------------------------------
 
@@ -464,32 +560,24 @@ void __fastcall TFCard::PRemarkTherapyTimeAppointmentYesClick(TObject *Sender)
 {
 	PRemarkTherapyTimeAppointmentYes->Color = TColor(0x0064B1FF);
 	PRemarkTherapyTimeAppointmentNo->Color = clWhite;
-	if(!RemarkTherapyTimeAppointmentYes){
-		RemarkTherapyTimeAppointmentYes = true;
-		getKvo();
-	}
+	RemarkTherapyTimeAppointmentYes = 1;
+	getKvo();
 }
 //---------------------------------------------------------------------------
-
 void __fastcall TFCard::PRemarkTherapyTimeAppointmentNoClick(TObject *Sender)
 {
 	PRemarkTherapyTimeAppointmentNo->Color = TColor(0x0064B1FF);
 	PRemarkTherapyTimeAppointmentYes->Color = clWhite;
-	if(RemarkTherapyTimeAppointmentYes){
-		RemarkTherapyTimeAppointmentYes = false;
-		getKvo();
-	}
+	RemarkTherapyTimeAppointmentYes = 2;
+	getKvo();
 }
 //---------------------------------------------------------------------------
-
 void __fastcall TFCard::PRemarkTherapyPolypharmacyYesClick(TObject *Sender)
 {
 	PRemarkTherapyPolypharmacyYes->Color = TColor(0x0064B1FF);
 	PRemarkTherapyPolypharmacyNo->Color = clWhite;
-	if(!RemarkTherapyPolypharmacyYes){
-		RemarkTherapyPolypharmacyYes = true;
-		getKvo();
-	}
+	RemarkTherapyPolypharmacyYes = 1;
+	getKvo();
 }
 //---------------------------------------------------------------------------
 
@@ -497,10 +585,8 @@ void __fastcall TFCard::PRemarkTherapyPolypharmacyNoClick(TObject *Sender)
 {
 	PRemarkTherapyPolypharmacyNo->Color = TColor(0x0064B1FF);
 	PRemarkTherapyPolypharmacyYes->Color = clWhite;
-	if(RemarkTherapyPolypharmacyYes){
-		RemarkTherapyPolypharmacyYes = false;
-		getKvo();
-	}
+	RemarkTherapyPolypharmacyYes = 2;
+	getKvo();
 }
 //---------------------------------------------------------------------------
 
@@ -508,10 +594,8 @@ void __fastcall TFCard::PContinuityChoosePlaceYesClick(TObject *Sender)
 {
 	PContinuityChoosePlaceYes->Color = TColor(0x0064B1FF);
 	PContinuityChoosePlaceNo->Color = clWhite;
-	if(!ContinuityChoosePlaceYes){
-		ContinuityChoosePlaceYes = true;
-		getKvo();
-	}
+	ContinuityChoosePlaceYes = 1;
+	getKvo();
 }
 //---------------------------------------------------------------------------
 
@@ -519,10 +603,8 @@ void __fastcall TFCard::PContinuityChoosePlaceNoClick(TObject *Sender)
 {
 	PContinuityChoosePlaceNo->Color = TColor(0x0064B1FF);
 	PContinuityChoosePlaceYes->Color = clWhite;
-	if(ContinuityChoosePlaceYes){
-		ContinuityChoosePlaceYes = false;
-		getKvo();
-	}
+	ContinuityChoosePlaceYes = 2;
+	getKvo();
 }
 //---------------------------------------------------------------------------
 
@@ -530,10 +612,8 @@ void __fastcall TFCard::PContinuityTimeTransferYesClick(TObject *Sender)
 {
 	PContinuityTimeTransferYes->Color = TColor(0x0064B1FF);
 	PContinuityTimeTransferNo->Color = clWhite;
-	if(!ContinuityTimeTransferYes){
-		ContinuityTimeTransferYes = true;
-		getKvo();
-	}
+	ContinuityTimeTransferYes = 1;
+	getKvo();
 }
 //---------------------------------------------------------------------------
 
@@ -541,10 +621,8 @@ void __fastcall TFCard::PContinuityTimeTransferNoClick(TObject *Sender)
 {
 	PContinuityTimeTransferNo->Color = TColor(0x0064B1FF);
 	PContinuityTimeTransferYes->Color = clWhite;
-	if(ContinuityTimeTransferYes){
-		ContinuityTimeTransferYes = false;
-		getKvo();
-	}
+	ContinuityTimeTransferYes = 2;
+	getKvo();
 }
 //---------------------------------------------------------------------------
 
@@ -552,10 +630,8 @@ void __fastcall TFCard::PRemarkStandartMHYesClick(TObject *Sender)
 {
 	PRemarkStandartMHYes->Color = TColor(0x0064B1FF);
 	PRemarkStandartMHNo->Color = clWhite;
-	if(!RemarkStandartMHYes){
-		RemarkStandartMHYes = true;
-		getKvo();
-	}
+	RemarkStandartMHYes = 1;
+	getKvo();
 }
 //---------------------------------------------------------------------------
 
@@ -563,33 +639,24 @@ void __fastcall TFCard::PRemarkStandartMHNoClick(TObject *Sender)
 {
 	PRemarkStandartMHNo->Color = TColor(0x0064B1FF);
 	PRemarkStandartMHYes->Color = clWhite;
-	if(RemarkStandartMHYes){
-		RemarkStandartMHYes = false;
-		getKvo();
-	}
+	RemarkStandartMHYes = 2;
+	getKvo();
 }
 //---------------------------------------------------------------------------
-
-
 void __fastcall TFCard::PVuluntarMedAgreementYesClick(TObject *Sender)
 {
 	PVuluntarMedAgreementNo->Color = clWhite;
 	PVuluntarMedAgreementYes->Color = TColor(0x0064B1FF);
-	if(!VuluntarMedAgreementYes){
-		VuluntarMedAgreementYes = true;
-		getKkmp();
-	}
+	VuluntarMedAgreementYes = 5;
+	getKkmp();
 }
 //---------------------------------------------------------------------------
-
 void __fastcall TFCard::PVuluntarMedAgreementNoClick(TObject *Sender)
 {
 	PVuluntarMedAgreementYes->Color = clWhite;
 	PVuluntarMedAgreementNo->Color = TColor(0x0064B1FF);
-	if(VuluntarMedAgreementYes){
-		VuluntarMedAgreementYes = false;
-		getKkmp();
-	}
+	VuluntarMedAgreementYes = 1;
+	getKkmp();
 }
 //---------------------------------------------------------------------------
 
@@ -597,10 +664,8 @@ void __fastcall TFCard::PAgreementPDNYesClick(TObject *Sender)
 {
 	PAgreementPDNYes->Color = TColor(0x0064B1FF);
 	PAgreementPDNNo->Color = clWhite;
-	if(!AgreementPDNYes){
-		AgreementPDNYes = true;
-		getKkmp();
-	}
+	AgreementPDNYes = 5;
+	getKkmp();
 }
 //---------------------------------------------------------------------------
 
@@ -608,10 +673,8 @@ void __fastcall TFCard::PAgreementPDNNoClick(TObject *Sender)
 {
 	PAgreementPDNYes->Color = clWhite;
 	PAgreementPDNNo->Color = TColor(0x0064B1FF);
-	if(AgreementPDNYes){
-		AgreementPDNYes = false;
-		getKkmp();
-	}
+	AgreementPDNYes = 1;
+	getKkmp();
 }
 //---------------------------------------------------------------------------
 
@@ -619,10 +682,8 @@ void __fastcall TFCard::PComplitListDeseaseYesClick(TObject *Sender)
 {
 	PComplitListDeseaseYes->Color = TColor(0x0064B1FF);
 	PComplitListDeseaseNo->Color = clWhite;
-	if(!ComplitListDeseaseYes){
-		ComplitListDeseaseYes = true;
-		getKkmp();
-	}
+	ComplitListDeseaseYes = 5;
+	getKkmp();
 }
 //---------------------------------------------------------------------------
 
@@ -630,10 +691,8 @@ void __fastcall TFCard::PComplitListDeseaseNoClick(TObject *Sender)
 {
 	PComplitListDeseaseYes->Color = clWhite;
 	PComplitListDeseaseNo->Color = TColor(0x0064B1FF);
-	if(ComplitListDeseaseYes){
-		ComplitListDeseaseYes = false;
-		getKkmp();
-	}
+	ComplitListDeseaseYes = 1;
+	getKkmp();
 }
 //---------------------------------------------------------------------------
 
@@ -641,10 +700,8 @@ void __fastcall TFCard::PCompitListProfAndStatusYesClick(TObject *Sender)
 {
 	PCompitListProfAndStatusYes->Color = TColor(0x0064B1FF);
 	PCompitListProfAndStatusNo->Color = clWhite;
-	if(!CompitListProfAndStatusYes){
-		CompitListProfAndStatusYes = true;
-		getKkmp();
-	}
+	CompitListProfAndStatusYes = 5;
+	getKkmp();
 }
 //---------------------------------------------------------------------------
 
@@ -652,10 +709,8 @@ void __fastcall TFCard::PCompitListProfAndStatusNoClick(TObject *Sender)
 {
 	PCompitListProfAndStatusYes->Color = clWhite;
 	PCompitListProfAndStatusNo->Color = TColor(0x0064B1FF);
-	if(CompitListProfAndStatusYes){
-		CompitListProfAndStatusYes = false;
-		getKkmp();
-	}
+	CompitListProfAndStatusYes = 1;
+	getKkmp();
 }
 //---------------------------------------------------------------------------
 
@@ -721,47 +776,26 @@ void __fastcall TFCard::PIntegrityCard5Click(TObject *Sender)
 
 void __fastcall TFCard::SpBAllNoClick(TObject *Sender)
 {
-//	PRemarkInfServNo->Color = TColor(0x0064B1FF);
-//	PRemarkAnamNo->Color = TColor(0x0064B1FF);
-//	PRemarkFizResNo->Color = TColor(0x0064B1FF);
-//	PResearchNotNo->Color = TColor(0x0064B1FF);
-//	PResearchToMuchNo->Color = TColor(0x0064B1FF);
-//	PResearchLateNo->Color = TColor(0x0064B1FF);
-//	PResearchInstrNotNo->Color = TColor(0x0064B1FF);
-//	PResearchInstrToMuchNo->Color = TColor(0x0064B1FF);
-//	PResearchInstrLateNo->Color = TColor(0x0064B1FF);
-//	PRemarkKonsultNotNo->Color = TColor(0x0064B1FF);
-//	PRemarkKonsultLateNo->Color = TColor(0x0064B1FF);
-//	PRemarkDeseaseVerifNo->Color = TColor(0x0064B1FF);
-//	PRemarkDeseaseTimeNo->Color = TColor(0x0064B1FF);
-//	PRemarkDeseaseContentNo->Color = TColor(0x0064B1FF);
-//	PRemarkTherapyChooseDrNo->Color = TColor(0x0064B1FF);
-//	PRemarkTherapyTimeAppointmentNo->Color = TColor(0x0064B1FF);
-//	PRemarkTherapyPolypharmacyNo->Color = TColor(0x0064B1FF);
-//	PContinuityChoosePlaceNo->Color = TColor(0x0064B1FF);
-//	PContinuityTimeTransferNo->Color = TColor(0x0064B1FF);
-//	PRemarkStandartMHNo->Color = TColor(0x0064B1FF);
-
-	PRemarkInfServNo->Color = clWhite;
-	PRemarkAnamNo->Color = clWhite;
-	PRemarkFizResNo->Color = clWhite;
-	PResearchNotNo->Color = clWhite;
-	PResearchToMuchNo->Color = clWhite;
-	PResearchLateNo->Color = clWhite;
-	PResearchInstrNotNo->Color = clWhite;
-	PResearchInstrToMuchNo->Color = clWhite;
-	PResearchInstrLateNo->Color = clWhite;
-	PRemarkKonsultNotNo->Color = clWhite;
-	PRemarkKonsultLateNo->Color = clWhite;
-	PRemarkDeseaseVerifNo->Color = clWhite;
-	PRemarkDeseaseTimeNo->Color = clWhite;
-	PRemarkDeseaseContentNo->Color = clWhite;
-	PRemarkTherapyChooseDrNo->Color = clWhite;
-	PRemarkTherapyTimeAppointmentNo->Color = clWhite;
-	PRemarkTherapyPolypharmacyNo->Color = clWhite;
-	PContinuityChoosePlaceNo->Color = clWhite;
-	PContinuityTimeTransferNo->Color = clWhite;
-	PRemarkStandartMHNo->Color = clWhite;
+	PRemarkInfServNo->Color = TColor(0x0064B1FF);
+	PRemarkAnamNo->Color = TColor(0x0064B1FF);
+	PRemarkFizResNo->Color = TColor(0x0064B1FF);
+	PResearchNotNo->Color = TColor(0x0064B1FF);
+	PResearchToMuchNo->Color = TColor(0x0064B1FF);
+	PResearchLateNo->Color = TColor(0x0064B1FF);
+	PResearchInstrNotNo->Color = TColor(0x0064B1FF);
+	PResearchInstrToMuchNo->Color = TColor(0x0064B1FF);
+	PResearchInstrLateNo->Color = TColor(0x0064B1FF);
+	PRemarkKonsultNotNo->Color = TColor(0x0064B1FF);
+	PRemarkKonsultLateNo->Color = TColor(0x0064B1FF);
+	PRemarkDeseaseVerifNo->Color = TColor(0x0064B1FF);
+	PRemarkDeseaseTimeNo->Color = TColor(0x0064B1FF);
+	PRemarkDeseaseContentNo->Color = TColor(0x0064B1FF);
+	PRemarkTherapyChooseDrNo->Color = TColor(0x0064B1FF);
+	PRemarkTherapyTimeAppointmentNo->Color = TColor(0x0064B1FF);
+	PRemarkTherapyPolypharmacyNo->Color = TColor(0x0064B1FF);
+	PContinuityChoosePlaceNo->Color = TColor(0x0064B1FF);
+	PContinuityTimeTransferNo->Color = TColor(0x0064B1FF);
+	PRemarkStandartMHNo->Color = TColor(0x0064B1FF);
 
 	PRemarkInfServYes->Color = clWhite;
 	PRemarkAnamYes->Color = clWhite;
@@ -784,26 +818,26 @@ void __fastcall TFCard::SpBAllNoClick(TObject *Sender)
 	PContinuityTimeTransferYes->Color = clWhite;
 	PRemarkStandartMHYes->Color = clWhite;
 
-	RemarkInfServYes = 0;
-	RemarkAnamYes = 0;
-	RemarkFizResYes = 0;
-	ResearchNotYes = 0;
-	ResearchToMuchYes = 0;
-	ResearchLateYes = 0;
-	ResearchInstrNotYes = 0;
-	ResearchInstrToMuchYes = 0;
-	ResearchInstrLateYes = 0;
-	RemarkKonsultNotYes = 0;
-	RemarkKonsultLateYes = 0;
-	RemarkDeseaseVerifYes = 0;
-	RemarkDeseaseTimeYes = 0;
-	RemarkDeseaseContentYes = 0;
-	RemarkTherapyChooseDrYes = 0;
-	RemarkTherapyTimeAppointmentYes = 0;
-	RemarkTherapyPolypharmacyYes = 0;
-	ContinuityChoosePlaceYes = 0;
-	ContinuityTimeTransferYes = 0;
-	RemarkStandartMHYes = 0;
+	RemarkInfServYes = 2;
+	RemarkAnamYes = 2;
+	RemarkFizResYes = 2;
+	ResearchNotYes = 2;
+	ResearchToMuchYes = 2;
+	ResearchLateYes = 2;
+	ResearchInstrNotYes = 2;
+	ResearchInstrToMuchYes = 2;
+	ResearchInstrLateYes = 2;
+	RemarkKonsultNotYes = 2;
+	RemarkKonsultLateYes = 2;
+	RemarkDeseaseVerifYes = 2;
+	RemarkDeseaseTimeYes = 2;
+	RemarkDeseaseContentYes = 2;
+	RemarkTherapyChooseDrYes = 2;
+	RemarkTherapyTimeAppointmentYes = 2;
+	RemarkTherapyPolypharmacyYes = 2;
+	ContinuityChoosePlaceYes = 2;
+	ContinuityTimeTransferYes = 2;
+	RemarkStandartMHYes = 2;
 
 	getKvo();
 }
@@ -1492,8 +1526,10 @@ void __fastcall TFCard::FormShow(TObject *Sender)
 		DTPDateStart->Date = Now();
 		DTPDateEnd->Date = Now();
 		DBLookupComboBoxListMed->KeyValue = 1;
-		SpBAllNoClick(Sender);
-		SpBAllNoQualityClick(Sender);
+		//SpBAllNoClick(Sender);
+		getKvo();
+		getKkmp();
+		//SpBAllNoQualityClick(Sender);
 	}
 
 	PAmountOfDays->Caption = IntToStr((DTPDateEnd->DateTime - DTPDateStart->DateTime) + 1);
@@ -1642,16 +1678,16 @@ void __fastcall TFCard::SpBAllNoQualityClick(TObject *Sender)
 	PTimelyRegistLNNo->Color = clWhite;
 	PRefferalToVKNo->Color = clWhite;
 
-	VuluntarMedAgreementYes = true;
-	AgreementPDNYes = true;
-	ComplitListDeseaseYes = true;
-	CompitListProfAndStatusYes = true;
-	ExistenceFLGYes = true;
-	ExistenceInspGinYes = true;
-	RationalUseOfResourcesYes = true;
-	AbsenceComplaintsOfPatientsYes = true;
-	TimelyRegistLNYes = true;
-	RefferalToVKYes = true;
+	VuluntarMedAgreementYes = 5;
+	AgreementPDNYes = 5;
+	ComplitListDeseaseYes = 5;
+	CompitListProfAndStatusYes = 5;
+	ExistenceFLGYes = 5;
+	ExistenceInspGinYes = 5;
+	RationalUseOfResourcesYes = 5;
+	AbsenceComplaintsOfPatientsYes = 5;
+	TimelyRegistLNYes = 5;
+	RefferalToVKYes = 5;
 
     IntegrityCard = 5;
 	AccuracyHandwriting = 5;
@@ -1675,10 +1711,8 @@ void __fastcall TFCard::PExistenceFLGYesClick(TObject *Sender)
 {
 	PExistenceFLGYes->Color = TColor(0x0064B1FF);
 	PExistenceFLGNo->Color = clWhite;
-	if(!ExistenceFLGYes){
-		ExistenceFLGYes = true;
-		getKkmp();
-	}
+	ExistenceFLGYes = 5;
+	getKkmp();
 }
 //---------------------------------------------------------------------------
 
@@ -1686,10 +1720,8 @@ void __fastcall TFCard::PExistenceFLGNoClick(TObject *Sender)
 {
 	PExistenceFLGYes->Color = clWhite;
 	PExistenceFLGNo->Color = TColor(0x0064B1FF);
-	if(ExistenceFLGYes){
-		ExistenceFLGYes = false;
-		getKkmp();
-	}
+	ExistenceFLGYes = 1;
+	getKkmp();
 }
 //---------------------------------------------------------------------------
 
@@ -1697,10 +1729,8 @@ void __fastcall TFCard::PExistenceInspGinYesClick(TObject *Sender)
 {
 	PExistenceInspGinYes->Color = TColor(0x0064B1FF);
 	PExistenceInspGinNo->Color = clWhite;
-	if(!ExistenceInspGinYes){
-		ExistenceInspGinYes = true;
-		getKkmp();
-	}
+	ExistenceInspGinYes = 5;
+	getKkmp();
 }
 //---------------------------------------------------------------------------
 
@@ -1708,10 +1738,8 @@ void __fastcall TFCard::PExistenceInspGinNoClick(TObject *Sender)
 {
 	PExistenceInspGinYes->Color = clWhite;
 	PExistenceInspGinNo->Color = TColor(0x0064B1FF);
-	if(ExistenceInspGinYes){
-		ExistenceInspGinYes = false;
-		getKkmp();
-	}
+	ExistenceInspGinYes = 1;
+	getKkmp();
 }
 //---------------------------------------------------------------------------
 
@@ -2146,6 +2174,65 @@ void __fastcall TFCard::PObservStandartsOfTreatment5Click(TObject *Sender)
 	getKkmp();
 }
 //---------------------------------------------------------------------------
+void __fastcall TFCard::PDeadlinesVN5Click(TObject *Sender)
+{
+	PDeadlinesVN1->Color = clWhite;
+	PDeadlinesVN2->Color = clWhite;
+	PDeadlinesVN3->Color = clWhite;
+	PDeadlinesVN4->Color = clWhite;
+	PDeadlinesVN5->Color = TColor(0x0064B1FF);
+	DeadlinesVN = 5;
+	getKkmp();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCard::PDeadlinesVN4Click(TObject *Sender)
+{
+	PDeadlinesVN1->Color = clWhite;
+	PDeadlinesVN2->Color = clWhite;
+	PDeadlinesVN3->Color = clWhite;
+	PDeadlinesVN4->Color = TColor(0x0064B1FF);
+	PDeadlinesVN5->Color = clWhite;
+	DeadlinesVN = 4;
+	getKkmp();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCard::PDeadlinesVN3Click(TObject *Sender)
+{
+	PDeadlinesVN1->Color = clWhite;
+	PDeadlinesVN2->Color = clWhite;
+	PDeadlinesVN3->Color = TColor(0x0064B1FF);
+	PDeadlinesVN4->Color = clWhite;
+	PDeadlinesVN5->Color = clWhite;
+	DeadlinesVN = 3;
+	getKkmp();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCard::PDeadlinesVN2Click(TObject *Sender)
+{
+	PDeadlinesVN1->Color = clWhite;
+	PDeadlinesVN2->Color = TColor(0x0064B1FF);
+	PDeadlinesVN3->Color = clWhite;
+	PDeadlinesVN4->Color = clWhite;
+	PDeadlinesVN5->Color = clWhite;
+	DeadlinesVN = 2;
+	getKkmp();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCard::PDeadlinesVN1Click(TObject *Sender)
+{
+	PDeadlinesVN1->Color = TColor(0x0064B1FF);
+	PDeadlinesVN2->Color = clWhite;
+	PDeadlinesVN3->Color = clWhite;
+	PDeadlinesVN4->Color = clWhite;
+	PDeadlinesVN5->Color = clWhite;
+	DeadlinesVN = 1;
+	getKkmp();
+}
+//---------------------------------------------------------------------------
 
 void __fastcall TFCard::PObservStandartsOfTreatment4Click(TObject *Sender)
 {
@@ -2199,10 +2286,8 @@ void __fastcall TFCard::PRationalUseOfResourcesYesClick(TObject *Sender)
 {
 	PRationalUseOfResourcesYes->Color = TColor(0x0064B1FF);
 	PRationalUseOfResourcesNo->Color = clWhite;
-	if(!RationalUseOfResourcesYes){
-		RationalUseOfResourcesYes = true;
-		getKkmp();
-	}
+	RationalUseOfResourcesYes = 5;
+	getKkmp();
 }
 //---------------------------------------------------------------------------
 
@@ -2210,10 +2295,8 @@ void __fastcall TFCard::PRationalUseOfResourcesNoClick(TObject *Sender)
 {
 	PRationalUseOfResourcesYes->Color = clWhite;
 	PRationalUseOfResourcesNo->Color = TColor(0x0064B1FF);
-	if(RationalUseOfResourcesYes){
-		RationalUseOfResourcesYes = false;
-		getKkmp();
-	}
+	RationalUseOfResourcesYes = 1;
+	getKkmp();
 }
 //---------------------------------------------------------------------------
 
@@ -2221,10 +2304,8 @@ void __fastcall TFCard::PAbsenceComplaintsOfPatientsYesClick(TObject *Sender)
 {
 	PAbsenceComplaintsOfPatientsYes->Color = TColor(0x0064B1FF);
 	PAbsenceComplaintsOfPatientsNo->Color = clWhite;
-	if(!AbsenceComplaintsOfPatientsYes){
-		AbsenceComplaintsOfPatientsYes = true;
-		getKkmp();
-	}
+	AbsenceComplaintsOfPatientsYes = 5;
+	getKkmp();
 }
 //---------------------------------------------------------------------------
 
@@ -2232,10 +2313,8 @@ void __fastcall TFCard::PAbsenceComplaintsOfPatientsNoClick(TObject *Sender)
 {
 	PAbsenceComplaintsOfPatientsYes->Color = clWhite;
 	PAbsenceComplaintsOfPatientsNo->Color = TColor(0x0064B1FF);
-	if(AbsenceComplaintsOfPatientsYes){
-		AbsenceComplaintsOfPatientsYes = false;
-		getKkmp();
-	}
+	AbsenceComplaintsOfPatientsYes = 1;
+	getKkmp();
 }
 //---------------------------------------------------------------------------
 
@@ -2296,36 +2375,36 @@ void __fastcall TFCard::Button1Click(TObject *Sender)
 			"`year_date_birthday` = '"+EYearOfBirthday->Text+"',"
 			"`area` = '"+EArea->Text+"',"
 			"`id_user` = '"+DBLookupComboBoxListMed->ListSource->DataSet->FieldByName("id_user")->AsAnsiString+"',"
-			"`RemarkInfServYes` = '"+BoolToStr(RemarkInfServYes)+"',"
-			"`RemarkAnamYes` = '"+BoolToStr(RemarkAnamYes)+"',"
-			"`RemarkFizResYes` = '"+BoolToStr(RemarkFizResYes)+"',"
-			"`ResearchNotYes` = '"+BoolToStr(ResearchNotYes)+"',"
-			"`ResearchToMuchYes` = '"+BoolToStr(ResearchToMuchYes)+"',"
-			"`ResearchLateYes` = '"+BoolToStr(ResearchLateYes)+"',"
-			"`ResearchInstrNotYes` = '"+BoolToStr(ResearchInstrNotYes)+"',"
-			"`ResearchInstrToMuchYes` = '"+BoolToStr(ResearchInstrToMuchYes)+"',"
-			"`ResearchInstrLateYes` = '"+BoolToStr(ResearchInstrLateYes)+"',"
-			"`RemarkKonsultNotYes` = '"+BoolToStr(RemarkKonsultNotYes)+"',"
-			"`RemarkKonsultLateYes` = '"+BoolToStr(RemarkKonsultLateYes)+"',"
-			"`RemarkDeseaseVerifYes` = '"+BoolToStr(RemarkDeseaseVerifYes)+"',"
-			"`RemarkDeseaseTimeYes` = '"+BoolToStr(RemarkDeseaseTimeYes)+"',"
-			"`RemarkDeseaseContentYes` = '"+BoolToStr(RemarkDeseaseContentYes)+"',"
-			"`RemarkTherapyChooseDrYes` = '"+BoolToStr(RemarkTherapyChooseDrYes)+"',"
-			"`RemarkTherapyTimeAppointmentYes` = '"+BoolToStr(RemarkTherapyTimeAppointmentYes)+"',"
-			"`RemarkTherapyPolypharmacyYes` = '"+BoolToStr(RemarkTherapyPolypharmacyYes)+"',"
-			"`ContinuityChoosePlaceYes` = '"+BoolToStr(ContinuityChoosePlaceYes)+"',"
-			"`ContinuityTimeTransferYes` = '"+BoolToStr(ContinuityTimeTransferYes)+"',"
-			"`RemarkStandartMHYes` = '"+BoolToStr(RemarkStandartMHYes)+"',"
-			"`VuluntarMedAgreementYes` = '"+BoolToStr(VuluntarMedAgreementYes)+"',"
-			"`AgreementPDNYes` = '"+BoolToStr(AgreementPDNYes)+"',"
-			"`ComplitListDeseaseYes` = '"+BoolToStr(ComplitListDeseaseYes)+"',"
-			"`CompitListProfAndStatusYes` = '"+BoolToStr(CompitListProfAndStatusYes)+"',"
-			"`ExistenceFLGYes` = '"+BoolToStr(ExistenceFLGYes)+"',"
-			"`ExistenceInspGinYes` = '"+BoolToStr(ExistenceInspGinYes)+"',"
-			"`RationalUseOfResourcesYes` = '"+BoolToStr(RationalUseOfResourcesYes)+"',"
-			"`AbsenceComplaintsOfPatientsYes` = '"+BoolToStr(AbsenceComplaintsOfPatientsYes)+"',"
-			"`TimelyRegistLNYes` = '"+BoolToStr(TimelyRegistLNYes)+"',"
-			"`RefferalToVKYes` = '"+BoolToStr(RefferalToVKYes)+"',"
+			"`RemarkInfServYes` = '"+IntToStr(RemarkInfServYes)+"',"
+			"`RemarkAnamYes` = '"+IntToStr(RemarkAnamYes)+"',"
+			"`RemarkFizResYes` = '"+IntToStr(RemarkFizResYes)+"',"
+			"`ResearchNotYes` = '"+IntToStr(ResearchNotYes)+"',"
+			"`ResearchToMuchYes` = '"+IntToStr(ResearchToMuchYes)+"',"
+			"`ResearchLateYes` = '"+IntToStr(ResearchLateYes)+"',"
+			"`ResearchInstrNotYes` = '"+IntToStr(ResearchInstrNotYes)+"',"
+			"`ResearchInstrToMuchYes` = '"+IntToStr(ResearchInstrToMuchYes)+"',"
+			"`ResearchInstrLateYes` = '"+IntToStr(ResearchInstrLateYes)+"',"
+			"`RemarkKonsultNotYes` = '"+IntToStr(RemarkKonsultNotYes)+"',"
+			"`RemarkKonsultLateYes` = '"+IntToStr(RemarkKonsultLateYes)+"',"
+			"`RemarkDeseaseVerifYes` = '"+IntToStr(RemarkDeseaseVerifYes)+"',"
+			"`RemarkDeseaseTimeYes` = '"+IntToStr(RemarkDeseaseTimeYes)+"',"
+			"`RemarkDeseaseContentYes` = '"+IntToStr(RemarkDeseaseContentYes)+"',"
+			"`RemarkTherapyChooseDrYes` = '"+IntToStr(RemarkTherapyChooseDrYes)+"',"
+			"`RemarkTherapyTimeAppointmentYes` = '"+IntToStr(RemarkTherapyTimeAppointmentYes)+"',"
+			"`RemarkTherapyPolypharmacyYes` = '"+IntToStr(RemarkTherapyPolypharmacyYes)+"',"
+			"`ContinuityChoosePlaceYes` = '"+IntToStr(ContinuityChoosePlaceYes)+"',"
+			"`ContinuityTimeTransferYes` = '"+IntToStr(ContinuityTimeTransferYes)+"',"
+			"`RemarkStandartMHYes` = '"+IntToStr(RemarkStandartMHYes)+"',"
+			"`VuluntarMedAgreementYes` = '"+IntToStr(VuluntarMedAgreementYes)+"',"
+			"`AgreementPDNYes` = '"+IntToStr(AgreementPDNYes)+"',"
+			"`ComplitListDeseaseYes` = '"+IntToStr(ComplitListDeseaseYes)+"',"
+			"`CompitListProfAndStatusYes` = '"+IntToStr(CompitListProfAndStatusYes)+"',"
+			"`ExistenceFLGYes` = '"+IntToStr(ExistenceFLGYes)+"',"
+			"`ExistenceInspGinYes` = '"+IntToStr(ExistenceInspGinYes)+"',"
+			"`RationalUseOfResourcesYes` = '"+IntToStr(RationalUseOfResourcesYes)+"',"
+			"`AbsenceComplaintsOfPatientsYes` = '"+IntToStr(AbsenceComplaintsOfPatientsYes)+"',"
+			"`TimelyRegistLNYes` = '"+IntToStr(TimelyRegistLNYes)+"',"
+			"`RefferalToVKYes` = '"+IntToStr(RefferalToVKYes)+"',"
 			"`IntegrityCard` = '"+IntToStr(IntegrityCard)+"',"
 			"`AccuracyHandwriting` = '"+IntToStr(AccuracyHandwriting)+"',"
 			"`QualityProfInsOnko` = '"+IntToStr(QualityProfInsOnko)+"',"
@@ -2364,36 +2443,36 @@ void __fastcall TFCard::Button1Click(TObject *Sender)
 			"'"+ EYearOfBirthday->Text +"',"
 			"'"+EArea->Text+"',"
 			"'"+ DBLookupComboBoxListMed->ListSource->DataSet->FieldByName("id_user")->AsAnsiString +"',"
-			"'"+ BoolToStr(RemarkInfServYes) +"',"
-			"'"+ BoolToStr(RemarkAnamYes) +"',"
-			"'"+ BoolToStr(RemarkFizResYes) +"',"
-			"'"+ BoolToStr(ResearchNotYes) +"',"
-			"'"+ BoolToStr(ResearchToMuchYes) +"',"
-			"'"+ BoolToStr(ResearchLateYes) +"',"
-			"'"+ BoolToStr(ResearchInstrNotYes) +"',"
-			"'"+ BoolToStr(ResearchInstrToMuchYes) +"',"
-			"'"+ BoolToStr(ResearchInstrLateYes) +"',"
-			"'"+ BoolToStr(RemarkKonsultNotYes) +"',"
-			"'"+ BoolToStr(RemarkKonsultLateYes) +"',"
-			"'"+ BoolToStr(RemarkDeseaseVerifYes) +"',"
-			"'"+ BoolToStr(RemarkDeseaseTimeYes) +"',"
-			"'"+ BoolToStr(RemarkDeseaseContentYes) +"',"
-			"'"+ BoolToStr(RemarkTherapyChooseDrYes) +"',"
-			"'"+ BoolToStr(RemarkTherapyTimeAppointmentYes) +"',"
-			"'"+ BoolToStr(RemarkTherapyPolypharmacyYes) +"',"
-			"'"+ BoolToStr(ContinuityChoosePlaceYes) +"',"
-			"'"+ BoolToStr(ContinuityTimeTransferYes) +"',"
-			"'"+ BoolToStr(RemarkStandartMHYes) +"',"
-			"'"+ BoolToStr(VuluntarMedAgreementYes) +"',"
-			"'"+ BoolToStr(AgreementPDNYes) +"',"
-			"'"+ BoolToStr(ComplitListDeseaseYes) +"',"
-			"'"+ BoolToStr(CompitListProfAndStatusYes) +"',"
-			"'"+ BoolToStr(ExistenceFLGYes) +"',"
-			"'"+ BoolToStr(ExistenceInspGinYes) +"',"
-			"'"+ BoolToStr(RationalUseOfResourcesYes) +"',"
-			"'"+ BoolToStr(AbsenceComplaintsOfPatientsYes) +"',"
-			"'"+ BoolToStr(TimelyRegistLNYes) +"',"
-			"'"+ BoolToStr(RefferalToVKYes) +"',"
+			"'"+ IntToStr(RemarkInfServYes) +"',"
+			"'"+ IntToStr(RemarkAnamYes) +"',"
+			"'"+ IntToStr(RemarkFizResYes) +"',"
+			"'"+ IntToStr(ResearchNotYes) +"',"
+			"'"+ IntToStr(ResearchToMuchYes) +"',"
+			"'"+ IntToStr(ResearchLateYes) +"',"
+			"'"+ IntToStr(ResearchInstrNotYes) +"',"
+			"'"+ IntToStr(ResearchInstrToMuchYes) +"',"
+			"'"+ IntToStr(ResearchInstrLateYes) +"',"
+			"'"+ IntToStr(RemarkKonsultNotYes) +"',"
+			"'"+ IntToStr(RemarkKonsultLateYes) +"',"
+			"'"+ IntToStr(RemarkDeseaseVerifYes) +"',"
+			"'"+ IntToStr(RemarkDeseaseTimeYes) +"',"
+			"'"+ IntToStr(RemarkDeseaseContentYes) +"',"
+			"'"+ IntToStr(RemarkTherapyChooseDrYes) +"',"
+			"'"+ IntToStr(RemarkTherapyTimeAppointmentYes) +"',"
+			"'"+ IntToStr(RemarkTherapyPolypharmacyYes) +"',"
+			"'"+ IntToStr(ContinuityChoosePlaceYes) +"',"
+			"'"+ IntToStr(ContinuityTimeTransferYes) +"',"
+			"'"+ IntToStr(RemarkStandartMHYes) +"',"
+			"'"+ IntToStr(VuluntarMedAgreementYes) +"',"
+			"'"+ IntToStr(AgreementPDNYes) +"',"
+			"'"+ IntToStr(ComplitListDeseaseYes) +"',"
+			"'"+ IntToStr(CompitListProfAndStatusYes) +"',"
+			"'"+ IntToStr(ExistenceFLGYes) +"',"
+			"'"+ IntToStr(ExistenceInspGinYes) +"',"
+			"'"+ IntToStr(RationalUseOfResourcesYes) +"',"
+			"'"+ IntToStr(AbsenceComplaintsOfPatientsYes) +"',"
+			"'"+ IntToStr(TimelyRegistLNYes) +"',"
+			"'"+ IntToStr(RefferalToVKYes) +"',"
 			"'"+ IntToStr(IntegrityCard) +"',"
 			"'"+ IntToStr(AccuracyHandwriting) +"',"
 			"'"+ IntToStr(QualityProfInsOnko) +"',"
@@ -2428,18 +2507,8 @@ void __fastcall TFCard::Button1Click(TObject *Sender)
 	if(message == 7){
 		FCard->Close();
 	}else if(message == 6){
-		SpBAllNoClick(Sender);
-		SpBAllNoQualityClick(Sender);
-		DTPDateStart->Date = Now();
-		DTPDateEnd->Date = Now();
-		EArea->Text = "";
-		ESurname->Text = "";
-		EName->Text = "";
-		EPatronymic->Text = "";
-		EYearOfBirthday->Text = "";
-		DBLookupComboBoxListMed->KeyValue = 1;
+		clearForm(Sender);
 	}
-	id_inspection = NULL; //set editing in false
 }
 //---------------------------------------------------------------------------
 void __fastcall TFCard::ESurnameExit(TObject *Sender)
@@ -2474,7 +2543,444 @@ void __fastcall TFCard::FormClose(TObject *Sender, TCloseAction &Action)
 	DMAvtoriz->CDSInspection->Close();
 	DMAvtoriz->CDSInspection->Open();
 
-	id_inspection = NULL; //set editing in false
+	clearForm();
+}
+//---------------------------------------------------------------------------
+void __fastcall TFCard::PRemarkInfServClick(TObject *Sender)
+{
+	RemarkInfServYes = 0;
+	PRemarkInfServYes->Color = clWhite;
+	PRemarkInfServNo->Color = clWhite;
+	getKvo();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCard::PRemarkAnamClick(TObject *Sender)
+{
+	RemarkAnamYes = 0;
+	PRemarkAnamYes->Color = clWhite;
+	PRemarkAnamNo->Color = clWhite;
+	getKvo();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCard::PRemarkFizResClick(TObject *Sender)
+{
+	RemarkFizResYes = 0;
+	PRemarkFizResYes->Color = clWhite;
+	PRemarkFizResNo->Color = clWhite;
+	getKvo();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCard::PResearchNotClick(TObject *Sender)
+{
+	ResearchNotYes = 0;
+	PResearchNotYes->Color = clWhite;
+	PResearchNotNo->Color = clWhite;
+	getKvo();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCard::PResearchToMuchClick(TObject *Sender)
+{
+	ResearchToMuchYes = 0;
+	PResearchToMuchYes->Color = clWhite;
+	PResearchToMuchNo->Color = clWhite;
+	getKvo();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCard::PResearchLateClick(TObject *Sender)
+{
+	ResearchLateYes = 0;
+	PResearchLateYes->Color = clWhite;
+	PResearchLateNo->Color = clWhite;
+	getKvo();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCard::PResearchInstrNotClick(TObject *Sender)
+{
+	ResearchInstrNotYes = 0;
+	PResearchInstrNotYes->Color = clWhite;
+	PResearchInstrNotNo->Color = clWhite;
+	getKvo();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCard::PResearchInstrToMuchClick(TObject *Sender)
+{
+	ResearchInstrToMuchYes = 0;
+	PResearchInstrToMuchYes->Color = clWhite;
+	PResearchInstrToMuchNo->Color = clWhite;
+	getKvo();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCard::PResearchInstrLateClick(TObject *Sender)
+{
+	ResearchInstrLateYes = 0;
+	PResearchInstrLateYes->Color = clWhite;
+	PResearchInstrLateNo->Color = clWhite;
+	getKvo();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCard::PRemarkKonsultNotClick(TObject *Sender)
+{
+	RemarkKonsultNotYes = 0;
+	PRemarkKonsultNotYes->Color = clWhite;
+	PRemarkKonsultNotNo->Color = clWhite;
+	getKvo();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCard::PRemarkKonsultLateClick(TObject *Sender)
+{
+	RemarkKonsultLateYes = 0;
+	PRemarkKonsultLateYes->Color = clWhite;
+	PRemarkKonsultLateNo->Color = clWhite;
+	getKvo();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCard::PRemarkDeseaseVerifClick(TObject *Sender)
+{
+	RemarkDeseaseVerifYes = 0;
+	PRemarkDeseaseVerifYes->Color = clWhite;
+	PRemarkDeseaseVerifNo->Color = clWhite;
+	getKvo();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCard::PRemarkDeseaseTimeClick(TObject *Sender)
+{
+	RemarkDeseaseTimeYes = 0;
+	PRemarkDeseaseTimeYes->Color = clWhite;
+	PRemarkDeseaseTimeNo->Color = clWhite;
+	getKvo();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCard::PRemarkDeseaseContentClick(TObject *Sender)
+{
+	RemarkDeseaseContentYes = 0;
+	PRemarkDeseaseContentYes->Color = clWhite;
+	PRemarkDeseaseContentNo->Color = clWhite;
+	getKvo();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCard::PRemarkTherapyChooseDrClick(TObject *Sender)
+{
+	RemarkTherapyChooseDrYes = 0;
+	PRemarkTherapyChooseDrYes->Color = clWhite;
+	PRemarkTherapyChooseDrNo->Color = clWhite;
+	getKvo();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCard::PRemarkTherapyTimeAppointmentClick(TObject *Sender)
+{
+	RemarkTherapyTimeAppointmentYes = 0;
+	PRemarkTherapyTimeAppointmentYes->Color = clWhite;
+	PRemarkTherapyTimeAppointmentNo->Color = clWhite;
+	getKvo();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCard::PRemarkTherapyPolypharmacyClick(TObject *Sender)
+{
+	RemarkTherapyPolypharmacyYes = 0;
+	PRemarkTherapyPolypharmacyYes->Color = clWhite;
+	PRemarkTherapyPolypharmacyNo->Color = clWhite;
+	getKvo();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCard::PContinuityChoosePlaceClick(TObject *Sender)
+{
+	ContinuityChoosePlaceYes = 0;
+	PContinuityChoosePlaceYes->Color = clWhite;
+	PContinuityChoosePlaceNo->Color = clWhite;
+	getKvo();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCard::PContinuityTimeTransferClick(TObject *Sender)
+{
+	ContinuityTimeTransferYes = 0;
+	PContinuityTimeTransferYes->Color = clWhite;
+	PContinuityTimeTransferNo->Color = clWhite;
+	getKvo();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCard::PRemarkStandartMHClick(TObject *Sender)
+{
+	RemarkStandartMHYes = 0;
+	PRemarkStandartMHYes->Color = clWhite;
+	PRemarkStandartMHNo->Color = clWhite;
+	getKvo();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCard::PVuluntarMedAgreementClick(TObject *Sender)
+{
+	VuluntarMedAgreementYes = 0;
+	PVuluntarMedAgreementYes->Color = clWhite;
+	PVuluntarMedAgreementNo->Color = clWhite;
+	getKkmp();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCard::PAgreementPDNClick(TObject *Sender)
+{
+	AgreementPDNYes = 0;
+	PAgreementPDNYes->Color = clWhite;
+	PAgreementPDNNo->Color = clWhite;
+	getKkmp();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCard::PComplitListDeseaseClick(TObject *Sender)
+{
+	ComplitListDeseaseYes = 0;
+	PComplitListDeseaseYes->Color = clWhite;
+	PComplitListDeseaseNo->Color = clWhite;
+	getKkmp();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCard::PCompitListProfAndStatusClick(TObject *Sender)
+{
+	CompitListProfAndStatusYes = 0;
+	PCompitListProfAndStatusYes->Color = clWhite;
+	PCompitListProfAndStatusNo->Color = clWhite;
+	getKkmp();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCard::PIntegrityCardClick(TObject *Sender)
+{
+	IntegrityCard = 0;
+	PIntegrityCard5->Color = clWhite;
+	PIntegrityCard4->Color = clWhite;
+	PIntegrityCard3->Color = clWhite;
+	PIntegrityCard2->Color = clWhite;
+	PIntegrityCard1->Color = clWhite;
+	getKkmp();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCard::PAccuracyHandwritingClick(TObject *Sender)
+{
+	AccuracyHandwriting = 0;
+	PAccuracyHandwriting5->Color = clWhite;
+	PAccuracyHandwriting4->Color = clWhite;
+	PAccuracyHandwriting3->Color = clWhite;
+	PAccuracyHandwriting2->Color = clWhite;
+	PAccuracyHandwriting1->Color = clWhite;
+	getKkmp();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCard::PExistenceFLGClick(TObject *Sender)
+{
+	ExistenceFLGYes = 0;
+	PExistenceFLGYes->Color = clWhite;
+	PExistenceFLGNo->Color = clWhite;
+	getKkmp();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCard::PExistenceInspGinClick(TObject *Sender)
+{
+	ExistenceInspGinYes = 0;
+	PExistenceInspGinYes->Color = clWhite;
+	PExistenceInspGinNo->Color = clWhite;
+	getKkmp();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCard::PQualityProfInsOnkoClick(TObject *Sender)
+{
+	QualityProfInsOnko = 0;
+	PQualityProfInsOnko5->Color = clWhite;
+	PQualityProfInsOnko4->Color = clWhite;
+	PQualityProfInsOnko3->Color = clWhite;
+	PQualityProfInsOnko2->Color = clWhite;
+	PQualityProfInsOnko1->Color = clWhite;
+	getKkmp();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCard::PDispTimelinesClick(TObject *Sender)
+{
+	DispTimelines = 0;
+	PDispTimelines5->Color = clWhite;
+	PDispTimelines4->Color = clWhite;
+	PDispTimelines3->Color = clWhite;
+	PDispTimelines2->Color = clWhite;
+	PDispTimelines1->Color = clWhite;
+	getKkmp();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCard::PQualityCollectAnamsisClick(TObject *Sender)
+{
+	QualityCollectAnamsis = 0 ;
+	PQualityCollectAnamsis5->Color = clWhite;
+	PQualityCollectAnamsis4->Color = clWhite;
+	PQualityCollectAnamsis3->Color = clWhite;
+	PQualityCollectAnamsis2->Color = clWhite;
+	PQualityCollectAnamsis1->Color = clWhite;
+	getKkmp();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCard::PQualityCollectComplaintClick(TObject *Sender)
+{
+	QualityCollectComplaint = 0;
+	PQualityCollectComplaint5->Color = clWhite;
+	PQualityCollectComplaint4->Color = clWhite;
+	PQualityCollectComplaint3->Color = clWhite;
+	PQualityCollectComplaint2->Color = clWhite;
+	PQualityCollectComplaint1->Color = clWhite;
+	getKkmp();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCard::PDescriptObjectStatusClick(TObject *Sender)
+{
+	DescriptObjectStatus = 0;
+	PDescriptObjectStatus5->Color = clWhite;
+	PDescriptObjectStatus4->Color = clWhite;
+	PDescriptObjectStatus3->Color = clWhite;
+	PDescriptObjectStatus2->Color = clWhite;
+	PDescriptObjectStatus1->Color = clWhite;
+	getKkmp();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCard::PEvaluationResultsOfTreatmentClick(TObject *Sender)
+{
+	EvaluationResultsOfTreatment = 0;
+	PEvaluationResultsOfTreatment5->Color = clWhite;
+	PEvaluationResultsOfTreatment4->Color = clWhite;
+	PEvaluationResultsOfTreatment3->Color = clWhite;
+	PEvaluationResultsOfTreatment2->Color = clWhite;
+	PEvaluationResultsOfTreatment1->Color = clWhite;
+	getKkmp();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCard::PObservStandartsOfDiagnosticsClick(TObject *Sender)
+{
+	ObservStandartsOfDiagnostics = 0;
+	PObservStandartsOfDiagnostics5->Color =clWhite;
+	PObservStandartsOfDiagnostics4->Color =clWhite;
+	PObservStandartsOfDiagnostics3->Color =clWhite;
+	PObservStandartsOfDiagnostics2->Color =clWhite;
+	PObservStandartsOfDiagnostics1->Color =clWhite;
+	getKkmp();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCard::PObservStandartsOfTreatmentClick(TObject *Sender)
+{
+	ObservStandartsOfTreatment = 0;
+	PObservStandartsOfTreatment5->Color = clWhite;
+	PObservStandartsOfTreatment4->Color = clWhite;
+	PObservStandartsOfTreatment3->Color = clWhite;
+	PObservStandartsOfTreatment2->Color = clWhite;
+	PObservStandartsOfTreatment1->Color = clWhite;
+	getKkmp();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCard::PRationalUseOfResourcesClick(TObject *Sender)
+{
+	RationalUseOfResourcesYes = 0;
+	PRationalUseOfResourcesYes->Color = clWhite;
+	PRationalUseOfResourcesNo->Color = clWhite;
+	getKkmp();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCard::PAbsenceComplaintsOfPatientsClick(TObject *Sender)
+{
+	AbsenceComplaintsOfPatientsYes = 0;
+	PAbsenceComplaintsOfPatientsYes->Color = clWhite;
+	PAbsenceComplaintsOfPatientsNo->Color = clWhite;
+	getKkmp();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCard::PDeadlinesVNClick(TObject *Sender)
+{
+	DeadlinesVN = 0;
+	PDeadlinesVN5->Color = clWhite;
+	PDeadlinesVN4->Color = clWhite;
+	PDeadlinesVN3->Color = clWhite;
+	PDeadlinesVN2->Color = clWhite;
+	PDeadlinesVN1->Color = clWhite;
+	getKkmp();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCard::PTimelyRegistLNClick(TObject *Sender)
+{
+	TimelyRegistLNYes = 0;
+	PTimelyRegistLNYes->Color = clWhite;
+	PTimelyRegistLNNo->Color = clWhite;
+	getKkmp();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCard::PRefferalToVKClick(TObject *Sender)
+{
+	RefferalToVKYes = 0;
+	PRefferalToVKYes->Color = clWhite;
+	PRefferalToVKNo->Color = clWhite;
+	getKkmp();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCard::PTimelyRegistLNYesClick(TObject *Sender)
+{
+	PTimelyRegistLNYes->Color = TColor(0x0064B1FF);
+	PTimelyRegistLNNo->Color = clWhite;
+	TimelyRegistLNYes = 5;
+	getKkmp();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCard::PRefferalToVKYesClick(TObject *Sender)
+{
+	PRefferalToVKYes->Color = TColor(0x0064B1FF);
+	PRefferalToVKNo->Color = clWhite;
+	RefferalToVKYes = 5;
+	getKkmp();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCard::PTimelyRegistLNNoClick(TObject *Sender)
+{
+	PTimelyRegistLNYes->Color = clWhite;
+	PTimelyRegistLNNo->Color = TColor(0x0064B1FF);
+	TimelyRegistLNYes = 1;
+	getKkmp();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFCard::PRefferalToVKNoClick(TObject *Sender)
+{
+	PRefferalToVKYes->Color = clWhite;
+	PRefferalToVKNo->Color = TColor(0x0064B1FF);
+	RefferalToVKYes = 1;
+	getKkmp();
 }
 //---------------------------------------------------------------------------
 
