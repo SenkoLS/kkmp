@@ -338,41 +338,41 @@ private:	// User declarations
 public:		// User declarations
 	__fastcall TFCard(TComponent* Owner);
 	double 	kvo,kkmp;
-	bool	RemarkInfServYes,
-			RemarkAnamYes,
-			RemarkFizResYes,
-			ResearchNotYes,
-			ResearchToMuchYes,
-			ResearchLateYes,
-			ResearchInstrNotYes,
-			ResearchInstrToMuchYes,
-			ResearchInstrLateYes,
-			RemarkKonsultNotYes,
-			RemarkKonsultLateYes,
-			RemarkDeseaseVerifYes,
-			RemarkDeseaseTimeYes,
-			RemarkDeseaseContentYes,
-			RemarkTherapyChooseDrYes,
-			RemarkTherapyTimeAppointmentYes,
-			RemarkTherapyPolypharmacyYes,
-			ContinuityChoosePlaceYes,
-			ContinuityTimeTransferYes,
-			RemarkStandartMHYes;
 
-	bool 	VuluntarMedAgreementYes, AgreementPDNYes,
-			ComplitListDeseaseYes, CompitListProfAndStatusYes,
-			ExistenceFLGYes, ExistenceInspGinYes,
-			RationalUseOfResourcesYes, AbsenceComplaintsOfPatientsYes,
-			TimelyRegistLNYes,RefferalToVKYes;
-
-	int 	IntegrityCard, AccuracyHandwriting,
-			QualityProfInsOnko, DispTimelines,
-			QualityCollectAnamsis, QualityCollectComplaint,
-			DescriptObjectStatus, EvaluationResultsOfTreatment,
-			ObservStandartsOfDiagnostics, ObservStandartsOfTreatment,
-			DeadlinesVN;
-
-	int id_inspection;  //for editing
+	int	RemarkInfServYes,
+		RemarkAnamYes,
+		RemarkFizResYes,
+		ResearchNotYes,
+		ResearchToMuchYes,
+		ResearchLateYes,
+		ResearchInstrNotYes,
+		ResearchInstrToMuchYes,
+		ResearchInstrLateYes,
+		RemarkKonsultNotYes,
+		RemarkKonsultLateYes,
+		RemarkDeseaseVerifYes,
+		RemarkDeseaseTimeYes,
+		RemarkDeseaseContentYes,
+		RemarkTherapyChooseDrYes,
+		RemarkTherapyTimeAppointmentYes,
+		RemarkTherapyPolypharmacyYes,
+		ContinuityChoosePlaceYes,
+		ContinuityTimeTransferYes,
+		RemarkStandartMHYes,
+		VuluntarMedAgreementYes, AgreementPDNYes,
+		ComplitListDeseaseYes, CompitListProfAndStatusYes,
+		ExistenceFLGYes, ExistenceInspGinYes,
+		RationalUseOfResourcesYes, AbsenceComplaintsOfPatientsYes,
+		TimelyRegistLNYes,RefferalToVKYes,
+		IntegrityCard, AccuracyHandwriting,
+		QualityProfInsOnko, DispTimelines,
+		QualityCollectAnamsis, QualityCollectComplaint,
+		DescriptObjectStatus, EvaluationResultsOfTreatment,
+		ObservStandartsOfDiagnostics, ObservStandartsOfTreatment,
+		DeadlinesVN,
+		id_inspection,  //for editing
+		amountRightPanels,
+		amountLeftPanels;
 
 	void __fastcall TFCard::getKvo();
 	void __fastcall TFCard::getKkmp();

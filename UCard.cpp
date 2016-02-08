@@ -13,53 +13,56 @@ TFCard *FCard;
 __fastcall TFCard::TFCard(TComponent* Owner)
 	: TForm(Owner)
 {
+	amountRightPanels = 0;
+	amountLeftPanels = 0;
+
 	//for kvo
 	kvo = 0;
-	RemarkInfServYes = false;
-	RemarkAnamYes = false;
-	RemarkFizResYes = false;
-	ResearchNotYes = false;
-	ResearchToMuchYes = false;
-	ResearchLateYes = false;
-	ResearchInstrNotYes = false;
-	ResearchInstrToMuchYes = false;
-	ResearchInstrLateYes = false;
-	RemarkKonsultNotYes = false;
-	RemarkKonsultLateYes = false;
-	RemarkDeseaseVerifYes = false;
-	RemarkDeseaseTimeYes = false;
-	RemarkDeseaseContentYes = false;
-	RemarkTherapyChooseDrYes = false;
-	RemarkTherapyTimeAppointmentYes = false;
-	RemarkTherapyPolypharmacyYes = false;
-	ContinuityChoosePlaceYes = false;
-	ContinuityTimeTransferYes = false;
-	RemarkStandartMHYes = false;
+	RemarkInfServYes = 0;
+	RemarkAnamYes = 0;
+	RemarkFizResYes = 0;
+	ResearchNotYes = 0;
+	ResearchToMuchYes = 0;
+	ResearchLateYes = 0;
+	ResearchInstrNotYes = 0;
+	ResearchInstrToMuchYes = 0;
+	ResearchInstrLateYes = 0;
+	RemarkKonsultNotYes = 0;
+	RemarkKonsultLateYes = 0;
+	RemarkDeseaseVerifYes = 0;
+	RemarkDeseaseTimeYes = 0;
+	RemarkDeseaseContentYes = 0;
+	RemarkTherapyChooseDrYes = 0;
+	RemarkTherapyTimeAppointmentYes = 0;
+	RemarkTherapyPolypharmacyYes = 0;
+	ContinuityChoosePlaceYes = 0;
+	ContinuityTimeTransferYes = 0;
+	RemarkStandartMHYes = 0;
 
 	//for kkmp
 	kkmp = 0;
-	VuluntarMedAgreementYes = true;
-	AgreementPDNYes = true;
-	ComplitListDeseaseYes = true;
-	CompitListProfAndStatusYes = true;
-	ExistenceFLGYes = true;
-	ExistenceInspGinYes = true;
-    RationalUseOfResourcesYes = true;
-	AbsenceComplaintsOfPatientsYes = true;
-	TimelyRegistLNYes = true;
-	RefferalToVKYes = true;
+	VuluntarMedAgreementYes = 0;
+	AgreementPDNYes = 0;
+	ComplitListDeseaseYes = 0;
+	CompitListProfAndStatusYes = 0;
+	ExistenceFLGYes = 0;
+	ExistenceInspGinYes = 0;
+	RationalUseOfResourcesYes = 0;
+	AbsenceComplaintsOfPatientsYes = 0;
+	TimelyRegistLNYes = 0;
+	RefferalToVKYes = 0;
 
-	IntegrityCard = 5;
-	AccuracyHandwriting = 5;
-	QualityProfInsOnko = 5;
-	DispTimelines = 5;
-	QualityCollectAnamsis = 5;
-	QualityCollectComplaint = 5;
-	DescriptObjectStatus = 5;
-	EvaluationResultsOfTreatment = 5;
-	ObservStandartsOfDiagnostics = 5;
-	ObservStandartsOfTreatment = 5;
-	DeadlinesVN = 5;
+	IntegrityCard = 0;
+	AccuracyHandwriting = 0;
+	QualityProfInsOnko = 0;
+	DispTimelines = 0;
+	QualityCollectAnamsis = 0;
+	QualityCollectComplaint = 0;
+	DescriptObjectStatus = 0;
+	EvaluationResultsOfTreatment = 0;
+	ObservStandartsOfDiagnostics = 0;
+	ObservStandartsOfTreatment = 0;
+	DeadlinesVN = 0;
 }
 //---------------------------------------------------------------------------
 AnsiString __fastcall TFCard::BoolToStr(bool value){
@@ -68,28 +71,38 @@ AnsiString __fastcall TFCard::BoolToStr(bool value){
 }
 //---------------------------------------------------------------------------
 void __fastcall TFCard::getKvo(){
-    kvo = 0;
+	kvo = 0;
+	if(RemarkInfServYes == 1){
+		kvo = kvo + 1;
+		amountRightPanels = ++amountRightPanels;
+	}else if(PRemarkInfServYes->Color == TColor(0x0064B1FF)){
+		amountRightPanels = ++amountRightPanels;
+	}
 
-	if(RemarkInfServYes) kvo = kvo + 0.05;
-	if(RemarkAnamYes) kvo = kvo + 0.05;
-	if(RemarkFizResYes) kvo = kvo + 0.05;
-	if(ResearchNotYes) kvo = kvo + 0.05;
-	if(ResearchToMuchYes) kvo = kvo + 0.05;
-	if(ResearchLateYes) kvo = kvo + 0.05;
-	if(ResearchInstrNotYes) kvo = kvo + 0.05;
-	if(ResearchInstrToMuchYes) kvo = kvo + 0.05;
-	if(ResearchInstrLateYes) kvo = kvo + 0.05;
-	if(RemarkKonsultNotYes) kvo = kvo + 0.05;
-	if(RemarkKonsultLateYes) kvo = kvo + 0.05;
-	if(RemarkDeseaseVerifYes) kvo = kvo + 0.05;
-	if(RemarkDeseaseTimeYes) kvo = kvo + 0.05;
-	if(RemarkDeseaseContentYes) kvo = kvo + 0.05;
-	if(RemarkTherapyChooseDrYes) kvo = kvo + 0.05;
-	if(RemarkTherapyTimeAppointmentYes) kvo = kvo + 0.05;
-	if(RemarkTherapyPolypharmacyYes) kvo = kvo + 0.05;
-	if(ContinuityChoosePlaceYes) kvo = kvo + 0.05;
-	if(ContinuityTimeTransferYes) kvo = kvo + 0.05;
-	if(RemarkStandartMHYes) kvo = kvo + 0.05;
+	if(RemarkAnamYes == 1) kvo = kvo + 1;
+	if(RemarkFizResYes == 1) kvo = kvo + 1;
+	if(ResearchNotYes == 1) kvo = kvo + 1;
+	if(ResearchToMuchYes == 1) kvo = kvo + 1;
+	if(ResearchLateYes == 1) kvo = kvo + 1;
+	if(ResearchInstrNotYes == 1) kvo = kvo + 1;
+	if(ResearchInstrToMuchYes == 1) kvo = kvo + 1;
+	if(ResearchInstrLateYes == 1) kvo = kvo + 1;
+	if(RemarkKonsultNotYes == 1) kvo = kvo + 1;
+	if(RemarkKonsultLateYes == 1) kvo = kvo + 1;
+	if(RemarkDeseaseVerifYes == 1) kvo = kvo + 1;
+	if(RemarkDeseaseTimeYes == 1) kvo = kvo + 1;
+	if(RemarkDeseaseContentYes == 1) kvo = kvo + 1;
+	if(RemarkTherapyChooseDrYes == 1) kvo = kvo + 1;
+	if(RemarkTherapyTimeAppointmentYes == 1) kvo = kvo + 1;
+	if(RemarkTherapyPolypharmacyYes == 1) kvo = kvo + 1;
+	if(ContinuityChoosePlaceYes == 1) kvo = kvo + 1;
+	if(ContinuityTimeTransferYes == 1) kvo = kvo + 1;
+	if(RemarkStandartMHYes == 1) kvo = kvo + 1;
+
+	if(amountRightPanels != 0)
+		kvo = (1 - kvo/amountRightPanels);
+	else
+		kvo = 1;
 
 	PKvo->Caption = FloatToStr(kvo);
 }
@@ -760,26 +773,26 @@ void __fastcall TFCard::SpBAllNoClick(TObject *Sender)
 	PContinuityTimeTransferYes->Color = clWhite;
 	PRemarkStandartMHYes->Color = clWhite;
 
-	RemarkInfServYes = false;
-	RemarkAnamYes = false;
-	RemarkFizResYes = false;
-	ResearchNotYes = false;
-	ResearchToMuchYes = false;
-	ResearchLateYes = false;
-	ResearchInstrNotYes = false;
-	ResearchInstrToMuchYes = false;
-	ResearchInstrLateYes = false;
-	RemarkKonsultNotYes = false;
-	RemarkKonsultLateYes = false;
-	RemarkDeseaseVerifYes = false;
-	RemarkDeseaseTimeYes = false;
-	RemarkDeseaseContentYes = false;
-	RemarkTherapyChooseDrYes = false;
-	RemarkTherapyTimeAppointmentYes = false;
-	RemarkTherapyPolypharmacyYes = false;
-	ContinuityChoosePlaceYes = false;
-	ContinuityTimeTransferYes = false;
-	RemarkStandartMHYes = false;
+	RemarkInfServYes = 0;
+	RemarkAnamYes = 0;
+	RemarkFizResYes = 0;
+	ResearchNotYes = 0;
+	ResearchToMuchYes = 0;
+	ResearchLateYes = 0;
+	ResearchInstrNotYes = 0;
+	ResearchInstrToMuchYes = 0;
+	ResearchInstrLateYes = 0;
+	RemarkKonsultNotYes = 0;
+	RemarkKonsultLateYes = 0;
+	RemarkDeseaseVerifYes = 0;
+	RemarkDeseaseTimeYes = 0;
+	RemarkDeseaseContentYes = 0;
+	RemarkTherapyChooseDrYes = 0;
+	RemarkTherapyTimeAppointmentYes = 0;
+	RemarkTherapyPolypharmacyYes = 0;
+	ContinuityChoosePlaceYes = 0;
+	ContinuityTimeTransferYes = 0;
+	RemarkStandartMHYes = 0;
 
 	getKvo();
 }
@@ -1468,7 +1481,8 @@ void __fastcall TFCard::FormShow(TObject *Sender)
 		DTPDateStart->Date = Now();
 		DTPDateEnd->Date = Now();
 		DBLookupComboBoxListMed->KeyValue = 1;
-		SpBAllNoClick(Sender);
+		//SpBAllNoClick(Sender);
+		getKvo();
 		SpBAllNoQualityClick(Sender);
 	}
 
