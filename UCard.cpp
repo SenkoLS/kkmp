@@ -123,6 +123,7 @@ void __fastcall TFCard::clearForm(TObject *Sender){
 	PContinuityChoosePlaceClick(Sender);
 	PContinuityTimeTransferClick(Sender);
 	PRemarkStandartMHClick(Sender);
+	//end of clearing
 }
 //---------------------------------------------------------------------------
 void __fastcall TFCard::getKvo(){
