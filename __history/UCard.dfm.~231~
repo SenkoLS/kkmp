@@ -301,6 +301,7 @@ object FCard: TFCard
     Align = alLeft
     BorderStyle = bsSingle
     TabOrder = 1
+    ExplicitHeight = 605
     object Label2: TLabel
       Left = 8
       Top = 4
@@ -2241,6 +2242,7 @@ object FCard: TFCard
     Font.Style = []
     ParentFont = False
     TabOrder = 2
+    ExplicitHeight = 611
     object Label1: TLabel
       Left = 8
       Top = 4
@@ -3508,6 +3510,7 @@ object FCard: TFCard
     Color = clGradientActiveCaption
     ParentBackground = False
     TabOrder = 3
+    ExplicitHeight = 599
   end
   object Panel5: TPanel
     Left = 0
@@ -3518,6 +3521,7 @@ object FCard: TFCard
     Color = clGradientActiveCaption
     ParentBackground = False
     TabOrder = 4
+    ExplicitTop = 678
     object Button1: TButton
       Left = 8
       Top = 4

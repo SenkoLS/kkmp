@@ -84,6 +84,7 @@ __published:	// IDE-managed Components
 	TPanel *PRemarkTherapyChooseDr;
 	TLabel *Label9;
 	TLabel *Label10;
+	TLabel *Label11;
 	TPanel *PKvo;
 	TPanel *PContinuityChoosePlace;
 	TPanel *PContinuityChoosePlaceNo;
@@ -216,10 +217,6 @@ __published:	// IDE-managed Components
 	TLabel *LSurname;
 	TLabel *LName;
 	TLabel *LPatronymic;
-	TLabel *LDescrip;
-	TLabel *LDescrip2;
-	TLabel *LDescrip3;
-	TLabel *LDescrip4;
 	void __fastcall PRemarkInfServYesClick(TObject *Sender);
 	void __fastcall PRemarkInfServNoClick(TObject *Sender);
 	void __fastcall PRemarkAnamYesClick(TObject *Sender);

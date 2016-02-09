@@ -5,12 +5,12 @@ object FCard: TFCard
   Caption = 
     #1069#1082#1089#1087#1077#1088#1090#1085#1072#1103' '#1086#1094#1077#1085#1082#1072' '#1082#1072#1095#1077#1089#1090#1074#1072' '#1074#1077#1076#1077#1085#1080#1103' '#1084#1077#1076#1080#1094#1080#1085#1089#1082#1086#1081' '#1076#1086#1082#1091#1084#1077#1085#1090#1072#1094#1080#1080' '#1080' '#1082#1072 +
     #1095#1077#1089#1090#1074#1072' '#1086#1082#1072#1079#1072#1085#1080#1103' '#1084#1077#1076#1080#1094#1080#1085#1089#1082#1086#1081' '#1087#1086#1084#1086#1097#1080' (1 '#1091#1088#1086#1074#1077#1085#1100')'
-  ClientHeight = 715
+  ClientHeight = 726
   ClientWidth = 1013
   Color = clBtnFace
-  Constraints.MaxHeight = 744
+  Constraints.MaxHeight = 755
   Constraints.MaxWidth = 1019
-  Constraints.MinHeight = 744
+  Constraints.MinHeight = 755
   Constraints.MinWidth = 1019
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -297,7 +297,7 @@ object FCard: TFCard
     Left = 0
     Top = 74
     Width = 553
-    Height = 601
+    Height = 611
     Align = alLeft
     BorderStyle = bsSingle
     TabOrder = 1
@@ -399,64 +399,6 @@ object FCard: TFCard
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clMaroon
       Font.Height = -15
-      Font.Name = 'Times New Roman'
-      Font.Style = []
-      ParentFont = False
-    end
-    object LDescrip: TLabel
-      Left = 8
-      Top = 526
-      Width = 356
-      Height = 15
-      Caption = #1054#1094#1077#1085#1082#1072' '#1074#1099#1087#1086#1083#1085#1103#1077#1090#1089#1103' '#1074' '#1073#1072#1083#1083#1072#1093': 1 - '#1085#1080#1079#1096#1080#1081' '#1073#1072#1083#1083'; 5 - '#1074#1099#1089#1096#1080#1081' '#1073#1072#1083#1083';'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clMaroon
-      Font.Height = -13
-      Font.Name = 'Times New Roman'
-      Font.Style = []
-      ParentFont = False
-    end
-    object LDescrip2: TLabel
-      Left = 8
-      Top = 540
-      Width = 490
-      Height = 15
-      Caption = 
-        #1085#1077#1090' '#1086#1090#1084#1077#1090#1082#1080' - '#1087#1088#1080#1079#1085#1072#1082' '#1085#1077' '#1074#1089#1090#1088#1077#1095#1072#1077#1090#1089#1103'. '#1050#1083#1080#1082'  '#1083#1077#1074#1086#1081' '#1082#1083#1072#1074#1080#1096#1077#1081' '#1084#1099#1096#1082#1080 +
-        ' '#1087#1086' '#1073#1072#1083#1083#1091'  - '#1086#1090#1084#1077#1090#1082#1072','
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clMaroon
-      Font.Height = -13
-      Font.Name = 'Times New Roman'
-      Font.Style = []
-      ParentFont = False
-    end
-    object LDescrip3: TLabel
-      Left = 8
-      Top = 556
-      Width = 438
-      Height = 15
-      Caption = 
-        #1082#1083#1080#1082' '#1087#1086' '#1085#1072#1080#1084#1077#1085#1086#1074#1072#1085#1080#1102' '#1087#1086#1082#1072#1079#1072#1090#1077#1083#1103' - '#1089#1085#1080#1084#1072#1077#1090' '#1074#1099#1076#1077#1083#1077#1085#1080#1077' '#1080' '#1072#1085#1085#1091#1083#1080#1088#1091#1077#1090 +
-        ' '#1086#1090#1084#1077#1090#1082#1091'.'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clMaroon
-      Font.Height = -13
-      Font.Name = 'Times New Roman'
-      Font.Style = []
-      ParentFont = False
-    end
-    object LDescrip4: TLabel
-      Left = 8
-      Top = 572
-      Width = 418
-      Height = 15
-      Caption = 
-        #1047#1077#1083#1077#1085#1072#1103' '#1089#1090#1088#1077#1083#1082#1072' '#1074#1085#1080#1079' '#1085#1072#1076' '#1073#1072#1083#1083#1072#1084#1080' - '#1086#1090#1084#1077#1090#1082#1072' '#1074#1089#1077#1093' '#1087#1086#1082#1072#1079#1072#1090#1077#1083#1077#1081'  max' +
-        ' '#1073#1072#1083#1083#1072#1084#1080'.'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clMaroon
-      Font.Height = -13
       Font.Name = 'Times New Roman'
       Font.Style = []
       ParentFont = False
@@ -2212,7 +2154,7 @@ object FCard: TFCard
     end
     object PKKMP: TPanel
       Left = 440
-      Top = 571
+      Top = 577
       Width = 98
       Height = 20
       Color = clWhite
@@ -2230,7 +2172,7 @@ object FCard: TFCard
     Left = 567
     Top = 74
     Width = 446
-    Height = 601
+    Height = 611
     Align = alRight
     Alignment = taLeftJustify
     BorderStyle = bsSingle
@@ -2336,7 +2278,7 @@ object FCard: TFCard
     end
     object Label9: TLabel
       Left = 8
-      Top = 477
+      Top = 479
       Width = 101
       Height = 15
       Caption = #1055#1088#1077#1077#1084#1089#1090#1074#1077#1085#1085#1086#1089#1090#1100':'
@@ -2349,7 +2291,7 @@ object FCard: TFCard
     end
     object Label10: TLabel
       Left = 8
-      Top = 532
+      Top = 534
       Width = 216
       Height = 15
       Caption = #1047#1072#1084#1077#1095#1072#1085#1080#1103' '#1087#1086' '#1089#1090#1072#1085#1076#1072#1088#1090#1091' '#1086#1082#1072#1079#1072#1085#1080#1103' '#1052#1055':'
@@ -2358,6 +2300,19 @@ object FCard: TFCard
       Font.Height = -13
       Font.Name = 'Times New Roman'
       Font.Style = []
+      ParentFont = False
+    end
+    object Label11: TLabel
+      Left = 8
+      Top = 580
+      Width = 137
+      Height = 15
+      Caption = #1052#1072#1082#1089#1080#1084#1072#1083#1100#1085#1099#1081' '#1073#1072#1083#1083' = 1'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'Times New Roman'
+      Font.Style = [fsItalic, fsUnderline]
       ParentFont = False
     end
     object SpBAllNo: TSpeedButton
@@ -3373,7 +3328,7 @@ object FCard: TFCard
     end
     object PKvo: TPanel
       Left = 368
-      Top = 571
+      Top = 577
       Width = 65
       Height = 20
       Caption = '0'
@@ -3389,7 +3344,7 @@ object FCard: TFCard
     end
     object PContinuityChoosePlace: TPanel
       Left = 8
-      Top = 491
+      Top = 493
       Width = 361
       Height = 20
       Alignment = taLeftJustify
@@ -3402,7 +3357,7 @@ object FCard: TFCard
     end
     object PContinuityChoosePlaceNo: TPanel
       Left = 400
-      Top = 491
+      Top = 493
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -3414,7 +3369,7 @@ object FCard: TFCard
     end
     object PContinuityChoosePlaceYes: TPanel
       Left = 368
-      Top = 491
+      Top = 493
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -3426,7 +3381,7 @@ object FCard: TFCard
     end
     object PContinuityTimeTransferNo: TPanel
       Left = 400
-      Top = 510
+      Top = 512
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -3438,7 +3393,7 @@ object FCard: TFCard
     end
     object PContinuityTimeTransfer: TPanel
       Left = 8
-      Top = 510
+      Top = 512
       Width = 361
       Height = 20
       Alignment = taLeftJustify
@@ -3451,7 +3406,7 @@ object FCard: TFCard
     end
     object PContinuityTimeTransferYes: TPanel
       Left = 368
-      Top = 510
+      Top = 512
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -3463,7 +3418,7 @@ object FCard: TFCard
     end
     object PRemarkStandartMH: TPanel
       Left = 8
-      Top = 548
+      Top = 550
       Width = 361
       Height = 20
       Alignment = taLeftJustify
@@ -3476,7 +3431,7 @@ object FCard: TFCard
     end
     object PRemarkStandartMHYes: TPanel
       Left = 368
-      Top = 548
+      Top = 550
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -3488,7 +3443,7 @@ object FCard: TFCard
     end
     object PRemarkStandartMHNo: TPanel
       Left = 400
-      Top = 548
+      Top = 550
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -3503,7 +3458,7 @@ object FCard: TFCard
     Left = 553
     Top = 74
     Width = 10
-    Height = 601
+    Height = 611
     Align = alLeft
     Color = clGradientActiveCaption
     ParentBackground = False
@@ -3511,16 +3466,16 @@ object FCard: TFCard
   end
   object Panel5: TPanel
     Left = 0
-    Top = 675
+    Top = 685
     Width = 1013
-    Height = 40
+    Height = 41
     Align = alBottom
     Color = clGradientActiveCaption
     ParentBackground = False
     TabOrder = 4
     object Button1: TButton
       Left = 8
-      Top = 4
+      Top = 6
       Width = 997
       Height = 32
       Caption = #1057#1054#1061#1056#1040#1053#1048#1058#1068' '#1050#1040#1056#1058#1059

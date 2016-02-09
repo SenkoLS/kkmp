@@ -168,11 +168,14 @@ void __fastcall TFDictionaryMed::BSafeMedClick(TObject *Sender)
 				break;
 		case 2:
 				if(DMAvtoriz->DSAvtoriz->DataSet->FieldByName("login")->AsAnsiString != "admin"){
-					if(DMAvtoriz->DSAvtoriz->DataSet->FieldByName("login")->AsAnsiString != DBGrCatalogMed->DataSource->DataSet->FieldByName("login")->AsAnsiString){
-						MessageBox(0,L"Вы не можете редактировать чужие данные!\nОбратитесь к администратору программы.",L"Сообщение",MB_OK);
-						return;
-					}
-				}
+					if(!EPassword->Text.IsEmpty())
+						MessageBox(0,L"Для изменения логина и пароля обратитесь\nк администратору программы.\nПароль не изменен.",L"Сообщение",MB_OK);
+                        DMAvtoriz->SQLQCatalogMed->SQL->Text = 	"UPDATE `user` SET `name` = '"+EName->Text+"',"
+														"`surname` = '"+ESurname->Text+"',"
+														"`patronymic` = '"+EOtch->Text+"',"
+														"`id_office` = "+getStrValue(DBLookupComboBoxOffice->ListSource->DataSet->FieldByName("id_office")->AsAnsiString)+" "
+														"WHERE `id_user` = '"+DBGrCatalogMed->DataSource->DataSet->FieldByName("id_user")->AsAnsiString+"'";
+				}else{
 					DMAvtoriz->SQLQCatalogMed->SQL->Text = 	"UPDATE `user` SET `name` = '"+EName->Text+"',"
 														"`surname` = '"+ESurname->Text+"',"
 														"`patronymic` = '"+EOtch->Text+"',"
@@ -180,7 +183,7 @@ void __fastcall TFDictionaryMed::BSafeMedClick(TObject *Sender)
 														"`password` = "+getStrValue(FAvtoriz->MD5(EPassword->Text))+","
 														"`id_office` = "+getStrValue(DBLookupComboBoxOffice->ListSource->DataSet->FieldByName("id_office")->AsAnsiString)+" "
 														"WHERE `id_user` = '"+DBGrCatalogMed->DataSource->DataSet->FieldByName("id_user")->AsAnsiString+"'";
-
+				}
 				break;
 	}
 
@@ -208,11 +211,6 @@ void __fastcall TFDictionaryMed::BSafeMedClick(TObject *Sender)
 
 void __fastcall TFDictionaryMed::BDeleteClick(TObject *Sender)
 {
-	if(DMAvtoriz->DSAvtoriz->DataSet->FieldByName("login")->AsAnsiString != "admin"){
-		MessageBox(0,L"Для удаления пользователя\nиспользуйте учетную запись администратора.\nУдаление прервано.",L"Сообщение",MB_OK);
-		return;
-	}
-
 	if(DBGrCatalogMed->DataSource->DataSet->FieldByName("id_user")->AsInteger < 3){
 		if(DBGrCatalogMed->DataSource->DataSet->FieldByName("id_user")->AsInteger == 2)
 			MessageBox(0,L"Нельзя удалить администратора программы!",L"Сообщение",MB_OK);

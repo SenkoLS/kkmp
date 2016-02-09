@@ -211,14 +211,13 @@ void __fastcall TFCard::getKvo(){
 		amountRightPanels++;
 	}
 
-	if(amountRightPanels != 0){
+	if(amountRightPanels != 0)
 		kvo = (kvo/amountRightPanels);
-		kvo = SimpleRoundTo(kvo,-3);
-	}else{
+		kvo = SimpleRoundTo(kvo,-3)
+	else
 		kvo = 0;
-	}
 
-	PKvo->Caption = FloatToStr(kvo);
+	PKvo->Caption = FloatToStr();
 }
 //---------------------------------------------------------------------------
 void __fastcall TFCard::getKkmp(){

@@ -211,14 +211,12 @@ void __fastcall TFCard::getKvo(){
 		amountRightPanels++;
 	}
 
-	if(amountRightPanels != 0){
+	if(amountRightPanels != 0)
 		kvo = (kvo/amountRightPanels);
-		kvo = SimpleRoundTo(kvo,-3);
-	}else{
+	else
 		kvo = 0;
-	}
 
-	PKvo->Caption = FloatToStr(kvo);
+	PKvo->Caption = FloatToStr(SimpleRoundTo(kvo,-3));
 }
 //---------------------------------------------------------------------------
 void __fastcall TFCard::getKkmp(){
@@ -2645,8 +2643,7 @@ void __fastcall TFCard::Button1Click(TObject *Sender)
 			"'"+ IntToStr(ObservStandartsOfTreatment) +"',"
 			"'"+ IntToStr(DeadlinesVN) +"',"
 			"'"+ PKKMP->Caption +"',"
-			"'"+ FloatToStr(kvo) +"',"
-			"'"+ DMAvtoriz->DSAvtoriz->DataSet->FieldByName("id_user")->AsAnsiString +"'"
+			"'"+ FloatToStr(kvo) +"'"
 			")";
 	}
 

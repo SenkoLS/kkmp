@@ -167,11 +167,9 @@ void __fastcall TFDictionaryMed::BSafeMedClick(TObject *Sender)
 									+ getStrValue(DBLookupComboBoxOffice->ListSource->DataSet->FieldByName("id_office")->AsAnsiString) +")";
 				break;
 		case 2:
-				if(DMAvtoriz->DSAvtoriz->DataSet->FieldByName("login")->AsAnsiString != "admin"){
-					if(DMAvtoriz->DSAvtoriz->DataSet->FieldByName("login")->AsAnsiString != DBGrCatalogMed->DataSource->DataSet->FieldByName("login")->AsAnsiString){
-						MessageBox(0,L"Вы не можете редактировать чужие данные!\nОбратитесь к администратору программы.",L"Сообщение",MB_OK);
-						return;
-					}
+				if(DMAvtoriz->DSAvtoriz->DataSet->FieldByName("login")->AsAnsiString != DBGrCatalogMed->DataSource->DataSet->FieldByName("login")->AsAnsiString){
+					MessageBox(0,L"Вы не можете редактировать чужие данные!\nОбратитесь к администратору программы.",L"Сообщение",MB_OK);
+					return;
 				}
 					DMAvtoriz->SQLQCatalogMed->SQL->Text = 	"UPDATE `user` SET `name` = '"+EName->Text+"',"
 														"`surname` = '"+ESurname->Text+"',"

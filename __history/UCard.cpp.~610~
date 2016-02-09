@@ -218,7 +218,7 @@ void __fastcall TFCard::getKvo(){
 		kvo = 0;
 	}
 
-	PKvo->Caption = FloatToStr(kvo);
+	PKvo->Caption = FloatToStr();
 }
 //---------------------------------------------------------------------------
 void __fastcall TFCard::getKkmp(){

@@ -211,14 +211,12 @@ void __fastcall TFCard::getKvo(){
 		amountRightPanels++;
 	}
 
-	if(amountRightPanels != 0){
+	if(amountRightPanels != 0)
 		kvo = (kvo/amountRightPanels);
-		kvo = SimpleRoundTo(kvo,-3);
-	}else{
+	else
 		kvo = 0;
-	}
 
-	PKvo->Caption = FloatToStr(kvo);
+	PKvo->Caption = FloatToStr(SimpleRoundTo(kvo,-3));
 }
 //---------------------------------------------------------------------------
 void __fastcall TFCard::getKkmp(){
@@ -1687,8 +1685,10 @@ void __fastcall TFCard::FormShow(TObject *Sender)
 		DTPDateStart->Date = Now();
 		DTPDateEnd->Date = Now();
 		DBLookupComboBoxListMed->KeyValue = 1;
+		//SpBAllNoClick(Sender);
 		getKvo();
 		getKkmp();
+		//SpBAllNoQualityClick(Sender);
 	}
 
 	PAmountOfDays->Caption = IntToStr((DTPDateEnd->DateTime - DTPDateStart->DateTime) + 1);
@@ -2576,8 +2576,7 @@ void __fastcall TFCard::Button1Click(TObject *Sender)
 			"`ObservStandartsOfTreatment` = '"+IntToStr(ObservStandartsOfTreatment)+"',"
 			"`DeadlinesVN` = '"+IntToStr(DeadlinesVN)+"',"
 			"`kkmp` = '"+PKKMP->Caption+"',"
-			"`kvo` = '"+FloatToStr(kvo)+"',"
-			"`id_expert` = '"+ DMAvtoriz->DSAvtoriz->DataSet->FieldByName("id_user")->AsAnsiString +"' "
+			"`kvo` = '"+FloatToStr(kvo)+"' "
 			"WHERE `id_inspection` = " + IntToStr(id_inspection);
 	}else{
 		//INSERT
@@ -2593,7 +2592,7 @@ void __fastcall TFCard::Button1Click(TObject *Sender)
 		"AbsenceComplaintsOfPatientsYes,TimelyRegistLNYes,RefferalToVKYes,IntegrityCard,"
 		"AccuracyHandwriting,QualityProfInsOnko,DispTimelines,QualityCollectAnamsis,QualityCollectComplaint,"
 		"DescriptObjectStatus,EvaluationResultsOfTreatment,ObservStandartsOfDiagnostics,"
-		"ObservStandartsOfTreatment,DeadlinesVN,kkmp,kvo,id_expert) VALUES("
+		"ObservStandartsOfTreatment,DeadlinesVN,kkmp,kvo) VALUES("
 			"'"+FormatDateTime("yyyy-mm-dd",DTPDateStart->Date)+"',"
 			"'"+FormatDateTime("yyyy-mm-dd",DTPDateEnd->Date)+"',"
 			"'"+PAmountOfDays->Caption+"',"
@@ -2645,8 +2644,7 @@ void __fastcall TFCard::Button1Click(TObject *Sender)
 			"'"+ IntToStr(ObservStandartsOfTreatment) +"',"
 			"'"+ IntToStr(DeadlinesVN) +"',"
 			"'"+ PKKMP->Caption +"',"
-			"'"+ FloatToStr(kvo) +"',"
-			"'"+ DMAvtoriz->DSAvtoriz->DataSet->FieldByName("id_user")->AsAnsiString +"'"
+			"'"+ FloatToStr(kvo) +"'"
 			")";
 	}
 

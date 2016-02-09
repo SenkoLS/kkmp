@@ -11,10 +11,10 @@
 class TFAbout : public TForm
 {
 __published:	// IDE-managed Components
-	TLabel *LNameLisence;
-	TLabel *LPhoneNum;
 	TLabel *LCompany;
-	TLabel *LNamePr;
+	TLabel *Label1;
+	TLabel *Label2;
+	TLabel *Label3;
 	TLabel *LBuildTime;
 private:	// User declarations
 public:		// User declarations

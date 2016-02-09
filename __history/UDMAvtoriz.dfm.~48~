@@ -62,9 +62,10 @@ object DMAvtoriz: TDMAvtoriz
       'IPVersion=IPv4'
       'Database=kkmp'
       'User_Name=root'
-      'HostName=192.168.10.252'
+      'HostName=localhost'
       'Password=root')
     VendorLib = 'libmysql.dll'
+    Connected = True
     Left = 56
     Top = 24
   end

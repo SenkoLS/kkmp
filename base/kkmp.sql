@@ -1,4 +1,24 @@
-﻿USE `kkmp`;
+﻿# SQL Manager 2010 for MySQL 4.5.0.9
+# ---------------------------------------
+# Host     : localhost
+# Port     : 3306
+# Database : kkmp
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+SET FOREIGN_KEY_CHECKS=0;
+
+DROP DATABASE IF EXISTS `kkmp`;
+
+CREATE DATABASE `kkmp`
+    CHARACTER SET 'latin1'
+    COLLATE 'latin1_swedish_ci';
+
+USE `kkmp`;
 
 #
 # Structure for the `inspection` table : 
@@ -62,7 +82,7 @@ CREATE TABLE `inspection` (
   `kvo` varchar(20) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id_inspection`),
   UNIQUE KEY `id_inspection` (`id_inspection`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 #
 # Structure for the `office` table : 
@@ -76,7 +96,7 @@ CREATE TABLE `office` (
   `id_user` int(11) DEFAULT '0',
   PRIMARY KEY (`id_office`),
   UNIQUE KEY `id_office` (`id_office`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
 
 #
 # Structure for the `user` table : 
@@ -97,7 +117,7 @@ CREATE TABLE `user` (
   UNIQUE KEY `login` (`login`),
   UNIQUE KEY `login_2` (`login`),
   KEY `id_office` (`id_office`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
 
 #
 # Data for the `office` table  (LIMIT 0,500)
@@ -105,10 +125,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `office` (`id_office`, `name_office`, `id_user`) VALUES 
   (1,'не указано',0),
-  (31,'1 Терапевтическое отделение',34),
-  (32,'2 Терапевтическое отделение',33),
-  (33,'Отделение общей практики',1),
-  (34,'Хирургическое отделение',34);
+  (35,'Хирургическое отделение',35);
 COMMIT;
 
 #
@@ -118,8 +135,9 @@ COMMIT;
 INSERT INTO `user` (`id_user`, `login`, `password`, `name`, `surname`, `patronymic`, `id_office`) VALUES 
   (1,'not','not','указано','не',' ',1),
   (2,'admin','21232F297A57A5A743894A0E4A801FC3','системы','Администратор','',1),
-  (33,'kac','0208A2E72DA71F7D17D6D20080990AD0','ГИВИ','КАЦИТАДЗЕ','ТЕНГИЗОВИЧ',1),
-  (34,'sol','12313A3D28F802E3A22B07D2E01C6DCF','АНАТОЛИЙ','СОЛОВЬЕВ','ЮРЬЕВИЧ',1);
+  (35,'pog','D41D8CD98F00B204E9800998ECF8427E','ПЕТР','ПОГОДИН','ПЕТРОВИЧ',35),
+  (36,'1','C4CA4238A0B923820DCC509A6F75849B','1','ИВАНОВ','1',1),
+  (37,'2','C81E728D9D4C2F636F067F89CC14862C','2','АБАЕВ','2',1);
 COMMIT;
 
 
