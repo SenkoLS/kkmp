@@ -23,6 +23,7 @@
 #include "UCard.h"
 #include "UCatalogOffices.h"
 #include <ComCtrls.hpp>
+#include <DBCtrls.hpp>
 //---------------------------------------------------------------------------
 class TFMain : public TForm
 {
@@ -47,7 +48,6 @@ __published:	// IDE-managed Components
 	TLabel *Label3;
 	TLabel *Label5;
 	TEdit *EFindFio;
-	TEdit *EFindMed;
 	TPanel *Panel4;
 	TButton *BExportProtocol;
 	TButton *BPrintProtocol;
@@ -56,6 +56,11 @@ __published:	// IDE-managed Components
 	TMenuItem *N6;
 	TDateTimePicker *DateTimePickerStart;
 	TDateTimePicker *DateTimePickerEnd;
+	TDBLookupComboBox *DBLCBoxFindMed;
+	TLabel *LFoundExpert;
+	TDBLookupComboBox *DBLCBoxFindExpert;
+	TLabel *LFoundOffice;
+	TDBLookupComboBox *DBLCBoxFindOffice;
 	void __fastcall FormShow(TObject *Sender);
 	void __fastcall N3Click(TObject *Sender);
 	void __fastcall N4Click(TObject *Sender);
@@ -72,6 +77,9 @@ __published:	// IDE-managed Components
 	void __fastcall BSortDateEndClick(TObject *Sender);
 	void __fastcall DateTimePickerStartChange(TObject *Sender);
 	void __fastcall DateTimePickerEndChange(TObject *Sender);
+	void __fastcall DBLCBoxFindMedEnter(TObject *Sender);
+	void __fastcall DBLCBoxFindExpertEnter(TObject *Sender);
+	void __fastcall DBLCBoxFindOfficeEnter(TObject *Sender);
 
 private:	// User declarations
 public:		// User declarations

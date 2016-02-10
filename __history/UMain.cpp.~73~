@@ -27,8 +27,8 @@ void __fastcall TFMain::FormShow(TObject *Sender)
 	DMAvtoriz->SQLQInspection->Open();
 	DMAvtoriz->CDSInspection->Open();
 	//AnsiString strYear = FormatDateTime("yyyy",Now().CurrentDateTime());
-	//DateTimePickerStart->Date = StrToDate(strcat("01.01.",strYear.c_str()));
-	//DateTimePickerEnd->Date = Now();
+	DateTimePickerStart->Date = Now(); //StrToDate(strcat("01.01.",strYear.c_str()));
+	DateTimePickerEnd->Date = Now();
 }
 //---------------------------------------------------------------------------
 void __fastcall TFMain::N3Click(TObject *Sender)
@@ -179,10 +179,9 @@ void __fastcall TFMain::BSortDateEndClick(TObject *Sender)
 	DMAvtoriz->CDSInspection->Open();
 }
 //---------------------------------------------------------------------------
-
-void __fastcall TFMain::BCollectClick(TObject *Sender)
+void __fastcall TFMain::DateTimePickerStartChange(TObject *Sender)
 {
- 	DMAvtoriz->SQLQInspection->Close();
+	DMAvtoriz->SQLQInspection->Close();
 	DMAvtoriz->SQLQInspection->SQL->Text =
 		"SELECT `id_inspection`,`date_start`,`date_end`,`duration`,CONCAT(`surname`,' ',`name`,' ',`patronymic`) as `fio`,"
 		"`year_date_birthday`,`id_user`,`kkmp`,`kvo` "
@@ -193,6 +192,12 @@ void __fastcall TFMain::BCollectClick(TObject *Sender)
 	DMAvtoriz->SQLQInspection->Open();
 	DMAvtoriz->CDSInspection->Close();
 	DMAvtoriz->CDSInspection->Open();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFMain::DateTimePickerEndChange(TObject *Sender)
+{
+ 	DateTimePickerStartChange(Sender);
 }
 //---------------------------------------------------------------------------
 

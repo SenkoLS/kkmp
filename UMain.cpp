@@ -201,3 +201,24 @@ void __fastcall TFMain::DateTimePickerEndChange(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TFMain::DBLCBoxFindMedEnter(TObject *Sender)
+{
+	DMAvtoriz->SQLQGetListMed->Open();
+	DMAvtoriz->CDSGetListMed->Open();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFMain::DBLCBoxFindExpertEnter(TObject *Sender)
+{
+	DMAvtoriz->SQLQGetListMed->Open();
+	DMAvtoriz->CDSGetListMed->Open();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFMain::DBLCBoxFindOfficeEnter(TObject *Sender)
+{
+	DMAvtoriz->SQLQgetListOffice->Open();
+	DMAvtoriz->CDSgetListOffice->Open();
+}
+//---------------------------------------------------------------------------
+

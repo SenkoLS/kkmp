@@ -157,7 +157,7 @@ object FMain: TFMain
     Left = 804
     Top = 47
     Width = 234
-    Height = 210
+    Height = 170
     TabOrder = 2
     object LSortList: TLabel
       Left = 56
@@ -174,9 +174,9 @@ object FMain: TFMain
     end
     object BSortFio: TButton
       Left = 8
-      Top = 31
+      Top = 28
       Width = 217
-      Height = 25
+      Height = 23
       Caption = #1087#1086' '#1060#1048#1054' '#1087#1072#1094#1080#1077#1085#1090#1072
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -189,9 +189,9 @@ object FMain: TFMain
     end
     object BSortDateEnd: TButton
       Left = 8
-      Top = 66
+      Top = 55
       Width = 217
-      Height = 25
+      Height = 23
       Caption = #1087#1086' '#1086#1082#1086#1085#1095#1072#1085#1080#1102' '#1085#1072#1073#1083#1102#1076#1077#1085#1080#1103
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -204,9 +204,9 @@ object FMain: TFMain
     end
     object BSortDuration: TButton
       Left = 8
-      Top = 101
+      Top = 82
       Width = 217
-      Height = 25
+      Height = 23
       Caption = #1087#1086' '#1076#1083#1080#1090#1077#1083#1100#1085#1086#1089#1090#1080
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -219,9 +219,9 @@ object FMain: TFMain
     end
     object BShowAll: TButton
       Left = 8
-      Top = 136
+      Top = 109
       Width = 217
-      Height = 25
+      Height = 23
       Caption = #1089#1090#1072#1085#1076#1072#1088#1090#1085#1099#1081' '#1074#1099#1074#1086#1076
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -234,9 +234,9 @@ object FMain: TFMain
     end
     object DateTimePickerStart: TDateTimePicker
       Left = 8
-      Top = 171
+      Top = 137
       Width = 105
-      Height = 25
+      Height = 23
       Date = 42404.611685543980000000
       Time = 42404.611685543980000000
       TabOrder = 4
@@ -244,9 +244,9 @@ object FMain: TFMain
     end
     object DateTimePickerEnd: TDateTimePicker
       Left = 121
-      Top = 171
+      Top = 137
       Width = 104
-      Height = 25
+      Height = 23
       Date = 42404.612514525460000000
       Time = 42404.612514525460000000
       TabOrder = 5
@@ -255,16 +255,16 @@ object FMain: TFMain
   end
   object Panel3: TPanel
     Left = 804
-    Top = 263
+    Top = 223
     Width = 234
-    Height = 130
+    Height = 201
     TabOrder = 3
     object LFindInList: TLabel
       Left = 52
       Top = 6
-      Width = 117
+      Width = 103
       Height = 17
-      Caption = #1055#1086#1080#1089#1082' '#1074' '#1089#1087#1080#1089#1082#1077' '#1087#1086':'
+      Caption = #1055#1086#1080#1089#1082' '#1074' '#1073#1072#1079#1077' '#1087#1086':'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = 14745600
       Font.Height = -15
@@ -275,67 +275,119 @@ object FMain: TFMain
     object Label3: TLabel
       Left = 12
       Top = 25
-      Width = 93
-      Height = 17
+      Width = 82
+      Height = 15
       Caption = #1060#1048#1054' '#1087#1072#1094#1080#1077#1085#1090#1072
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clBlack
-      Font.Height = -15
+      Font.Height = -13
       Font.Name = 'Times New Roman'
       Font.Style = []
       ParentFont = False
     end
     object Label5: TLabel
       Left = 12
-      Top = 76
-      Width = 72
-      Height = 17
+      Top = 67
+      Width = 62
+      Height = 15
       Caption = #1060#1048#1054' '#1074#1088#1072#1095#1072
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clBlack
-      Font.Height = -15
+      Font.Height = -13
+      Font.Name = 'Times New Roman'
+      Font.Style = []
+      ParentFont = False
+    end
+    object LFoundExpert: TLabel
+      Left = 12
+      Top = 111
+      Width = 80
+      Height = 15
+      Caption = #1060#1048#1054' '#1101#1082#1089#1087#1077#1088#1090#1072
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'Times New Roman'
+      Font.Style = []
+      ParentFont = False
+    end
+    object LFoundOffice: TLabel
+      Left = 12
+      Top = 152
+      Width = 80
+      Height = 15
+      Caption = #1060#1048#1054' '#1101#1082#1089#1087#1077#1088#1090#1072
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
       Font.Name = 'Times New Roman'
       Font.Style = []
       ParentFont = False
     end
     object EFindFio: TEdit
       Left = 8
-      Top = 45
+      Top = 42
       Width = 217
-      Height = 25
+      Height = 23
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -15
+      Font.Height = -13
       Font.Name = 'Times New Roman'
       Font.Style = []
       ParentFont = False
       TabOrder = 0
     end
-    object EFindMed: TEdit
+    object DBLCBoxFindMed: TDBLookupComboBox
       Left = 8
-      Top = 95
+      Top = 84
       Width = 217
-      Height = 25
+      Height = 23
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -15
+      Font.Height = -12
       Font.Name = 'Times New Roman'
       Font.Style = []
+      KeyField = 'id_user'
+      ListField = 'fio'
+      ListSource = DMAvtoriz.DSGetListMed
       ParentFont = False
       TabOrder = 1
+      OnEnter = DBLCBoxFindMedEnter
+    end
+    object DBLCBoxFindExpert: TDBLookupComboBox
+      Left = 8
+      Top = 129
+      Width = 217
+      Height = 21
+      KeyField = 'id_user'
+      ListField = 'fio'
+      ListSource = DMAvtoriz.DSGetListMed
+      TabOrder = 2
+      OnEnter = DBLCBoxFindExpertEnter
+    end
+    object DBLCBoxFindOffice: TDBLookupComboBox
+      Left = 8
+      Top = 170
+      Width = 217
+      Height = 21
+      KeyField = 'id_office'
+      ListField = 'name_office'
+      ListSource = DMAvtoriz.DSgetListOffice
+      TabOrder = 3
+      OnEnter = DBLCBoxFindOfficeEnter
     end
   end
   object Panel4: TPanel
     Left = 804
-    Top = 399
+    Top = 430
     Width = 234
-    Height = 170
+    Height = 138
     TabOrder = 4
     object BExportProtocol: TButton
       Left = 8
-      Top = 8
+      Top = 10
       Width = 217
-      Height = 33
+      Height = 25
       Caption = #1069#1082#1089#1087#1086#1088#1090' '#1089#1087#1080#1089#1082#1072' '#1087#1088#1086#1090#1086#1082#1086#1083#1086#1074
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -347,9 +399,9 @@ object FMain: TFMain
     end
     object BPrintProtocol: TButton
       Left = 8
-      Top = 47
+      Top = 41
       Width = 217
-      Height = 34
+      Height = 25
       Caption = #1055#1077#1095#1072#1090#1100' '#1087#1088#1086#1090#1086#1082#1086#1083#1072
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -361,9 +413,9 @@ object FMain: TFMain
     end
     object BPrintList: TButton
       Left = 8
-      Top = 87
+      Top = 72
       Width = 217
-      Height = 34
+      Height = 25
       Caption = #1055#1077#1095#1072#1090#1100' '#1074#1099#1074#1077#1076#1077#1085#1085#1086#1075#1086' '#1089#1087#1080#1089#1082#1072
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -375,9 +427,9 @@ object FMain: TFMain
     end
     object BDeleteCard: TButton
       Left = 8
-      Top = 127
+      Top = 103
       Width = 217
-      Height = 34
+      Height = 25
       Caption = #1059#1076#1072#1083#1080#1090#1100' '#1074#1099#1073#1088#1072#1085#1085#1091#1102' '#1082#1072#1088#1090#1091
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
