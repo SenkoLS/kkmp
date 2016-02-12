@@ -415,7 +415,6 @@ object FMain: TFMain
       Font.Style = []
       ParentFont = False
       TabOrder = 1
-      OnClick = BPrintProtocolClick
     end
     object BPrintList: TButton
       Left = 8

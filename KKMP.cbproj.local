@@ -2,14 +2,14 @@
 <BorlandProject>
 	<Transactions>
     <Transaction>1899.12.30 00:00:00.000.340,=C:\Users\senkols\Documents\RAD Studio\Projects\Unit1.cpp</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.642,=K:\PROJECT\С++\MY_PROJECT\KKMP\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.853,=K:\PROJECT\С++\MY_PROJECT\KKMP\Unit1.cpp</Transaction>
     <Transaction>1899.12.30 00:00:00.000.282,C:\PROJECT\C\kkmp\UCatalogOffices.dfm=C:\PROJECT\C\kkmp\Unit1.dfm</Transaction>
     <Transaction>1899.12.30 00:00:00.000.312,=C:\Users\senkols\Documents\RAD Studio\Projects\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.125,=K:\PROJECT\С++\MY_PROJECT\KKMP\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.642,=K:\PROJECT\С++\MY_PROJECT\KKMP\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.904,K:\PROJECT\С++\MY_PROJECT\KKMP\Unit1.cpp=K:\PROJECT\С++\MY_PROJECT\KKMP\UDMAvtoriz.cpp</Transaction>
     <Transaction>1899.12.30 00:00:00.000.482,=K:\PROJECT\С++\MY_PROJECT\KKMP\Unit1.cpp</Transaction>
     <Transaction>1899.12.30 00:00:00.000.989,=K:\PROJECT\С++\MY_PROJECT\KKMP\Unit1.cpp</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.904,K:\PROJECT\С++\MY_PROJECT\KKMP\Unit1.cpp=K:\PROJECT\С++\MY_PROJECT\KKMP\UDMAvtoriz.cpp</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.853,=K:\PROJECT\С++\MY_PROJECT\KKMP\Unit1.cpp</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.125,=K:\PROJECT\С++\MY_PROJECT\KKMP\Unit1.cpp</Transaction>
     <Transaction>1899.12.30 00:00:00.000.358,K:\PROJECT\С++\MY_PROJECT\KKMP\Unit1.dfm=K:\PROJECT\С++\MY_PROJECT\KKMP\UAvtoriz.dfm</Transaction>
     <Transaction>1899.12.30 00:00:00.000.224,K:\PROJECT\С++\MY_PROJECT\KKMP\UMain.dfm=C:\Users\senkols\Documents\RAD Studio\Projects\Unit1.dfm</Transaction>
     <Transaction>1899.12.30 00:00:00.000.282,C:\PROJECT\C\kkmp\UCatalogOffices.h=C:\PROJECT\C\kkmp\Unit1.h</Transaction>

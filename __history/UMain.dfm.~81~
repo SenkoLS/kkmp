@@ -329,7 +329,6 @@ object FMain: TFMain
       Top = 42
       Width = 217
       Height = 23
-      Enabled = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
@@ -343,7 +342,6 @@ object FMain: TFMain
       Top = 84
       Width = 217
       Height = 23
-      Enabled = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -12
@@ -361,7 +359,6 @@ object FMain: TFMain
       Top = 129
       Width = 217
       Height = 21
-      Enabled = False
       KeyField = 'id_user'
       ListField = 'fio'
       ListSource = DMAvtoriz.DSGetListMed
@@ -373,7 +370,6 @@ object FMain: TFMain
       Top = 170
       Width = 217
       Height = 21
-      Enabled = False
       KeyField = 'id_office'
       ListField = 'name_office'
       ListSource = DMAvtoriz.DSgetListOffice
@@ -415,7 +411,6 @@ object FMain: TFMain
       Font.Style = []
       ParentFont = False
       TabOrder = 1
-      OnClick = BPrintProtocolClick
     end
     object BPrintList: TButton
       Left = 8

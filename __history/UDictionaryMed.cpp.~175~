@@ -71,11 +71,11 @@ void __fastcall TFDictionaryMed::FormShow(TObject *Sender)
 		DMAvtoriz->SQLQCatalogMed->Close();
 		DMAvtoriz->SQLQCatalogMed->SQL->Text = "SELECT `user`.`id_user`,`surname`,`name`,`patronymic`,`login`,`name_office` "
 			"FROM `user` INNER JOIN `office` ON `user`.`id_office` = `office`.`id_office` "
-			"WHERE `user`.`id_user` > 2 ORDER BY `surname` ASC";
+			"WHERE `user`.`id_user` > 2";
 	}else{
     	DMAvtoriz->SQLQCatalogMed->Close();
 		DMAvtoriz->SQLQCatalogMed->SQL->Text = "SELECT `user`.`id_user`,`surname`,`name`,`patronymic`,`login`,`name_office` "
-			"FROM `user` INNER JOIN `office` ON `user`.`id_office` = `office`.`id_office` WHERE `user`.`id_user` > 1  ORDER BY `surname` ASC";
+			"FROM `user` INNER JOIN `office` ON `user`.`id_office` = `office`.`id_office` WHERE `user`.`id_user` > 1";
 	}
 
 	DMAvtoriz->SQLQCatalogMed->Open();

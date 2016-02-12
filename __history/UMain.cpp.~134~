@@ -249,56 +249,16 @@ void __fastcall TFMain::BPrintProtocolClick(TObject *Sender)
 		return;
 	}
 
-		//SECOND LIST (KKMP)
 		vVarSheet=vVarSheets.OlePropertyGet("Item",1);
-		vVarSheet.OlePropertySet("Name","KKMP");
-		vVarCell=vVarSheet.OlePropertyGet("Range","A2:C2");
+		vVarSheet.OlePropertySet("Name","KVO");
+		vVarCell=vVarSheet.OlePropertyGet("Range","A2:D2");
 		vVarCell.OleProcedure("Merge");
 		vVarCell.OlePropertySet("WrapText", true);
 		vVarCell.OlePropertySet("HorizontalAlignment",-4108);
-		vVarCell.OlePropertySet("Value", "Протокол оценки качества оказания медицинской помощи пациенту(ки)  I уровень.");
+		vVarCell.OlePropertySet("Value", "Протокол оценки врачебных ошибок при оказания МП пациенту(ки)  I уровень.");
 
-		vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",3,1);
-		vVarCell.OlePropertySet("WrapText", true);
-		vVarCell.OlePropertySet("HorizontalAlignment",-4108);
-		vVarCell.OlePropertySet("VerticalAlignment",-4108);
-		vVarCell.OlePropertySet("Value", "Врач:");
-		vVarCell.OlePropertySet("ColumnWidth", 15);
-
-		vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",4,1);
-		vVarCell.OlePropertySet("WrapText", true);
-		vVarCell.OlePropertySet("HorizontalAlignment",-4108);
-		vVarCell.OlePropertySet("VerticalAlignment",-4108);
-		vVarCell.OlePropertySet("Value", "ФИО пациента:");
-
-		vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",6,1);
-		vVarCell.OlePropertySet("WrapText", true);
-		vVarCell.OlePropertySet("HorizontalAlignment",-4108);
-		vVarCell.OlePropertySet("VerticalAlignment",-4108);
-		vVarCell.OlePropertySet("Value", "№ п/п");
-
-		vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",6,2);
-		vVarCell.OlePropertySet("WrapText", true);
-		vVarCell.OlePropertySet("HorizontalAlignment",-4108);
-		vVarCell.OlePropertySet("VerticalAlignment",-4108);
-		vVarCell.OlePropertySet("Value", "Критерии оценки");
-		vVarCell.OlePropertySet("ColumnWidth", 50);
-
-		vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",6,3);
-		vVarCell.OlePropertySet("WrapText", true);
-		vVarCell.OlePropertySet("HorizontalAlignment",-4108);
-		vVarCell.OlePropertySet("VerticalAlignment",-4108);
-		vVarCell.OlePropertySet("Value", "Оценка");
-		vVarCell.OlePropertySet("ColumnWidth", 35);
-
-		//BORDER:
-		vVarCell = vVarSheet.OlePropertyGet("Range","A6:C35").OlePropertyGet("Borders");
-		vVarCell.OlePropertySet("LineStyle", 1);
-
-
-		//FIRST LIST (KVO)
 		vVarSheet=vVarSheets.OlePropertyGet("Item",2);
-		vVarSheet.OlePropertySet("Name","KVO");
+		vVarSheet.OlePropertySet("Name","KKMP");
 		vVarCell=vVarSheet.OlePropertyGet("Range","A2:D2");
 		vVarCell.OleProcedure("Merge");
 		vVarCell.OlePropertySet("WrapText", true);

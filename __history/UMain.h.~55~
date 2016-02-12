@@ -24,8 +24,7 @@
 #include "UCatalogOffices.h"
 #include <ComCtrls.hpp>
 #include <DBCtrls.hpp>
-#include <FileCtrl.hpp>
-#include <ComObj.hpp>
+
 //---------------------------------------------------------------------------
 class TFMain : public TForm
 {

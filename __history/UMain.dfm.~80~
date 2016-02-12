@@ -247,8 +247,8 @@ object FMain: TFMain
       Top = 137
       Width = 104
       Height = 23
-      Date = 42404.612514525470000000
-      Time = 42404.612514525470000000
+      Date = 42404.612514525460000000
+      Time = 42404.612514525460000000
       TabOrder = 5
       OnChange = DateTimePickerEndChange
     end
@@ -329,7 +329,6 @@ object FMain: TFMain
       Top = 42
       Width = 217
       Height = 23
-      Enabled = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
@@ -343,7 +342,6 @@ object FMain: TFMain
       Top = 84
       Width = 217
       Height = 23
-      Enabled = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -12
@@ -361,7 +359,6 @@ object FMain: TFMain
       Top = 129
       Width = 217
       Height = 21
-      Enabled = False
       KeyField = 'id_user'
       ListField = 'fio'
       ListSource = DMAvtoriz.DSGetListMed
@@ -373,7 +370,6 @@ object FMain: TFMain
       Top = 170
       Width = 217
       Height = 21
-      Enabled = False
       KeyField = 'id_office'
       ListField = 'name_office'
       ListSource = DMAvtoriz.DSgetListOffice
@@ -392,8 +388,7 @@ object FMain: TFMain
       Top = 10
       Width = 217
       Height = 25
-      Caption = #1069#1082#1089#1087#1086#1088#1090' '#1089#1087#1080#1089#1082#1072
-      Enabled = False
+      Caption = #1069#1082#1089#1087#1086#1088#1090' '#1089#1087#1080#1089#1082#1072' '#1087#1088#1086#1090#1086#1082#1086#1083#1086#1074
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -15
@@ -415,14 +410,13 @@ object FMain: TFMain
       Font.Style = []
       ParentFont = False
       TabOrder = 1
-      OnClick = BPrintProtocolClick
     end
     object BPrintList: TButton
       Left = 8
       Top = 72
       Width = 217
       Height = 25
-      Caption = #1055#1077#1095#1072#1090#1100' '#1074#1099#1074#1077#1076#1077#1085#1085#1099#1093' '#1082#1072#1088#1090
+      Caption = #1055#1077#1095#1072#1090#1100' '#1074#1099#1074#1077#1076#1077#1085#1085#1086#1075#1086' '#1089#1087#1080#1089#1082#1072
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -15

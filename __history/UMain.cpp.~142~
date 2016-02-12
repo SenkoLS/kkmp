@@ -281,8 +281,8 @@ void __fastcall TFMain::BPrintProtocolClick(TObject *Sender)
 		vVarCell.OlePropertySet("WrapText", true);
 		vVarCell.OlePropertySet("HorizontalAlignment",-4108);
 		vVarCell.OlePropertySet("VerticalAlignment",-4108);
-		vVarCell.OlePropertySet("Value", "Критерии оценки");
-		vVarCell.OlePropertySet("ColumnWidth", 50);
+		vVarCell.OlePropertySet("Value", "ФИО");
+		vVarCell.OlePropertySet("ColumnWidth", 100);
 
 		vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",6,3);
 		vVarCell.OlePropertySet("WrapText", true);

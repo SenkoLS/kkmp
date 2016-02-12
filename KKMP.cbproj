@@ -23,12 +23,12 @@
 			<Base>true</Base>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Base)'!=''">
+			<LinkPackageStatics>rtl.lib;vcl.lib;dbrtl.lib;dbexpress.lib;DbxCommonDriver.lib;dsnap.lib;vcldb.lib;DbxDevartMySqlDriver150.lib;IndyProtocols.lib;IndyCore.lib;IndySystem.lib;DBXMySQLDriver.lib;EhLib150.lib;vclimg.lib;Tee.lib</LinkPackageStatics>
 			<OutputExt>exe</OutputExt>
 			<PackageImports>vclimg.bpi;vcl.bpi;vclx.bpi;dbrtl.bpi;Rave90VCL.bpi;bdertl.bpi;rtl.bpi;bcbie.bpi;xmlrtl.bpi;vclactnband.bpi;bcbsmp.bpi;VclSmp.bpi;svnui.bpi;svn.bpi;TeeUI.bpi;TeeDB.bpi;Tee.bpi;vcldb.bpi;vcldbx.bpi;vcltouch.bpi;dsnap.bpi;dsnapcon.bpi;vclib.bpi;ibxpress.bpi;adortl.bpi;IndyCore.bpi;IndySystem.bpi;IndyProtocols.bpi;inet.bpi;intrawebdb_110_150.bpi;Intraweb_110_150.bpi;vclie.bpi;websnap.bpi;webdsnap.bpi;inetdb.bpi;inetdbbde.bpi;inetdbxpress.bpi;soaprtl.bpi;vclribbon.bpi;dbexpress.bpi;DbxCommonDriver.bpi;DataSnapIndy10ServerTransport.bpi;DataSnapProviderClient.bpi;DataSnapClient.bpi;dbxcds.bpi;DbxClientDriver.bpi;DataSnapServer.bpi;AzureCloud.bpi;DBXInterBaseDriver.bpi;DBXMySQLDriver.bpi;DBXFirebirdDriver.bpi;DBXSybaseASEDriver.bpi;DBXSybaseASADriver.bpi;DBXOracleDriver.bpi;DBXMSSQLDriver.bpi;DBXInformixDriver.bpi;DBXDb2Driver.bpi;CodeSiteExpressVcl.bpi;EhLib150.bpi;EhLibDBXDataDrivers150.bpi;DbxDevartMySqlDriver150.bpi</PackageImports>
 			<Multithreaded>true</Multithreaded>
-			<LinkPackageImports>rtl.bpi;vcl.bpi;dbrtl.bpi;dbexpress.bpi;DbxCommonDriver.bpi;dsnap.bpi;vcldb.bpi;DbxDevartMySqlDriver150.bpi;IndyProtocols.bpi;IndyCore.bpi;IndySystem.bpi;DBXMySQLDriver.bpi;EhLib150.bpi;vclimg.bpi;Tee.bpi</LinkPackageImports>
 			<_TCHARMapping>wchar_t</_TCHARMapping>
-			<AllPackageLibs>rtl.lib;vcl.lib;dbrtl.lib;dbexpress.lib;DbxCommonDriver.lib;dsnap.lib;vcldb.lib;DbxDevartMySqlDriver150.lib;IndyProtocols.lib;IndyCore.lib;IndySystem.lib;DBXMySQLDriver.lib;EhLib150.lib;vclimg.lib;Tee.lib</AllPackageLibs>
+			<AllPackageLibs>rtl.lib;vcl.lib;dbrtl.lib;dbexpress.lib;DbxCommonDriver.lib;dsnap.lib;vcldb.lib;DbxDevartMySqlDriver150.lib;IndyProtocols.lib;IndyCore.lib;IndySystem.lib;DBXMySQLDriver.lib;EhLib150.lib;vclimg.lib;Tee.lib;vclx.lib</AllPackageLibs>
 			<ProjectType>CppVCLApplication</ProjectType>
 			<DCC_CBuilderOutput>JPHNE</DCC_CBuilderOutput>
 			<DCC_UnitAlias>WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE</DCC_UnitAlias>
