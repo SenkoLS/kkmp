@@ -3,12 +3,12 @@ object FMain: TFMain
   Top = 0
   Caption = #1040#1048#1057' "'#1042#1085#1091#1090#1088#1080#1074#1077#1076#1086#1084#1089#1090#1074#1077#1085#1085#1099#1081' '#1082#1086#1085#1090#1088#1086#1083#1100' '#1082#1072#1095#1077#1089#1090#1074#1072'"'
   ClientHeight = 576
-  ClientWidth = 1046
+  ClientWidth = 1019
   Color = clBtnFace
   Constraints.MaxHeight = 635
-  Constraints.MaxWidth = 1062
+  Constraints.MaxWidth = 1035
   Constraints.MinHeight = 635
-  Constraints.MinWidth = 1062
+  Constraints.MinWidth = 1035
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -24,7 +24,7 @@ object FMain: TFMain
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 798
+    Width = 777
     Height = 569
     TabOrder = 0
     object LExpert: TLabel
@@ -54,9 +54,9 @@ object FMain: TFMain
       ParentFont = False
     end
     object DBGridEh1: TDBGridEh
-      Left = 13
+      Left = 5
       Top = 8
-      Width = 785
+      Width = 764
       Height = 512
       DataSource = DMAvtoriz.DSInspection
       DynProps = <>
@@ -172,7 +172,7 @@ object FMain: TFMain
     end
   end
   object BShowCard: TButton
-    Left = 804
+    Left = 782
     Top = 8
     Width = 234
     Height = 33
@@ -187,7 +187,7 @@ object FMain: TFMain
     OnClick = BShowCardClick
   end
   object Panel2: TPanel
-    Left = 804
+    Left = 782
     Top = 47
     Width = 234
     Height = 170
@@ -287,7 +287,7 @@ object FMain: TFMain
     end
   end
   object Panel3: TPanel
-    Left = 804
+    Left = 782
     Top = 223
     Width = 234
     Height = 201
@@ -415,7 +415,7 @@ object FMain: TFMain
     end
   end
   object Panel4: TPanel
-    Left = 804
+    Left = 782
     Top = 430
     Width = 234
     Height = 138

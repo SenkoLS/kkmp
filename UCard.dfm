@@ -5,12 +5,12 @@ object FCard: TFCard
   Caption = 
     #1069#1082#1089#1087#1077#1088#1090#1085#1072#1103' '#1086#1094#1077#1085#1082#1072' '#1082#1072#1095#1077#1089#1090#1074#1072' '#1074#1077#1076#1077#1085#1080#1103' '#1084#1077#1076#1080#1094#1080#1085#1089#1082#1086#1081' '#1076#1086#1082#1091#1084#1077#1085#1090#1072#1094#1080#1080' '#1080' '#1082#1072 +
     #1095#1077#1089#1090#1074#1072' '#1086#1082#1072#1079#1072#1085#1080#1103' '#1084#1077#1076#1080#1094#1080#1085#1089#1082#1086#1081' '#1087#1086#1084#1086#1097#1080' (1 '#1091#1088#1086#1074#1077#1085#1100')'
-  ClientHeight = 715
+  ClientHeight = 672
   ClientWidth = 1013
   Color = clBtnFace
-  Constraints.MaxHeight = 744
+  Constraints.MaxHeight = 701
   Constraints.MaxWidth = 1019
-  Constraints.MinHeight = 744
+  Constraints.MinHeight = 701
   Constraints.MinWidth = 1019
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -322,7 +322,7 @@ object FCard: TFCard
     Left = 0
     Top = 74
     Width = 553
-    Height = 601
+    Height = 558
     Align = alLeft
     BorderStyle = bsSingle
     TabOrder = 1
@@ -430,7 +430,7 @@ object FCard: TFCard
     end
     object LDescrip: TLabel
       Left = 8
-      Top = 526
+      Top = 485
       Width = 356
       Height = 15
       Caption = #1054#1094#1077#1085#1082#1072' '#1074#1099#1087#1086#1083#1085#1103#1077#1090#1089#1103' '#1074' '#1073#1072#1083#1083#1072#1093': 1 - '#1085#1080#1079#1096#1080#1081' '#1073#1072#1083#1083'; 5 - '#1074#1099#1089#1096#1080#1081' '#1073#1072#1083#1083';'
@@ -443,7 +443,7 @@ object FCard: TFCard
     end
     object LDescrip2: TLabel
       Left = 8
-      Top = 540
+      Top = 499
       Width = 490
       Height = 15
       Caption = 
@@ -458,7 +458,7 @@ object FCard: TFCard
     end
     object LDescrip3: TLabel
       Left = 8
-      Top = 556
+      Top = 515
       Width = 438
       Height = 15
       Caption = 
@@ -473,7 +473,7 @@ object FCard: TFCard
     end
     object LDescrip4: TLabel
       Left = 8
-      Top = 572
+      Top = 531
       Width = 418
       Height = 15
       Caption = 
@@ -621,7 +621,7 @@ object FCard: TFCard
     end
     object PExistenceInspGin: TPanel
       Left = 8
-      Top = 202
+      Top = 199
       Width = 465
       Height = 20
       Alignment = taLeftJustify
@@ -640,7 +640,7 @@ object FCard: TFCard
     end
     object PQualityProfInsOnko: TPanel
       Left = 8
-      Top = 225
+      Top = 219
       Width = 369
       Height = 20
       Alignment = taLeftJustify
@@ -659,7 +659,7 @@ object FCard: TFCard
     end
     object PDispTimelines: TPanel
       Left = 8
-      Top = 247
+      Top = 239
       Width = 369
       Height = 20
       Alignment = taLeftJustify
@@ -678,7 +678,7 @@ object FCard: TFCard
     end
     object PQualityCollectAnamsis: TPanel
       Left = 8
-      Top = 270
+      Top = 259
       Width = 369
       Height = 20
       Alignment = taLeftJustify
@@ -697,7 +697,7 @@ object FCard: TFCard
     end
     object PQualityCollectComplaint: TPanel
       Left = 8
-      Top = 293
+      Top = 279
       Width = 369
       Height = 20
       Alignment = taLeftJustify
@@ -914,7 +914,7 @@ object FCard: TFCard
     end
     object PExistenceInspGinNo: TPanel
       Left = 472
-      Top = 202
+      Top = 199
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -932,7 +932,7 @@ object FCard: TFCard
     end
     object PQualityProfInsOnko1: TPanel
       Left = 376
-      Top = 225
+      Top = 219
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -1112,7 +1112,7 @@ object FCard: TFCard
     end
     object PExistenceInspGinYes: TPanel
       Left = 505
-      Top = 202
+      Top = 199
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -1130,7 +1130,7 @@ object FCard: TFCard
     end
     object PQualityProfInsOnko2: TPanel
       Left = 408
-      Top = 225
+      Top = 219
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -1148,7 +1148,7 @@ object FCard: TFCard
     end
     object PDescriptObjectStatus: TPanel
       Left = 8
-      Top = 316
+      Top = 299
       Width = 369
       Height = 20
       Alignment = taLeftJustify
@@ -1167,7 +1167,7 @@ object FCard: TFCard
     end
     object PEvaluationResultsOfTreatment: TPanel
       Left = 8
-      Top = 339
+      Top = 319
       Width = 369
       Height = 20
       Alignment = taLeftJustify
@@ -1186,7 +1186,7 @@ object FCard: TFCard
     end
     object PObservStandartsOfDiagnostics: TPanel
       Left = 8
-      Top = 362
+      Top = 339
       Width = 369
       Height = 20
       Alignment = taLeftJustify
@@ -1205,7 +1205,7 @@ object FCard: TFCard
     end
     object PObservStandartsOfTreatment: TPanel
       Left = 8
-      Top = 385
+      Top = 359
       Width = 369
       Height = 20
       Alignment = taLeftJustify
@@ -1224,7 +1224,7 @@ object FCard: TFCard
     end
     object PDispTimelines5: TPanel
       Left = 505
-      Top = 247
+      Top = 239
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -1242,7 +1242,7 @@ object FCard: TFCard
     end
     object PDispTimelines2: TPanel
       Left = 408
-      Top = 247
+      Top = 239
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -1260,7 +1260,7 @@ object FCard: TFCard
     end
     object PDispTimelines3: TPanel
       Left = 440
-      Top = 247
+      Top = 239
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -1278,7 +1278,7 @@ object FCard: TFCard
     end
     object PDispTimelines1: TPanel
       Left = 376
-      Top = 247
+      Top = 239
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -1296,7 +1296,7 @@ object FCard: TFCard
     end
     object PQualityProfInsOnko3: TPanel
       Left = 440
-      Top = 225
+      Top = 219
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -1314,7 +1314,7 @@ object FCard: TFCard
     end
     object PQualityProfInsOnko4: TPanel
       Left = 472
-      Top = 225
+      Top = 219
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -1332,7 +1332,7 @@ object FCard: TFCard
     end
     object PDispTimelines4: TPanel
       Left = 472
-      Top = 247
+      Top = 239
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -1350,7 +1350,7 @@ object FCard: TFCard
     end
     object PQualityProfInsOnko5: TPanel
       Left = 505
-      Top = 225
+      Top = 219
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -1368,7 +1368,7 @@ object FCard: TFCard
     end
     object PQualityCollectComplaint3: TPanel
       Left = 440
-      Top = 293
+      Top = 279
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -1386,7 +1386,7 @@ object FCard: TFCard
     end
     object PQualityCollectComplaint5: TPanel
       Left = 505
-      Top = 293
+      Top = 279
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -1404,7 +1404,7 @@ object FCard: TFCard
     end
     object PDescriptObjectStatus1: TPanel
       Left = 376
-      Top = 316
+      Top = 299
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -1422,7 +1422,7 @@ object FCard: TFCard
     end
     object PQualityCollectComplaint4: TPanel
       Left = 472
-      Top = 293
+      Top = 279
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -1440,7 +1440,7 @@ object FCard: TFCard
     end
     object PQualityCollectComplaint2: TPanel
       Left = 408
-      Top = 293
+      Top = 279
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -1458,7 +1458,7 @@ object FCard: TFCard
     end
     object PDescriptObjectStatus2: TPanel
       Left = 408
-      Top = 316
+      Top = 299
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -1476,7 +1476,7 @@ object FCard: TFCard
     end
     object PQualityCollectAnamsis1: TPanel
       Left = 376
-      Top = 270
+      Top = 259
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -1494,7 +1494,7 @@ object FCard: TFCard
     end
     object PQualityCollectAnamsis2: TPanel
       Left = 408
-      Top = 270
+      Top = 259
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -1512,7 +1512,7 @@ object FCard: TFCard
     end
     object PQualityCollectAnamsis3: TPanel
       Left = 440
-      Top = 270
+      Top = 259
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -1530,7 +1530,7 @@ object FCard: TFCard
     end
     object PQualityCollectAnamsis4: TPanel
       Left = 472
-      Top = 270
+      Top = 259
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -1548,7 +1548,7 @@ object FCard: TFCard
     end
     object PQualityCollectComplaint1: TPanel
       Left = 376
-      Top = 293
+      Top = 279
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -1566,7 +1566,7 @@ object FCard: TFCard
     end
     object PDescriptObjectStatus3: TPanel
       Left = 440
-      Top = 316
+      Top = 299
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -1584,7 +1584,7 @@ object FCard: TFCard
     end
     object PQualityCollectAnamsis5: TPanel
       Left = 505
-      Top = 270
+      Top = 259
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -1602,7 +1602,7 @@ object FCard: TFCard
     end
     object PDescriptObjectStatus4: TPanel
       Left = 472
-      Top = 316
+      Top = 299
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -1620,7 +1620,7 @@ object FCard: TFCard
     end
     object PDescriptObjectStatus5: TPanel
       Left = 505
-      Top = 316
+      Top = 299
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -1638,7 +1638,7 @@ object FCard: TFCard
     end
     object PEvaluationResultsOfTreatment1: TPanel
       Left = 376
-      Top = 339
+      Top = 319
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -1656,7 +1656,7 @@ object FCard: TFCard
     end
     object PEvaluationResultsOfTreatment5: TPanel
       Left = 505
-      Top = 339
+      Top = 319
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -1674,7 +1674,7 @@ object FCard: TFCard
     end
     object PEvaluationResultsOfTreatment2: TPanel
       Left = 408
-      Top = 339
+      Top = 319
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -1692,7 +1692,7 @@ object FCard: TFCard
     end
     object PObservStandartsOfDiagnostics1: TPanel
       Left = 376
-      Top = 362
+      Top = 339
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -1710,7 +1710,7 @@ object FCard: TFCard
     end
     object PObservStandartsOfDiagnostics2: TPanel
       Left = 408
-      Top = 362
+      Top = 339
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -1728,7 +1728,7 @@ object FCard: TFCard
     end
     object PObservStandartsOfDiagnostics4: TPanel
       Left = 472
-      Top = 362
+      Top = 339
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -1746,7 +1746,7 @@ object FCard: TFCard
     end
     object PObservStandartsOfDiagnostics3: TPanel
       Left = 440
-      Top = 362
+      Top = 339
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -1764,7 +1764,7 @@ object FCard: TFCard
     end
     object PEvaluationResultsOfTreatment3: TPanel
       Left = 440
-      Top = 339
+      Top = 319
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -1782,7 +1782,7 @@ object FCard: TFCard
     end
     object PEvaluationResultsOfTreatment4: TPanel
       Left = 472
-      Top = 339
+      Top = 319
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -1800,7 +1800,7 @@ object FCard: TFCard
     end
     object PObservStandartsOfDiagnostics5: TPanel
       Left = 505
-      Top = 362
+      Top = 339
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -1818,7 +1818,7 @@ object FCard: TFCard
     end
     object PObservStandartsOfTreatment1: TPanel
       Left = 376
-      Top = 385
+      Top = 359
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -1836,7 +1836,7 @@ object FCard: TFCard
     end
     object PAbsenceComplaintsOfPatients: TPanel
       Left = 8
-      Top = 431
+      Top = 399
       Width = 465
       Height = 20
       Alignment = taLeftJustify
@@ -1855,7 +1855,7 @@ object FCard: TFCard
     end
     object PRationalUseOfResourcesNo: TPanel
       Left = 472
-      Top = 408
+      Top = 379
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -1873,7 +1873,7 @@ object FCard: TFCard
     end
     object PObservStandartsOfTreatment4: TPanel
       Left = 472
-      Top = 385
+      Top = 359
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -1891,7 +1891,7 @@ object FCard: TFCard
     end
     object PObservStandartsOfTreatment5: TPanel
       Left = 505
-      Top = 385
+      Top = 359
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -1909,7 +1909,7 @@ object FCard: TFCard
     end
     object PRationalUseOfResources: TPanel
       Left = 8
-      Top = 408
+      Top = 379
       Width = 465
       Height = 20
       Alignment = taLeftJustify
@@ -1928,7 +1928,7 @@ object FCard: TFCard
     end
     object PObservStandartsOfTreatment2: TPanel
       Left = 408
-      Top = 385
+      Top = 359
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -1946,7 +1946,7 @@ object FCard: TFCard
     end
     object PObservStandartsOfTreatment3: TPanel
       Left = 440
-      Top = 385
+      Top = 359
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -1964,7 +1964,7 @@ object FCard: TFCard
     end
     object PRationalUseOfResourcesYes: TPanel
       Left = 505
-      Top = 408
+      Top = 379
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -1982,7 +1982,7 @@ object FCard: TFCard
     end
     object PAbsenceComplaintsOfPatientsYes: TPanel
       Left = 505
-      Top = 431
+      Top = 399
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -2000,7 +2000,7 @@ object FCard: TFCard
     end
     object PDeadlinesVN: TPanel
       Left = 8
-      Top = 454
+      Top = 419
       Width = 369
       Height = 20
       Alignment = taLeftJustify
@@ -2019,7 +2019,7 @@ object FCard: TFCard
     end
     object PAbsenceComplaintsOfPatientsNo: TPanel
       Left = 472
-      Top = 431
+      Top = 399
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -2037,7 +2037,7 @@ object FCard: TFCard
     end
     object PDeadlinesVN3: TPanel
       Left = 440
-      Top = 454
+      Top = 419
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -2055,7 +2055,7 @@ object FCard: TFCard
     end
     object PDeadlinesVN2: TPanel
       Left = 408
-      Top = 454
+      Top = 419
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -2073,7 +2073,7 @@ object FCard: TFCard
     end
     object PDeadlinesVN1: TPanel
       Left = 376
-      Top = 454
+      Top = 419
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -2091,7 +2091,7 @@ object FCard: TFCard
     end
     object PRefferalToVK: TPanel
       Left = 8
-      Top = 500
+      Top = 459
       Width = 465
       Height = 20
       Alignment = taLeftJustify
@@ -2110,7 +2110,7 @@ object FCard: TFCard
     end
     object PTimelyRegistLN: TPanel
       Left = 8
-      Top = 477
+      Top = 439
       Width = 465
       Height = 20
       Alignment = taLeftJustify
@@ -2129,7 +2129,7 @@ object FCard: TFCard
     end
     object PTimelyRegistLNNo: TPanel
       Left = 472
-      Top = 477
+      Top = 439
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -2147,7 +2147,7 @@ object FCard: TFCard
     end
     object PDeadlinesVN5: TPanel
       Left = 505
-      Top = 454
+      Top = 419
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -2165,7 +2165,7 @@ object FCard: TFCard
     end
     object PRefferalToVKNo: TPanel
       Left = 472
-      Top = 500
+      Top = 459
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -2183,7 +2183,7 @@ object FCard: TFCard
     end
     object PTimelyRegistLNYes: TPanel
       Left = 505
-      Top = 477
+      Top = 439
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -2201,7 +2201,7 @@ object FCard: TFCard
     end
     object PDeadlinesVN4: TPanel
       Left = 472
-      Top = 454
+      Top = 419
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -2219,7 +2219,7 @@ object FCard: TFCard
     end
     object PRefferalToVKYes: TPanel
       Left = 505
-      Top = 500
+      Top = 459
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -2236,8 +2236,8 @@ object FCard: TFCard
       OnClick = PRefferalToVKYesClick
     end
     object PKKMP: TPanel
-      Left = 440
-      Top = 571
+      Left = 447
+      Top = 529
       Width = 98
       Height = 20
       Color = clWhite
@@ -2255,7 +2255,7 @@ object FCard: TFCard
     Left = 567
     Top = 74
     Width = 446
-    Height = 601
+    Height = 558
     Align = alRight
     Alignment = taLeftJustify
     BorderStyle = bsSingle
@@ -2296,7 +2296,7 @@ object FCard: TFCard
     end
     object Label4: TLabel
       Left = 8
-      Top = 110
+      Top = 99
       Width = 234
       Height = 15
       Caption = #1047#1072#1084#1077#1095#1072#1085#1080#1103' '#1087#1086' '#1083#1072#1073#1086#1088#1072#1090#1086#1088#1085#1086#1081' '#1076#1080#1072#1075#1085#1086#1089#1090#1080#1082#1077':'
@@ -2309,7 +2309,7 @@ object FCard: TFCard
     end
     object Label5: TLabel
       Left = 8
-      Top = 191
+      Top = 171
       Width = 260
       Height = 15
       Caption = #1047#1072#1084#1077#1095#1072#1085#1080#1103' '#1087#1086' '#1080#1085#1089#1090#1088#1091#1084#1077#1085#1090#1072#1083#1100#1085#1086#1081' '#1076#1080#1072#1075#1085#1086#1089#1090#1080#1082#1077':'
@@ -2322,7 +2322,7 @@ object FCard: TFCard
     end
     object Label6: TLabel
       Left = 8
-      Top = 270
+      Top = 242
       Width = 246
       Height = 15
       Caption = #1047#1072#1084#1077#1095#1072#1085#1080#1103' '#1087#1086' '#1082#1086#1085#1089#1091#1083#1100#1090#1072#1094#1080#1103#1084' '#1089#1087#1077#1094#1080#1072#1083#1080#1089#1090#1086#1074':'
@@ -2335,7 +2335,7 @@ object FCard: TFCard
     end
     object Label7: TLabel
       Left = 8
-      Top = 326
+      Top = 294
       Width = 134
       Height = 15
       Caption = #1047#1072#1084#1077#1095#1072#1085#1080#1103' '#1087#1086' '#1076#1080#1072#1075#1085#1086#1079#1091':'
@@ -2348,7 +2348,7 @@ object FCard: TFCard
     end
     object Label8: TLabel
       Left = 8
-      Top = 400
+      Top = 365
       Width = 238
       Height = 15
       Caption = #1047#1072#1084#1077#1095#1072#1085#1080#1103' '#1087#1086' '#1083#1077#1095#1077#1085#1080#1102' ('#1092#1072#1088#1084#1072#1082#1086#1090#1077#1088#1072#1087#1080#1080'):'
@@ -2361,7 +2361,7 @@ object FCard: TFCard
     end
     object Label9: TLabel
       Left = 8
-      Top = 477
+      Top = 437
       Width = 101
       Height = 15
       Caption = #1055#1088#1077#1077#1084#1089#1090#1074#1077#1085#1085#1086#1089#1090#1100':'
@@ -2374,7 +2374,7 @@ object FCard: TFCard
     end
     object Label10: TLabel
       Left = 8
-      Top = 532
+      Top = 489
       Width = 216
       Height = 15
       Caption = #1047#1072#1084#1077#1095#1072#1085#1080#1103' '#1087#1086' '#1089#1090#1072#1085#1076#1072#1088#1090#1091' '#1086#1082#1072#1079#1072#1085#1080#1103' '#1052#1055':'
@@ -2463,7 +2463,7 @@ object FCard: TFCard
     end
     object PRemarkInfServ: TPanel
       Left = 8
-      Top = 48
+      Top = 42
       Width = 361
       Height = 20
       Alignment = taLeftJustify
@@ -2482,7 +2482,7 @@ object FCard: TFCard
     end
     object PRemarkInfServYes: TPanel
       Left = 368
-      Top = 48
+      Top = 42
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -2500,7 +2500,7 @@ object FCard: TFCard
     end
     object PRemarkInfServNo: TPanel
       Left = 400
-      Top = 48
+      Top = 42
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -2518,7 +2518,7 @@ object FCard: TFCard
     end
     object PRemarkAnam: TPanel
       Left = 8
-      Top = 67
+      Top = 61
       Width = 361
       Height = 20
       Alignment = taLeftJustify
@@ -2537,7 +2537,7 @@ object FCard: TFCard
     end
     object PRemarkAnamYes: TPanel
       Left = 368
-      Top = 67
+      Top = 61
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -2555,7 +2555,7 @@ object FCard: TFCard
     end
     object PRemarkAnamNo: TPanel
       Left = 400
-      Top = 67
+      Top = 61
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -2573,7 +2573,7 @@ object FCard: TFCard
     end
     object PRemarkFizRes: TPanel
       Left = 8
-      Top = 86
+      Top = 80
       Width = 361
       Height = 20
       Alignment = taLeftJustify
@@ -2592,7 +2592,7 @@ object FCard: TFCard
     end
     object PRemarkFizResYes: TPanel
       Left = 368
-      Top = 86
+      Top = 80
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -2610,7 +2610,7 @@ object FCard: TFCard
     end
     object PRemarkFizResNo: TPanel
       Left = 400
-      Top = 86
+      Top = 80
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -2628,7 +2628,7 @@ object FCard: TFCard
     end
     object PResearchNot: TPanel
       Left = 8
-      Top = 128
+      Top = 115
       Width = 361
       Height = 20
       Alignment = taLeftJustify
@@ -2647,7 +2647,7 @@ object FCard: TFCard
     end
     object PResearchToMuch: TPanel
       Left = 8
-      Top = 147
+      Top = 134
       Width = 361
       Height = 20
       Alignment = taLeftJustify
@@ -2666,7 +2666,7 @@ object FCard: TFCard
     end
     object PResearchToMuchNo: TPanel
       Left = 400
-      Top = 147
+      Top = 134
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -2684,7 +2684,7 @@ object FCard: TFCard
     end
     object PResearchNotNo: TPanel
       Left = 400
-      Top = 128
+      Top = 115
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -2702,7 +2702,7 @@ object FCard: TFCard
     end
     object PResearchNotYes: TPanel
       Left = 368
-      Top = 128
+      Top = 115
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -2720,7 +2720,7 @@ object FCard: TFCard
     end
     object PResearchToMuchYes: TPanel
       Left = 368
-      Top = 147
+      Top = 134
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -2738,7 +2738,7 @@ object FCard: TFCard
     end
     object PResearchLate: TPanel
       Left = 8
-      Top = 166
+      Top = 153
       Width = 361
       Height = 20
       Alignment = taLeftJustify
@@ -2757,7 +2757,7 @@ object FCard: TFCard
     end
     object PResearchLateYes: TPanel
       Left = 368
-      Top = 166
+      Top = 153
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -2775,7 +2775,7 @@ object FCard: TFCard
     end
     object PResearchLateNo: TPanel
       Left = 400
-      Top = 166
+      Top = 153
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -2793,7 +2793,7 @@ object FCard: TFCard
     end
     object PResearchInstrNot: TPanel
       Left = 8
-      Top = 208
+      Top = 187
       Width = 361
       Height = 20
       Alignment = taLeftJustify
@@ -2812,7 +2812,7 @@ object FCard: TFCard
     end
     object PResearchInstrNotYes: TPanel
       Left = 368
-      Top = 208
+      Top = 187
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -2830,7 +2830,7 @@ object FCard: TFCard
     end
     object PResearchInstrNotNo: TPanel
       Left = 400
-      Top = 208
+      Top = 187
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -2848,7 +2848,7 @@ object FCard: TFCard
     end
     object PResearchInstrToMuch: TPanel
       Left = 8
-      Top = 227
+      Top = 206
       Width = 361
       Height = 20
       Alignment = taLeftJustify
@@ -2867,7 +2867,7 @@ object FCard: TFCard
     end
     object PResearchInstrLate: TPanel
       Left = 8
-      Top = 246
+      Top = 225
       Width = 361
       Height = 20
       Alignment = taLeftJustify
@@ -2886,7 +2886,7 @@ object FCard: TFCard
     end
     object PResearchInstrToMuchYes: TPanel
       Left = 368
-      Top = 227
+      Top = 206
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -2904,7 +2904,7 @@ object FCard: TFCard
     end
     object PResearchInstrToMuchNo: TPanel
       Left = 400
-      Top = 227
+      Top = 206
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -2922,7 +2922,7 @@ object FCard: TFCard
     end
     object PResearchInstrLateYes: TPanel
       Left = 368
-      Top = 246
+      Top = 225
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -2940,7 +2940,7 @@ object FCard: TFCard
     end
     object PResearchInstrLateNo: TPanel
       Left = 400
-      Top = 246
+      Top = 225
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -2958,7 +2958,7 @@ object FCard: TFCard
     end
     object PRemarkKonsultNot: TPanel
       Left = 8
-      Top = 285
+      Top = 258
       Width = 361
       Height = 20
       Alignment = taLeftJustify
@@ -2977,7 +2977,7 @@ object FCard: TFCard
     end
     object PRemarkKonsultLate: TPanel
       Left = 8
-      Top = 304
+      Top = 277
       Width = 361
       Height = 20
       Alignment = taLeftJustify
@@ -2996,7 +2996,7 @@ object FCard: TFCard
     end
     object PRemarkKonsultNotYes: TPanel
       Left = 368
-      Top = 285
+      Top = 258
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -3014,7 +3014,7 @@ object FCard: TFCard
     end
     object PRemarkKonsultLateYes: TPanel
       Left = 368
-      Top = 304
+      Top = 277
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -3032,7 +3032,7 @@ object FCard: TFCard
     end
     object PRemarkKonsultNotNo: TPanel
       Left = 400
-      Top = 285
+      Top = 258
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -3050,7 +3050,7 @@ object FCard: TFCard
     end
     object PRemarkKonsultLateNo: TPanel
       Left = 400
-      Top = 304
+      Top = 277
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -3068,7 +3068,7 @@ object FCard: TFCard
     end
     object PRemarkDeseaseVerif: TPanel
       Left = 8
-      Top = 342
+      Top = 310
       Width = 361
       Height = 20
       Alignment = taLeftJustify
@@ -3087,7 +3087,7 @@ object FCard: TFCard
     end
     object PRemarkDeseaseTime: TPanel
       Left = 8
-      Top = 361
+      Top = 329
       Width = 361
       Height = 20
       Alignment = taLeftJustify
@@ -3106,7 +3106,7 @@ object FCard: TFCard
     end
     object PRemarkDeseaseContent: TPanel
       Left = 8
-      Top = 380
+      Top = 348
       Width = 361
       Height = 20
       Alignment = taLeftJustify
@@ -3125,7 +3125,7 @@ object FCard: TFCard
     end
     object PRemarkDeseaseVerifYes: TPanel
       Left = 368
-      Top = 342
+      Top = 310
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -3143,7 +3143,7 @@ object FCard: TFCard
     end
     object PRemarkDeseaseTimeYes: TPanel
       Left = 368
-      Top = 361
+      Top = 329
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -3161,7 +3161,7 @@ object FCard: TFCard
     end
     object PRemarkDeseaseContentYes: TPanel
       Left = 368
-      Top = 380
+      Top = 348
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -3179,7 +3179,7 @@ object FCard: TFCard
     end
     object PRemarkDeseaseVerifNo: TPanel
       Left = 400
-      Top = 342
+      Top = 310
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -3197,7 +3197,7 @@ object FCard: TFCard
     end
     object PRemarkDeseaseTimeNo: TPanel
       Left = 400
-      Top = 361
+      Top = 329
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -3215,7 +3215,7 @@ object FCard: TFCard
     end
     object PRemarkDeseaseContentNo: TPanel
       Left = 400
-      Top = 380
+      Top = 348
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -3233,7 +3233,7 @@ object FCard: TFCard
     end
     object PRemarkTherapyPolypharmacyNo: TPanel
       Left = 400
-      Top = 453
+      Top = 419
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -3251,7 +3251,7 @@ object FCard: TFCard
     end
     object PRemarkTherapyTimeAppointmentNo: TPanel
       Left = 400
-      Top = 434
+      Top = 400
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -3269,7 +3269,7 @@ object FCard: TFCard
     end
     object PRemarkTherapyChooseDrNo: TPanel
       Left = 400
-      Top = 415
+      Top = 381
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -3287,7 +3287,7 @@ object FCard: TFCard
     end
     object PRemarkTherapyPolypharmacyYes: TPanel
       Left = 368
-      Top = 453
+      Top = 419
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -3305,7 +3305,7 @@ object FCard: TFCard
     end
     object PRemarkTherapyTimeAppointmentYes: TPanel
       Left = 368
-      Top = 434
+      Top = 400
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -3323,7 +3323,7 @@ object FCard: TFCard
     end
     object PRemarkTherapyChooseDrYes: TPanel
       Left = 368
-      Top = 415
+      Top = 381
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -3341,7 +3341,7 @@ object FCard: TFCard
     end
     object PRemarkTherapyPolypharmacy: TPanel
       Left = 8
-      Top = 453
+      Top = 419
       Width = 361
       Height = 20
       Alignment = taLeftJustify
@@ -3360,7 +3360,7 @@ object FCard: TFCard
     end
     object PRemarkTherapyTimeAppointment: TPanel
       Left = 8
-      Top = 434
+      Top = 400
       Width = 361
       Height = 20
       Alignment = taLeftJustify
@@ -3379,7 +3379,7 @@ object FCard: TFCard
     end
     object PRemarkTherapyChooseDr: TPanel
       Left = 8
-      Top = 415
+      Top = 381
       Width = 361
       Height = 20
       Alignment = taLeftJustify
@@ -3398,7 +3398,7 @@ object FCard: TFCard
     end
     object PKvo: TPanel
       Left = 368
-      Top = 571
+      Top = 529
       Width = 65
       Height = 20
       Caption = '0'
@@ -3414,7 +3414,7 @@ object FCard: TFCard
     end
     object PContinuityChoosePlace: TPanel
       Left = 8
-      Top = 491
+      Top = 453
       Width = 361
       Height = 20
       Alignment = taLeftJustify
@@ -3427,7 +3427,7 @@ object FCard: TFCard
     end
     object PContinuityChoosePlaceNo: TPanel
       Left = 400
-      Top = 491
+      Top = 453
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -3439,7 +3439,7 @@ object FCard: TFCard
     end
     object PContinuityChoosePlaceYes: TPanel
       Left = 368
-      Top = 491
+      Top = 453
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -3451,7 +3451,7 @@ object FCard: TFCard
     end
     object PContinuityTimeTransferNo: TPanel
       Left = 400
-      Top = 510
+      Top = 472
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -3463,7 +3463,7 @@ object FCard: TFCard
     end
     object PContinuityTimeTransfer: TPanel
       Left = 8
-      Top = 510
+      Top = 472
       Width = 361
       Height = 20
       Alignment = taLeftJustify
@@ -3476,7 +3476,7 @@ object FCard: TFCard
     end
     object PContinuityTimeTransferYes: TPanel
       Left = 368
-      Top = 510
+      Top = 472
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -3488,7 +3488,7 @@ object FCard: TFCard
     end
     object PRemarkStandartMH: TPanel
       Left = 8
-      Top = 548
+      Top = 505
       Width = 361
       Height = 20
       Alignment = taLeftJustify
@@ -3501,7 +3501,7 @@ object FCard: TFCard
     end
     object PRemarkStandartMHYes: TPanel
       Left = 368
-      Top = 548
+      Top = 505
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -3513,7 +3513,7 @@ object FCard: TFCard
     end
     object PRemarkStandartMHNo: TPanel
       Left = 400
-      Top = 548
+      Top = 505
       Width = 33
       Height = 20
       BorderStyle = bsSingle
@@ -3528,7 +3528,7 @@ object FCard: TFCard
     Left = 553
     Top = 74
     Width = 10
-    Height = 601
+    Height = 558
     Align = alLeft
     Color = clGradientActiveCaption
     ParentBackground = False
@@ -3536,7 +3536,7 @@ object FCard: TFCard
   end
   object Panel5: TPanel
     Left = 0
-    Top = 675
+    Top = 632
     Width = 1013
     Height = 40
     Align = alBottom

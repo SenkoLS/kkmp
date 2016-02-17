@@ -378,9 +378,9 @@ void __fastcall TFMain::BPrintProtocolClick(TObject *Sender)
 
 		vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",8,3);
 		vVarCell.OlePropertySet("WrapText", true);
-		vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+		vVarCell.OlePropertySet("HorizontalAlignment",2);
 		vVarCell.OlePropertySet("VerticalAlignment",-4108);
-		vVarCell.OlePropertySet("Value", DMAvtoriz->DSPInspection->DataSet->FieldByName("VuluntarMedAgreementYes")->AsAnsiString.c_str());
+		vVarCell.OlePropertySet("Value", DMAvtoriz->DSPInspection->DataSet->FieldByName("")->AsAnsiString.c_str());
 		//9
 		vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",9,1);
 		vVarCell.OlePropertySet("WrapText", true);
@@ -393,12 +393,6 @@ void __fastcall TFMain::BPrintProtocolClick(TObject *Sender)
 		vVarCell.OlePropertySet("HorizontalAlignment",2);
 		vVarCell.OlePropertySet("VerticalAlignment",-4108);
 		vVarCell.OlePropertySet("Value", "Наличие согласия пациента на обработку персональных данных");
-
-		vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",9,3);
-		vVarCell.OlePropertySet("WrapText", true);
-		vVarCell.OlePropertySet("HorizontalAlignment",-4108);
-		vVarCell.OlePropertySet("VerticalAlignment",-4108);
-		vVarCell.OlePropertySet("Value", DMAvtoriz->DSPInspection->DataSet->FieldByName("AgreementPDNYes")->AsAnsiString.c_str());
 		//10
 		vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",10,1);
 		vVarCell.OlePropertySet("WrapText", true);
@@ -411,12 +405,6 @@ void __fastcall TFMain::BPrintProtocolClick(TObject *Sender)
 		vVarCell.OlePropertySet("HorizontalAlignment",2);
 		vVarCell.OlePropertySet("VerticalAlignment",-4108);
 		vVarCell.OlePropertySet("Value", "Заполнение листа уточненных диагнозов");
-
-		vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",10,3);
-		vVarCell.OlePropertySet("WrapText", true);
-		vVarCell.OlePropertySet("HorizontalAlignment",-4108);
-		vVarCell.OlePropertySet("VerticalAlignment",-4108);
-		vVarCell.OlePropertySet("Value", DMAvtoriz->DSPInspection->DataSet->FieldByName("ComplitListDeseaseYes")->AsAnsiString.c_str());
 		//11
 		vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",11,1);
 		vVarCell.OlePropertySet("WrapText", true);
@@ -429,12 +417,6 @@ void __fastcall TFMain::BPrintProtocolClick(TObject *Sender)
 		vVarCell.OlePropertySet("HorizontalAlignment",2);
 		vVarCell.OlePropertySet("VerticalAlignment",-4108);
 		vVarCell.OlePropertySet("Value", "Заполнение графы профессия и социальный статус");
-
-		vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",11,3);
-		vVarCell.OlePropertySet("WrapText", true);
-		vVarCell.OlePropertySet("HorizontalAlignment",-4108);
-		vVarCell.OlePropertySet("VerticalAlignment",-4108);
-		vVarCell.OlePropertySet("Value", DMAvtoriz->DSPInspection->DataSet->FieldByName("CompitListProfAndStatusYes")->AsAnsiString.c_str());
 		//12
 		vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",12,1);
 		vVarCell.OlePropertySet("WrapText", true);
@@ -447,12 +429,6 @@ void __fastcall TFMain::BPrintProtocolClick(TObject *Sender)
 		vVarCell.OlePropertySet("HorizontalAlignment",2);
 		vVarCell.OlePropertySet("VerticalAlignment",-4108);
 		vVarCell.OlePropertySet("Value", "Целостность карты");
-
-		vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",12,3);
-		vVarCell.OlePropertySet("WrapText", true);
-		vVarCell.OlePropertySet("HorizontalAlignment",-4108);
-		vVarCell.OlePropertySet("VerticalAlignment",-4108);
-		vVarCell.OlePropertySet("Value", DMAvtoriz->DSPInspection->DataSet->FieldByName("IntegrityCard")->AsAnsiString.c_str());
 		//13
 		vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",13,1);
 		vVarCell.OlePropertySet("WrapText", true);
@@ -465,12 +441,6 @@ void __fastcall TFMain::BPrintProtocolClick(TObject *Sender)
 		vVarCell.OlePropertySet("HorizontalAlignment",2);
 		vVarCell.OlePropertySet("VerticalAlignment",-4108);
 		vVarCell.OlePropertySet("Value", "Почерк, аккуратность заполнения");
-
-		vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",13,3);
-		vVarCell.OlePropertySet("WrapText", true);
-		vVarCell.OlePropertySet("HorizontalAlignment",-4108);
-		vVarCell.OlePropertySet("VerticalAlignment",-4108);
-		vVarCell.OlePropertySet("Value", DMAvtoriz->DSPInspection->DataSet->FieldByName("AccuracyHandwriting")->AsAnsiString.c_str());
 		//14
 		vVarCell=vVarSheet.OlePropertyGet("Range","A14:D14");
 		vVarCell.OleProcedure("Merge");
@@ -678,7 +648,7 @@ void __fastcall TFMain::BPrintProtocolClick(TObject *Sender)
 		vVarCell.OlePropertySet("VerticalAlignment",-4108);
 		vVarCell.OlePropertySet("Value", "0.165");
 
-		vVarCell=vVarSheet.OlePropertyGet("Range","A30:C30");
+		vVarCell=vVarSheet.OlePropertyGet("Range","A30:B30");
 		vVarCell.OleProcedure("Merge");
 		vVarCell.OlePropertySet("HorizontalAlignment",-4108);
 		vVarCell.OlePropertySet("Value", "ИТОГО:");

@@ -678,7 +678,7 @@ void __fastcall TFMain::BPrintProtocolClick(TObject *Sender)
 		vVarCell.OlePropertySet("VerticalAlignment",-4108);
 		vVarCell.OlePropertySet("Value", "0.165");
 
-		vVarCell=vVarSheet.OlePropertyGet("Range","A30:C30");
+		vVarCell=vVarSheet.OlePropertyGet("Range","A30:B30");
 		vVarCell.OleProcedure("Merge");
 		vVarCell.OlePropertySet("HorizontalAlignment",-4108);
 		vVarCell.OlePropertySet("Value", "хрнцн:");

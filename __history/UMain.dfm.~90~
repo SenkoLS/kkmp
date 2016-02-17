@@ -27,6 +27,32 @@ object FMain: TFMain
     Width = 798
     Height = 569
     TabOrder = 0
+    object LExpert: TLabel
+      Left = 16
+      Top = 533
+      Width = 59
+      Height = 19
+      Caption = #1069#1082#1089#1087#1077#1088#1090':'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clMaroon
+      Font.Height = -16
+      Font.Name = 'Times New Roman'
+      Font.Style = []
+      ParentFont = False
+    end
+    object LFioExpert: TLabel
+      Left = 81
+      Top = 533
+      Width = 98
+      Height = 19
+      Caption = #1053#1077' '#1086#1087#1088#1077#1076#1077#1083#1105#1085'!'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clMaroon
+      Font.Height = -16
+      Font.Name = 'Times New Roman'
+      Font.Style = []
+      ParentFont = False
+    end
     object DBGridEh1: TDBGridEh
       Left = 13
       Top = 8
@@ -133,9 +159,26 @@ object FMain: TFMain
           Title.Alignment = taCenter
           Title.Caption = #1050#1042#1054
           Width = 75
+        end
+        item
+          DynProps = <>
+          EditButtons = <>
+          FieldName = 'id_expert'
+          Footers = <>
+          Visible = False
         end>
       object RowDetailData: TRowDetailPanelControlEh
       end
+    end
+    object Panel5: TPanel
+      Left = 392
+      Top = 526
+      Width = 185
+      Height = 41
+      Caption = 'Panel5'
+      Color = 16771022
+      ParentBackground = False
+      TabOrder = 1
     end
   end
   object BShowCard: TButton
@@ -415,6 +458,7 @@ object FMain: TFMain
       Font.Style = []
       ParentFont = False
       TabOrder = 1
+      OnClick = BPrintProtocolClick
     end
     object BPrintList: TButton
       Left = 8
