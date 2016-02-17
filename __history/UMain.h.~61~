@@ -63,8 +63,6 @@ __published:	// IDE-managed Components
 	TDBLookupComboBox *DBLCBoxFindExpert;
 	TLabel *LFoundOffice;
 	TDBLookupComboBox *DBLCBoxFindOffice;
-	TLabel *LExpert;
-	TLabel *LFioExpert;
 	void __fastcall FormShow(TObject *Sender);
 	void __fastcall N3Click(TObject *Sender);
 	void __fastcall N4Click(TObject *Sender);

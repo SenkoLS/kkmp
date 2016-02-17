@@ -14,7 +14,6 @@
 #include <ComCtrls.hpp>
 #include <DBCtrls.hpp>
 #include "Math.hpp"
-#include "UMain.h"
 
 
 //---------------------------------------------------------------------------

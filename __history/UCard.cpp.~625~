@@ -927,7 +927,7 @@ void __fastcall TFCard::FormShow(TObject *Sender)
 			"`inspection`.`DeadlinesVN`,`inspection`.`kkmp`,"
 			"`inspection`.`kvo`,`inspection`.`id_expert`,"
 			"`user`.`id_user` as `id_user_expert`,`user`.`login`,"
-			"CONCAT(`user`.`surname`,' ',`user`.`name`,' ',`user`.`patronymic`) as `fio_expert`,"
+			"CONCAT(`user`.`name`,' ',`user`.`surname`,' ',`user`.`patronymic`) as `fio_expert`,"
 			"`user`.`id_office` "
 		"FROM `inspection` INNER JOIN `user` "
 		"ON `inspection`.`id_expert` = `user`.`id_user` "
@@ -1729,7 +1729,6 @@ void __fastcall TFCard::FormShow(TObject *Sender)
 		getKvo();
 		getKkmp();
 	}else{
-        LFioExpert->Caption = FMain->LFioExpert->Caption;
 		DTPDateStart->Date = Now();
 		DTPDateEnd->Date = Now();
 		DBLookupComboBoxListMed->KeyValue = 1;

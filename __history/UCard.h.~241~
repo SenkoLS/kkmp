@@ -14,7 +14,6 @@
 #include <ComCtrls.hpp>
 #include <DBCtrls.hpp>
 #include "Math.hpp"
-#include "UMain.h"
 
 
 //---------------------------------------------------------------------------
@@ -221,8 +220,6 @@ __published:	// IDE-managed Components
 	TLabel *LDescrip2;
 	TLabel *LDescrip3;
 	TLabel *LDescrip4;
-	TLabel *LExpert;
-	TLabel *LFioExpert;
 	void __fastcall PRemarkInfServYesClick(TObject *Sender);
 	void __fastcall PRemarkInfServNoClick(TObject *Sender);
 	void __fastcall PRemarkAnamYesClick(TObject *Sender);

@@ -105,7 +105,7 @@ object DMAvtoriz: TDMAvtoriz
       
         'SELECT `id_inspection`,`date_start`,`date_end`,`duration`,CONCAT' +
         '(`surname`,'#39' '#39',`name`,'#39' '#39',`patronymic`) as `fio`,'
-      '`year_date_birthday`,`id_user`,`kkmp`,`kvo`,`id_expert`'
+      '`year_date_birthday`,`id_user`,`kkmp`,`kvo`'
       'FROM `inspection`'
       
         'WHERE `date_start` BETWEEN CONCAT(YEAR(NOW()),'#39'-01-01'#39') AND NOW(' +

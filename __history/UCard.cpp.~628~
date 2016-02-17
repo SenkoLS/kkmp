@@ -1729,7 +1729,7 @@ void __fastcall TFCard::FormShow(TObject *Sender)
 		getKvo();
 		getKkmp();
 	}else{
-        LFioExpert->Caption = FMain->LFioExpert->Caption;
+        //LFioExpert->Caption = FMain-
 		DTPDateStart->Date = Now();
 		DTPDateEnd->Date = Now();
 		DBLookupComboBoxListMed->KeyValue = 1;

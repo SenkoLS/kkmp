@@ -69,7 +69,6 @@ void __fastcall TFMain::DBGridEh1DblClick(TObject *Sender)
 {
 	//Set card number for editing in FCard
 	FCard->id_inspection = DBGridEh1->DataSource->DataSet->FieldByName("id_inspection")->AsInteger;
-	FCard->id_expert = DBGridEh1->DataSource->DataSet->FieldByName("id_expert")->AsInteger;
 	if(FCard->id_inspection == 0) return;
 	FCard->ShowModal();
 }
@@ -110,7 +109,7 @@ void __fastcall TFMain::BDeleteCardClick(TObject *Sender)
 	DMAvtoriz->SQLQInspection->Close();
 	DMAvtoriz->SQLQInspection->SQL->Text =
 		"SELECT `id_inspection`,`date_start`,`date_end`,`duration`,CONCAT(`surname`,' ',`name`,' ',`patronymic`) as `fio`,"
-		"`year_date_birthday`,`id_user`,`kkmp`,`kvo`,`id_expert` "
+		"`year_date_birthday`,`id_user`,`kkmp`,`kvo` "
 		"FROM `inspection` "
 		"WHERE `date_start` BETWEEN CONCAT(YEAR(NOW()),'-01-01') AND NOW() "
 		"ORDER BY `id_inspection` DESC";
@@ -130,7 +129,7 @@ void __fastcall TFMain::BShowAllClick(TObject *Sender)
 	DMAvtoriz->SQLQInspection->Close();
 	DMAvtoriz->SQLQInspection->SQL->Text =
 		"SELECT `id_inspection`,`date_start`,`date_end`,`duration`,CONCAT(`surname`,' ',`name`,' ',`patronymic`) as `fio`,"
-		"`year_date_birthday`,`id_user`,`kkmp`,`kvo`,`id_expert` "
+		"`year_date_birthday`,`id_user`,`kkmp`,`kvo` "
 		"FROM `inspection` "
 		"WHERE `date_start` BETWEEN CONCAT(YEAR(NOW()),'-01-01') AND NOW() "
 		"ORDER BY `id_inspection` DESC";
@@ -145,7 +144,7 @@ void __fastcall TFMain::BSortFioClick(TObject *Sender)
 	DMAvtoriz->SQLQInspection->Close();
 	DMAvtoriz->SQLQInspection->SQL->Text =
 		"SELECT `id_inspection`,`date_start`,`date_end`,`duration`,CONCAT(`surname`,' ',`name`,' ',`patronymic`) as `fio`,"
-		"`year_date_birthday`,`id_user`,`kkmp`,`kvo`,`id_expert` "
+		"`year_date_birthday`,`id_user`,`kkmp`,`kvo` "
 		"FROM `inspection` "
 		"WHERE `date_start` BETWEEN CONCAT(YEAR(NOW()),'-01-01') AND NOW() "
 		"ORDER BY `fio` ASC";
@@ -160,7 +159,7 @@ void __fastcall TFMain::BSortDurationClick(TObject *Sender)
 	DMAvtoriz->SQLQInspection->Close();
 	DMAvtoriz->SQLQInspection->SQL->Text =
 		"SELECT `id_inspection`,`date_start`,`date_end`,`duration`,CONCAT(`surname`,' ',`name`,' ',`patronymic`) as `fio`,"
-		"`year_date_birthday`,`id_user`,`kkmp`,`kvo`,`id_expert` "
+		"`year_date_birthday`,`id_user`,`kkmp`,`kvo` "
 		"FROM `inspection` "
 		"WHERE `date_start` BETWEEN CONCAT(YEAR(NOW()),'-01-01') AND NOW() "
 		"ORDER BY `duration` ASC";
@@ -175,7 +174,7 @@ void __fastcall TFMain::BSortDateEndClick(TObject *Sender)
 	DMAvtoriz->SQLQInspection->Close();
 	DMAvtoriz->SQLQInspection->SQL->Text =
 		"SELECT `id_inspection`,`date_start`,`date_end`,`duration`,CONCAT(`surname`,' ',`name`,' ',`patronymic`) as `fio`,"
-		"`year_date_birthday`,`id_user`,`kkmp`,`kvo`,`id_expert` "
+		"`year_date_birthday`,`id_user`,`kkmp`,`kvo` "
 		"FROM `inspection` "
 		"WHERE `date_start` BETWEEN CONCAT(YEAR(NOW()),'-01-01') AND NOW() "
 		"ORDER BY `date_end` ASC";
@@ -190,7 +189,7 @@ void __fastcall TFMain::DateTimePickerStartChange(TObject *Sender)
 	DMAvtoriz->SQLQInspection->Close();
 	DMAvtoriz->SQLQInspection->SQL->Text =
 		"SELECT `id_inspection`,`date_start`,`date_end`,`duration`,CONCAT(`surname`,' ',`name`,' ',`patronymic`) as `fio`,"
-		"`year_date_birthday`,`id_user`,`kkmp`,`kvo`,`id_expert` "
+		"`year_date_birthday`,`id_user`,`kkmp`,`kvo` "
 		"FROM `inspection` "
 		"WHERE `date_start` BETWEEN '"+ FormatDateTime("yyyy-mm-dd",DateTimePickerStart->DateTime) +"' AND '"+ FormatDateTime("yyyy-mm-dd",DateTimePickerEnd->DateTime) +"' "
 		"ORDER BY `id_inspection` DESC";
