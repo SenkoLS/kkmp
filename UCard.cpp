@@ -2622,6 +2622,8 @@ void __fastcall TFCard::BSaveCardClick(TObject *Sender)
 			"`ObservStandartsOfTreatment` = '"+IntToStr(ObservStandartsOfTreatment)+"',"
 			"`DeadlinesVN` = '"+IntToStr(DeadlinesVN)+"',"
 			"`kkmp` = '"+PKKMP->Caption+"',"
+			"`kkmp1` = '"+PKKMP->Caption.SubString(0,PKKMP->Caption.Pos(" /")-1)+"',"
+			"`kkmp2` = '"+PKKMP->Caption.SubString(PKKMP->Caption.Pos("/")+2,PKKMP->Caption.Length())+"',"
 			"`kvo` = '"+FloatToStr(kvo)+"',"
 			"`id_expert` = '"+ DMAvtoriz->DSAvtoriz->DataSet->FieldByName("id_user")->AsAnsiString +"' "
 			"WHERE `id_inspection` = " + IntToStr(id_inspection);
@@ -2639,7 +2641,7 @@ void __fastcall TFCard::BSaveCardClick(TObject *Sender)
 		"AbsenceComplaintsOfPatientsYes,TimelyRegistLNYes,RefferalToVKYes,IntegrityCard,"
 		"AccuracyHandwriting,QualityProfInsOnko,DispTimelines,QualityCollectAnamsis,QualityCollectComplaint,"
 		"DescriptObjectStatus,EvaluationResultsOfTreatment,ObservStandartsOfDiagnostics,"
-		"ObservStandartsOfTreatment,DeadlinesVN,kkmp,kvo,id_expert) VALUES("
+		"ObservStandartsOfTreatment,DeadlinesVN,kkmp,kkmp1,kkmp2,kvo,id_expert) VALUES("
 			"'"+FormatDateTime("yyyy-mm-dd",DTPDateStart->Date)+"',"
 			"'"+FormatDateTime("yyyy-mm-dd",DTPDateEnd->Date)+"',"
 			"'"+PAmountOfDays->Caption+"',"
@@ -2691,6 +2693,8 @@ void __fastcall TFCard::BSaveCardClick(TObject *Sender)
 			"'"+ IntToStr(ObservStandartsOfTreatment) +"',"
 			"'"+ IntToStr(DeadlinesVN) +"',"
 			"'"+ PKKMP->Caption +"',"
+			"'"+ PKKMP->Caption.SubString(0,PKKMP->Caption.Pos(" /")-1) +"',"
+			"'"+ PKKMP->Caption.SubString(PKKMP->Caption.Pos("/")+2,PKKMP->Caption.Length()) +"',"
 			"'"+ FloatToStr(kvo) +"',"
 			"'"+ DMAvtoriz->DSAvtoriz->DataSet->FieldByName("id_user")->AsAnsiString +"'"
 			")";

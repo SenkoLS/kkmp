@@ -891,13 +891,49 @@ void __fastcall TFCard::FormShow(TObject *Sender)
 	if(id_inspection != NULL){      //check on the editing mode
 
 		//turn off save button if card filled not the current user
-		if(DMAvtoriz->DSAvtoriz->DataSet->FieldByName("login")->AsAnsiString != "admin")
-			if(id_expert != DMAvtoriz->DSAvtoriz->DataSet->FieldByName("id_user")->AsInteger)
-				BSaveCard->Enabled = false;
+		if(id_expert != DMAvtoriz->DSAvtoriz->DataSet->FieldByName("id_user")->AsInteger)
+			BSaveCard->Enabled = false;
 
 		//download data card for editing
 		DMAvtoriz->SQLQInspection->Close();
-		DMAvtoriz->SQLQInspection->SQL->Text = "SELECT * FROM `inspection` WHERE `id_inspection` = " + IntToStr(id_inspection);
+		//DMAvtoriz->SQLQInspection->SQL->Text = "SELECT * FROM `inspection` WHERE `id_inspection` = " + IntToStr(id_inspection);
+
+		DMAvtoriz->SQLQInspection->SQL->Text =
+			"SELECT `inspection`.`id_inspection`,`inspection`.`date_start`,"
+			"`inspection`.`date_end`,`inspection`.`duration`,"
+			"`inspection`.`surname`,`inspection`.`name`,"
+			"`inspection`.`patronymic`,`inspection`.`year_date_birthday`,"
+			"`inspection`.`area`,`inspection`.`id_user`,"
+			"`inspection`.`RemarkInfServYes`,`inspection`.`RemarkAnamYes`,"
+			"`inspection`.`RemarkFizResYes`,`inspection`.`ResearchNotYes`,"
+			"`inspection`.`ResearchToMuchYes`,`inspection`.`ResearchLateYes`,"
+			"`inspection`.`ResearchInstrNotYes`,`inspection`.`ResearchInstrToMuchYes`,"
+			"`inspection`.`ResearchInstrLateYes`,`inspection`.`RemarkKonsultNotYes`,"
+			"`inspection`.`RemarkKonsultLateYes`,`inspection`.`RemarkDeseaseVerifYes`,"
+			"`inspection`.`RemarkDeseaseTimeYes`,`inspection`.`RemarkDeseaseContentYes`,"
+			"`inspection`.`RemarkTherapyChooseDrYes`,`inspection`.`RemarkTherapyTimeAppointmentYes`,"
+			"`inspection`.`RemarkTherapyPolypharmacyYes`,`inspection`.`ContinuityChoosePlaceYes`,"
+			"`inspection`.`ContinuityTimeTransferYes`,`inspection`.`RemarkStandartMHYes`,"
+			"`inspection`.`VuluntarMedAgreementYes`,`inspection`.`AgreementPDNYes`,"
+			"`inspection`.`ComplitListDeseaseYes`,`inspection`.`CompitListProfAndStatusYes`,"
+			"`inspection`.`ExistenceFLGYes`,`inspection`.`ExistenceInspGinYes`,"
+			"`inspection`.`RationalUseOfResourcesYes`,`inspection`.`AbsenceComplaintsOfPatientsYes`,"
+			"`inspection`.`TimelyRegistLNYes`,`inspection`.`RefferalToVKYes`,"
+			"`inspection`.`IntegrityCard`,`inspection`.`AccuracyHandwriting`,"
+			"`inspection`.`QualityProfInsOnko`,`inspection`.`DispTimelines`,"
+			"`inspection`.`QualityCollectAnamsis`,`inspection`.`QualityCollectComplaint`,"
+			"`inspection`.`DescriptObjectStatus`,`inspection`.`EvaluationResultsOfTreatment`,"
+			"`inspection`.`ObservStandartsOfDiagnostics`,`inspection`.`ObservStandartsOfTreatment`,"
+			"`inspection`.`DeadlinesVN`,`inspection`.`kkmp`,"
+			"`inspection`.`kvo`,`inspection`.`id_expert`,"
+			"`user`.`id_user` as `id_user_expert`,`user`.`login`,"
+			"CONCAT(`user`.`surname`,' ',`user`.`name`,' ',`user`.`patronymic`) as `fio_expert`,"
+			"`user`.`id_office` "
+		"FROM `inspection` INNER JOIN `user` "
+		"ON `inspection`.`id_expert` = `user`.`id_user` "
+		"WHERE `id_inspection` = " + IntToStr(id_inspection);
+
+
 		DMAvtoriz->SQLQInspection->Open();
 		DMAvtoriz->CDSInspection->Close();
 		DMAvtoriz->CDSInspection->Open();
@@ -909,6 +945,7 @@ void __fastcall TFCard::FormShow(TObject *Sender)
 		EPatronymic->Text = DMAvtoriz->DSInspection->DataSet->FieldByName("patronymic")->AsAnsiString;
 		EYearOfBirthday->Text = DMAvtoriz->DSInspection->DataSet->FieldByName("year_date_birthday")->AsAnsiString;
 		EArea->Text = DMAvtoriz->DSInspection->DataSet->FieldByName("area")->AsAnsiString;
+		LFioExpert->Caption = DMAvtoriz->DSInspection->DataSet->FieldByName("fio_expert")->AsAnsiString;
 
 		//--------------------
 		RemarkInfServYes = DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkInfServYes")->AsInteger;
@@ -1692,6 +1729,7 @@ void __fastcall TFCard::FormShow(TObject *Sender)
 		getKvo();
 		getKkmp();
 	}else{
+        LFioExpert->Caption = FMain->LFioExpert->Caption;
 		DTPDateStart->Date = Now();
 		DTPDateEnd->Date = Now();
 		DBLookupComboBoxListMed->KeyValue = 1;
@@ -2530,6 +2568,10 @@ void __fastcall TFCard::BSaveCardClick(TObject *Sender)
 	DMAvtoriz->SQLQCard->Close();
 
 	if(id_inspection != NULL){
+
+		ShowMessage(PKKMP->Caption.SubString(0,PKKMP->Caption.Pos(" /")) + "1");
+		return;
+
 		//UPDATE
 		DMAvtoriz->SQLQCard->SQL->Text =
 			"UPDATE `inspection` SET "
@@ -2584,6 +2626,8 @@ void __fastcall TFCard::BSaveCardClick(TObject *Sender)
 			"`ObservStandartsOfTreatment` = '"+IntToStr(ObservStandartsOfTreatment)+"',"
 			"`DeadlinesVN` = '"+IntToStr(DeadlinesVN)+"',"
 			"`kkmp` = '"+PKKMP->Caption+"',"
+			"`kkmp1` = '"+PKKMP->Caption.SubString(0,PKKMP->Caption.Pos(" /")) +"',"
+			"`kkmp2` = '"+PKKMP->Caption+"',"
 			"`kvo` = '"+FloatToStr(kvo)+"',"
 			"`id_expert` = '"+ DMAvtoriz->DSAvtoriz->DataSet->FieldByName("id_user")->AsAnsiString +"' "
 			"WHERE `id_inspection` = " + IntToStr(id_inspection);

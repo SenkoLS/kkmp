@@ -1729,7 +1729,7 @@ void __fastcall TFCard::FormShow(TObject *Sender)
 		getKvo();
 		getKkmp();
 	}else{
-        //LFioExpert->Caption = FMain-
+        LFioExpert->Caption = FMain->LFioExpert->Caption;
 		DTPDateStart->Date = Now();
 		DTPDateEnd->Date = Now();
 		DBLookupComboBoxListMed->KeyValue = 1;
@@ -2568,6 +2568,10 @@ void __fastcall TFCard::BSaveCardClick(TObject *Sender)
 	DMAvtoriz->SQLQCard->Close();
 
 	if(id_inspection != NULL){
+
+		ShowMessage(PKKMP->Caption.SubString(0,PKKMP->Caption.Pos(" /")-1) + "1");
+		return;
+
 		//UPDATE
 		DMAvtoriz->SQLQCard->SQL->Text =
 			"UPDATE `inspection` SET "
@@ -2622,6 +2626,8 @@ void __fastcall TFCard::BSaveCardClick(TObject *Sender)
 			"`ObservStandartsOfTreatment` = '"+IntToStr(ObservStandartsOfTreatment)+"',"
 			"`DeadlinesVN` = '"+IntToStr(DeadlinesVN)+"',"
 			"`kkmp` = '"+PKKMP->Caption+"',"
+			"`kkmp1` = '"+PKKMP->Caption.SubString(0,PKKMP->Caption.Pos(" /")) +"',"
+			"`kkmp2` = '"+PKKMP->Caption+"',"
 			"`kvo` = '"+FloatToStr(kvo)+"',"
 			"`id_expert` = '"+ DMAvtoriz->DSAvtoriz->DataSet->FieldByName("id_user")->AsAnsiString +"' "
 			"WHERE `id_inspection` = " + IntToStr(id_inspection);

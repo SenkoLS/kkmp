@@ -1,22 +1,4 @@
-﻿# SQL Manager 2010 for MySQL 4.5.0.9
-# ---------------------------------------
-# Host     : 192.168.10.252
-# Port     : 3306
-# Database : kkmp
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-
-SET FOREIGN_KEY_CHECKS=0;
-
-DROP DATABASE IF EXISTS `kkmp`;
-
-CREATE DATABASE `kkmp`
-    CHARACTER SET 'latin1'
-    COLLATE 'latin1_swedish_ci';
+﻿
 
 USE `kkmp`;
 
@@ -79,6 +61,8 @@ CREATE TABLE `inspection` (
   `ObservStandartsOfTreatment` int(1) default '1',
   `DeadlinesVN` int(1) default '1',
   `kkmp` varchar(20) NOT NULL default '0',
+  `kkmp1` double(15,3) NOT NULL default '1.000',
+  `kkmp2` double(15,3) NOT NULL default '1.000',
   `kvo` varchar(20) NOT NULL default '0',
   `id_expert` int(11) NOT NULL default '0',
   PRIMARY KEY  (`id_inspection`),
@@ -124,8 +108,25 @@ CREATE TABLE `user` (
 # Data for the `inspection` table  (LIMIT 0,500)
 #
 
-INSERT INTO `inspection` (`id_inspection`, `date_start`, `date_end`, `duration`, `surname`, `name`, `patronymic`, `year_date_birthday`, `area`, `id_user`, `RemarkInfServYes`, `RemarkAnamYes`, `RemarkFizResYes`, `ResearchNotYes`, `ResearchToMuchYes`, `ResearchLateYes`, `ResearchInstrNotYes`, `ResearchInstrToMuchYes`, `ResearchInstrLateYes`, `RemarkKonsultNotYes`, `RemarkKonsultLateYes`, `RemarkDeseaseVerifYes`, `RemarkDeseaseTimeYes`, `RemarkDeseaseContentYes`, `RemarkTherapyChooseDrYes`, `RemarkTherapyTimeAppointmentYes`, `RemarkTherapyPolypharmacyYes`, `ContinuityChoosePlaceYes`, `ContinuityTimeTransferYes`, `RemarkStandartMHYes`, `VuluntarMedAgreementYes`, `AgreementPDNYes`, `ComplitListDeseaseYes`, `CompitListProfAndStatusYes`, `ExistenceFLGYes`, `ExistenceInspGinYes`, `RationalUseOfResourcesYes`, `AbsenceComplaintsOfPatientsYes`, `TimelyRegistLNYes`, `RefferalToVKYes`, `IntegrityCard`, `AccuracyHandwriting`, `QualityProfInsOnko`, `DispTimelines`, `QualityCollectAnamsis`, `QualityCollectComplaint`, `DescriptObjectStatus`, `EvaluationResultsOfTreatment`, `ObservStandartsOfDiagnostics`, `ObservStandartsOfTreatment`, `DeadlinesVN`, `kkmp`, `kvo`, `id_expert`) VALUES 
-  (3,'2016-02-12','2016-02-12',1,'ПЕТРОВ','В','В','1985','15',38,2,2,2,2,2,2,2,0,2,2,0,1,2,2,2,2,2,2,2,2,5,5,5,5,5,5,0,5,5,5,5,5,5,5,1,5,5,5,5,5,5,'1 / 0,943','0,056',93);
+INSERT INTO `inspection` (`id_inspection`, `date_start`, `date_end`, `duration`, `surname`, `name`, `patronymic`, `year_date_birthday`, `area`, `id_user`, `RemarkInfServYes`, `RemarkAnamYes`, `RemarkFizResYes`, `ResearchNotYes`, `ResearchToMuchYes`, `ResearchLateYes`, `ResearchInstrNotYes`, `ResearchInstrToMuchYes`, `ResearchInstrLateYes`, `RemarkKonsultNotYes`, `RemarkKonsultLateYes`, `RemarkDeseaseVerifYes`, `RemarkDeseaseTimeYes`, `RemarkDeseaseContentYes`, `RemarkTherapyChooseDrYes`, `RemarkTherapyTimeAppointmentYes`, `RemarkTherapyPolypharmacyYes`, `ContinuityChoosePlaceYes`, `ContinuityTimeTransferYes`, `RemarkStandartMHYes`, `VuluntarMedAgreementYes`, `AgreementPDNYes`, `ComplitListDeseaseYes`, `CompitListProfAndStatusYes`, `ExistenceFLGYes`, `ExistenceInspGinYes`, `RationalUseOfResourcesYes`, `AbsenceComplaintsOfPatientsYes`, `TimelyRegistLNYes`, `RefferalToVKYes`, `IntegrityCard`, `AccuracyHandwriting`, `QualityProfInsOnko`, `DispTimelines`, `QualityCollectAnamsis`, `QualityCollectComplaint`, `DescriptObjectStatus`, `EvaluationResultsOfTreatment`, `ObservStandartsOfDiagnostics`, `ObservStandartsOfTreatment`, `DeadlinesVN`, `kkmp`, `kkmp1`, `kkmp2`, `kvo`, `id_expert`) VALUES 
+  (5,'2016-02-16','2016-02-18',3,'ИВАНОВ','ИВАН','ИВАНОВИЧ','1955','12',101,2,2,1,2,2,1,2,2,2,2,2,2,2,2,1,1,1,1,1,2,5,5,5,5,5,5,5,5,0,0,5,5,5,5,2,5,3,5,5,1,0,'1 / 0,85',1.000,0.850,'0,35',110),
+  (6,'2016-02-15','2016-02-15',1,'ПЕТРОВ','ФЕДОР','АНДРЕЕВИЧ','1959','34',70,2,2,2,2,1,2,2,1,0,2,0,2,1,0,2,2,2,2,2,2,5,5,5,5,5,5,5,5,0,0,1,5,5,5,2,5,5,1,5,2,0,'0,867 / 0,833',0.867,0.833,'0,176',81),
+  (7,'2016-02-16','2016-02-16',1,'НИКИТИНА','МАРГАРИТА','КОНСТАТИНОВНА','1968','3',82,1,1,2,2,2,2,1,2,2,2,2,2,2,2,1,2,2,2,2,1,5,1,5,1,1,1,5,5,5,5,5,5,0,0,4,4,4,5,1,2,5,'0,733 / 0,723',0.733,0.723,'0,25',2),
+  (8,'2016-01-07','2016-02-15',40,'ПАНТИНА','АРИНА','АНДРЕЕВНА','1983','34',104,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,5,5,5,1,1,5,5,5,5,5,4,3,5,5,5,5,5,5,5,5,'0,833 / 0,867',0.833,0.867,'0',110),
+  (9,'2016-01-22','2016-02-15',25,'БАЛАШОВ','АНДРЕЙ','МИХАЙЛОВИЧ','1983','25',104,2,2,2,2,2,2,2,2,2,2,2,1,1,2,2,2,2,2,2,2,5,5,1,5,5,0,5,5,5,5,4,4,3,4,4,5,4,4,4,4,4,'0,8 / 0,871',0.800,0.871,'0,1',110),
+  (10,'2015-12-25','2016-02-15',53,'ЧИЖОВА','ЛЮДМИЛА','ДМИТРИЕВНА','1949','20',104,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,5,5,1,5,1,0,5,5,5,5,3,4,3,0,4,4,3,4,4,4,4,'0,767 / 0,785',0.767,0.785,'0',110),
+  (11,'2015-12-25','2016-02-15',53,'ЧИЖОВА','ЛЮДМИЛА','ДМИТРИЕВНА','1949','20',104,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,5,5,1,5,0,0,5,5,5,5,3,4,3,0,5,5,5,5,5,5,4,'0,767 / 0,95',0.767,0.950,'0',110),
+  (12,'2016-02-09','2016-02-09',1,'ХРУСТАЛЁВА','НАТАЛИЯ','ВЛАДИМИРОВНА','1985','31',55,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,2,2,2,2,2,5,1,1,1,5,1,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,'0,6 / 0,947',0.600,0.947,'0,05',53),
+  (13,'2016-02-15','2016-02-16',2,'ДРОЗДОВСКАЯ','МАРИЯ','ОЛЕГОВНА','1985','31',55,2,2,2,1,2,2,1,2,2,1,2,1,2,2,1,2,2,1,2,1,5,5,1,1,5,1,5,5,5,5,5,5,5,5,5,5,5,4,4,4,5,'0,733 / 0,907',0.733,0.907,'0,35',53),
+  (15,'2016-02-04','2016-02-15',12,'ШИТОВА','ЮЛИЯ','АЛЕКСАНДРОВНА','1992','4',42,2,0,2,2,2,0,2,2,2,2,2,2,2,2,2,2,0,2,2,2,5,5,5,5,5,1,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,'1 / 0,947',1.000,0.947,'0',53),
+  (16,'2016-02-04','2016-02-16',13,'ПАХОМОВА','АЛЁНА','ДМИТРИЕВНА','1986','4',42,2,2,2,2,2,2,2,2,2,1,2,2,2,2,2,2,2,2,2,2,5,1,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,'0,867 / 1',0.867,1.000,'0,05',53),
+  (17,'2016-01-04','2016-02-16',44,'КАТАЕВА','ЕКАТЕРИНА','АРКАДЬЕВНА','1964','20',104,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,5,5,1,5,0,0,5,5,5,5,4,4,0,0,5,5,5,5,5,5,5,'0,8 / 1',0.800,1.000,'0',110),
+  (18,'2016-02-17','2016-02-17',1,'ЛЕДНЕВА','АФАНАСИЯ','ИВАНОВНА','1930','27',96,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,2,2,2,2,5,5,5,1,5,5,5,5,0,0,4,4,4,5,5,5,5,5,5,5,0,'0,8 / 0,983',0.800,0.983,'0,05',91),
+  (19,'2016-02-17','2016-02-17',1,'КИЧИГИН','МАКСИМ','ЮРЬЕВИЧ','1983','18',89,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0,5,5,5,1,1,0,5,5,5,5,4,4,1,3,4,4,4,4,4,4,5,'0,8 / 0,771',0.800,0.771,'0',91),
+  (20,'2016-02-17','2016-02-17',1,'БАСОВ','АЛЕКСАНДР','АНАТОЛЬЕВИЧ','1990','3',78,2,2,2,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,5,5,5,5,5,5,5,5,5,5,5,5,4,5,5,5,5,5,5,5,5,'1 / 0,987',1.000,0.987,'0,05',81),
+  (21,'2016-02-17','2016-02-17',1,'ПРАВДИНА','ТАМАРА','ВАСИЛЬЕВНА','1926','34',74,2,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,5,1,5,5,5,1,5,5,5,5,5,5,3,5,5,4,5,5,5,5,5,'0,867 / 0,907',0.867,0.907,'0,05',81),
+  (22,'2016-02-17','2016-02-17',1,'ЛЯМИНА','СВЕТЛАНА','ВАЛЕРЬЕВНА','1978','21',73,1,2,2,1,2,2,1,2,2,2,2,2,2,2,2,2,2,2,2,2,5,5,5,5,5,1,5,5,5,5,5,4,4,5,3,4,4,5,5,5,5,'0,967 / 0,88',0.967,0.880,'0,15',81),
+  (23,'2016-02-17','2016-02-17',1,'ГОЛУБЕВА','ЛИДИЯ','КОНСТАНТИНОВНА','1932','27',96,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,5,5,5,5,5,5,5,5,0,0,5,5,4,4,4,5,4,4,5,4,0,'1 / 0,9',1.000,0.900,'0',91);
 COMMIT;
 
 #
