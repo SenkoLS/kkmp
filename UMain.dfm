@@ -456,6 +456,7 @@ object FMain: TFMain
       Width = 217
       Height = 25
       Caption = #1055#1077#1095#1072#1090#1100' '#1074#1099#1074#1077#1076#1077#1085#1085#1099#1093' '#1082#1072#1088#1090
+      Enabled = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -15

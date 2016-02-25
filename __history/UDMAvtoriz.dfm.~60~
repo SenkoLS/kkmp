@@ -62,10 +62,8 @@ object DMAvtoriz: TDMAvtoriz
       'IPVersion=IPv4'
       'Database=kkmp'
       'User_Name=root'
-      'HostName=localhost'
       'Password=root')
     VendorLib = 'libmysql.dll'
-    Connected = True
     Left = 56
     Top = 24
   end
@@ -106,7 +104,7 @@ object DMAvtoriz: TDMAvtoriz
       
         'SELECT `id_inspection`,`date_start`,`date_end`,`duration`,CONCAT' +
         '(`surname`,'#39' '#39',`name`,'#39' '#39',`patronymic`) as `fio`,'
-      '`year_date_birthday`,`id_user`,`kkmp`,`kvo`'
+      '`year_date_birthday`,`id_user`,`kkmp`,`kvo`,`id_expert`'
       'FROM `inspection`'
       
         'WHERE `date_start` BETWEEN CONCAT(YEAR(NOW()),'#39'-01-01'#39') AND NOW(' +
@@ -197,7 +195,8 @@ object DMAvtoriz: TDMAvtoriz
       
         'SELECT `id_user`, CONCAT(`surname`,'#39' '#39',`name`,'#39' '#39',`patronymic`) ' +
         'as `fio`'
-      'FROM `user`  WHERE `id_user` != 2')
+      'FROM `user`  WHERE `id_user` != 2 AND `id_user` != 1'
+      'ORDER BY `fio` ASC')
     SQLConnection = SQLConnectKKMP
     Left = 160
     Top = 368

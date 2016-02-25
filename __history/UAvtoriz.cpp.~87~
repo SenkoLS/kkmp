@@ -14,10 +14,6 @@ __fastcall TFAvtoriz::TFAvtoriz(TComponent* Owner)
 {
 }
 //---------------------------------------------------------------------------
-static void dijkstra(){
-	//
-}
-//---------------------------------------------------------------------------
 //const String
 AnsiString __fastcall TFAvtoriz::MD5(AnsiString Text)
 {
@@ -38,14 +34,19 @@ void __fastcall TFAvtoriz::BEnterClick(TObject *Sender)
 	try{
 		DMAvtoriz->SQLQAvtoriz->Close();
 		DMAvtoriz->CDSAvtoriz->Close();
-		DMAvtoriz->SQLQAvtoriz->SQL->Text = "SELECT `id_user`,`login` FROM `user` WHERE `login`='"+ELogin->Text+"' AND `password`='"+MD5(EPassword->Text)+"'";
+		DMAvtoriz->SQLQAvtoriz->SQL->Text = "SELECT `id_user`,`login`,CONCAT(`surname`,' ',`name`,' ',`patronymic`) as `fio_expert` FROM `user` WHERE `login`='"+ELogin->Text+"' AND `password`='"+MD5(EPassword->Text)+"'";
+		//DMAvtoriz->SQLQAvtoriz->SQL->Text = "SELECT COUNT(*) as `count` FROM `user` WHERE `login`='"+ELogin->Text+"' AND `password`='"+MD5(EPassword->Text)+"'";
 		DMAvtoriz->SQLQAvtoriz->Open();
 		DMAvtoriz->CDSAvtoriz->Open();
+
+		//ShowMessage(DMAvtoriz->DSAvtoriz->DataSet->FieldByName("count")->AsAnsiString);
+		return;
 
 		if (DMAvtoriz->DSAvtoriz->DataSet->IsEmpty()) {
 			MessageBox(0,L"Неверный логин или пароль!",L"Ошибка авторизации",MB_OK);
 		}else{
 			FAvtoriz->Close();
+			FMain->LFioExpert->Caption =  DMAvtoriz->DSAvtoriz->DataSet->FieldByName("fio_expert")->AsAnsiString;
 		}
 	}catch(...){
 		MessageBox(0,L"Ошибка в запросе на авторизацию!\nОбратитесь к разработчику.",L"Ошибка",MB_OK);

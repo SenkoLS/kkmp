@@ -44,8 +44,8 @@ void __fastcall TFAvtoriz::BEnterClick(TObject *Sender)
 			FAvtoriz->Close();
 			FMain->LFioExpert->Caption =  DMAvtoriz->DSAvtoriz->DataSet->FieldByName("fio_expert")->AsAnsiString;
 		}
-	}catch(...){
-		MessageBox(0,L"Ошибка в запросе на авторизацию!\nОбратитесь к разработчику.",L"Ошибка",MB_OK);
+	}catch(Exception &e){
+		MessageBox(0,e.Message.c_str(),L"Ошибка",MB_OK);
 	}
 }
 //---------------------------------------------------------------------------
