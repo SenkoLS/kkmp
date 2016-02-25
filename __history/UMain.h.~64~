@@ -24,8 +24,8 @@
 #include "UCatalogOffices.h"
 #include <ComCtrls.hpp>
 #include <DBCtrls.hpp>
-#include <Dialogs.hpp>
 #include <FileCtrl.hpp>
+#include <ComObj.hpp>
 //---------------------------------------------------------------------------
 class TFMain : public TForm
 {
@@ -63,6 +63,8 @@ __published:	// IDE-managed Components
 	TDBLookupComboBox *DBLCBoxFindExpert;
 	TLabel *LFoundOffice;
 	TDBLookupComboBox *DBLCBoxFindOffice;
+	TLabel *LExpert;
+	TLabel *LFioExpert;
 	void __fastcall FormShow(TObject *Sender);
 	void __fastcall N3Click(TObject *Sender);
 	void __fastcall N4Click(TObject *Sender);

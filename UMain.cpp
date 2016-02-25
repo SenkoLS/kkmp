@@ -82,12 +82,12 @@ void __fastcall TFMain::BDeleteCardClick(TObject *Sender)
 		if(	DBGridEh1->DataSource->DataSet->FieldByName("id_expert")->AsInteger
 		!= DMAvtoriz->DSAvtoriz->DataSet->FieldByName("id_user")->AsInteger){
 
-			MessageBox(0,L"Вы не заносили эту карту!\nУ вас нет прав на данную операцию!",L"Сообщение",MB_OK);
+			MessageBox(0,L"Вы не заносили эту карту!\nУ вас нет прав на данную операцию!",L"Сообщение",MB_OK | MB_ICONWARNING);
 			return;
 		}
 	}
 
-	int mess = MessageBox(0,L"Вы хотите удалить выбранную запись?",L"Предупреждение",MB_YESNO);
+	int mess = MessageBox(0,L"Вы хотите удалить выбранную запись?",L"Предупреждение",MB_YESNO | MB_ICONQUESTION);
 	if(mess != 6) return;
 
 	DMAvtoriz->SQLQInspection->Close();
@@ -100,7 +100,7 @@ void __fastcall TFMain::BDeleteCardClick(TObject *Sender)
 			DMAvtoriz->SQLConnectKKMP->Commit(trans);
 		}else{
 			DMAvtoriz->SQLConnectKKMP->Rollback(trans);
-			MessageBox(0,L"Запрос вернул \"false\"!\nОбратитесь к разработчику.",L"Ошибка удаления",MB_OK);
+			MessageBox(0,L"Запрос вернул \"false\"!\nОбратитесь к разработчику.",L"Ошибка удаления",MB_OK | MB_ICONSTOP);
 		}
 	}catch(Exception &e){
 		DMAvtoriz->SQLConnectKKMP->Rollback(trans);
@@ -230,7 +230,7 @@ void __fastcall TFMain::DBLCBoxFindOfficeEnter(TObject *Sender)
 
 void __fastcall TFMain::BPrintProtocolClick(TObject *Sender)
 {
-	int mess = MessageBox(0,L"Вы хотите распечатать протокол в EXCEL?",L"Сообщение",MB_YESNO);
+	int mess = MessageBox(0,L"Вы хотите распечатать протокол в EXCEL?",L"Сообщение",MB_YESNO | MB_ICONQUESTION);
 	if(mess != 6) return;
 
 	Variant  vVarApp,vVarBooks,vVarBook, vVarSheets,vVarSheet,vVarCell;
@@ -251,7 +251,7 @@ void __fastcall TFMain::BPrintProtocolClick(TObject *Sender)
 		vVarBook=vVarBooks.OlePropertyGet("Item",1);
 		vVarSheets=vVarBook.OlePropertyGet("Worksheets") ;
 	}catch(Exception &e){
-		MessageBox(0,e.Message.c_str(),L"Ошибка создания EXCEL:",MB_OK);
+		MessageBox(0,e.Message.c_str(),L"Ошибка создания EXCEL:",MB_OK | MB_ICONERROR);
 		return;
 	}
 
@@ -1510,7 +1510,13 @@ void __fastcall TFMain::BPrintProtocolClick(TObject *Sender)
 		DMAvtoriz->CDSInspection->Close();
 		DMAvtoriz->CDSInspection->Open();
 
-		MessageBox(0, L"Выгрузка карт закончена.", L"Сообщение", MB_OK);
+		MessageBox(0, L"Выгрузка протокола карты завершена.", L"Сообщение", MB_OK | MB_ICONINFORMATION);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFMain::N2Click(TObject *Sender)
+{
+	FStatReport->ShowModal();
 }
 //---------------------------------------------------------------------------
 

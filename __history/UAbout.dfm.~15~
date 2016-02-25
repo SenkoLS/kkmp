@@ -75,7 +75,7 @@ object FAbout: TFAbout
     Top = 10
     Width = 186
     Height = 17
-    Caption = 'Build time : Feb 25 2016 - 15:31'
+    Caption = 'Build time : Feb 25 2016 - 09:55'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBtnShadow
     Font.Height = -15

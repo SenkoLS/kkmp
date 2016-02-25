@@ -1,8 +1,8 @@
 object DMAvtoriz: TDMAvtoriz
   OldCreateOrder = False
   OnCreate = DataModuleCreate
-  Height = 511
-  Width = 616
+  Height = 647
+  Width = 609
   object SQLQAvtoriz: TSQLQuery
     MaxBlobSize = -1
     Params = <>
@@ -245,5 +245,35 @@ object DMAvtoriz: TDMAvtoriz
     DataSet = CDSCard
     Left = 464
     Top = 440
+  end
+  object SQLQGetListMedStat: TSQLQuery
+    MaxBlobSize = -1
+    Params = <>
+    SQL.Strings = (
+      
+        'SELECT `id_user`, CONCAT(`surname`,'#39' '#39',`name`,'#39' '#39',`patronymic`) ' +
+        'as `fio`'
+      'FROM `user`  WHERE `id_user` != 2 AND `id_user` != 1'
+      'ORDER BY `fio` ASC')
+    SQLConnection = SQLConnectKKMP
+    Left = 160
+    Top = 520
+  end
+  object DSPGetListMedStat: TDataSetProvider
+    DataSet = SQLQGetListMedStat
+    Left = 264
+    Top = 520
+  end
+  object CDSGetListMedStat: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'DSPGetListMedStat'
+    Left = 360
+    Top = 520
+  end
+  object DSGetListMedStat: TDataSource
+    DataSet = CDSGetListMedStat
+    Left = 464
+    Top = 520
   end
 end

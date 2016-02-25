@@ -49,10 +49,6 @@ __published:	// IDE-managed Components
 	TDataSetProvider *DSPCard;
 	TClientDataSet *CDSCard;
 	TDataSource *DSCard;
-	TSQLQuery *SQLQGetListMedStat;
-	TDataSetProvider *DSPGetListMedStat;
-	TClientDataSet *CDSGetListMedStat;
-	TDataSource *DSGetListMedStat;
 	void __fastcall DataModuleCreate(TObject *Sender);
 private:	// User declarations
 public:		// User declarations

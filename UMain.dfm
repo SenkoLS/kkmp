@@ -501,6 +501,7 @@ object FMain: TFMain
     end
     object N2: TMenuItem
       Caption = #1054#1090#1095#1077#1090#1099
+      OnClick = N2Click
     end
     object N3: TMenuItem
       Caption = #1054' '#1087#1088#1086#1075#1088#1072#1084#1084#1077

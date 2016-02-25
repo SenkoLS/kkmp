@@ -106,6 +106,11 @@
 				<DependentOn>UMain.h</DependentOn>
 				<BuildOrder>2</BuildOrder>
 			</CppCompile>
+			<CppCompile Include="UStatReport.cpp">
+				<Form>FStatReport</Form>
+				<DependentOn>UStatReport.h</DependentOn>
+				<BuildOrder>9</BuildOrder>
+			</CppCompile>
 			<FormResources Include="UDictionaryMed.dfm"/>
 			<FormResources Include="UCatalogOffices.dfm"/>
 			<FormResources Include="UMain.dfm"/>
@@ -113,6 +118,7 @@
 			<FormResources Include="UCard.dfm"/>
 			<FormResources Include="UAvtoriz.dfm"/>
 			<FormResources Include="UAbout.dfm"/>
+			<FormResources Include="UStatReport.dfm"/>
 			<BuildConfiguration Include="Release">
 				<Key>Cfg_2</Key>
 				<CfgParent>Base</CfgParent>

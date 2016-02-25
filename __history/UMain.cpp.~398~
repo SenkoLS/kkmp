@@ -82,7 +82,7 @@ void __fastcall TFMain::BDeleteCardClick(TObject *Sender)
 		if(	DBGridEh1->DataSource->DataSet->FieldByName("id_expert")->AsInteger
 		!= DMAvtoriz->DSAvtoriz->DataSet->FieldByName("id_user")->AsInteger){
 
-			MessageBox(0,L"Вы не заносили эту карту!\nУ вас нет прав на данную операцию!",L"Сообщение",MB_OK);
+			MessageBox(0,L"Вы не заносили эту карту!\nУ вас нет прав на данную операцию!",L"Сообщение",MB_OK | MB_ICONWARNING);
 			return;
 		}
 	}
@@ -1477,6 +1477,15 @@ void __fastcall TFMain::BPrintProtocolClick(TObject *Sender)
 		DMAvtoriz->CDSInspection->Close();
 		DMAvtoriz->CDSInspection->Open();
 
+		vVarCell=vVarSheet.OlePropertyGet("Range","B3:C3");
+		vVarCell.OleProcedure("Merge");
+		vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+		vVarCell.OlePropertySet("Value", DMAvtoriz->DSInspection->DataSet->FieldByName("fio_med")->AsAnsiString.c_str());
+        vVarCell = vVarCell.OlePropertyGet("Borders",9);
+		vVarCell.OlePropertySet("LineStyle", 1);
+
+		//SET MED INTO LIST 1
+		vVarSheet=vVarSheets.OlePropertyGet("Item",1);
 		vVarCell=vVarSheet.OlePropertyGet("Range","B3:D3");
 		vVarCell.OleProcedure("Merge");
 		vVarCell.OlePropertySet("HorizontalAlignment",-4108);
@@ -1502,6 +1511,12 @@ void __fastcall TFMain::BPrintProtocolClick(TObject *Sender)
 		DMAvtoriz->CDSInspection->Open();
 
 		MessageBox(0, L"Выгрузка карт закончена.", L"Сообщение", MB_OK);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFMain::N2Click(TObject *Sender)
+{
+	FStatReport->ShowModal();
 }
 //---------------------------------------------------------------------------
 

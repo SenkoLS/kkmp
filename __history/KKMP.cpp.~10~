@@ -5,13 +5,12 @@
 #include <tchar.h>
 //---------------------------------------------------------------------------
 USEFORM("UDictionaryMed.cpp", FDictionaryMed);
-USEFORM("UCatalogOffices.cpp", FCatalogOffices);
+USEFORM("UCard.cpp", FCard);
 USEFORM("UMain.cpp", FMain);
 USEFORM("UDMAvtoriz.cpp", DMAvtoriz); /* TDataModule: File Type */
-USEFORM("UCard.cpp", FCard);
 USEFORM("UAvtoriz.cpp", FAvtoriz);
 USEFORM("UAbout.cpp", FAbout);
-USEFORM("UStatReport.cpp", FStatReport);
+USEFORM("UCatalogOffices.cpp", FCatalogOffices);
 //---------------------------------------------------------------------------
 WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 {
@@ -27,7 +26,6 @@ WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 		Application->CreateForm(__classid(TFDictionaryMed), &FDictionaryMed);
 		Application->CreateForm(__classid(TFCard), &FCard);
 		Application->CreateForm(__classid(TFCatalogOffices), &FCatalogOffices);
-		Application->CreateForm(__classid(TFStatReport), &FStatReport);
 		Application->Run();
 	}
 	catch (Exception &exception)

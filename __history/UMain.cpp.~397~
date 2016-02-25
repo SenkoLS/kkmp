@@ -846,22 +846,6 @@ void __fastcall TFMain::BPrintProtocolClick(TObject *Sender)
         vVarCell = vVarCell.OlePropertyGet("Borders",9);
 		vVarCell.OlePropertySet("LineStyle", 1);
 
-//		DMAvtoriz->SQLQInspection->Close();
-//		DMAvtoriz->SQLQInspection->SQL->Text =
-//			"SELECT CONCAT(`user`.`surname`,' ',`user`.`name`,' ',`user`.`patronymic`) as `fio_med` FROM `inspection` INNER JOIN `user` "
-//			"ON `inspection`.`id_user` = `user`.`id_user` "
-//			"WHERE `id_inspection` = '" + id_inspection + "'";
-//		DMAvtoriz->SQLQInspection->Open();
-//		DMAvtoriz->CDSInspection->Close();
-//		DMAvtoriz->CDSInspection->Open();
-//
-//		vVarCell=vVarSheet.OlePropertyGet("Range","B3:D3");
-//		vVarCell.OleProcedure("Merge");
-//		vVarCell.OlePropertySet("HorizontalAlignment",-4108);
-//		vVarCell.OlePropertySet("Value", DMAvtoriz->DSInspection->DataSet->FieldByName("fio_med")->AsAnsiString.c_str());
-//        vVarCell = vVarCell.OlePropertyGet("Borders",9);
-//		vVarCell.OlePropertySet("LineStyle", 1);
-
 		//----- SECOND LIST (KVO) ----------------------------------------------
 		vVarSheet=vVarSheets.OlePropertyGet("Item",2);
 		vVarSheet.OlePropertySet("Name","KVO");
@@ -1483,6 +1467,32 @@ void __fastcall TFMain::BPrintProtocolClick(TObject *Sender)
         vVarCell = vVarCell.OlePropertyGet("Borders",9);
 		vVarCell.OlePropertySet("LineStyle", 1);
 
+		//GET MED FOR EXCEL:
+		DMAvtoriz->SQLQInspection->Close();
+		DMAvtoriz->SQLQInspection->SQL->Text =
+			"SELECT CONCAT(`user`.`surname`,' ',`user`.`name`,' ',`user`.`patronymic`) as `fio_med` FROM `inspection` INNER JOIN `user` "
+			"ON `inspection`.`id_user` = `user`.`id_user` "
+			"WHERE `id_inspection` = '" + id_inspection + "'";
+		DMAvtoriz->SQLQInspection->Open();
+		DMAvtoriz->CDSInspection->Close();
+		DMAvtoriz->CDSInspection->Open();
+
+		vVarCell=vVarSheet.OlePropertyGet("Range","B3:C3");
+		vVarCell.OleProcedure("Merge");
+		vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+		vVarCell.OlePropertySet("Value", DMAvtoriz->DSInspection->DataSet->FieldByName("fio_med")->AsAnsiString.c_str());
+        vVarCell = vVarCell.OlePropertyGet("Borders",9);
+		vVarCell.OlePropertySet("LineStyle", 1);
+
+		//SET MED INTO LIST 1
+		vVarSheet=vVarSheets.OlePropertyGet("Item",1);
+		vVarCell=vVarSheet.OlePropertyGet("Range","B3:D3");
+		vVarCell.OleProcedure("Merge");
+		vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+		vVarCell.OlePropertySet("Value", DMAvtoriz->DSInspection->DataSet->FieldByName("fio_med")->AsAnsiString.c_str());
+        vVarCell = vVarCell.OlePropertyGet("Borders",9);
+		vVarCell.OlePropertySet("LineStyle", 1);
+
         //save into catalog:
 		vVarApp.OlePropertyGet("Workbooks").OlePropertyGet("Item",1).OleProcedure("SaveAs",dir.c_str());
 		//vVarApp.OleProcedure("Quit");
@@ -1501,6 +1511,12 @@ void __fastcall TFMain::BPrintProtocolClick(TObject *Sender)
 		DMAvtoriz->CDSInspection->Open();
 
 		MessageBox(0, L"Выгрузка карт закончена.", L"Сообщение", MB_OK);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFMain::N2Click(TObject *Sender)
+{
+	FStatReport->ShowModal();
 }
 //---------------------------------------------------------------------------
 

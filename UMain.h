@@ -26,6 +26,7 @@
 #include <DBCtrls.hpp>
 #include <FileCtrl.hpp>
 #include <ComObj.hpp>
+#include "UStatReport.h"
 //---------------------------------------------------------------------------
 class TFMain : public TForm
 {
@@ -85,6 +86,7 @@ __published:	// IDE-managed Components
 	void __fastcall DBLCBoxFindExpertEnter(TObject *Sender);
 	void __fastcall DBLCBoxFindOfficeEnter(TObject *Sender);
 	void __fastcall BPrintProtocolClick(TObject *Sender);
+	void __fastcall N2Click(TObject *Sender);
 
 private:	// User declarations
 public:		// User declarations
