@@ -335,11 +335,13 @@ void __fastcall TFStatReport::BGenerateReportClick(TObject *Sender)
 	//FIRST LIST (KKMP)
 	vVarSheet=vVarSheets.OlePropertyGet("Item",1);
 	vVarSheet.OlePropertySet("Name","Œ¯Ë·ÍË");
-	vVarCell=vVarSheet.OlePropertyGet("Range","A1:C1");
+	vVarCell=vVarSheet.OlePropertyGet("Range","A1:—1");
 	vVarCell.OleProcedure("Merge");
 	vVarCell.OlePropertySet("WrapText", true);
 	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
 	vVarCell.OlePropertySet("Value", "¿Õ¿À»« ¬–¿◊≈¡Õ€’ Œÿ»¡Œ ");
+
+	//vVarCell.OlePropertySet("ColumnWidth", 15);
 
 	//6
 	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",6,1);

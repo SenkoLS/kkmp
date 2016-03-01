@@ -18,6 +18,8 @@
 #include "ToolCtrlsEh.hpp"
 #include <DBCtrls.hpp>
 #include "UDMAvtoriz.h"
+#include <FileCtrl.hpp>
+#include <ComObj.hpp>
 //---------------------------------------------------------------------------
 class TFStatReport : public TForm
 {
@@ -38,7 +40,6 @@ __published:	// IDE-managed Components
 	TLabel *Label3;
 	TDBGridEh *DBGridEh1;
 	TButton *BGenerateReport;
-	TButton *BUploadIntoExcel;
 	void __fastcall ChBoxOfficeClick(TObject *Sender);
 	void __fastcall ChBoxExpertClick(TObject *Sender);
 	void __fastcall ChBoxMedClick(TObject *Sender);
@@ -46,6 +47,18 @@ __published:	// IDE-managed Components
 private:	// User declarations
 public:		// User declarations
 	__fastcall TFStatReport(TComponent* Owner);
+
+	int VuluntarMedAgreementYes, AgreementPDNYes,
+		ComplitListDeseaseYes, CompitListProfAndStatusYes,
+		ExistenceFLGYes, ExistenceInspGinYes,
+		RationalUseOfResourcesYes, AbsenceComplaintsOfPatientsYes,
+		TimelyRegistLNYes,RefferalToVKYes,
+		IntegrityCard, AccuracyHandwriting,
+		QualityProfInsOnko, DispTimelines,
+		QualityCollectAnamsis, QualityCollectComplaint,
+		DescriptObjectStatus, EvaluationResultsOfTreatment,
+		ObservStandartsOfDiagnostics, ObservStandartsOfTreatment,
+		DeadlinesVN;
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TFStatReport *FStatReport;

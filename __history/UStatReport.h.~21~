@@ -17,30 +17,32 @@
 #include "GridsEh.hpp"
 #include "ToolCtrlsEh.hpp"
 #include <DBCtrls.hpp>
+#include "UDMAvtoriz.h"
 //---------------------------------------------------------------------------
 class TFStatReport : public TForm
 {
 __published:	// IDE-managed Components
 	TPanel *Panel1;
-	TDateTimePicker *DateTimePicker1;
-	TDateTimePicker *DateTimePicker2;
+	TDateTimePicker *DTPStartReportPer;
+	TDateTimePicker *DTPEndReportPer;
 	TLabel *Label1;
 	TLabel *Label2;
 	TCheckBox *ChBoxOffice;
 	TCheckBox *ChBoxMed;
 	TCheckBox *ChBoxExpert;
 	TCheckBox *ChBoxGeneral;
-	TDBLookupComboBox *DBLookupComboBox1;
-	TDBLookupComboBox *DBLookupComboBox2;
-	TDBLookupComboBox *DBLookupComboBox3;
-	TEdit *Edit1;
+	TDBLookupComboBox *DBLCbOffice;
+	TDBLookupComboBox *DBLCbMed;
+	TDBLookupComboBox *DBLCbExpert;
+	TEdit *ECountOfVisits;
 	TLabel *Label3;
 	TDBGridEh *DBGridEh1;
 	TButton *BGenerateReport;
-	TButton *Button2;
-	void __fastcall ChBoxGeneralClick(TObject *Sender);
+	TButton *BUploadIntoExcel;
 	void __fastcall ChBoxOfficeClick(TObject *Sender);
 	void __fastcall ChBoxExpertClick(TObject *Sender);
+	void __fastcall ChBoxMedClick(TObject *Sender);
+	void __fastcall BGenerateReportClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TFStatReport(TComponent* Owner);

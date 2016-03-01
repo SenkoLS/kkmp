@@ -179,20 +179,12 @@ object FStatReport: TFStatReport
     end
     object BGenerateReport: TButton
       Left = 8
-      Top = 256
-      Width = 180
-      Height = 25
-      Caption = #1057#1060#1054#1056#1052#1048#1056#1054#1042#1040#1058#1068' '#1054#1058#1063#1025#1058
+      Top = 249
+      Width = 365
+      Height = 32
+      Caption = #1057#1060#1054#1056#1052#1048#1056#1054#1042#1040#1058#1068' '#1054#1058#1063#1025#1058' '#1042' EXCEL'
       TabOrder = 11
       OnClick = BGenerateReportClick
-    end
-    object BUploadIntoExcel: TButton
-      Left = 193
-      Top = 256
-      Width = 180
-      Height = 25
-      Caption = #1042#1067#1043#1056#1059#1047#1048#1058#1068' '#1042' EXCEL'
-      TabOrder = 12
     end
   end
 end
