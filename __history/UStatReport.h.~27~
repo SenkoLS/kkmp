@@ -18,6 +18,8 @@
 #include "ToolCtrlsEh.hpp"
 #include <DBCtrls.hpp>
 #include "UDMAvtoriz.h"
+#include <FileCtrl.hpp>
+#include <ComObj.hpp>
 //---------------------------------------------------------------------------
 class TFStatReport : public TForm
 {
@@ -45,6 +47,22 @@ __published:	// IDE-managed Components
 private:	// User declarations
 public:		// User declarations
 	__fastcall TFStatReport(TComponent* Owner);
+
+	int VuluntarMedAgreementYes, AgreementPDNYes,
+		ComplitListDeseaseYes, CompitListProfAndStatusYes,
+		ExistenceFLGYes, ExistenceInspGinYes,
+		RationalUseOfResourcesYes, AbsenceComplaintsOfPatientsYes,
+		TimelyRegistLNYes,RefferalToVKYes,
+		IntegrityCard, AccuracyHandwriting,
+		QualityProfInsOnko, DispTimelines,
+		QualityCollectAnamsis, QualityCollectComplaint,
+		DescriptObjectStatus, EvaluationResultsOfTreatment,
+		ObservStandartsOfDiagnostics, ObservStandartsOfTreatment,
+		DeadlinesVN,
+
+		count1,count2,count3,count4,count5,count6,count7,count8,count9,
+		count10,count11,count12,count13,count14,count15,count16,count17,count18,
+		count19,count20,count21
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TFStatReport *FStatReport;

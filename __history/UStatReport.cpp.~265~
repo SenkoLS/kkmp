@@ -1012,7 +1012,7 @@ void __fastcall TFStatReport::BGenReportClick(TObject *Sender)
 
 void __fastcall TFStatReport::FormClose(TObject *Sender, TCloseAction &Action)
 {
-	FMain->BShowAllClick(Sender);
+	//
 }
 //---------------------------------------------------------------------------
 

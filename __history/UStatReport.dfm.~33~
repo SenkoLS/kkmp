@@ -70,7 +70,7 @@ object FStatReport: TFStatReport
       Font.Style = []
       ParentFont = False
     end
-    object DateTimePicker1: TDateTimePicker
+    object DTPStartReportPer: TDateTimePicker
       Left = 127
       Top = 8
       Width = 110
@@ -79,7 +79,7 @@ object FStatReport: TFStatReport
       Time = 42425.535124930550000000
       TabOrder = 0
     end
-    object DateTimePicker2: TDateTimePicker
+    object DTPEndReportPer: TDateTimePicker
       Left = 263
       Top = 8
       Width = 110
@@ -112,6 +112,7 @@ object FStatReport: TFStatReport
       Width = 73
       Height = 17
       Caption = #1069#1082#1089#1087#1077#1088#1090
+      Enabled = False
       TabOrder = 4
       OnClick = ChBoxExpertClick
     end
@@ -131,6 +132,7 @@ object FStatReport: TFStatReport
       Top = 60
       Width = 365
       Height = 23
+      Enabled = False
       KeyField = 'id_office'
       ListField = 'name_office'
       ListSource = DMAvtoriz.DSgetListOffice
@@ -141,6 +143,10 @@ object FStatReport: TFStatReport
       Top = 164
       Width = 365
       Height = 23
+      Enabled = False
+      KeyField = 'id_user'
+      ListField = 'fio'
+      ListSource = DMAvtoriz.DSGetListMedStat
       TabOrder = 7
     end
     object DBLCbExpert: TDBLookupComboBox
@@ -148,6 +154,10 @@ object FStatReport: TFStatReport
       Top = 112
       Width = 365
       Height = 23
+      Enabled = False
+      KeyField = 'id_user'
+      ListField = 'fio'
+      ListSource = DMAvtoriz.DSGetListMed
       TabOrder = 8
     end
     object ECountOfVisits: TEdit
@@ -170,19 +180,12 @@ object FStatReport: TFStatReport
     end
     object BGenerateReport: TButton
       Left = 8
-      Top = 256
-      Width = 180
-      Height = 25
-      Caption = #1057#1060#1054#1056#1052#1048#1056#1054#1042#1040#1058#1068' '#1054#1058#1063#1025#1058
+      Top = 249
+      Width = 365
+      Height = 32
+      Caption = #1057#1060#1054#1056#1052#1048#1056#1054#1042#1040#1058#1068' '#1054#1058#1063#1025#1058' '#1042' EXCEL'
       TabOrder = 11
-    end
-    object BUploadIntoExcel: TButton
-      Left = 193
-      Top = 256
-      Width = 180
-      Height = 25
-      Caption = #1042#1067#1043#1056#1059#1047#1048#1058#1068' '#1042' EXCEL'
-      TabOrder = 12
+      OnClick = BGenerateReportClick
     end
   end
 end

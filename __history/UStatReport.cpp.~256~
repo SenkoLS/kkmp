@@ -107,14 +107,8 @@ void __fastcall TFStatReport::BGenerateReportClick(TObject *Sender)
 	int mess = MessageBox(0,L"Вы хотите распечатать отчет в EXCEL?",L"Сообщение",MB_YESNO | MB_ICONQUESTION);
 	if(mess != 6) return;
 
-	if(DBGridReport->DataSource == NULL){
-		MessageBox(0,L"Вы не сформировали отчет!",L"Сообщение",MB_OK | MB_ICONWARNING);
-		return;
-	}else{
-		if(DBGridReport->DataSource->DataSet->IsEmpty()){
-        	MessageBox(0,L"Отсутствуют данные для выгрузки в EXCEL!",L"Сообщение",MB_OK | MB_ICONWARNING);
-			return;
-		}
+	if(DBGridReport->DataSource->DataSet->IsEmpty()){
+    	MessageBox(0,L"Оnсутствуют данные для выгрузки в EXCEL!",L"Сообщение",MB_OK | MB_ICONWARNING);
 	}
 
 	Variant  vVarApp,vVarBooks,vVarBook, vVarSheets,vVarSheet,vVarCell;
@@ -816,7 +810,6 @@ void __fastcall TFStatReport::BGenReportClick(TObject *Sender)
 		return;
 	}
 
-	//SET DATASOURCE FOR DBGRID:
 	DBGridReport->DataSource = DMAvtoriz->DSInspection;
 
 	//----- GET TYPE QUERY -----------------------------------------------------
@@ -1007,12 +1000,6 @@ void __fastcall TFStatReport::BGenReportClick(TObject *Sender)
 
 		DMAvtoriz->DSInspection->DataSet->Next();
 	}
-}
-//---------------------------------------------------------------------------
-
-void __fastcall TFStatReport::FormClose(TObject *Sender, TCloseAction &Action)
-{
-	FMain->BShowAllClick(Sender);
 }
 //---------------------------------------------------------------------------
 

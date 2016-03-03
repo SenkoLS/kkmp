@@ -18,6 +18,8 @@
 #include "ToolCtrlsEh.hpp"
 #include <DBCtrls.hpp>
 #include "UDMAvtoriz.h"
+#include <FileCtrl.hpp>
+#include <ComObj.hpp>
 //---------------------------------------------------------------------------
 class TFStatReport : public TForm
 {
@@ -36,16 +38,34 @@ __published:	// IDE-managed Components
 	TDBLookupComboBox *DBLCbExpert;
 	TEdit *ECountOfVisits;
 	TLabel *Label3;
-	TDBGridEh *DBGridEh1;
+	TDBGridEh *DBGridReport;
 	TButton *BGenerateReport;
-	TButton *BUploadIntoExcel;
+	TButton *BGenReport;
 	void __fastcall ChBoxOfficeClick(TObject *Sender);
 	void __fastcall ChBoxExpertClick(TObject *Sender);
 	void __fastcall ChBoxMedClick(TObject *Sender);
 	void __fastcall BGenerateReportClick(TObject *Sender);
+	void __fastcall FormShow(TObject *Sender);
+	void __fastcall BGenReportClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TFStatReport(TComponent* Owner);
+
+	int VuluntarMedAgreementYes, AgreementPDNYes,
+		ComplitListDeseaseYes, CompitListProfAndStatusYes,
+		ExistenceFLGYes, ExistenceInspGinYes,
+		RationalUseOfResourcesYes, AbsenceComplaintsOfPatientsYes,
+		TimelyRegistLNYes,RefferalToVKYes,
+		IntegrityCard, AccuracyHandwriting,
+		QualityProfInsOnko, DispTimelines,
+		QualityCollectAnamsis, QualityCollectComplaint,
+		DescriptObjectStatus, EvaluationResultsOfTreatment,
+		ObservStandartsOfDiagnostics, ObservStandartsOfTreatment,
+		DeadlinesVN,
+        // counters
+		count1,count2,count3,count4,count5,count6,count7,count8,count9,
+		count10,count11,count12,count13,count14,count15,count16,count17,count18,
+		count19,count20,count21;
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TFStatReport *FStatReport;
