@@ -1446,13 +1446,20 @@ void __fastcall TFStatReport::BGenerateReportClick(TObject *Sender)
 	vVarCell.OlePropertySet("NumberFormatLocal", "0,000%");
 	vVarCell.OlePropertySet("HorizontalAlignment",2);
 	vVarCell.OlePropertySet("VerticalAlignment",-4108);
-	vVarCell.OlePropertySet("Value", "=C38/C37");
+	vVarCell.OlePropertySet("Value", "=C33/C32");
 
-	//40
-	vVarCell=vVarSheet.OlePropertyGet("Range","A40:D40");
+	//39
+	vVarCell=vVarSheet.OlePropertyGet("Range","A39:D39");
 	vVarCell.OleProcedure("Merge");
 	vVarCell.OlePropertySet("HorizontalAlignment",2);
 	vVarCell.OlePropertySet("Value", "¬ыводы и предложени€:");
+
+	vVarCell = vVarCell.OlePropertyGet("Borders",9);
+	vVarCell.OlePropertySet("LineStyle", 1);
+	//40
+	vVarCell=vVarSheet.OlePropertyGet("Range","A40:D40");
+	vVarCell.OleProcedure("Merge");
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
 
 	vVarCell = vVarCell.OlePropertyGet("Borders",9);
 	vVarCell.OlePropertySet("LineStyle", 1);
@@ -1477,27 +1484,20 @@ void __fastcall TFStatReport::BGenerateReportClick(TObject *Sender)
 
 	vVarCell = vVarCell.OlePropertyGet("Borders",9);
 	vVarCell.OlePropertySet("LineStyle", 1);
-	//44
-	vVarCell=vVarSheet.OlePropertyGet("Range","A44:D44");
-	vVarCell.OleProcedure("Merge");
-	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
 
-	vVarCell = vVarCell.OlePropertyGet("Borders",9);
-	vVarCell.OlePropertySet("LineStyle", 1);
+	//45
+	vVarCell=vVarSheet.OlePropertyGet("Range","A45:B45");
+	vVarCell.OleProcedure("Merge");
+	vVarCell.OlePropertySet("HorizontalAlignment",2);
+	vVarCell.OlePropertySet("Value", "Ёксперт I уровн€, заведующий отделением:");
 
 	//46
 	vVarCell=vVarSheet.OlePropertyGet("Range","A46:B46");
 	vVarCell.OleProcedure("Merge");
 	vVarCell.OlePropertySet("HorizontalAlignment",2);
-	vVarCell.OlePropertySet("Value", "Ёксперт I уровн€, заведующий отделением:");
+	vVarCell.OlePropertySet("Value", DMAvtoriz->DSInspection->DataSet->FieldByName("fio_expert")->AsAnsiString.c_str());
 
-	//47
-	vVarCell=vVarSheet.OlePropertyGet("Range","A47:B47");
-	vVarCell.OleProcedure("Merge");
-	vVarCell.OlePropertySet("HorizontalAlignment",2);
-	//vVarCell.OlePropertySet("Value", DMAvtoriz->DSInspection->DataSet->FieldByName("fio_expert")->AsAnsiString.c_str());
-
-	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",47,4);
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",46,3);
 	vVarCell.OlePropertySet("WrapText", true);
 	vVarCell.OlePropertySet("HorizontalAlignment",4);
 	vVarCell.OlePropertySet("VerticalAlignment",-4108);

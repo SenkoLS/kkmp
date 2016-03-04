@@ -107,8 +107,14 @@ void __fastcall TFStatReport::BGenerateReportClick(TObject *Sender)
 	int mess = MessageBox(0,L"Вы хотите распечатать отчет в EXCEL?",L"Сообщение",MB_YESNO | MB_ICONQUESTION);
 	if(mess != 6) return;
 
-	if(DBGridReport->DataSource == NULL && DBGridReport->DataSource->DataSet->IsEmpty()){
-    	MessageBox(0,L"Отсутствуют данные для выгрузки в EXCEL!",L"Сообщение",MB_OK | MB_ICONWARNING);
+	if(DBGridReport->DataSource == NULL){
+		MessageBox(0,L"Вы не сформировали отчет!",L"Сообщение",MB_OK | MB_ICONWARNING);
+		return;
+	}else{
+		if(DBGridReport->DataSource->DataSet->IsEmpty()){
+        	MessageBox(0,L"Отсутствуют данные для выгрузки в EXCEL!",L"Сообщение",MB_OK | MB_ICONWARNING);
+			return;
+		}
 	}
 
 	Variant  vVarApp,vVarBooks,vVarBook, vVarSheets,vVarSheet,vVarCell;
@@ -784,6 +790,680 @@ void __fastcall TFStatReport::BGenerateReportClick(TObject *Sender)
 	vVarCell.OlePropertySet("VerticalAlignment",-4108);
 	vVarCell = vVarCell.OlePropertyGet("Borders",9);
 	vVarCell.OlePropertySet("LineStyle", 1);
+
+
+
+	//SECOND LIST (Med error)
+	vVarSheet=vVarSheets.OlePropertyGet("Item",2);
+	vVarSheet.OlePropertySet("Name","Ошибки");
+
+	//1
+	vVarCell=vVarSheet.OlePropertyGet("Range","A1:D1");
+	vVarCell.OleProcedure("Merge");
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "Анализ врачебных ошибок");
+
+	vVarCell=vVarSheet.OlePropertyGet("Range","A3:D3");
+	vVarCell.OleProcedure("Merge");
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", period.c_str());
+
+	//4
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",4,1);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "Отделение:");
+	vVarCell.OlePropertySet("ColumnWidth", 15);
+
+	vVarCell=vVarSheet.OlePropertyGet("Range","B4:D4");
+	vVarCell.OleProcedure("Merge");
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	if(!DBLCbOffice->ListSource->DataSet->IsEmpty())
+		vVarCell.OlePropertySet("Value", DBLCbOffice->ListSource->DataSet->FieldByName("name_office")->AsAnsiString.c_str());
+
+	//5
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",5,1);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "Врач:");
+
+	vVarCell=vVarSheet.OlePropertyGet("Range","B5:D5");
+	vVarCell.OleProcedure("Merge");
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	if(!DBLCbMed->ListSource->DataSet->IsEmpty())
+		vVarCell.OlePropertySet("Value", DBLCbMed->ListSource->DataSet->FieldByName("fio")->AsAnsiString.c_str());
+
+	//6
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",6,1);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "№ п/п");
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",6,2);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "Характеристика ошибки");
+	vVarCell.OlePropertySet("ColumnWidth", 50);
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",6,3);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "Количество");
+	vVarCell.OlePropertySet("ColumnWidth", 10);
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",6,4);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "На 1 сл.");
+	vVarCell.OlePropertySet("ColumnWidth", 10);
+
+	//7
+	vVarCell=vVarSheet.OlePropertyGet("Range","A7:D7");
+	vVarCell.OleProcedure("Merge");
+	vVarCell.OlePropertyGet("Interior").OlePropertySet("Color",0xF0F8FF);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "Непосредственные исслед. (информативность, содержательность)");
+
+	//8
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",8,1);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "1");
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",8,2);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",2);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "Замечания по информативности жалоб");
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",8,3);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+//	switch(DMAvtoriz->DSPInspection->DataSet->FieldByName("RemarkInfServYes")->AsInteger){
+//		case 1:	vVarCell.OlePropertySet("Value", "Да"); break;
+//		case 2: vVarCell.OlePropertySet("Value", "Нет"); break;
+//		default: vVarCell.OlePropertySet("Value", "");
+//	}
+
+	//9
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",9,1);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "2");
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",9,2);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",2);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "Замечания по информативности анамнеза болезни");
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",9,3);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+//	switch(DMAvtoriz->DSPInspection->DataSet->FieldByName("RemarkAnamYes")->AsInteger){
+//		case 1:	vVarCell.OlePropertySet("Value", "Да"); break;
+//		case 2: vVarCell.OlePropertySet("Value", "Нет"); break;
+//		default: vVarCell.OlePropertySet("Value", "");
+//	}
+
+	//10
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",10,1);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "3");
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",10,2);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",2);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "Замечания по физикальным исследованиям");
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",10,3);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+//	switch(DMAvtoriz->DSPInspection->DataSet->FieldByName("RemarkFizResYes")->AsInteger){
+//		case 1:	vVarCell.OlePropertySet("Value", "Да"); break;
+//		case 2: vVarCell.OlePropertySet("Value", "Нет"); break;
+//		default: vVarCell.OlePropertySet("Value", "");
+//	}
+
+	//11
+	vVarCell=vVarSheet.OlePropertyGet("Range","A11:C11");
+	vVarCell.OleProcedure("Merge");
+	vVarCell.OlePropertyGet("Interior").OlePropertySet("Color",0xF0F8FF);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "Замечания по лабораторной диагностике");
+	//12
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",12,1);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "1");
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",12,2);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",2);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "Исследование не проведено");
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",12,3);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+//	switch(DMAvtoriz->DSPInspection->DataSet->FieldByName("ResearchNotYes")->AsInteger){
+//		case 1:	vVarCell.OlePropertySet("Value", "Да"); break;
+//		case 2: vVarCell.OlePropertySet("Value", "Нет"); break;
+//		default: vVarCell.OlePropertySet("Value", "");
+//	}
+
+	//13
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",13,1);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "2");
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",13,2);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",2);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "Исследование проведено излишне");
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",13,3);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+//	switch(DMAvtoriz->DSPInspection->DataSet->FieldByName("ResearchToMuchYes")->AsInteger){
+//		case 1:	vVarCell.OlePropertySet("Value", "Да"); break;
+//		case 2: vVarCell.OlePropertySet("Value", "Нет"); break;
+//		default: vVarCell.OlePropertySet("Value", "");
+//	}
+
+	//14
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",14,1);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "3");
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",14,2);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",2);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "Исследование проведено несвоевременно");
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",14,3);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+//	switch(DMAvtoriz->DSPInspection->DataSet->FieldByName("ResearchLateYes")->AsInteger){
+//		case 1:	vVarCell.OlePropertySet("Value", "Да"); break;
+//		case 2: vVarCell.OlePropertySet("Value", "Нет"); break;
+//		default: vVarCell.OlePropertySet("Value", "");
+//	}
+
+	//15
+	vVarCell=vVarSheet.OlePropertyGet("Range","A15:C15");
+	vVarCell.OleProcedure("Merge");
+	vVarCell.OlePropertyGet("Interior").OlePropertySet("Color",0xF0F8FF);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "Замечания по инструментальной диагностике");
+
+	//16
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",16,1);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "1");
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",16,2);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",2);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "Исследование не проведено");
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",16,3);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+//	switch(DMAvtoriz->DSPInspection->DataSet->FieldByName("ResearchInstrNotYes")->AsInteger){
+//		case 1:	vVarCell.OlePropertySet("Value", "Да"); break;
+//		case 2: vVarCell.OlePropertySet("Value", "Нет"); break;
+//		default: vVarCell.OlePropertySet("Value", "");
+//	}
+
+	//17
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",17,1);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "2");
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",17,2);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",2);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "Исследование проведено излишне");
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",17,3);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+//	switch(DMAvtoriz->DSPInspection->DataSet->FieldByName("ResearchInstrToMuchYes")->AsInteger){
+//		case 1:	vVarCell.OlePropertySet("Value", "Да"); break;
+//		case 2: vVarCell.OlePropertySet("Value", "Нет"); break;
+//		default: vVarCell.OlePropertySet("Value", "");
+//	}
+
+	//18
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",18,1);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "3");
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",18,2);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",2);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "Исследование проведено несвоевременно");
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",18,3);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+//	switch(DMAvtoriz->DSPInspection->DataSet->FieldByName("ResearchInstrLateYes")->AsInteger){
+//		case 1:	vVarCell.OlePropertySet("Value", "Да"); break;
+//		case 2: vVarCell.OlePropertySet("Value", "Нет"); break;
+//		default: vVarCell.OlePropertySet("Value", "");
+//	}
+
+	//19
+	vVarCell=vVarSheet.OlePropertyGet("Range","A19:C19");
+	vVarCell.OleProcedure("Merge");
+	vVarCell.OlePropertyGet("Interior").OlePropertySet("Color",0xF0F8FF);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "Замечания по консультациям специалистов");
+
+	//20
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",20,1);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "1");
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",20,2);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",2);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "Консультация не проведена");
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",20,3);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+//	switch(DMAvtoriz->DSPInspection->DataSet->FieldByName("RemarkKonsultNotYes")->AsInteger){
+//		case 1:	vVarCell.OlePropertySet("Value", "Да"); break;
+//		case 2: vVarCell.OlePropertySet("Value", "Нет"); break;
+//		default: vVarCell.OlePropertySet("Value", "");
+//	}
+
+	//21
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",21,1);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "2");
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",21,2);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",2);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "Консультация проведена несвоевременно");
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",21,3);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+//	switch(DMAvtoriz->DSPInspection->DataSet->FieldByName("RemarkKonsultLateYes")->AsInteger){
+//		case 1:	vVarCell.OlePropertySet("Value", "Да"); break;
+//		case 2: vVarCell.OlePropertySet("Value", "Нет"); break;
+//		default: vVarCell.OlePropertySet("Value", "");
+//	}
+
+	//22
+	vVarCell=vVarSheet.OlePropertyGet("Range","A22:C22");
+	vVarCell.OleProcedure("Merge");
+	vVarCell.OlePropertyGet("Interior").OlePropertySet("Color",0xF0F8FF);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "Замечания по диагнозу");
+
+	//23
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",23,1);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "1");
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",23,2);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",2);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "По верификации");
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",23,3);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+//	switch(DMAvtoriz->DSPInspection->DataSet->FieldByName("RemarkDeseaseVerifYes")->AsInteger){
+//		case 1:	vVarCell.OlePropertySet("Value", "Да"); break;
+//		case 2: vVarCell.OlePropertySet("Value", "Нет"); break;
+//		default: vVarCell.OlePropertySet("Value", "");
+//	}
+
+	//24
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",24,1);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "2");
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",24,2);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",2);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "По времени постановки");
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",24,3);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+//	switch(DMAvtoriz->DSPInspection->DataSet->FieldByName("RemarkDeseaseTimeYes")->AsInteger){
+//		case 1:	vVarCell.OlePropertySet("Value", "Да"); break;
+//		case 2: vVarCell.OlePropertySet("Value", "Нет"); break;
+//		default: vVarCell.OlePropertySet("Value", "");
+//	}
+
+	//25
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",25,1);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "3");
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",25,2);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",2);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "По содержанию");
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",25,3);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+//	switch(DMAvtoriz->DSPInspection->DataSet->FieldByName("RemarkDeseaseContentYes")->AsInteger){
+//		case 1:	vVarCell.OlePropertySet("Value", "Да"); break;
+//		case 2: vVarCell.OlePropertySet("Value", "Нет"); break;
+//		default: vVarCell.OlePropertySet("Value", "");
+//	}
+
+	//26
+	vVarCell=vVarSheet.OlePropertyGet("Range","A26:C26");
+	vVarCell.OleProcedure("Merge");
+	vVarCell.OlePropertyGet("Interior").OlePropertySet("Color",0xF0F8FF);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "Замечания по лечению (фармакотерапии)");
+
+	//27
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",27,1);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "1");
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",27,2);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",2);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "По выбору препаратов");
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",27,3);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+//	switch(DMAvtoriz->DSPInspection->DataSet->FieldByName("RemarkTherapyChooseDrYes")->AsInteger){
+//		case 1:	vVarCell.OlePropertySet("Value", "Да"); break;
+//		case 2: vVarCell.OlePropertySet("Value", "Нет"); break;
+//		default: vVarCell.OlePropertySet("Value", "");
+//	}
+
+	//28
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",28,1);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "2");
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",28,2);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",2);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "По времени назначения и отмены");
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",28,3);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+//	switch(DMAvtoriz->DSPInspection->DataSet->FieldByName("RemarkTherapyTimeAppointmentYes")->AsInteger){
+//		case 1:	vVarCell.OlePropertySet("Value", "Да"); break;
+//		case 2: vVarCell.OlePropertySet("Value", "Нет"); break;
+//		default: vVarCell.OlePropertySet("Value", "");
+//	}
+
+	//29
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",29,1);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "3");
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",29,2);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",2);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "Полипрагмазия");
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",29,3);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+//	switch(DMAvtoriz->DSPInspection->DataSet->FieldByName("RemarkTherapyPolypharmacyYes")->AsInteger){
+//		case 1:	vVarCell.OlePropertySet("Value", "Да"); break;
+//		case 2: vVarCell.OlePropertySet("Value", "Нет"); break;
+//		default: vVarCell.OlePropertySet("Value", "");
+//	}
+
+	//30
+	vVarCell=vVarSheet.OlePropertyGet("Range","A30:C30");
+	vVarCell.OleProcedure("Merge");
+	vVarCell.OlePropertyGet("Interior").OlePropertySet("Color",0xF0F8FF);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "Преемственность");
+
+	//31
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",31,1);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "1");
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",31,2);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",2);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "Замечания по выбору места дальнейшей помощи");
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",31,3);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+//	switch(DMAvtoriz->DSPInspection->DataSet->FieldByName("ContinuityChoosePlaceYes")->AsInteger){
+//		case 1:	vVarCell.OlePropertySet("Value", "Да"); break;
+//		case 2: vVarCell.OlePropertySet("Value", "Нет"); break;
+//		default: vVarCell.OlePropertySet("Value", "");
+//	}
+
+	//32
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",32,1);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "2");
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",32,2);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",2);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "Замечания по времени передачи пациента другому специалисту");
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",32,3);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+//	switch(DMAvtoriz->DSPInspection->DataSet->FieldByName("ContinuityTimeTransferYes")->AsInteger){
+//		case 1:	vVarCell.OlePropertySet("Value", "Да"); break;
+//		case 2: vVarCell.OlePropertySet("Value", "Нет"); break;
+//		default: vVarCell.OlePropertySet("Value", "");
+//	}
+
+	//33
+	vVarCell=vVarSheet.OlePropertyGet("Range","A33:C33");
+	vVarCell.OleProcedure("Merge");
+	vVarCell.OlePropertyGet("Interior").OlePropertySet("Color",0xF0F8FF);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "Замечания по стандарту оказания МП");
+
+	//34
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",34,1);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "1");
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",34,2);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",2);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "Несоответствие стандартам");
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",34,3);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+//	switch(DMAvtoriz->DSPInspection->DataSet->FieldByName("RemarkStandartMHYes")->AsInteger){
+//		case 1:	vVarCell.OlePropertySet("Value", "Да"); break;
+//		case 2: vVarCell.OlePropertySet("Value", "Нет"); break;
+//		default: vVarCell.OlePropertySet("Value", "");
+//	}
+
+	//35
+	vVarCell=vVarSheet.OlePropertyGet("Range","A35:B35");
+	vVarCell.OleProcedure("Merge");
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "ИТОГО:");
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",35,3);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", DMAvtoriz->DSPInspection->DataSet->FieldByName("kvo")->AsAnsiString.c_str());
+
+	//BORDER:
+	vVarCell = vVarSheet.OlePropertyGet("Range","A6:D35").OlePropertyGet("Borders");
+	vVarCell.OlePropertySet("LineStyle", 1);
+
+	//39
+	vVarCell=vVarSheet.OlePropertyGet("Range","A39:D39");
+	vVarCell.OleProcedure("Merge");
+	vVarCell.OlePropertySet("HorizontalAlignment",2);
+	vVarCell.OlePropertySet("Value", "Выводы и предложения:");
+
+	vVarCell = vVarCell.OlePropertyGet("Borders",9);
+	vVarCell.OlePropertySet("LineStyle", 1);
+	//40
+	vVarCell=vVarSheet.OlePropertyGet("Range","A40:D40");
+	vVarCell.OleProcedure("Merge");
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+
+	vVarCell = vVarCell.OlePropertyGet("Borders",9);
+	vVarCell.OlePropertySet("LineStyle", 1);
+	//41
+	vVarCell=vVarSheet.OlePropertyGet("Range","A41:D41");
+	vVarCell.OleProcedure("Merge");
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+
+	vVarCell = vVarCell.OlePropertyGet("Borders",9);
+	vVarCell.OlePropertySet("LineStyle", 1);
+	//42
+	vVarCell=vVarSheet.OlePropertyGet("Range","A42:D42");
+	vVarCell.OleProcedure("Merge");
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+
+	vVarCell = vVarCell.OlePropertyGet("Borders",9);
+	vVarCell.OlePropertySet("LineStyle", 1);
+	//43
+	vVarCell=vVarSheet.OlePropertyGet("Range","A43:D43");
+	vVarCell.OleProcedure("Merge");
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+
+	vVarCell = vVarCell.OlePropertyGet("Borders",9);
+	vVarCell.OlePropertySet("LineStyle", 1);
+
+	//45
+	vVarCell=vVarSheet.OlePropertyGet("Range","A45:B45");
+	vVarCell.OleProcedure("Merge");
+	vVarCell.OlePropertySet("HorizontalAlignment",2);
+	vVarCell.OlePropertySet("Value", "Эксперт I уровня, заведующий отделением:");
+
+	//46
+	vVarCell=vVarSheet.OlePropertyGet("Range","A46:B46");
+	vVarCell.OleProcedure("Merge");
+	vVarCell.OlePropertySet("HorizontalAlignment",2);
+	vVarCell.OlePropertySet("Value", DMAvtoriz->DSInspection->DataSet->FieldByName("fio_expert")->AsAnsiString.c_str());
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",46,3);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",4);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell = vVarCell.OlePropertyGet("Borders",9);
+	vVarCell.OlePropertySet("LineStyle", 1);
 }
 //---------------------------------------------------------------------------
 
@@ -1001,6 +1681,12 @@ void __fastcall TFStatReport::BGenReportClick(TObject *Sender)
 
 		DMAvtoriz->DSInspection->DataSet->Next();
 	}
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFStatReport::FormClose(TObject *Sender, TCloseAction &Action)
+{
+	FMain->BShowAllClick(Sender);
 }
 //---------------------------------------------------------------------------
 

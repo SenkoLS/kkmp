@@ -1497,7 +1497,7 @@ void __fastcall TFStatReport::BGenerateReportClick(TObject *Sender)
 	vVarCell.OlePropertySet("HorizontalAlignment",2);
 	//vVarCell.OlePropertySet("Value", DMAvtoriz->DSInspection->DataSet->FieldByName("fio_expert")->AsAnsiString.c_str());
 
-	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",47,4);
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",47,3);
 	vVarCell.OlePropertySet("WrapText", true);
 	vVarCell.OlePropertySet("HorizontalAlignment",4);
 	vVarCell.OlePropertySet("VerticalAlignment",-4108);

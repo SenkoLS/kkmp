@@ -1446,7 +1446,7 @@ void __fastcall TFStatReport::BGenerateReportClick(TObject *Sender)
 	vVarCell.OlePropertySet("NumberFormatLocal", "0,000%");
 	vVarCell.OlePropertySet("HorizontalAlignment",2);
 	vVarCell.OlePropertySet("VerticalAlignment",-4108);
-	vVarCell.OlePropertySet("Value", "=C38/C37");
+	vVarCell.OlePropertySet("Value", "=C37/C38");
 
 	//40
 	vVarCell=vVarSheet.OlePropertyGet("Range","A40:D40");
@@ -1495,9 +1495,9 @@ void __fastcall TFStatReport::BGenerateReportClick(TObject *Sender)
 	vVarCell=vVarSheet.OlePropertyGet("Range","A47:B47");
 	vVarCell.OleProcedure("Merge");
 	vVarCell.OlePropertySet("HorizontalAlignment",2);
-	//vVarCell.OlePropertySet("Value", DMAvtoriz->DSInspection->DataSet->FieldByName("fio_expert")->AsAnsiString.c_str());
+	vVarCell.OlePropertySet("Value", DMAvtoriz->DSInspection->DataSet->FieldByName("fio_expert")->AsAnsiString.c_str());
 
-	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",47,4);
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",47,3);
 	vVarCell.OlePropertySet("WrapText", true);
 	vVarCell.OlePropertySet("HorizontalAlignment",4);
 	vVarCell.OlePropertySet("VerticalAlignment",-4108);
