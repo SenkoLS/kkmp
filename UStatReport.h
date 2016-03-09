@@ -53,7 +53,8 @@ private:	// User declarations
 public:		// User declarations
 	__fastcall TFStatReport(TComponent* Owner);
 
-	int VuluntarMedAgreementYes, AgreementPDNYes,
+	int //quality indicators
+		VuluntarMedAgreementYes, AgreementPDNYes,
 		ComplitListDeseaseYes, CompitListProfAndStatusYes,
 		ExistenceFLGYes, ExistenceInspGinYes,
 		RationalUseOfResourcesYes, AbsenceComplaintsOfPatientsYes,
@@ -64,10 +65,21 @@ public:		// User declarations
 		DescriptObjectStatus, EvaluationResultsOfTreatment,
 		ObservStandartsOfDiagnostics, ObservStandartsOfTreatment,
 		DeadlinesVN,
-        // counters
+		// counters of quality indicators
 		count1,count2,count3,count4,count5,count6,count7,count8,count9,
 		count10,count11,count12,count13,count14,count15,count16,count17,count18,
-		count19,count20,count21;
+		count19,count20,count21,
+		// counters of error indicators
+		count31,count32,count33,count34,count35,count36,count37,count38,count39,
+		count40,count41,count42,count43,count44,count45,count46,count47,count48,
+		count49,count50,
+		// error indicators
+		RemarkInfServYes,RemarkAnamYes,RemarkFizResYes,ResearchNotYes,
+		ResearchToMuchYes,ResearchLateYes,ResearchInstrNotYes,ResearchInstrToMuchYes,
+		ResearchInstrLateYes,RemarkKonsultNotYes,RemarkKonsultLateYes,RemarkDeseaseVerifYes,
+		RemarkDeseaseTimeYes,RemarkDeseaseContentYes,RemarkTherapyChooseDrYes,
+		RemarkTherapyTimeAppointmentYes,RemarkTherapyPolypharmacyYes,
+		ContinuityChoosePlaceYes,ContinuityTimeTransferYes,RemarkStandartMHYes;
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TFStatReport *FStatReport;

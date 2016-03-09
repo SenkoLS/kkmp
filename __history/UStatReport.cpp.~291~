@@ -804,10 +804,6 @@ void __fastcall TFStatReport::BGenerateReportClick(TObject *Sender)
 	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
 	vVarCell.OlePropertySet("Value", "Анализ врачебных ошибок");
 
-	//3
-	AnsiString period = "Период: с "+FormatDateTime("dd-mm-yyyy",DTPStartReportPer->DateTime)+" по "
-		+ FormatDateTime("dd-mm-yyyy",DTPEndReportPer->DateTime);
-
 	vVarCell=vVarSheet.OlePropertyGet("Range","A3:D3");
 	vVarCell.OleProcedure("Merge");
 	vVarCell.OlePropertySet("WrapText", true);
@@ -864,7 +860,7 @@ void __fastcall TFStatReport::BGenerateReportClick(TObject *Sender)
 	vVarCell.OlePropertySet("WrapText", true);
 	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
 	vVarCell.OlePropertySet("VerticalAlignment",-4108);
-	vVarCell.OlePropertySet("Value", "Количество");
+	vVarCell.OlePropertySet("Value", "Кол-во");
 	vVarCell.OlePropertySet("ColumnWidth", 10);
 
 	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",6,4);
@@ -1413,18 +1409,50 @@ void __fastcall TFStatReport::BGenerateReportClick(TObject *Sender)
 	vVarCell = vVarSheet.OlePropertyGet("Range","A6:D35").OlePropertyGet("Borders");
 	vVarCell.OlePropertySet("LineStyle", 1);
 
-	//39
-	vVarCell=vVarSheet.OlePropertyGet("Range","A39:D39");
-	vVarCell.OleProcedure("Merge");
+	//37
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",37,2);
+	vVarCell.OlePropertySet("WrapText", true);
 	vVarCell.OlePropertySet("HorizontalAlignment",2);
-	vVarCell.OlePropertySet("Value", "Выводы и предложения:");
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "Всего амбулаторных карт:");
 
-	vVarCell = vVarCell.OlePropertyGet("Borders",9);
-	vVarCell.OlePropertySet("LineStyle", 1);
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",37,3);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",2);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", StrToInt(ECountOfVisits->Text));
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",37,4);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",2);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "100%");
+
+	//38
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",38,2);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",2);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "Выбрано карт по результатам запроса:");
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",38,3);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",2);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", DMAvtoriz->DSInspection->DataSet->RecordCount);
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",38,4);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("NumberFormatLocal", "0,000%");
+	vVarCell.OlePropertySet("HorizontalAlignment",2);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "=C38/C37");
+
 	//40
 	vVarCell=vVarSheet.OlePropertyGet("Range","A40:D40");
 	vVarCell.OleProcedure("Merge");
-	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("HorizontalAlignment",2);
+	vVarCell.OlePropertySet("Value", "Выводы и предложения:");
 
 	vVarCell = vVarCell.OlePropertyGet("Borders",9);
 	vVarCell.OlePropertySet("LineStyle", 1);
@@ -1449,20 +1477,27 @@ void __fastcall TFStatReport::BGenerateReportClick(TObject *Sender)
 
 	vVarCell = vVarCell.OlePropertyGet("Borders",9);
 	vVarCell.OlePropertySet("LineStyle", 1);
-
-	//45
-	vVarCell=vVarSheet.OlePropertyGet("Range","A45:B45");
+	//44
+	vVarCell=vVarSheet.OlePropertyGet("Range","A44:D44");
 	vVarCell.OleProcedure("Merge");
-	vVarCell.OlePropertySet("HorizontalAlignment",2);
-	vVarCell.OlePropertySet("Value", "Эксперт I уровня, заведующий отделением:");
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+
+	vVarCell = vVarCell.OlePropertyGet("Borders",9);
+	vVarCell.OlePropertySet("LineStyle", 1);
 
 	//46
 	vVarCell=vVarSheet.OlePropertyGet("Range","A46:B46");
 	vVarCell.OleProcedure("Merge");
 	vVarCell.OlePropertySet("HorizontalAlignment",2);
-	vVarCell.OlePropertySet("Value", DMAvtoriz->DSInspection->DataSet->FieldByName("fio_expert")->AsAnsiString.c_str());
+	vVarCell.OlePropertySet("Value", "Эксперт I уровня, заведующий отделением:");
 
-	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",46,3);
+	//47
+	vVarCell=vVarSheet.OlePropertyGet("Range","A47:B47");
+	vVarCell.OleProcedure("Merge");
+	vVarCell.OlePropertySet("HorizontalAlignment",2);
+	//vVarCell.OlePropertySet("Value", DMAvtoriz->DSInspection->DataSet->FieldByName("fio_expert")->AsAnsiString.c_str());
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",47,4);
 	vVarCell.OlePropertySet("WrapText", true);
 	vVarCell.OlePropertySet("HorizontalAlignment",4);
 	vVarCell.OlePropertySet("VerticalAlignment",-4108);
@@ -1582,7 +1617,9 @@ void __fastcall TFStatReport::BGenReportClick(TObject *Sender)
 
 	count1,count2,count3,count4,count5,count6,count7,count8,count9,
 	count10,count11,count12,count13,count14,count15,count16,count17,count18,
-	count19,count20,count21 = 0;
+	count19,count20,count21,count31,count32,count33,count34,count35,count36,
+	count37,count38,count39,count40,count41,count42,count43,count44,count45,
+	count46,count47,count48,count49,count50	 = 0;
 
 	VuluntarMedAgreementYes, AgreementPDNYes,
 	ComplitListDeseaseYes, CompitListProfAndStatusYes,
@@ -1595,6 +1632,13 @@ void __fastcall TFStatReport::BGenReportClick(TObject *Sender)
 	DescriptObjectStatus, EvaluationResultsOfTreatment,
 	ObservStandartsOfDiagnostics, ObservStandartsOfTreatment,
 	DeadlinesVN = 0;
+
+    RemarkInfServYes,RemarkAnamYes,RemarkFizResYes,ResearchNotYes,
+	ResearchToMuchYes,ResearchLateYes,ResearchInstrNotYes,ResearchInstrToMuchYes,
+	ResearchInstrLateYes,RemarkKonsultNotYes,RemarkKonsultLateYes,RemarkDeseaseVerifYes,
+	RemarkDeseaseTimeYes,RemarkDeseaseContentYes,RemarkTherapyChooseDrYes,
+	RemarkTherapyTimeAppointmentYes,RemarkTherapyPolypharmacyYes,
+	ContinuityChoosePlaceYes,ContinuityTimeTransferYes,RemarkStandartMHYes = 0;
 
 	//GPA
 	while(!DMAvtoriz->DSInspection->DataSet->Eof){
@@ -1681,6 +1725,88 @@ void __fastcall TFStatReport::BGenReportClick(TObject *Sender)
 		if(DMAvtoriz->DSInspection->DataSet->FieldByName("DeadlinesVN")->AsInteger != 0){
 			DeadlinesVN += DMAvtoriz->DSInspection->DataSet->FieldByName("DeadlinesVN")->AsInteger;
 			count21++;
+		}
+
+		// error indicators
+		if(DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkInfServYes")->AsInteger != 0){
+			RemarkInfServYes += DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkInfServYes")->AsInteger;
+			count31++;
+		}
+		if(DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkAnamYes")->AsInteger != 0){
+			RemarkAnamYes += DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkAnamYes")->AsInteger;
+			count32++;
+		}
+		if(DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkFizResYes")->AsInteger != 0){
+			RemarkFizResYes += DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkFizResYes")->AsInteger;
+			count33++;
+		}
+		if(DMAvtoriz->DSInspection->DataSet->FieldByName("ResearchNotYes")->AsInteger != 0){
+			ResearchNotYes += DMAvtoriz->DSInspection->DataSet->FieldByName("ResearchNotYes")->AsInteger;
+			count34++;
+		}
+		if(DMAvtoriz->DSInspection->DataSet->FieldByName("ResearchToMuchYes")->AsInteger != 0){
+			ResearchToMuchYes += DMAvtoriz->DSInspection->DataSet->FieldByName("ResearchToMuchYes")->AsInteger;
+			count35++;
+		}
+		if(DMAvtoriz->DSInspection->DataSet->FieldByName("ResearchLateYes")->AsInteger != 0){
+			ResearchLateYes += DMAvtoriz->DSInspection->DataSet->FieldByName("ResearchLateYes")->AsInteger;
+			count36++;
+		}
+		if(DMAvtoriz->DSInspection->DataSet->FieldByName("ResearchInstrNotYes")->AsInteger != 0){
+			ResearchInstrNotYes += DMAvtoriz->DSInspection->DataSet->FieldByName("ResearchInstrNotYes")->AsInteger;
+			count37++;
+		}
+		if(DMAvtoriz->DSInspection->DataSet->FieldByName("ResearchInstrToMuchYes")->AsInteger != 0){
+			ResearchInstrToMuchYes += DMAvtoriz->DSInspection->DataSet->FieldByName("ResearchInstrToMuchYes")->AsInteger;
+			count38++;
+		}
+		if(DMAvtoriz->DSInspection->DataSet->FieldByName("ResearchInstrLateYes")->AsInteger != 0){
+			ResearchInstrLateYes += DMAvtoriz->DSInspection->DataSet->FieldByName("ResearchInstrLateYes")->AsInteger;
+			count39++;
+		}
+		if(DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkKonsultNotYes")->AsInteger != 0){
+			RemarkKonsultNotYes += DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkKonsultNotYes")->AsInteger;
+			count40++;
+		}
+		if(DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkKonsultLateYes")->AsInteger != 0){
+			RemarkKonsultLateYes += DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkKonsultLateYes")->AsInteger;
+			count41++;
+		}
+		if(DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkDeseaseVerifYes")->AsInteger != 0){
+			RemarkDeseaseVerifYes += DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkDeseaseVerifYes")->AsInteger;
+			count42++;
+		}
+		if(DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkDeseaseTimeYes")->AsInteger != 0){
+			RemarkDeseaseTimeYes += DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkDeseaseTimeYes")->AsInteger;
+			count43++;
+		}
+		if(DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkDeseaseContentYes")->AsInteger != 0){
+			RemarkDeseaseContentYes += DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkDeseaseContentYes")->AsInteger;
+			count44++;
+		}
+		if(DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkTherapyChooseDrYes")->AsInteger != 0){
+			RemarkTherapyChooseDrYes += DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkTherapyChooseDrYes")->AsInteger;
+			count45++;
+		}
+		if(DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkTherapyTimeAppointmentYes")->AsInteger != 0){
+			RemarkTherapyTimeAppointmentYes += DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkTherapyTimeAppointmentYes")->AsInteger;
+			count46++;
+		}
+		if(DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkTherapyPolypharmacyYes")->AsInteger != 0){
+			RemarkTherapyPolypharmacyYes += DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkTherapyPolypharmacyYes")->AsInteger;
+			count47++;
+		}
+		if(DMAvtoriz->DSInspection->DataSet->FieldByName("ContinuityChoosePlaceYes")->AsInteger != 0){
+			ContinuityChoosePlaceYes += DMAvtoriz->DSInspection->DataSet->FieldByName("ContinuityChoosePlaceYes")->AsInteger;
+			count48++;
+		}
+		if(DMAvtoriz->DSInspection->DataSet->FieldByName("ContinuityTimeTransferYes")->AsInteger != 0){
+			ContinuityTimeTransferYes += DMAvtoriz->DSInspection->DataSet->FieldByName("ContinuityTimeTransferYes")->AsInteger;
+			count49++;
+		}
+		if(DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkStandartMHYes")->AsInteger != 0){
+			RemarkStandartMHYes += DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkStandartMHYes")->AsInteger;
+			count50++;
 		}
 
 		DMAvtoriz->DSInspection->DataSet->Next();
