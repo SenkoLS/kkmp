@@ -130,7 +130,7 @@ void __fastcall TFStatReport::BGenerateReportClick(TObject *Sender)
 		vVarApp=CreateOleObject("Excel.Application");
 		vVarApp.OlePropertySet("Visible",true);
 		vVarBooks=vVarApp.OlePropertyGet("Workbooks");
-		vVarApp.OlePropertySet("SheetsInNewWorkbook",2);
+		vVarApp.OlePropertySet("SheetsInNewWorkbook",3);
 		vVarBooks.OleProcedure("Add");
 		vVarBook=vVarBooks.OlePropertyGet("Item",1);
 		vVarSheets=vVarBook.OlePropertyGet("Worksheets") ;
@@ -695,7 +695,6 @@ void __fastcall TFStatReport::BGenerateReportClick(TObject *Sender)
 	//BORDER:
 	vVarCell = vVarSheet.OlePropertyGet("Range","A6:D30").OlePropertyGet("Borders");
 	vVarCell.OlePropertySet("LineStyle", 1);
-	ShowMessage("Сбор отчета закончен!");
 
 	//32
 	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",32,2);
@@ -1463,7 +1462,7 @@ void __fastcall TFStatReport::BGenerateReportClick(TObject *Sender)
 	vVarCell.OlePropertySet("WrapText", true);
 	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
 	vVarCell.OlePropertySet("VerticalAlignment",-4108);
-	vVarCell.OlePropertySet("Value", DMAvtoriz->DSPInspection->DataSet->FieldByName("kvo")->AsAnsiString.c_str());
+	vVarCell.OlePropertySet("Value","=СУММ(C8:C10;C12:C14;C16:C18;C20:C21;C23:C25;C27:C29;C31:C32;C34)");
 
 	//BORDER:
 	vVarCell = vVarSheet.OlePropertyGet("Range","A6:D35").OlePropertyGet("Borders");
@@ -1563,6 +1562,209 @@ void __fastcall TFStatReport::BGenerateReportClick(TObject *Sender)
 	vVarCell.OlePropertySet("VerticalAlignment",-4108);
 	vVarCell = vVarCell.OlePropertyGet("Borders",9);
 	vVarCell.OlePropertySet("LineStyle", 1);
+
+
+	//THIRD LIST (Med error)
+	vVarSheet = vVarSheets.OlePropertyGet("Item",3);
+	vVarSheet.OlePropertySet("Name","Врачи");
+
+	//1
+	vVarCell=vVarSheet.OlePropertyGet("Range","A1:G1");
+	vVarCell.OleProcedure("Merge");
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "Анализ работы врачей");
+
+	vVarCell=vVarSheet.OlePropertyGet("Range","A3:G3");
+	vVarCell.OleProcedure("Merge");
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", period.c_str());
+
+	//5
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",5,1);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "№ п/п");
+	vVarCell.OlePropertySet("ColumnWidth", 8);
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",5,2);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "ФИО врача");
+	vVarCell.OlePropertySet("ColumnWidth", 40);
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",5,3);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "Кол-во карт");
+	vVarCell.OlePropertySet("ColumnWidth", 10);
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",5,4);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "Сумма дней");
+	vVarCell.OlePropertySet("ColumnWidth", 10);
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",5,5);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("NumberFormatLocal", "0,000");
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "КВМД");
+	vVarCell.OlePropertySet("ColumnWidth", 10);
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",5,6);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("NumberFormatLocal", "0,000");
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "КОМП");
+	vVarCell.OlePropertySet("ColumnWidth", 10);
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",5,7);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("NumberFormatLocal", "0,000");
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "КВО");
+	vVarCell.OlePropertySet("ColumnWidth", 10);
+
+	
+
+	//------------########    CALCULATION KKMP and KVO  #######--------------
+	//Set queries for statistics (get users ids)
+	AnsiString typeQuery, nameMed = "";
+	typeQuery = "SELECT `id_user` FROM `inspection` "
+				"WHERE `date_end` BETWEEN '" +FormatDateTime("yyyy-mm-dd",DTPStartReportPer->DateTime)+ "' AND '"
+				+ FormatDateTime("yyyy-mm-dd",DTPEndReportPer->DateTime) +"' "
+				"GROUP BY `id_user`;";
+
+	DMAvtoriz->SQLQInspection->Close();
+	DMAvtoriz->SQLQInspection->SQL->Text = typeQuery;
+	DMAvtoriz->SQLQInspection->Open();
+	DMAvtoriz->CDSInspection->Close();
+	DMAvtoriz->CDSInspection->Open();
+
+	//set counter first cycle
+	int i = 6;
+	//set counter second cycle
+	int count = 0;
+
+	//choice of a doctor with his indicators
+	while(!DMAvtoriz->DSInspection->DataSet->Eof){
+		typeQuery =
+			"SELECT CONCAT(`user`.`surname`,' ',`user`.`name`,' ',`user`.`patronymic`) as `fio_med`, "
+			"`inspection`.`duration`,`inspection`.`kkmp1`,`inspection`.`kkmp2`,`inspection`.`kvo` "
+			"FROM `user` INNER JOIN `inspection` "
+			"ON `user`.`id_user` = `inspection`.`id_user` "
+			"WHERE `inspection`.`id_user` = '" +DMAvtoriz->DSInspection->DataSet->FieldByName("id_user")->AsAnsiString + "' AND "
+			"`inspection`.`date_end` BETWEEN '" +FormatDateTime("yyyy-mm-dd",DTPStartReportPer->DateTime)+ "' AND '"
+			+ FormatDateTime("yyyy-mm-dd",DTPEndReportPer->DateTime) +"'";
+
+		DMAvtoriz->SQLQGetListUserStat->Close();
+		DMAvtoriz->SQLQGetListUserStat->SQL->Text = typeQuery;
+		DMAvtoriz->SQLQGetListUserStat->Open();
+		DMAvtoriz->CDSGetListUserStat->Close();
+		DMAvtoriz->CDSGetListUserStat->Open();
+
+        //get name of user in current itteration
+		if(nameMed.IsEmpty())
+			nameMed = DMAvtoriz->DSGetListUserStat->DataSet->FieldByName("fio_med")->AsAnsiString;
+
+		//write into excel record number
+		vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",i,1);
+		vVarCell.OlePropertySet("WrapText", true);
+		vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+		vVarCell.OlePropertySet("VerticalAlignment",-4108);
+		vVarCell.OlePropertySet("Value",i-5);
+
+		//write into excel user name
+		vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",i,2);
+		vVarCell.OlePropertySet("WrapText", true);
+		vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+		vVarCell.OlePropertySet("VerticalAlignment",-4108);
+		vVarCell.OlePropertySet("Value",nameMed.c_str());
+
+		//reset kkmp and kvo indicators and count
+		kkmp1 = 0;
+		kkmp2 = 0;
+		kvo = 0;
+		count = 0;
+		countCards = 0;
+		countDays = 0;
+
+		//get indicators of the current user
+		while(!DMAvtoriz->DSGetListUserStat->DataSet->Eof){
+			kkmp1 += StrToFloat(StringReplace(DMAvtoriz->DSGetListUserStat->DataSet->FieldByName("kkmp1")->AsAnsiString,".",",",TReplaceFlags()<< rfReplaceAll << rfIgnoreCase));
+			kkmp2 += StrToFloat(StringReplace(DMAvtoriz->DSGetListUserStat->DataSet->FieldByName("kkmp2")->AsAnsiString,".",",",TReplaceFlags()<< rfReplaceAll << rfIgnoreCase));
+			kvo += StrToFloat(StringReplace(DMAvtoriz->DSGetListUserStat->DataSet->FieldByName("kvo")->AsAnsiString,".",",",TReplaceFlags()<< rfReplaceAll << rfIgnoreCase));
+			count++;
+			countCards++;
+			countDays += DMAvtoriz->DSGetListUserStat->DataSet->FieldByName("duration")->AsInteger;
+			DMAvtoriz->DSGetListUserStat->DataSet->Next();
+		}
+
+		kkmp1 = kkmp1/count;
+		kkmp2 = kkmp2/count;
+		kvo = kvo/count;
+
+		//write into excel kkmp1,kkmp2,kvo
+		vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",i,3);
+		vVarCell.OlePropertySet("WrapText", true);
+		vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+		vVarCell.OlePropertySet("VerticalAlignment",-4108);
+		vVarCell.OlePropertySet("Value",countCards);
+
+		vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",i,4);
+		vVarCell.OlePropertySet("WrapText", true);
+		vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+		vVarCell.OlePropertySet("VerticalAlignment",-4108);
+		vVarCell.OlePropertySet("Value",countDays);
+
+		vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",i,5);
+		vVarCell.OlePropertySet("WrapText", true);
+		vVarCell.OlePropertySet("NumberFormatLocal", "0,000");
+		vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+		vVarCell.OlePropertySet("VerticalAlignment",-4108);
+		vVarCell.OlePropertySet("Value",kkmp1);
+
+		vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",i,6);
+		vVarCell.OlePropertySet("WrapText", true);
+		vVarCell.OlePropertySet("NumberFormatLocal", "0,000");
+		vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+		vVarCell.OlePropertySet("VerticalAlignment",-4108);
+		vVarCell.OlePropertySet("Value",kkmp2);
+
+		vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",i,7);
+		vVarCell.OlePropertySet("WrapText", true);
+		vVarCell.OlePropertySet("NumberFormatLocal", "0,000");
+		vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+		vVarCell.OlePropertySet("VerticalAlignment",-4108);
+		vVarCell.OlePropertySet("Value",kvo);
+
+		//reset the name of the doctor
+		nameMed = "";
+		//increment "i"
+		i++;
+
+		//go to the next iteration (next user)
+		DMAvtoriz->DSInspection->DataSet->Next();
+	}
+
+	//BORDER:
+	AnsiString ran = "A5:G" + IntToStr(i-1);
+	vVarCell = vVarSheet.OlePropertyGet("Range",ran.c_str()).OlePropertyGet("Borders");
+	vVarCell.OlePropertySet("LineStyle", 1);
+
+    DBGridReport->DataSource = NULL;
+
+	MessageBox(0,L"Вывод данных закончен!\n",L"Сообщение",MB_OK | MB_ICONINFORMATION);
 }
 //---------------------------------------------------------------------------
 

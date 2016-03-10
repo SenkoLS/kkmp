@@ -80,6 +80,9 @@ public:		// User declarations
 		RemarkDeseaseTimeYes,RemarkDeseaseContentYes,RemarkTherapyChooseDrYes,
 		RemarkTherapyTimeAppointmentYes,RemarkTherapyPolypharmacyYes,
 		ContinuityChoosePlaceYes,ContinuityTimeTransferYes,RemarkStandartMHYes;
+
+	double kkmp1,kkmp2,kvo;
+	int countDays, countCards;
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TFStatReport *FStatReport;

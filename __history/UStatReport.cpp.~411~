@@ -130,7 +130,7 @@ void __fastcall TFStatReport::BGenerateReportClick(TObject *Sender)
 		vVarApp=CreateOleObject("Excel.Application");
 		vVarApp.OlePropertySet("Visible",true);
 		vVarBooks=vVarApp.OlePropertyGet("Workbooks");
-		vVarApp.OlePropertySet("SheetsInNewWorkbook",2);
+		vVarApp.OlePropertySet("SheetsInNewWorkbook",3);
 		vVarBooks.OleProcedure("Add");
 		vVarBook=vVarBooks.OlePropertyGet("Item",1);
 		vVarSheets=vVarBook.OlePropertyGet("Worksheets") ;
@@ -695,7 +695,6 @@ void __fastcall TFStatReport::BGenerateReportClick(TObject *Sender)
 	//BORDER:
 	vVarCell = vVarSheet.OlePropertyGet("Range","A6:D30").OlePropertyGet("Borders");
 	vVarCell.OlePropertySet("LineStyle", 1);
-	ShowMessage("Сбор отчета закончен!");
 
 	//32
 	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",32,2);
@@ -895,11 +894,14 @@ void __fastcall TFStatReport::BGenerateReportClick(TObject *Sender)
 	vVarCell.OlePropertySet("WrapText", true);
 	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
 	vVarCell.OlePropertySet("VerticalAlignment",-4108);
-//	switch(DMAvtoriz->DSPInspection->DataSet->FieldByName("RemarkInfServYes")->AsInteger){
-//		case 1:	vVarCell.OlePropertySet("Value", "Да"); break;
-//		case 2: vVarCell.OlePropertySet("Value", "Нет"); break;
-//		default: vVarCell.OlePropertySet("Value", "");
-//	}
+	vVarCell.OlePropertySet("Value",RemarkInfServYes);
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",8,4);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("NumberFormatLocal", "0,000");
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value","=C8/C38");
 
 	//9
 	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",9,1);
@@ -918,11 +920,14 @@ void __fastcall TFStatReport::BGenerateReportClick(TObject *Sender)
 	vVarCell.OlePropertySet("WrapText", true);
 	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
 	vVarCell.OlePropertySet("VerticalAlignment",-4108);
-//	switch(DMAvtoriz->DSPInspection->DataSet->FieldByName("RemarkAnamYes")->AsInteger){
-//		case 1:	vVarCell.OlePropertySet("Value", "Да"); break;
-//		case 2: vVarCell.OlePropertySet("Value", "Нет"); break;
-//		default: vVarCell.OlePropertySet("Value", "");
-//	}
+	vVarCell.OlePropertySet("Value",RemarkAnamYes);
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",9,4);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("NumberFormatLocal", "0,000");
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value","=C9/C38");
 
 	//10
 	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",10,1);
@@ -941,11 +946,14 @@ void __fastcall TFStatReport::BGenerateReportClick(TObject *Sender)
 	vVarCell.OlePropertySet("WrapText", true);
 	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
 	vVarCell.OlePropertySet("VerticalAlignment",-4108);
-//	switch(DMAvtoriz->DSPInspection->DataSet->FieldByName("RemarkFizResYes")->AsInteger){
-//		case 1:	vVarCell.OlePropertySet("Value", "Да"); break;
-//		case 2: vVarCell.OlePropertySet("Value", "Нет"); break;
-//		default: vVarCell.OlePropertySet("Value", "");
-//	}
+	vVarCell.OlePropertySet("Value",RemarkFizResYes);
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",10,4);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("NumberFormatLocal", "0,000");
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value","=C10/C38");
 
 	//11
 	vVarCell=vVarSheet.OlePropertyGet("Range","A11:C11");
@@ -971,11 +979,14 @@ void __fastcall TFStatReport::BGenerateReportClick(TObject *Sender)
 	vVarCell.OlePropertySet("WrapText", true);
 	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
 	vVarCell.OlePropertySet("VerticalAlignment",-4108);
-//	switch(DMAvtoriz->DSPInspection->DataSet->FieldByName("ResearchNotYes")->AsInteger){
-//		case 1:	vVarCell.OlePropertySet("Value", "Да"); break;
-//		case 2: vVarCell.OlePropertySet("Value", "Нет"); break;
-//		default: vVarCell.OlePropertySet("Value", "");
-//	}
+	vVarCell.OlePropertySet("Value",ResearchNotYes);
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",12,4);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("NumberFormatLocal", "0,000");
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value","=C12/C38");
 
 	//13
 	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",13,1);
@@ -994,11 +1005,14 @@ void __fastcall TFStatReport::BGenerateReportClick(TObject *Sender)
 	vVarCell.OlePropertySet("WrapText", true);
 	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
 	vVarCell.OlePropertySet("VerticalAlignment",-4108);
-//	switch(DMAvtoriz->DSPInspection->DataSet->FieldByName("ResearchToMuchYes")->AsInteger){
-//		case 1:	vVarCell.OlePropertySet("Value", "Да"); break;
-//		case 2: vVarCell.OlePropertySet("Value", "Нет"); break;
-//		default: vVarCell.OlePropertySet("Value", "");
-//	}
+	vVarCell.OlePropertySet("Value",ResearchToMuchYes);
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",13,4);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("NumberFormatLocal", "0,000");
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value","=C13/C38");
 
 	//14
 	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",14,1);
@@ -1017,11 +1031,14 @@ void __fastcall TFStatReport::BGenerateReportClick(TObject *Sender)
 	vVarCell.OlePropertySet("WrapText", true);
 	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
 	vVarCell.OlePropertySet("VerticalAlignment",-4108);
-//	switch(DMAvtoriz->DSPInspection->DataSet->FieldByName("ResearchLateYes")->AsInteger){
-//		case 1:	vVarCell.OlePropertySet("Value", "Да"); break;
-//		case 2: vVarCell.OlePropertySet("Value", "Нет"); break;
-//		default: vVarCell.OlePropertySet("Value", "");
-//	}
+	vVarCell.OlePropertySet("Value",ResearchLateYes);
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",14,4);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("NumberFormatLocal", "0,000");
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value","=C14/C38");
 
 	//15
 	vVarCell=vVarSheet.OlePropertyGet("Range","A15:C15");
@@ -1048,11 +1065,14 @@ void __fastcall TFStatReport::BGenerateReportClick(TObject *Sender)
 	vVarCell.OlePropertySet("WrapText", true);
 	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
 	vVarCell.OlePropertySet("VerticalAlignment",-4108);
-//	switch(DMAvtoriz->DSPInspection->DataSet->FieldByName("ResearchInstrNotYes")->AsInteger){
-//		case 1:	vVarCell.OlePropertySet("Value", "Да"); break;
-//		case 2: vVarCell.OlePropertySet("Value", "Нет"); break;
-//		default: vVarCell.OlePropertySet("Value", "");
-//	}
+	vVarCell.OlePropertySet("Value",ResearchInstrNotYes);
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",16,4);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("NumberFormatLocal", "0,000");
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value","=C16/C38");
 
 	//17
 	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",17,1);
@@ -1071,11 +1091,14 @@ void __fastcall TFStatReport::BGenerateReportClick(TObject *Sender)
 	vVarCell.OlePropertySet("WrapText", true);
 	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
 	vVarCell.OlePropertySet("VerticalAlignment",-4108);
-//	switch(DMAvtoriz->DSPInspection->DataSet->FieldByName("ResearchInstrToMuchYes")->AsInteger){
-//		case 1:	vVarCell.OlePropertySet("Value", "Да"); break;
-//		case 2: vVarCell.OlePropertySet("Value", "Нет"); break;
-//		default: vVarCell.OlePropertySet("Value", "");
-//	}
+	vVarCell.OlePropertySet("Value",ResearchInstrToMuchYes);
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",17,4);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("NumberFormatLocal", "0,000");
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value","=C17/C38");
 
 	//18
 	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",18,1);
@@ -1094,11 +1117,14 @@ void __fastcall TFStatReport::BGenerateReportClick(TObject *Sender)
 	vVarCell.OlePropertySet("WrapText", true);
 	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
 	vVarCell.OlePropertySet("VerticalAlignment",-4108);
-//	switch(DMAvtoriz->DSPInspection->DataSet->FieldByName("ResearchInstrLateYes")->AsInteger){
-//		case 1:	vVarCell.OlePropertySet("Value", "Да"); break;
-//		case 2: vVarCell.OlePropertySet("Value", "Нет"); break;
-//		default: vVarCell.OlePropertySet("Value", "");
-//	}
+	vVarCell.OlePropertySet("Value",ResearchInstrLateYes);
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",18,4);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("NumberFormatLocal", "0,000");
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value","=C18/C38");
 
 	//19
 	vVarCell=vVarSheet.OlePropertyGet("Range","A19:C19");
@@ -1125,11 +1151,14 @@ void __fastcall TFStatReport::BGenerateReportClick(TObject *Sender)
 	vVarCell.OlePropertySet("WrapText", true);
 	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
 	vVarCell.OlePropertySet("VerticalAlignment",-4108);
-//	switch(DMAvtoriz->DSPInspection->DataSet->FieldByName("RemarkKonsultNotYes")->AsInteger){
-//		case 1:	vVarCell.OlePropertySet("Value", "Да"); break;
-//		case 2: vVarCell.OlePropertySet("Value", "Нет"); break;
-//		default: vVarCell.OlePropertySet("Value", "");
-//	}
+	vVarCell.OlePropertySet("Value",RemarkKonsultNotYes);
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",20,4);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("NumberFormatLocal", "0,000");
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value","=C20/C38");
 
 	//21
 	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",21,1);
@@ -1148,11 +1177,14 @@ void __fastcall TFStatReport::BGenerateReportClick(TObject *Sender)
 	vVarCell.OlePropertySet("WrapText", true);
 	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
 	vVarCell.OlePropertySet("VerticalAlignment",-4108);
-//	switch(DMAvtoriz->DSPInspection->DataSet->FieldByName("RemarkKonsultLateYes")->AsInteger){
-//		case 1:	vVarCell.OlePropertySet("Value", "Да"); break;
-//		case 2: vVarCell.OlePropertySet("Value", "Нет"); break;
-//		default: vVarCell.OlePropertySet("Value", "");
-//	}
+	vVarCell.OlePropertySet("Value",RemarkKonsultLateYes);
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",21,4);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("NumberFormatLocal", "0,000");
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value","=C21/C38");
 
 	//22
 	vVarCell=vVarSheet.OlePropertyGet("Range","A22:C22");
@@ -1179,11 +1211,14 @@ void __fastcall TFStatReport::BGenerateReportClick(TObject *Sender)
 	vVarCell.OlePropertySet("WrapText", true);
 	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
 	vVarCell.OlePropertySet("VerticalAlignment",-4108);
-//	switch(DMAvtoriz->DSPInspection->DataSet->FieldByName("RemarkDeseaseVerifYes")->AsInteger){
-//		case 1:	vVarCell.OlePropertySet("Value", "Да"); break;
-//		case 2: vVarCell.OlePropertySet("Value", "Нет"); break;
-//		default: vVarCell.OlePropertySet("Value", "");
-//	}
+	vVarCell.OlePropertySet("Value",RemarkDeseaseVerifYes);
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",23,4);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("NumberFormatLocal", "0,000");
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value","=C23/C38");
 
 	//24
 	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",24,1);
@@ -1202,11 +1237,14 @@ void __fastcall TFStatReport::BGenerateReportClick(TObject *Sender)
 	vVarCell.OlePropertySet("WrapText", true);
 	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
 	vVarCell.OlePropertySet("VerticalAlignment",-4108);
-//	switch(DMAvtoriz->DSPInspection->DataSet->FieldByName("RemarkDeseaseTimeYes")->AsInteger){
-//		case 1:	vVarCell.OlePropertySet("Value", "Да"); break;
-//		case 2: vVarCell.OlePropertySet("Value", "Нет"); break;
-//		default: vVarCell.OlePropertySet("Value", "");
-//	}
+	vVarCell.OlePropertySet("Value",RemarkDeseaseTimeYes);
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",24,4);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("NumberFormatLocal", "0,000");
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value","=C24/C38");
 
 	//25
 	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",25,1);
@@ -1225,11 +1263,14 @@ void __fastcall TFStatReport::BGenerateReportClick(TObject *Sender)
 	vVarCell.OlePropertySet("WrapText", true);
 	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
 	vVarCell.OlePropertySet("VerticalAlignment",-4108);
-//	switch(DMAvtoriz->DSPInspection->DataSet->FieldByName("RemarkDeseaseContentYes")->AsInteger){
-//		case 1:	vVarCell.OlePropertySet("Value", "Да"); break;
-//		case 2: vVarCell.OlePropertySet("Value", "Нет"); break;
-//		default: vVarCell.OlePropertySet("Value", "");
-//	}
+	vVarCell.OlePropertySet("Value",RemarkDeseaseContentYes);
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",25,4);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("NumberFormatLocal", "0,000");
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value","=C25/C38");
 
 	//26
 	vVarCell=vVarSheet.OlePropertyGet("Range","A26:C26");
@@ -1256,11 +1297,14 @@ void __fastcall TFStatReport::BGenerateReportClick(TObject *Sender)
 	vVarCell.OlePropertySet("WrapText", true);
 	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
 	vVarCell.OlePropertySet("VerticalAlignment",-4108);
-//	switch(DMAvtoriz->DSPInspection->DataSet->FieldByName("RemarkTherapyChooseDrYes")->AsInteger){
-//		case 1:	vVarCell.OlePropertySet("Value", "Да"); break;
-//		case 2: vVarCell.OlePropertySet("Value", "Нет"); break;
-//		default: vVarCell.OlePropertySet("Value", "");
-//	}
+	vVarCell.OlePropertySet("Value",RemarkTherapyChooseDrYes);
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",27,4);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("NumberFormatLocal", "0,000");
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value","=C27/C38");
 
 	//28
 	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",28,1);
@@ -1279,11 +1323,14 @@ void __fastcall TFStatReport::BGenerateReportClick(TObject *Sender)
 	vVarCell.OlePropertySet("WrapText", true);
 	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
 	vVarCell.OlePropertySet("VerticalAlignment",-4108);
-//	switch(DMAvtoriz->DSPInspection->DataSet->FieldByName("RemarkTherapyTimeAppointmentYes")->AsInteger){
-//		case 1:	vVarCell.OlePropertySet("Value", "Да"); break;
-//		case 2: vVarCell.OlePropertySet("Value", "Нет"); break;
-//		default: vVarCell.OlePropertySet("Value", "");
-//	}
+	vVarCell.OlePropertySet("Value",RemarkTherapyTimeAppointmentYes);
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",28,4);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("NumberFormatLocal", "0,000");
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value","=C28/C38");
 
 	//29
 	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",29,1);
@@ -1302,11 +1349,14 @@ void __fastcall TFStatReport::BGenerateReportClick(TObject *Sender)
 	vVarCell.OlePropertySet("WrapText", true);
 	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
 	vVarCell.OlePropertySet("VerticalAlignment",-4108);
-//	switch(DMAvtoriz->DSPInspection->DataSet->FieldByName("RemarkTherapyPolypharmacyYes")->AsInteger){
-//		case 1:	vVarCell.OlePropertySet("Value", "Да"); break;
-//		case 2: vVarCell.OlePropertySet("Value", "Нет"); break;
-//		default: vVarCell.OlePropertySet("Value", "");
-//	}
+	vVarCell.OlePropertySet("Value",RemarkTherapyPolypharmacyYes);
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",29,4);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("NumberFormatLocal", "0,000");
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value","=C29/C38");
 
 	//30
 	vVarCell=vVarSheet.OlePropertyGet("Range","A30:C30");
@@ -1333,11 +1383,14 @@ void __fastcall TFStatReport::BGenerateReportClick(TObject *Sender)
 	vVarCell.OlePropertySet("WrapText", true);
 	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
 	vVarCell.OlePropertySet("VerticalAlignment",-4108);
-//	switch(DMAvtoriz->DSPInspection->DataSet->FieldByName("ContinuityChoosePlaceYes")->AsInteger){
-//		case 1:	vVarCell.OlePropertySet("Value", "Да"); break;
-//		case 2: vVarCell.OlePropertySet("Value", "Нет"); break;
-//		default: vVarCell.OlePropertySet("Value", "");
-//	}
+	vVarCell.OlePropertySet("Value",ContinuityChoosePlaceYes);
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",31,4);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("NumberFormatLocal", "0,000");
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value","=C31/C38");
 
 	//32
 	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",32,1);
@@ -1356,11 +1409,14 @@ void __fastcall TFStatReport::BGenerateReportClick(TObject *Sender)
 	vVarCell.OlePropertySet("WrapText", true);
 	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
 	vVarCell.OlePropertySet("VerticalAlignment",-4108);
-//	switch(DMAvtoriz->DSPInspection->DataSet->FieldByName("ContinuityTimeTransferYes")->AsInteger){
-//		case 1:	vVarCell.OlePropertySet("Value", "Да"); break;
-//		case 2: vVarCell.OlePropertySet("Value", "Нет"); break;
-//		default: vVarCell.OlePropertySet("Value", "");
-//	}
+	vVarCell.OlePropertySet("Value",ContinuityTimeTransferYes);
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",32,4);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("NumberFormatLocal", "0,000");
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value","=C32/C38");
 
 	//33
 	vVarCell=vVarSheet.OlePropertyGet("Range","A33:C33");
@@ -1387,11 +1443,14 @@ void __fastcall TFStatReport::BGenerateReportClick(TObject *Sender)
 	vVarCell.OlePropertySet("WrapText", true);
 	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
 	vVarCell.OlePropertySet("VerticalAlignment",-4108);
-//	switch(DMAvtoriz->DSPInspection->DataSet->FieldByName("RemarkStandartMHYes")->AsInteger){
-//		case 1:	vVarCell.OlePropertySet("Value", "Да"); break;
-//		case 2: vVarCell.OlePropertySet("Value", "Нет"); break;
-//		default: vVarCell.OlePropertySet("Value", "");
-//	}
+	vVarCell.OlePropertySet("Value",RemarkStandartMHYes);
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",34,4);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("NumberFormatLocal", "0,000");
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value","=C34/C38");
 
 	//35
 	vVarCell=vVarSheet.OlePropertyGet("Range","A35:B35");
@@ -1403,7 +1462,7 @@ void __fastcall TFStatReport::BGenerateReportClick(TObject *Sender)
 	vVarCell.OlePropertySet("WrapText", true);
 	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
 	vVarCell.OlePropertySet("VerticalAlignment",-4108);
-	vVarCell.OlePropertySet("Value", DMAvtoriz->DSPInspection->DataSet->FieldByName("kvo")->AsAnsiString.c_str());
+	vVarCell.OlePropertySet("Value","=СУММ(C8:C10;C12:C14;C16:C18;C20:C21;C23:C25;C27:C29;C31:C32;C34)");
 
 	//BORDER:
 	vVarCell = vVarSheet.OlePropertyGet("Range","A6:D35").OlePropertyGet("Borders");
@@ -1503,6 +1562,207 @@ void __fastcall TFStatReport::BGenerateReportClick(TObject *Sender)
 	vVarCell.OlePropertySet("VerticalAlignment",-4108);
 	vVarCell = vVarCell.OlePropertyGet("Borders",9);
 	vVarCell.OlePropertySet("LineStyle", 1);
+
+
+	//THIRD LIST (Med error)
+	vVarSheet = vVarSheets.OlePropertyGet("Item",3);
+	vVarSheet.OlePropertySet("Name","Врачи");
+
+	//1
+	vVarCell=vVarSheet.OlePropertyGet("Range","A1:G1");
+	vVarCell.OleProcedure("Merge");
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "Анализ работы врачей");
+
+	vVarCell=vVarSheet.OlePropertyGet("Range","A3:G3");
+	vVarCell.OleProcedure("Merge");
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", period.c_str());
+
+	//5
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",5,1);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "№ п/п");
+	vVarCell.OlePropertySet("ColumnWidth", 8);
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",5,2);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "ФИО врача");
+	vVarCell.OlePropertySet("ColumnWidth", 40);
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",5,3);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "Кол-во карт");
+	vVarCell.OlePropertySet("ColumnWidth", 10);
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",5,4);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "Сумма дней");
+	vVarCell.OlePropertySet("ColumnWidth", 10);
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",5,5);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("NumberFormatLocal", "0,000");
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "КВМД");
+	vVarCell.OlePropertySet("ColumnWidth", 10);
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",5,6);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("NumberFormatLocal", "0,000");
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "КОМП");
+	vVarCell.OlePropertySet("ColumnWidth", 10);
+
+	vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",5,7);
+	vVarCell.OlePropertySet("WrapText", true);
+	vVarCell.OlePropertySet("NumberFormatLocal", "0,000");
+	vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+	vVarCell.OlePropertySet("VerticalAlignment",-4108);
+	vVarCell.OlePropertySet("Value", "КВО");
+	vVarCell.OlePropertySet("ColumnWidth", 10);
+
+	
+
+	//------------########    CALCULATION KKMP and KVO  #######--------------
+	//Set queries for statistics (get users ids)
+	AnsiString typeQuery, nameMed = "";
+	typeQuery = "SELECT `id_user` FROM `inspection` "
+				"WHERE `date_end` BETWEEN '" +FormatDateTime("yyyy-mm-dd",DTPStartReportPer->DateTime)+ "' AND '"
+				+ FormatDateTime("yyyy-mm-dd",DTPEndReportPer->DateTime) +"' "
+				"GROUP BY `id_user`;";
+
+	DMAvtoriz->SQLQInspection->Close();
+	DMAvtoriz->SQLQInspection->SQL->Text = typeQuery;
+	DMAvtoriz->SQLQInspection->Open();
+	DMAvtoriz->CDSInspection->Close();
+	DMAvtoriz->CDSInspection->Open();
+
+	//set counter first cycle
+	int i = 6;
+	//set counter second cycle
+	int count = 0;
+
+	//choice of a doctor with his indicators
+	while(!DMAvtoriz->DSInspection->DataSet->Eof){
+		typeQuery =
+			"SELECT CONCAT(`user`.`surname`,' ',`user`.`name`,' ',`user`.`patronymic`) as `fio_med`, "
+			"`inspection`.`duration`,`inspection`.`kkmp1`,`inspection`.`kkmp2`,`inspection`.`kvo` "
+			"FROM `user` INNER JOIN `inspection` "
+			"ON `user`.`id_user` = `inspection`.`id_user` "
+			"WHERE `inspection`.`id_user` = '" +DMAvtoriz->DSInspection->DataSet->FieldByName("id_user")->AsAnsiString + "' AND "
+			"`inspection`.`date_end` BETWEEN '" +FormatDateTime("yyyy-mm-dd",DTPStartReportPer->DateTime)+ "' AND '"
+			+ FormatDateTime("yyyy-mm-dd",DTPEndReportPer->DateTime) +"'";
+
+		DMAvtoriz->SQLQGetListUserStat->Close();
+		DMAvtoriz->SQLQGetListUserStat->SQL->Text = typeQuery;
+		DMAvtoriz->SQLQGetListUserStat->Open();
+		DMAvtoriz->CDSGetListUserStat->Close();
+		DMAvtoriz->CDSGetListUserStat->Open();
+
+        //get name of user in current itteration
+		if(nameMed.IsEmpty())
+			nameMed = DMAvtoriz->DSGetListUserStat->DataSet->FieldByName("fio_med")->AsAnsiString;
+
+		//write into excel record number
+		vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",i,1);
+		vVarCell.OlePropertySet("WrapText", true);
+		vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+		vVarCell.OlePropertySet("VerticalAlignment",-4108);
+		vVarCell.OlePropertySet("Value",i-5);
+
+		//write into excel user name
+		vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",i,2);
+		vVarCell.OlePropertySet("WrapText", true);
+		vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+		vVarCell.OlePropertySet("VerticalAlignment",-4108);
+		vVarCell.OlePropertySet("Value",nameMed.c_str());
+
+		//reset kkmp and kvo indicators and count
+		kkmp1 = 0;
+		kkmp2 = 0;
+		kvo = 0;
+		count = 0;
+		countCards = 0;
+		countDays = 0;
+
+		//get indicators of the current user
+		while(!DMAvtoriz->DSGetListUserStat->DataSet->Eof){
+			kkmp1 += StrToFloat(StringReplace(DMAvtoriz->DSGetListUserStat->DataSet->FieldByName("kkmp1")->AsAnsiString,".",",",TReplaceFlags()<< rfReplaceAll << rfIgnoreCase));
+			kkmp2 += StrToFloat(StringReplace(DMAvtoriz->DSGetListUserStat->DataSet->FieldByName("kkmp2")->AsAnsiString,".",",",TReplaceFlags()<< rfReplaceAll << rfIgnoreCase));
+			kvo += StrToFloat(StringReplace(DMAvtoriz->DSGetListUserStat->DataSet->FieldByName("kvo")->AsAnsiString,".",",",TReplaceFlags()<< rfReplaceAll << rfIgnoreCase));
+			count++;
+			countCards++;
+			countDays += DMAvtoriz->DSGetListUserStat->DataSet->FieldByName("duration")->AsInteger;
+			DMAvtoriz->DSGetListUserStat->DataSet->Next();
+		}
+
+		kkmp1 = kkmp1/count;
+		kkmp2 = kkmp2/count;
+		kvo = kvo/count;
+
+		//write into excel kkmp1,kkmp2,kvo
+		vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",i,3);
+		vVarCell.OlePropertySet("WrapText", true);
+		vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+		vVarCell.OlePropertySet("VerticalAlignment",-4108);
+		vVarCell.OlePropertySet("Value",countCards);
+
+		vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",i,4);
+		vVarCell.OlePropertySet("WrapText", true);
+		vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+		vVarCell.OlePropertySet("VerticalAlignment",-4108);
+		vVarCell.OlePropertySet("Value",countDays);
+
+		vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",i,5);
+		vVarCell.OlePropertySet("WrapText", true);
+		vVarCell.OlePropertySet("NumberFormatLocal", "0,000");
+		vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+		vVarCell.OlePropertySet("VerticalAlignment",-4108);
+		vVarCell.OlePropertySet("Value",kkmp1);
+
+		vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",i,6);
+		vVarCell.OlePropertySet("WrapText", true);
+		vVarCell.OlePropertySet("NumberFormatLocal", "0,000");
+		vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+		vVarCell.OlePropertySet("VerticalAlignment",-4108);
+		vVarCell.OlePropertySet("Value",kkmp2);
+
+		vVarCell = vVarSheet.OlePropertyGet("Cells").OlePropertyGet("Item",i,7);
+		vVarCell.OlePropertySet("WrapText", true);
+		vVarCell.OlePropertySet("NumberFormatLocal", "0,000");
+		vVarCell.OlePropertySet("HorizontalAlignment",-4108);
+		vVarCell.OlePropertySet("VerticalAlignment",-4108);
+		vVarCell.OlePropertySet("Value",kvo);
+
+		//reset the name of the doctor
+		nameMed = "";
+		//increment "i"
+		i++;
+
+		//go to the next iteration (next user)
+		DMAvtoriz->DSInspection->DataSet->Next();
+	}
+
+	//BORDER:
+	AnsiString ran = "A5:G" + IntToStr(i-1);
+	vVarCell = vVarSheet.OlePropertyGet("Range",ran.c_str()).OlePropertyGet("Borders");
+	vVarCell.OlePropertySet("LineStyle", 1);
+
+	MessageBox(0,L"Вывод данных закончен!",L"Сообщение",MB_OK | MB_ICONINFORMATION);
 }
 //---------------------------------------------------------------------------
 
@@ -1728,83 +1988,83 @@ void __fastcall TFStatReport::BGenReportClick(TObject *Sender)
 		}
 
 		// error indicators
-		if(DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkInfServYes")->AsInteger != 0){
+		if(DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkInfServYes")->AsInteger == 1){
 			RemarkInfServYes += DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkInfServYes")->AsInteger;
 			count31++;
 		}
-		if(DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkAnamYes")->AsInteger != 0){
+		if(DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkAnamYes")->AsInteger == 1){
 			RemarkAnamYes += DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkAnamYes")->AsInteger;
 			count32++;
 		}
-		if(DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkFizResYes")->AsInteger != 0){
+		if(DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkFizResYes")->AsInteger == 1){
 			RemarkFizResYes += DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkFizResYes")->AsInteger;
 			count33++;
 		}
-		if(DMAvtoriz->DSInspection->DataSet->FieldByName("ResearchNotYes")->AsInteger != 0){
+		if(DMAvtoriz->DSInspection->DataSet->FieldByName("ResearchNotYes")->AsInteger == 1){
 			ResearchNotYes += DMAvtoriz->DSInspection->DataSet->FieldByName("ResearchNotYes")->AsInteger;
 			count34++;
 		}
-		if(DMAvtoriz->DSInspection->DataSet->FieldByName("ResearchToMuchYes")->AsInteger != 0){
+		if(DMAvtoriz->DSInspection->DataSet->FieldByName("ResearchToMuchYes")->AsInteger == 1){
 			ResearchToMuchYes += DMAvtoriz->DSInspection->DataSet->FieldByName("ResearchToMuchYes")->AsInteger;
 			count35++;
 		}
-		if(DMAvtoriz->DSInspection->DataSet->FieldByName("ResearchLateYes")->AsInteger != 0){
+		if(DMAvtoriz->DSInspection->DataSet->FieldByName("ResearchLateYes")->AsInteger == 1){
 			ResearchLateYes += DMAvtoriz->DSInspection->DataSet->FieldByName("ResearchLateYes")->AsInteger;
 			count36++;
 		}
-		if(DMAvtoriz->DSInspection->DataSet->FieldByName("ResearchInstrNotYes")->AsInteger != 0){
+		if(DMAvtoriz->DSInspection->DataSet->FieldByName("ResearchInstrNotYes")->AsInteger == 1){
 			ResearchInstrNotYes += DMAvtoriz->DSInspection->DataSet->FieldByName("ResearchInstrNotYes")->AsInteger;
 			count37++;
 		}
-		if(DMAvtoriz->DSInspection->DataSet->FieldByName("ResearchInstrToMuchYes")->AsInteger != 0){
+		if(DMAvtoriz->DSInspection->DataSet->FieldByName("ResearchInstrToMuchYes")->AsInteger == 1){
 			ResearchInstrToMuchYes += DMAvtoriz->DSInspection->DataSet->FieldByName("ResearchInstrToMuchYes")->AsInteger;
 			count38++;
 		}
-		if(DMAvtoriz->DSInspection->DataSet->FieldByName("ResearchInstrLateYes")->AsInteger != 0){
+		if(DMAvtoriz->DSInspection->DataSet->FieldByName("ResearchInstrLateYes")->AsInteger == 1){
 			ResearchInstrLateYes += DMAvtoriz->DSInspection->DataSet->FieldByName("ResearchInstrLateYes")->AsInteger;
 			count39++;
 		}
-		if(DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkKonsultNotYes")->AsInteger != 0){
+		if(DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkKonsultNotYes")->AsInteger == 1){
 			RemarkKonsultNotYes += DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkKonsultNotYes")->AsInteger;
 			count40++;
 		}
-		if(DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkKonsultLateYes")->AsInteger != 0){
+		if(DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkKonsultLateYes")->AsInteger == 1){
 			RemarkKonsultLateYes += DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkKonsultLateYes")->AsInteger;
 			count41++;
 		}
-		if(DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkDeseaseVerifYes")->AsInteger != 0){
+		if(DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkDeseaseVerifYes")->AsInteger == 1){
 			RemarkDeseaseVerifYes += DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkDeseaseVerifYes")->AsInteger;
 			count42++;
 		}
-		if(DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkDeseaseTimeYes")->AsInteger != 0){
+		if(DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkDeseaseTimeYes")->AsInteger == 1){
 			RemarkDeseaseTimeYes += DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkDeseaseTimeYes")->AsInteger;
 			count43++;
 		}
-		if(DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkDeseaseContentYes")->AsInteger != 0){
+		if(DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkDeseaseContentYes")->AsInteger == 1){
 			RemarkDeseaseContentYes += DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkDeseaseContentYes")->AsInteger;
 			count44++;
 		}
-		if(DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkTherapyChooseDrYes")->AsInteger != 0){
+		if(DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkTherapyChooseDrYes")->AsInteger == 1){
 			RemarkTherapyChooseDrYes += DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkTherapyChooseDrYes")->AsInteger;
 			count45++;
 		}
-		if(DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkTherapyTimeAppointmentYes")->AsInteger != 0){
+		if(DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkTherapyTimeAppointmentYes")->AsInteger == 1){
 			RemarkTherapyTimeAppointmentYes += DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkTherapyTimeAppointmentYes")->AsInteger;
 			count46++;
 		}
-		if(DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkTherapyPolypharmacyYes")->AsInteger != 0){
+		if(DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkTherapyPolypharmacyYes")->AsInteger == 1){
 			RemarkTherapyPolypharmacyYes += DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkTherapyPolypharmacyYes")->AsInteger;
 			count47++;
 		}
-		if(DMAvtoriz->DSInspection->DataSet->FieldByName("ContinuityChoosePlaceYes")->AsInteger != 0){
+		if(DMAvtoriz->DSInspection->DataSet->FieldByName("ContinuityChoosePlaceYes")->AsInteger == 1){
 			ContinuityChoosePlaceYes += DMAvtoriz->DSInspection->DataSet->FieldByName("ContinuityChoosePlaceYes")->AsInteger;
 			count48++;
 		}
-		if(DMAvtoriz->DSInspection->DataSet->FieldByName("ContinuityTimeTransferYes")->AsInteger != 0){
+		if(DMAvtoriz->DSInspection->DataSet->FieldByName("ContinuityTimeTransferYes")->AsInteger == 1){
 			ContinuityTimeTransferYes += DMAvtoriz->DSInspection->DataSet->FieldByName("ContinuityTimeTransferYes")->AsInteger;
 			count49++;
 		}
-		if(DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkStandartMHYes")->AsInteger != 0){
+		if(DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkStandartMHYes")->AsInteger == 1){
 			RemarkStandartMHYes += DMAvtoriz->DSInspection->DataSet->FieldByName("RemarkStandartMHYes")->AsInteger;
 			count50++;
 		}

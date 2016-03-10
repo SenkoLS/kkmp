@@ -20,6 +20,7 @@
 #include "UDMAvtoriz.h"
 #include <FileCtrl.hpp>
 #include <ComObj.hpp>
+#include "UMain.h"
 //---------------------------------------------------------------------------
 class TFStatReport : public TForm
 {
@@ -38,17 +39,22 @@ __published:	// IDE-managed Components
 	TDBLookupComboBox *DBLCbExpert;
 	TEdit *ECountOfVisits;
 	TLabel *Label3;
-	TDBGridEh *DBGridEh1;
+	TDBGridEh *DBGridReport;
 	TButton *BGenerateReport;
+	TButton *BGenReport;
 	void __fastcall ChBoxOfficeClick(TObject *Sender);
 	void __fastcall ChBoxExpertClick(TObject *Sender);
 	void __fastcall ChBoxMedClick(TObject *Sender);
 	void __fastcall BGenerateReportClick(TObject *Sender);
+	void __fastcall FormShow(TObject *Sender);
+	void __fastcall BGenReportClick(TObject *Sender);
+	void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TFStatReport(TComponent* Owner);
 
-	int VuluntarMedAgreementYes, AgreementPDNYes,
+	int //quality indicators
+		VuluntarMedAgreementYes, AgreementPDNYes,
 		ComplitListDeseaseYes, CompitListProfAndStatusYes,
 		ExistenceFLGYes, ExistenceInspGinYes,
 		RationalUseOfResourcesYes, AbsenceComplaintsOfPatientsYes,
@@ -58,7 +64,22 @@ public:		// User declarations
 		QualityCollectAnamsis, QualityCollectComplaint,
 		DescriptObjectStatus, EvaluationResultsOfTreatment,
 		ObservStandartsOfDiagnostics, ObservStandartsOfTreatment,
-		DeadlinesVN;
+		DeadlinesVN,
+		// counters of quality indicators
+		count1,count2,count3,count4,count5,count6,count7,count8,count9,
+		count10,count11,count12,count13,count14,count15,count16,count17,count18,
+		count19,count20,count21,
+		// counters of error indicators
+		count31,count32,count33,count34,count35,count36,count37,count38,count39,
+		count40,count41,count42,count43,count44,count45,count46,count47,count48,
+		count49,count50,
+		// error indicators
+		RemarkInfServYes,RemarkAnamYes,RemarkFizResYes,ResearchNotYes,
+		ResearchToMuchYes,ResearchLateYes,ResearchInstrNotYes,ResearchInstrToMuchYes,
+		ResearchInstrLateYes,RemarkKonsultNotYes,RemarkKonsultLateYes,RemarkDeseaseVerifYes,
+		RemarkDeseaseTimeYes,RemarkDeseaseContentYes,RemarkTherapyChooseDrYes,
+		RemarkTherapyTimeAppointmentYes,RemarkTherapyPolypharmacyYes,
+		ContinuityChoosePlaceYes,ContinuityTimeTransferYes,RemarkStandartMHYes;
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TFStatReport *FStatReport;

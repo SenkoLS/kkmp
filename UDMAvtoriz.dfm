@@ -276,4 +276,28 @@ object DMAvtoriz: TDMAvtoriz
     Left = 464
     Top = 520
   end
+  object SQLQGetListUserStat: TSQLQuery
+    MaxBlobSize = -1
+    Params = <>
+    SQLConnection = SQLConnectKKMP
+    Left = 160
+    Top = 584
+  end
+  object DSPGetListUserStat: TDataSetProvider
+    DataSet = SQLQGetListUserStat
+    Left = 264
+    Top = 584
+  end
+  object CDSGetListUserStat: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'DSPGetListUserStat'
+    Left = 360
+    Top = 584
+  end
+  object DSGetListUserStat: TDataSource
+    DataSet = CDSGetListUserStat
+    Left = 464
+    Top = 584
+  end
 end

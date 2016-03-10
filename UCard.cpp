@@ -2622,9 +2622,9 @@ void __fastcall TFCard::BSaveCardClick(TObject *Sender)
 			"`ObservStandartsOfTreatment` = '"+IntToStr(ObservStandartsOfTreatment)+"',"
 			"`DeadlinesVN` = '"+IntToStr(DeadlinesVN)+"',"
 			"`kkmp` = '"+PKKMP->Caption+"',"
-			"`kkmp1` = '"+PKKMP->Caption.SubString(0,PKKMP->Caption.Pos(" /")-1)+"',"
-			"`kkmp2` = '"+PKKMP->Caption.SubString(PKKMP->Caption.Pos("/")+2,PKKMP->Caption.Length())+"',"
-			"`kvo` = '"+FloatToStr(kvo)+"',"
+			"`kkmp1` = '"+StringReplace(PKKMP->Caption.SubString(0,PKKMP->Caption.Pos(" /")-1), ",", ".", TReplaceFlags()<< rfReplaceAll << rfIgnoreCase)+"',"
+			"`kkmp2` = '"+StringReplace(PKKMP->Caption.SubString(PKKMP->Caption.Pos("/")+2,PKKMP->Caption.Length()), ",", ".", TReplaceFlags()<< rfReplaceAll << rfIgnoreCase)+"',"
+			"`kvo` = '"+StringReplace(FloatToStr(kvo), ",", ".", TReplaceFlags()<< rfReplaceAll << rfIgnoreCase)+"',"
 			"`id_expert` = '"+ DMAvtoriz->DSAvtoriz->DataSet->FieldByName("id_user")->AsAnsiString +"' "
 			"WHERE `id_inspection` = " + IntToStr(id_inspection);
 	}else{
@@ -2693,9 +2693,9 @@ void __fastcall TFCard::BSaveCardClick(TObject *Sender)
 			"'"+ IntToStr(ObservStandartsOfTreatment) +"',"
 			"'"+ IntToStr(DeadlinesVN) +"',"
 			"'"+ PKKMP->Caption +"',"
-			"'"+ PKKMP->Caption.SubString(0,PKKMP->Caption.Pos(" /")-1) +"',"
-			"'"+ PKKMP->Caption.SubString(PKKMP->Caption.Pos("/")+2,PKKMP->Caption.Length()) +"',"
-			"'"+ FloatToStr(kvo) +"',"
+			"'"+ StringReplace(PKKMP->Caption.SubString(0,PKKMP->Caption.Pos(" /")-1), ",", ".", TReplaceFlags()<< rfReplaceAll << rfIgnoreCase) +"',"
+			"'"+ StringReplace(PKKMP->Caption.SubString(PKKMP->Caption.Pos("/")+2,PKKMP->Caption.Length()), ",", ".", TReplaceFlags()<< rfReplaceAll << rfIgnoreCase) +"',"
+			"'"+ StringReplace(FloatToStr(kvo), ",", ".", TReplaceFlags()<< rfReplaceAll << rfIgnoreCase) +"',"
 			"'"+ DMAvtoriz->DSAvtoriz->DataSet->FieldByName("id_user")->AsAnsiString +"'"
 			")";
 	}
