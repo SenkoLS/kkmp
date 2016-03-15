@@ -114,7 +114,6 @@ object FStatReport: TFStatReport
       Width = 73
       Height = 17
       Caption = #1069#1082#1089#1087#1077#1088#1090
-      Enabled = False
       TabOrder = 4
       OnClick = ChBoxExpertClick
     end

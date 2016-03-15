@@ -71,11 +71,11 @@ object FAbout: TFAbout
     ParentFont = False
   end
   object LBuildTime: TLabel
-    Left = 208
+    Left = 210
     Top = 10
-    Width = 185
+    Width = 189
     Height = 17
-    Caption = 'Build time : Feb 17 2016 - 11:37'
+    Caption = 'Build time : Mar 10 2016 - 15:04'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBtnShadow
     Font.Height = -15
